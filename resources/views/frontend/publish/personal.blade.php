@@ -21,9 +21,11 @@
                     <!-- card1 -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
+                        <a href="">
                             <div class="card-body">
                                 <img src="images/index/userej.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
                                 <h3>1 AVISO</h3>
+                                <h3>$2.069</h3>
                                 <h5> Plan mensual</h5>
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
@@ -41,9 +43,12 @@
                                         <i class="fa fa-instagram"></i>
                                     </a>
                                 </div>
+
                              </div>
+                             <button type="button" class="btn btn-outline-warning">Elegir</button>
                         
                             </div>
+                            </a>
                         </div>
                     </div>
                      <!-- card1 -->
@@ -54,6 +59,7 @@
                             <div class="card-body">
                                 <img src="images/index/userej.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
                                 <h3>1 AVISO</h3>
+                                <h3>$3.779</h3>
                                 <h5> Plan mensual</h5>
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
@@ -72,7 +78,7 @@
                                     </a>
                                 </div>
                              </div>
-                        
+                             <button type="button" class="btn btn-outline-warning">Elegir</button>
                             </div>
                             </a>
                         </div>
@@ -85,6 +91,7 @@
                             <div class="card-body">
                                 <img src="images/index/userej.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
                                 <h3>1 AVISO</h3>
+                                <h3>$6.379</h3>
                                 <h5>Plan mensual</h5>
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
@@ -103,7 +110,7 @@
                                     </a>
                                 </div>
                              </div>
-                        
+                             <button type="button" class="btn btn-outline-warning">Elegir</button>
                             </div>
                             </a>
                         </div>
@@ -116,6 +123,7 @@
                             <div class="card-body">
                                 <img src="images/index/userej.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
                                 <h3>1 AVISO</h3>
+                                <h3> GRATIS</h3>
                                 <h5>Plan mensual</h5>
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
@@ -134,7 +142,7 @@
                                     </a>
                                 </div>
                              </div>
-                        
+                             <button type="button" class="btn btn-outline-warning">Elegir</button>
                             </div>
                             </a>
                         </div>

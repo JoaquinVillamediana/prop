@@ -44,9 +44,10 @@
                                     </a>
                                 </div>
                              </div>
-                        
+                             <!-- <button type="button" href="{{ route('personal') }}" class="btn btn-outline-warning">Elegir</button> -->
                             </div>
                           
+                            
                         </div>
                         </a>
                     </div>
@@ -76,7 +77,7 @@
                                     </a>
                                 </div>
                              </div>
-                        
+                             <!-- <button type="button" href="{{ route('profesional') }}" class="btn btn-outline-warning">Elegir</button> -->
                             </div>
                             </a>
                         </div>

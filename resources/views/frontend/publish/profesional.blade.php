@@ -21,6 +21,7 @@
                     <!-- card1 -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
+                        <a href="">
                             <div class="card-body">
                                 <img src="images/index/userej2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
                                 <h3>5 SIMPLES</h3>
@@ -43,8 +44,9 @@
                                     </a>
                                 </div>
                              </div>
-                        
+                             <button type="button" class="btn btn-outline-warning">Elegir</button>
                             </div>
+                            </a>
                         </div>
                     </div>
                      <!-- card1 -->
@@ -74,7 +76,7 @@
                                     </a>
                                 </div>
                              </div>
-                        
+                             <button type="button" class="btn btn-outline-warning">Elegir</button>
                             </div>
                             </a>
                         </div>
@@ -106,7 +108,7 @@
                                     </a>
                                 </div>
                              </div>
-                        
+                             <button type="button" class="btn btn-outline-warning">Elegir</button>
                             </div>
                             </a>
                         </div>
@@ -138,7 +140,7 @@
                                     </a>
                                 </div>
                              </div>
-                        
+                             <button type="button" class="btn btn-outline-warning">Elegir</button>
                             </div>
                             </a>
                         </div>
