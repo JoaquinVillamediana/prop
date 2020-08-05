@@ -26,7 +26,7 @@
         <a class="nav-link" href="#">Publicar una propiedad</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-platzi" href="#">Ingresar</a>
+        <a class="nav-link text-platzi" href="{{ route('loguser.index') }}">Ingresar</a>
       </li>
     </ul>
     </div>  

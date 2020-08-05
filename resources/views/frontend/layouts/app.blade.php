@@ -1,114 +1,92 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <meta name="csrf-token" content="{{ Session::token() }}">
-        <title>Pericos Construcciones</title>
-        <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
-        <!-- Bootstrap core CSS-->
-        <link rel="stylesheet" href="/css/frontend/nav.css">
-        <link rel="stylesheet" href="/vendor/bootstrap.min.css" crossorigin="anonymous">
-        <!-- Custom fonts for this template-->
-        <link href="/vendor/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">   
-        <link rel="stylesheet" href="/css/frontend/footer.css">
-        <!-- Custom styles for this template-->
-        <link href="/css/sb-admin.css" rel="stylesheet">
-        <link href="/css/custom.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/frontend/general.css">
-        <script src="/vendor/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-        {{-- <link rel="stylesheet" href="/vendor/bootvar/css/bootnavbar.css">
-        <link rel="stylesheet" href="/vendor/bootvar/css/animate.min.css"> --}}
-        {{-- <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"> --}}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    </head>
-   @include('frontend/layouts.modals')
-    @isset($bodyclass)
-    <body class="{{$bodyclass}}" id="page-top">
-        
-        @endisset
-        @empty($bodyclass)
-        
-    <body class="bg-white" id="page-top"> 
-        @endempty
-        <style>
-            @media (orientation:landscape)
-            {
-                .nav-margin{
-                margin-left: 250px
-            }
-            }
-            
-        </style>
-        <div class="nav-margin">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/frontend/home/estilos.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+<!-- header -->
+<nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+ <div class="container">
+  <a class="navbar-brand" href="/">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="#">Publicar una propiedad</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-platzi" href="{{ route('loguser.index') }}">Ingresar</a>
+      </li>
+    </ul>
+    </div>  
+  </div>
+</nav>
+<!-- end header -->
+<!-- main -->
+
+
+
+<div class="nav-margin">
             <div class="container" id="main-container" style="padding-top:55px !important">
             @yield('content')
             </div>
         </div>
-        @include('frontend/layouts.nav')
-        <!-- Bootstrap core JavaScript-->
-        @include('frontend/layouts.footer')
-        <script src="/vendor/popper.min.js" crossorigin="anonymous"></script>
-        <script src="/vendor/bootstrap.min.js" crossorigin="anonymous"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="/vendor/jquery.easing.compatibility.js" crossorigin="anonymous"></script>
 
-        <!-- Page level plugin JavaScript-->
-        <!--<script src="/vendor/Chart.bundle.js" crossorigin="anonymous"></script>-->
+<!-- endmain -->
 
-        <!-- DATA-TABLES-->
-        <script src="/assets/js/lib/data-table/jquery.dataTables.min.js"></script>
-        <script src="/assets/js/lib/data-table/dataTables.bootstrap4.js"></script>
-        <script src="/assets/js/lib/data-table/dataTables.rowReorder.min.js"></script>
-        <link href="/assets/css/lib/datatable/rowReorder.dataTables.min.css" rel="stylesheet" type="text/css">
-        <link href="/assets/css/lib/datatable/buttons.dataTables.min.css" rel="stylesheet">
-        <script src="/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-        <script src="/assets/js/lib/data-table/buttons.flash.min.js"></script>
-        <script src="/assets/js/lib/data-table/jszip.min.js"></script>
-        <script src="/assets/js/lib/data-table/pdfmake.min.js"></script>
-        <script src="/assets/js/lib/data-table/vfs_fonts.js"></script>
-        <script src="/assets/js/lib/data-table/buttons.html5.min.js"></script>
-        <script src="/assets/js/lib/data-table/buttons.print.min.js"></script>
+<!-- footer -->
 
-        <!-- Custom scripts for all pages-->
-        <script src="/js/sb-admin.js"></script>
+<footer id="footer" class="pb-4 pt-4">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12 col-lg">
+                <a href="#"> Preguntas frecuentes </a>
+            </div>
+            <div class="col-12 col-lg">
+                <a href="#"> Contactanos </a>
+            </div>
+            <div class="col-12 col-lg">
+                <a href="#"> Prensa </a>
+            </div>
+            <div class="col-12 col-lg">
+                <a href="#"> Terminos y condiciones </a>
+            </div>
+            <div class="col-12 col-lg">
+                <a href="#"> XD </a>
+            </div>
+        </div>
+    </div>
+</footer>
 
-        <!-- Custom scripts for this page-->
-        <script src="/js/sb-admin-datatables.js"></script>
-        <!-- <script src="/js/sb-admin-charts.js"></script>-->
-        
-        {{-- Bootvar --}}
-        {{-- <script src="/vendor/bootvar/js/bootnavbar.js" ></script> --}}
-        <script>
-$('#toggleNavPosition').click(function () {
-    $('body').toggleClass('fixed-nav');
-    $('nav').toggleClass('fixed-top static-top');
-});
+<!-- endfooter -->
 
-$('#toggleNavColor').click(function () {
-    $('nav').toggleClass('navbar-dark navbar-light');
-    $('nav').toggleClass('bg-dark bg-light');
-    $('body').toggleClass('bg-dark bg-light');
-});
-        </script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#sidebar").mCustomScrollbar({
-            theme: "minimal"
-        });
-
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar, #content').toggleClass('active');
-            $('.collapse.in').toggleClass('in');
-            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-        });
-    });
-</script>
-    </body>
-    
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
 </html>
+
+
+
+
+
+
+
+
+
+      
