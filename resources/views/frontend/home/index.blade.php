@@ -55,11 +55,13 @@
                 <div class="container">
                      <div class="row">
                          <div class="overlay">
+<div class="container mt-4">
+<h1>Bienvenido a CuloProp</h1>
+                        <p> Publica tu propiedad en 5 minutos y consigue que nuestros mas de  500.000 usuarios la vean.
+                          </p>                
 
-                         <h1>Bienvenido a CuloProp</h1>
-<p> Publica tu propiedad en 5 minutos y consigue que nuestros mas de  500.000 usuarios la vean.
-</p>                
-
+</div>
+  
 
                           </div>   
 
@@ -71,7 +73,7 @@
                     <div class="col-md-6 offset-md-3">
                     <div id="searchinput" class="input-group mb-3"> 
               <div class="input-group-prepend"> 
-                <button type="button" class="btn btn-outline-secondary">Search</button> 
+               
                 <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                   <span class="sr-only">Toggle Dropdown</span> 
                 </button> <div class="dropdown-menu"> 
@@ -80,6 +82,7 @@
                   <a class="dropdown-item" href="#">Ciudad 3</a> 
                 </div> 
                 <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                <button type="button" class="btn btn-outline-secondary">Search</button> 
             </div>
           </div>
           </div>
