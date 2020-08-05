@@ -77,9 +77,18 @@
                 <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                   <span class="sr-only">Toggle Dropdown</span> 
                 </button> <div class="dropdown-menu"> 
-                  <a class="dropdown-item" href="#">Ciudad 1</a> 
-                  <a class="dropdown-item" href="#">Ciudad 2</a> 
-                  <a class="dropdown-item" href="#">Ciudad 3</a> 
+                  <a class="dropdown-item" href="#">Departamento</a> 
+                  <a class="dropdown-item" href="#">Casa</a> 
+                  <a class="dropdown-item" href="#">PH</a>
+                  <a class="dropdown-item" href="#">Quinta</a>
+                  <a class="dropdown-item" href="#">Garage</a>
+                  <a class="dropdown-item" href="#">Local comercial</a>
+                  <a class="dropdown-item" href="#">Oficina comercial</a>
+                  <a class="dropdown-item" href="#">Local comercial</a>
+                  <a class="dropdown-item" href="#">Depósito / Galpón</a>
+                  <a class="dropdown-item" href="#">Campo</a>
+                  <a class="dropdown-item" href="#">Terreno / Lotes</a>
+                  <a class="dropdown-item" href="#">TODOS</a> 
                 </div> 
                 <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
                 <button type="button" class="btn btn-outline-secondary">Search</button> 
