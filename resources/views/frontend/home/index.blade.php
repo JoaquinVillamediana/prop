@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/frontend/home/estilos.css">
-    <title>Hello, world!</title>
+    <title>Propiedades</title>
   </head>
   <body>
 <!-- header -->
@@ -23,10 +23,10 @@
     <ul class="navbar-nav ml-auto">
       
       <li class="nav-item">
-        <a class="nav-link" href="#">Publicar una propiedad</a>
+        <a class="nav-link" href="{{ route('publish') }}">Publicar una propiedad</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-platzi" href="{{ route('loguser.index') }}">Ingresar</a>
+        <a class="nav-link text-platzi" href="{{ route('login') }}">Ingresar</a>
       </li>
     </ul>
     </div>  
@@ -36,11 +36,11 @@
 <!-- main -->
 <section id="main">
     <div id="carousel" class="carousel slide" data-ride="carousel" data-pause="false">
-        <ol class="carousel-indicators">
+        <!-- <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
+        </ol> -->
          <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="images/index/slider1.jpg" class="d-block w-100" alt=" img 1">
@@ -56,7 +56,9 @@
                      <div class="row">
                          <div class="overlay">
 
-                      
+                         <h1>Bienvenido a CuloProp</h1>
+<p> Publica tu propiedad en 5 minutos y consigue que nuestros mas de  500.000 usuarios la vean.
+</p>                
 
 
                           </div>   

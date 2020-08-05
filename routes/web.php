@@ -25,6 +25,11 @@ Route::get('/admin', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('publish', 'frontend\PublishController@index')->name('publish');
+Route::get('profesional', 'frontend\PublishController@profesional')->name('profesional');
+Route::get('personal', 'frontend\PublishController@personal')->name('personal');
+
 Route::resource('loguser', 'frontend\LoguserController');
 Route::resource('reset', 'frontend\NewPasswordController');
 Route::resource('register', 'frontend\RegisterController');

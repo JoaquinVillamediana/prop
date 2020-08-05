@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/frontend/home/estilos.css">
-    <title>Hello, world!</title>
+    <title>Propiedades</title>
   </head>
   <body>
 <!-- header -->
@@ -23,11 +23,13 @@
     <ul class="navbar-nav ml-auto">
       
       <li class="nav-item">
-        <a class="nav-link" href="#">Publicar una propiedad</a>
+        <a class="nav-link" href="{{ route('publish') }}">Publicar una propiedad</a>
       </li>
+      @if (empty(Auth::user()->id))
       <li class="nav-item">
-        <a class="nav-link text-platzi" href="{{ route('loguser.index') }}">Ingresar</a>
+        <a class="nav-link text-platzi" href="{{ route('login') }}">Ingresar</a>
       </li>
+      @endif
     </ul>
     </div>  
   </div>
