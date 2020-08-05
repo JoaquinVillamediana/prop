@@ -35,16 +35,18 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Propiedades</h3>
+                <h3>CuloProp</h3>
             </div>
     
             <ul class="list-unstyled components">
-                <p>Categorias</p>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+            <a href="/admin">
+            <p>{{Auth::user()->name}} {{Auth::user()->last_name}}</p>
+            </a>
+            <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mis propiedades</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Opcion 1</a>
+                            <a href="{{ route('user_propieties') }}"> Mis Anuncios</a>
                         </li>
                         <li>
                             <a href="#">Opcion 2</a>
