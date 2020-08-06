@@ -19,33 +19,23 @@
       </div>
       <div class="overlay">
         <div class="container">
-          <div class="row">
-            <div class="overlay">
-              <div class="container mt-4">
-                <h1>Bienvenido a CuloProp</h1>
-                <p> Publica tu propiedad en 5 minutos y consigue que nuestros mas de 500.000 usuarios la vean.
-                </p>
-
-              </div>
-
+          <div class="row row-overlay">
+            <div class="col-12">
+              <h1>Bienvenido a CuloProp</h1>
             </div>
-
-          </div>
-
-        </div>
-        <div class="container">
-          <div class="row row-search">
-            {{-- <div class="col-12  text-center">
-              <a href="" class="btn btn-search">BUSCADOR</a>
-            </div> --}}
-            <div class="col-5"><input placeholder="Ubicacion:" type="text" name="text" id="text"></div>
-            <div class="col-2">
+            <div class="col-12 text">
+              <p> Publica tu propiedad en 5 minutos y consigue que nuestros mas de 500.000 usuarios la vean.
+              </p>
+            </div>
+            <div class="col-md-5 col-12"><input placeholder="Ubicacion:" type="text" name="text" id="text">
+            </div>
+            <div class="col-md-2 col-12 ">
               <select name="type" id="type">
                 <option value="1">Alquiler</option>
                 <option value="2">Venta</option>
               </select>
             </div>
-            <div class="col-2">
+            <div class="col-md-2 col-12">
               <select name="building" id="building">
                 <option selected value="0">Cualquiera</option>
                 <option value="1">Casa</option>
@@ -53,17 +43,66 @@
                 <option value="1">Casa</option>
               </select>
             </div>
-            <div class="col-3">
+            <div class="col-md-3 col-12">
               <button class="btn btn-search"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-search-mobile">Buscar!</button>
+            </div>
+            <div class="col-12 mt-2 advanced text-center">
+              <a href="#" class="btn btn-advanced">
+                Buscador Avanzado
+              </a>
             </div>
           </div>
         </div>
+        
+        {{-- <div class="container">
+          <div class="row">
+            <div class="overlay">
+              <div class="container mt-4">
+                <h1>Bienvenido a CuloProp</h1>
+                <p> Publica tu propiedad en 5 minutos y consigue que nuestros mas de 500.000 usuarios la vean.
+                </p> --}}
 
 
+        {{-- <div class="container">
+                  <div class="row row-search"> --}}
+        {{-- <div class="col-12  text-center">
+              <a href="" class="btn btn-search">BUSCADOR</a>
+            </div> --}}
+        {{-- <div class="col-md-5 col-12"><input placeholder="Ubicacion:" type="text" name="text" id="text">
+                    </div>
+                    <div class="col-md-2 col-12 ">
+                      <select name="type" id="type">
+                        <option value="1">Alquiler</option>
+                        <option value="2">Venta</option>
+                      </select>
+                    </div>
+                    <div class="col-md-2 col-12">
+                      <select name="building" id="building">
+                        <option selected value="0">Cualquiera</option>
+                        <option value="1">Casa</option>
+                        <option value="1">Casa</option>
+                        <option value="1">Casa</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3 col-12">
+                      <button class="btn btn-search"><i class="fas fa-search"></i></button>
+                    </div> --}}
+        {{-- <div class="col-12 text-center">
+              <a href="#" class="btn btn-searcher">
+                Buscador Avanzado
+              </a>
+            </div> --}}
       </div>
-
-
     </div>
+
+
+  </div>
+
+
+  </div>
 </section>
 <!-- endmain -->
 <!-- props -->
