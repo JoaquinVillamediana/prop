@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="/css/frontend/footer.css">
 <!-- footer -->
 
 <footer id="footer" class="pb-4 pt-4">

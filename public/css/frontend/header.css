@@ -1,0 +1,11 @@
+.nav-link {
+    color: #000 !important;
+}
+
+.nav-link.important {
+    color: var(--main-color) !important;
+}
+
+nav {
+    border-bottom: 2px solid var(--main-color);
+}

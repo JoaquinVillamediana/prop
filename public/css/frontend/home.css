@@ -4,15 +4,6 @@
                 height: 60vh;
             }
             
-            #footer {
-                margin-top: auto;
-                background: linear-gradient(90deg, #1c3643, #273b47 25%, #1e5372);
-            }
-            
-            #footer a {
-                color: white;
-            }
-            
             #main .carousel-inner img {
                 height: 70vh;
                 object-fit: cover;

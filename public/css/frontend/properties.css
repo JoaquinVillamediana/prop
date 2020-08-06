@@ -1,6 +1,7 @@
 .row-caracs {
     position: absolute;
     top: 0;
+    padding-left: 5px;
     margin: 5px;
     background-color: rgba(255, 255, 255, .6);
     border-radius: 3px;
@@ -12,4 +13,13 @@
     color: var(--main-color);
     font-size: 18px;
     font-weight: bold;
+}
+
+.propertie .btn-moreinfo {
+    background-color: var(--main-color);
+    color: #ffffff;
+}
+
+.propertie .btn-moreinfo:hover {
+    background-color: var(--main-light-color);
 }

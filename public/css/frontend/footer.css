@@ -1,0 +1,9 @@
+#footer {
+    margin-top: auto;
+    background: rgb(138, 59, 82);
+    background: linear-gradient(180deg, rgba(138, 59, 82, 1) 0%, rgba(147, 3, 46, 1) 100%);
+}
+
+#footer a {
+    color: white;
+}
