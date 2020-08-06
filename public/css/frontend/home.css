@@ -44,6 +44,35 @@
     align-items: center;
 }
 
+.row-search input,
+.row-search select {
+    width: 100%;
+    height: 50px;
+    padding: 5px 10px;
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+}
+
+.row-search .col-5 {
+    padding-right: 0;
+}
+
+.row-search .col-2 {
+    padding: 0;
+}
+
+.row-search input {
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.row-search select {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+
 .btn-search {
     background-color: var(--main-color);
     padding: 10px 20%;

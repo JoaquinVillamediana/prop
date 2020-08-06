@@ -3,6 +3,7 @@
 @include('frontend/layouts.header')
 
 @section('content')
+<link rel="stylesheet" href="/css/frontend/home.css">
 <section id="main">
   <div id="carousel" class="carousel slide" data-ride="carousel" data-pause="false">
 
@@ -32,11 +33,32 @@
           </div>
 
         </div>
-        <div class="row row-search">
-          <div class="col-12  text-center">
-            <a href="" class="btn btn-search">BUSCADOR</a>
+        <div class="container">
+          <div class="row row-search">
+            {{-- <div class="col-12  text-center">
+              <a href="" class="btn btn-search">BUSCADOR</a>
+            </div> --}}
+            <div class="col-5"><input placeholder="Ubicacion:" type="text" name="text" id="text"></div>
+            <div class="col-2">
+              <select name="type" id="type">
+                <option value="1">Alquiler</option>
+                <option value="2">Venta</option>
+              </select>
+            </div>
+            <div class="col-2">
+              <select name="building" id="building">
+                <option selected value="0">Cualquiera</option>
+                <option value="1">Casa</option>
+                <option value="1">Casa</option>
+                <option value="1">Casa</option>
+              </select>
+            </div>
+            <div class="col-3">
+              <button class="btn btn-search"><i class="fas fa-search"></i></button>
+            </div>
           </div>
         </div>
+
 
       </div>
 
