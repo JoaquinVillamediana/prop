@@ -68,11 +68,11 @@
                 outline: none;
             }
             
-            .row-overlay .col-md-5 {
+            .row-overlay .col-md-6 {
                 padding-right: 0;
             }
             
-            .row-overlay .col-md-2 {
+            .row-overlay .search-option {
                 padding: 0;
             }
             
@@ -88,6 +88,12 @@
                 border-radius: 0;
             }
             
+            .row-overlay .search-option.last select {
+                border-right: 2px solid var(--main-color);
+                border-bottom-right-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+            
             .btn-search {
                 background-color: var(--main-color);
                 padding: 10px 20%;
@@ -95,6 +101,7 @@
                 font-size: 25px;
                 color: #ffffff;
                 font-weight: 500;
+                width: 90%;
             }
             
             .btn-search:hover {
@@ -110,10 +117,10 @@
                 .row-overlay .text {
                     display: none;
                 }
-                .row-overlay .col-md-5 {
+                .row-overlay .col-md-6 {
                     padding-right: 15px !important;
                 }
-                .row-overlay .col-md-2 {
+                .row-overlay .search-option {
                     margin-top: 15px;
                     padding-left: 15px !important;
                     padding-right: 15px !important;

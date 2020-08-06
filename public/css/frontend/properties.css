@@ -1,0 +1,15 @@
+.row-caracs {
+    position: absolute;
+    top: 0;
+    margin: 5px;
+    background-color: rgba(255, 255, 255, .6);
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, .8);
+}
+
+.row-caracs .characteristic {
+    margin-right: 5px;
+    color: var(--main-color);
+    font-size: 18px;
+    font-weight: bold;
+}
