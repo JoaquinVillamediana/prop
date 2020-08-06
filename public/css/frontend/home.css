@@ -31,6 +31,28 @@
                 margin-left: 15%;
             }
             
+            .section-publish {
+                padding: 50px 0;
+                text-align: center;
+                background-color: #fff;
+            }
+            
+            .section-publish h2 {
+                font-size: 40px;
+                color: #000;
+            }
+            
+            .section-publish h2 span a {
+                font-size: 60px;
+                color: var(--main-color);
+                text-decoration: none;
+            }
+            
+            section#props {
+                padding-top: 40px;
+                background-color: #e5e5e5;
+            }
+            
             .row-overlay .text {
                 margin-bottom: 15%;
             }

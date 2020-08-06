@@ -68,6 +68,21 @@
   </div>
 </section>
 <!-- endmain -->
+
+
+<section class="section-publish">
+<div class="container">
+  <h2>
+    Publica tu Propiedad <span><a href=""> GRATIS</a></span>
+  </h2>
+</div>
+</section>
+
+
+
+
+
+
 <!-- props -->
 <section id="props" class="mt-4">
 
