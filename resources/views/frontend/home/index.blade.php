@@ -86,20 +86,19 @@
 
     </div>
     <div class="row">
-      <div class="col-md-4 mb-4">
+      <div class="col-md-4 mb-4 propertie">
         <div class="card">
           <div class="image">
             <img src="images/index/home1.jpg" class="card-img-top" alt="...">
 
             <div class="row row-caracs">
-              
-                {{-- <div class="col-2"> --}}
-                  <span class="characteristic">3<i class="fas fa-home"></i></span>
-                {{-- </div> --}}
-                {{-- <div class="col-2"> --}}
-                  <span class="characteristic">1<i class="fas fa-toilet"></i></span>
-                {{-- </div> --}}
-              </div>
+
+              <span class="characteristic">3<i class="fas fa-home"></i></span>
+
+              <span class="characteristic">1<i class="fas fa-toilet"></i></span>
+
+              <span class="characteristic">1<i class="fas fa-bed"></i></span>
+            </div>
 
           </div>
 
@@ -107,50 +106,66 @@
             <h5 class="card-title mb-0">Prop 1</h5>
 
             <p class="card-text">4 baños y un par de boludeces.</p>
-            <a href="#" class="btn btn-primary">Más información</a>
+            <a href="#" class="btn btn-moreinfo">Más información</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4 propertie">
+        <div class="card">
+          <div class="image">
+            <img src="images/index/home3.jpg" class="card-img-top" alt="...">
+
+            <div class="row row-caracs">
+
+              <span class="characteristic">5<i class="fas fa-home"></i></span>
+
+              <span class="characteristic">2<i class="fas fa-toilet"></i></span>
+
+              <span class="characteristic">4<i class="fas fa-bed"></i></span>
+            </div>
+
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title mb-0">Prop 1</h5>
+
+            <p class="card-text">4 baños y un par de boludeces.</p>
+            <a href="#" class="btn btn-moreinfo">Más información</a>
           </div>
         </div>
       </div>
 
 
-      <div class="col-md-4 mb-4">
+      <div class="col-md-4 mb-4 propertie">
         <div class="card">
-          <img src="images/index/home2.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <div class="badge mb-2">
-              <span class="badge badge-warning"> 4 dormintorios </span>
-              <span class="badge badge-info"> 3 baños </span>
-            </div>
-            <h5 class="card-title mb-0">Prop 2</h5>
+          <div class="image">
+            <img src="images/index/home2.jpg" class="card-img-top" alt="...">
 
-            <p class="card-text ">4 baños y un par de boludeces.</p>
-            <a href="#" class="btn btn-primary">Más información</a>
+            <div class="row row-caracs">
+
+              <span class="characteristic">6<i class="fas fa-home"></i></span>
+
+              <span class="characteristic">2<i class="fas fa-toilet"></i></span>
+
+              <span class="characteristic">3<i class="fas fa-bed"></i></span>
+            </div>
+
           </div>
-        </div>
 
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="images/index/home3.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-
-
-            <div class="badge mb-2">
-              <span class="badge badge-warning"> 4 dormintorios </span>
-              <span class="badge badge-info"> 3 baños </span>
-            </div>
             <h5 class="card-title mb-0">Prop 3</h5>
 
             <p class="card-text">4 baños y un par de boludeces.</p>
-            <a href="#" class="btn btn-primary">Más información</a>
+            <a href="#" class="btn btn-moreinfo">Más información</a>
           </div>
         </div>
-
       </div>
+
+
+
+
     </div>
-
-
-  </div>
 </section>
 
 <!-- endprops -->

@@ -1,5 +1,6 @@
 <!-- header -->
-<nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<link rel="stylesheet" href="/css/frontend/header.css">
+<nav id="header" class="navbar navbar-expand-lg navbar-light bg-white">
   <div class="container">
    <a class="navbar-brand" href="/">Navbar</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,10 +9,16 @@
  
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav ml-auto">
-       
+      <li class="nav-item">
+        <a class="nav-link important" href="{{ route('publish') }}">Publicar una propiedad</a>
+      </li>
        <li class="nav-item">
-         <a class="nav-link" href="{{ route('publish') }}">Publicar una propiedad</a>
+         <a class="nav-link " href="{{ route('publish') }}">Comprar</a>
        </li>
+       <li class="nav-item">
+        <a class="nav-link " href="{{ route('publish') }}">Alquilar</a>
+      </li>
+      
        @if (empty(Auth::user()->id))
        <li class="nav-item">
          <a class="nav-link text-platzi" href="{{ route('login') }}">Ingresar</a>
