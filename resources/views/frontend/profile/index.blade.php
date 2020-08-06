@@ -1,4 +1,7 @@
-@extends('layouts.nav')
+@extends('frontend/layouts.app')
+
+@include('frontend/layouts.header')
+
 @section('content')
 <link rel="stylesheet" href="css/admin/users.css">
 <div class="container-prueba">
@@ -209,4 +212,8 @@
         </div>
     </div>
 </div>
+
+@include('frontend/layouts.footer')
+
+
 @endsection

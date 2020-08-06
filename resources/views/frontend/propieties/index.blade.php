@@ -7,4 +7,8 @@
     </h1>
     
 </div>
+
+@include('frontend/layouts.footer')
+
+
 @endsection

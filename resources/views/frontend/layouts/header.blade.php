@@ -16,6 +16,23 @@
        <li class="nav-item">
          <a class="nav-link text-platzi" href="{{ route('login') }}">Ingresar</a>
        </li>
+       @else
+       <li class="nav-item">
+       <div class="dropdown">
+  <a class="nav-link text-platzi" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   {{ Auth::user()->name}}
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="{{ route('user_profile') }}">Perfil</a>
+    <a class="dropdown-item" href="#">Mis publicaciones</a>
+    <a class="dropdown-item" href="#">Contactados</a>
+    <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+  </div>
+</div>
+        
+       </li>
+
        @endif
      </ul>
      </div>  
