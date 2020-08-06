@@ -10,9 +10,9 @@ class UserController extends Controller {
 
     public function index() {
 
-        // $aUsers = User::get();
+         $aUsers = User::get();
         
-        return view('admin/user.index');
+         return view('admin/user.index',compact('aUsers'));
     }
 
     public function create() {

@@ -40,7 +40,7 @@
                             @if(!empty($aUsers))
                             @foreach($aUsers as $user)
                             <tr>
-                                <td>id</td>
+                                <td>{{ $user->id }}</td>
                                 <td>Nombre</td>
                                 <td>Email</td>
                                 <td>Telefono</td>
