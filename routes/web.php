@@ -27,7 +27,7 @@ Route::get('/admin', function () {
 
 
 Auth::routes();
-
+Route::get('logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('user_propieties', 'admin\PropietiesController@index')->name('user_propieties');
 
