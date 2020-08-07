@@ -4,7 +4,7 @@
 
 @section('content')
 <link rel="stylesheet" href="css/admin/users.css">
-<div class="container-prueba">
+<div class="container-prueba mt-4 mb-2">
     <h1>
     Mi perfil
     </h1>
@@ -17,9 +17,7 @@
                 <li class="nav-item">
                     <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
                 </li>
-                <li class="nav-item">
-                    <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Messages</a>
-                </li>
+              
                 <li class="nav-item">
                     <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
                 </li>
@@ -29,9 +27,9 @@
                     <h5 class="mb-3">User Profile</h5>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6>About</h6>
+                            <h6>Nombre</h6>
                             <p>
-                                Web Designer, UI/UX Engineer
+                            {{Auth::user()->name}} , {{Auth::user()->last_name}}
                             </p>
                             <h6>Hobbies</h6>
                             <p>
@@ -39,19 +37,15 @@
                             </p>
                         </div>
                         <div class="col-md-6">
-                            <h6>Recent badges</h6>
-                            <a href="#" class="badge badge-dark badge-pill">html5</a>
-                            <a href="#" class="badge badge-dark badge-pill">react</a>
-                            <a href="#" class="badge badge-dark badge-pill">codeply</a>
-                            <a href="#" class="badge badge-dark badge-pill">angularjs</a>
-                            <a href="#" class="badge badge-dark badge-pill">css3</a>
-                            <a href="#" class="badge badge-dark badge-pill">jquery</a>
-                            <a href="#" class="badge badge-dark badge-pill">bootstrap</a>
-                            <a href="#" class="badge badge-dark badge-pill">responsive-design</a>
+                            <h6>Etiquetas</h6>
+                            <a href="#" class="badge badge-dark badge-pill">Profesional</a>
+                            <a href="#" class="badge badge-dark badge-pill">Inmobiliaria</a>
+                            <a href="#" class="badge badge-dark badge-pill">35 Publicaciones</a>
+                            
                             <hr>
-                            <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
-                            <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
-                            <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
+                            <span class="badge badge-primary"><i class="fa fa-user"></i> 23 Contactados</span>
+                            <span class="badge badge-success"><i class="fa fa-cog"></i> 23 Contactados</span>
+                            <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Publicaciones activas</span>
                         </div>
                         <div class="col-md-12">
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
@@ -88,40 +82,7 @@
                     </div>
                     <!--/row-->
                 </div>
-                <div class="tab-pane" id="messages">
-                    <div class="alert alert-info alert-dismissable">
-                        <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
-                    </div>
-                    <table class="table table-hover table-striped">
-                        <tbody>                                    
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
-                                </td>
-                            </tr>
-                        </tbody> 
-                    </table>
-                </div>
+               
                 <div class="tab-pane" id="edit">
                     <form role="form">
                         <div class="form-group row">
