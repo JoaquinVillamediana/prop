@@ -2,7 +2,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: rgb(255, 255, 255);
+    background:linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(207, 207, 207, 1) 100%);
 }
 
 p {
@@ -19,12 +20,15 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
+
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
 background: var(--main-light-color);
     transition: all 0.3s;
-    margin-top: 130px;
-    margin-bottom: 100px;
+    margin-top: 77px;
+    margin-left: 20px;
+    border-radius: 5px;
+    
 }
 
 #sidebar .sidebar-header {
@@ -37,6 +41,16 @@ background: var(--main-light-color);
     border-bottom: 1px solid #47748b;
 }
 
+#sidebar ul .formcheck {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+    margin-left: 25px;
+
+
+    
+    }
+    
+
 #sidebar ul p {
     color: #fff;
     padding: 10px;
@@ -47,10 +61,17 @@ background: var(--main-light-color);
     font-size: 1.1em;
     display: block;
 }
+
+
+
+
 #sidebar ul li a:hover {
     color: var(--main-color);
     background: #fff;
 }
+
+
+
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
@@ -61,13 +82,17 @@ ul ul a {
     padding-left: 30px !important;
     background: var(--main-color);
 }
+
+
+
 .wrapper {
     display: flex;
     width: 100%;
+    
 }
 
 #sidebar {
-    width: 250px;
+    width: 320px;
     position: fixed;
     top: 0;
     left: 0;
@@ -76,6 +101,7 @@ ul ul a {
     background:var(--main-color);
     color: #fff;
     transition: all 0.3s;
+    border-radius: 5px;
 
 
 }
@@ -85,14 +111,15 @@ ul ul a {
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 320px;
+    max-width: 320px;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     /* top layer */
     z-index: 9999;
+    border-radius: 5px;
 }
 
 .overlay {
