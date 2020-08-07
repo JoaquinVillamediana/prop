@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PropietiesModel;
+use App\Models\Operation_typeModel;
+
+use DB;
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +28,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend/home.index');
+        $aPropieties = DB::select('SELECT * FROM propieties');
+        
+        $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
+        ->get();
+            
+            
+        return view('frontend/home.index',compact('aPropieties','aOperationType'));
         
     }
 

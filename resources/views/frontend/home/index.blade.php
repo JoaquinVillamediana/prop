@@ -30,12 +30,15 @@
             </div>
             <div class="col-md-6 col-12"><input placeholder="Ubicacion:" type="text" name="text" id="text">
             </div>
+            @if(!empty($aOperationType))
+              @foreach($aOperationType as $optype)
             <div class="col-md-2 search-option col-12 ">
               <select name="type" id="type">
-                <option value="1">Alquiler</option>
-                <option value="2">Venta</option>
-              </select>
+                <option value="{{$optype->id}}">{{$optype->name}}</option>
+               </select>
             </div>
+              @endforeach
+            @endif
             <div class="col-md-2 search-option last col-12">
               <select name="building" id="building">
                 <option selected value="0">Cualquiera</option>
@@ -81,6 +84,8 @@
 
 
 
+    
+@if(!empty($aPropieties))
 
 
 <!-- props -->
@@ -100,15 +105,15 @@
 
 
     </div>
-    
 
+  @foreach ($aPropieties as $prop)
     @include('frontend/layouts.prop')
-
+@endforeach
 
 
     </div>
 </section>
-
+@endif
 <!-- endprops -->
 @include('frontend/layouts.footer')
 
