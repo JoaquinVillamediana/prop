@@ -21,7 +21,7 @@
       <div class="overlay">
         <div class="container">
           <div class="row row-overlay">
-            <div class="col-12">
+            <div class="col-12 mt-4">
               <h1>Bienvenido a CuloProp</h1>
             </div>
             <div class="col-12 text">
@@ -45,13 +45,13 @@
               </select>
             </div>
             <div class="col-md-2 col-12 text-right">
-              <button class="btn btn-search"><i class="fas fa-search"></i></button>
+              <button class="btn btn-search" ><i class="fas fa-search"></i></button>
             </div>
             <div class="col-12">
               <button class="btn btn-search-mobile">Buscar!</button>
             </div>
             <div class="col-12 mt-2 advanced text-center">
-              <a href="#" class="btn btn-advanced">
+              <a href="{{ route('search') }}" class="btn btn-advanced">
                 Buscador Avanzado
               </a>
             </div>
@@ -100,83 +100,9 @@
 
 
     </div>
-    <div class="row">
-      <div class="col-md-4 mb-4 propertie">
-        <div class="card">
-          <div class="image">
-            <img src="images/index/home1.jpg" class="card-img-top" alt="...">
+    
 
-            <div class="row row-caracs">
-
-              <span class="characteristic">3<i class="fas fa-home"></i></span>
-
-              <span class="characteristic">1<i class="fas fa-toilet"></i></span>
-
-              <span class="characteristic">1<i class="fas fa-bed"></i></span>
-            </div>
-
-          </div>
-
-          <div class="card-body">
-            <h5 class="card-title mb-0">Prop 1</h5>
-
-            <p class="card-text">4 baños y un par de boludeces.</p>
-            <a href="#" class="btn btn-moreinfo">Más información</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 mb-4 propertie">
-        <div class="card">
-          <div class="image">
-            <img src="images/index/home3.jpg" class="card-img-top" alt="...">
-
-            <div class="row row-caracs">
-
-              <span class="characteristic">5<i class="fas fa-home"></i></span>
-
-              <span class="characteristic">2<i class="fas fa-toilet"></i></span>
-
-              <span class="characteristic">4<i class="fas fa-bed"></i></span>
-            </div>
-
-          </div>
-
-          <div class="card-body">
-            <h5 class="card-title mb-0">Prop 1</h5>
-
-            <p class="card-text">4 baños y un par de boludeces.</p>
-            <a href="#" class="btn btn-moreinfo">Más información</a>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-md-4 mb-4 propertie">
-        <div class="card">
-          <div class="image">
-            <img src="images/index/home2.jpg" class="card-img-top" alt="...">
-
-            <div class="row row-caracs">
-
-              <span class="characteristic">6<i class="fas fa-home"></i></span>
-
-              <span class="characteristic">2<i class="fas fa-toilet"></i></span>
-
-              <span class="characteristic">3<i class="fas fa-bed"></i></span>
-            </div>
-
-          </div>
-
-          <div class="card-body">
-            <h5 class="card-title mb-0">Prop 3</h5>
-
-            <p class="card-text">4 baños y un par de boludeces.</p>
-            <a href="#" class="btn btn-moreinfo">Más información</a>
-          </div>
-        </div>
-      </div>
-
+    @include('frontend/layouts.prop')
 
 
 

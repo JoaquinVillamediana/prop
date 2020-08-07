@@ -26,4 +26,10 @@ class HomeController extends Controller
         return view('frontend/home.index');
         
     }
+
+    public function propietie()
+    {
+        return view('frontend/propietie.index');
+        
+    }
 }

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\frontend;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 
-class PropietiesController extends Controller {
+class SearchController extends Controller {
 
     public function index() {
 
         // $aUsers = User::get();
         
-        return view('admin/propieties.index');
+        return view('frontend/search.index');
     }
 
   

@@ -6,7 +6,7 @@
 
 
     <h1>
-    Mis anuncios
+    Busqueda
     </h1>
     
 
