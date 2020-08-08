@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+:root {
+    --main-color: #93032E;
+    --main-color-rgb: 147, 3, 46;
+    --main-light-color: #c44a6d;
+    --main-light-color-rgb: 196, 74, 109;
+    --background-color: #ffffff;
+    --background-light-color: #e5e5e5;
+    /* --background-color: #15202B;
+    --background-light-color: #253341; */
+}
+
+body {
+    font-family: "Nunito";
+}
