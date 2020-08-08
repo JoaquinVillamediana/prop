@@ -2,14 +2,13 @@
 @include('frontend/layouts.header')
 @section('content')
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/frontend/publish/estilos.css">
+    <link rel="stylesheet" href="css/frontend/publish.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
 
     
   <body>
 
-    <section id="team">
-        <div class="container my-3 py-5 text-center">
+  <div class="container my-3 py-5 text-center">
                 <div class="row mb-5">
                     <div class="col">
                         <h1>Opciones para publicar</h1>
@@ -17,6 +16,11 @@
                     </div>
 
                 </div>
+                </div>
+
+    <section id="team">
+        <div class="container my-3 py-5 text-center">
+     
                 <div class="row">
                     <!-- card1 -->
                     <div class="col-lg-3 col-md-6">
@@ -30,17 +34,17 @@
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
-                                         <i class="fa fa-facebook"></i>
+                                     <i class="fa fa-picture-o" aria-hidden="true"></i>
                                      </a>
                                  </div>
                                  <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-home" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-instagram"></i>
+                                    <i class="fa fa-bed" aria-hidden="true"></i>
                                     </a>
                                 </div>
                              </div>
@@ -63,17 +67,17 @@
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
-                                         <i class="fa fa-facebook"></i>
+                                     <i class="fa fa-picture-o" aria-hidden="true"></i>
                                      </a>
                                  </div>
                                  <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-users" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-instagram"></i>
+                                    <i class="fa fa-suitcase" aria-hidden="true"></i>
                                     </a>
                                 </div>
                              </div>

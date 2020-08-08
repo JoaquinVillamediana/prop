@@ -17,7 +17,7 @@
           </div>
 
           <div class="card-body">
-            <h5 class="card-title mb-0">Prop 1</h5>
+            <h5 class="card-title mb-0"> {{$prop->name}}</h5>
 
             <p class="card-text">4 baños y un par de boludeces.</p>
             <a href="#" class="btn btn-moreinfo">Más información</a>

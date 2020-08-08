@@ -54,3 +54,6 @@ transition: all 0.3s ease-in;
  #team .card:hover h3, #team .card:hover i{
      color: #fff;
  }
+ #team{
+     margin-left: 34%;
+ }
