@@ -36,32 +36,30 @@
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tipo de operacion </a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
+
                     <div class="form-check">
-                        <!--  -->
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+
+                    @if(!empty($aOperationType))
+              
+            
+                  @foreach($aOperationType as $optype)
+
+                          <!--  -->
+                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="{{$optype->id}}" checked>
                         <label class="form-check-label" for="exampleRadios1">
-                           Comprar
+                        {{$optype->name}}
                         </label>
                         </br>
                         <!--  -->
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Alquilar
-                        </label>
-                        </br>
-                        <!--  -->
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Temporal
-                        </label>
-                        </br>
-                        <!--  -->
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Emprendimientos
-                        </label>
-                        </br>
-                        <!--  -->
+
+                 
+                  @endforeach
+                 
+        
+                
+              @endif
+
+                       
                      </div>
                 </ul>
 
@@ -72,37 +70,29 @@
                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tipo de propiedad </a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <div class="form-check">
-                        <!--  -->
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                           Departamento
-                        </label>
-                        </br>
-                        <!--  -->
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Casa
-                        </label>
-                        </br>
-                        <!--  -->
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Terreno
-                        </label>
-                        </br>
-                        <!--  -->
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Local comercial
-                        </label>
-                        </br>
-                        <!--  -->
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Oficina comercial
-                        </label>
-                        </br>
-                        <!--  -->
+                        
+                       
+                    @if(!empty($aPropietie_type))
+              
+            
+              @foreach($aPropietie_type as $optype)
+           
+                      <!--  -->
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="{{$optype->id}}" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                    {{$optype->name}}
+                    </label>
+                    </br>
+                    <!--  -->
+
+             
+              @endforeach
+             
+    
+            
+          @endif 
+                        
+                        
                     </div>
 
                 </ul>

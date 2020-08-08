@@ -15,24 +15,31 @@
 
 
 <section>
-  
-    <div class="card" id="card-prop">
-      <div class="row ">
-        <div class="col-md-4">
+
+  @if(!empty($aPropieties))
+    @foreach($aPropieties as $optype)
+      <div class="card" id="card-prop">
+        <div class="row ">
+          <div class="col-md-4">
             <img src="images/index/home1.jpg" class="w-100">
           </div>
           <div class="col-md-8 px-3">
             <div class="card-block px-3">
-              <h4 class="card-title mt-2">Departamento</h4>
-              <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-              
+              <h4 class="card-title mt-2">  {{$optype->name}} </h4>
+              <p class="card-text"> {{$optype->description}} </p>
               <a href="#" class="btn btn-danger">Contactar</a>
             </div>
           </div>
-
         </div>
       </div>
-    </div>
+   
+                 @endforeach
+              
+   
+                
+              @endif
+
+
  
 </section>
 
