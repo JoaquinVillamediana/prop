@@ -13,10 +13,10 @@
         <a class="nav-link important" href="{{ route('publish') }}">Publicar una propiedad</a>
       </li>
        <li class="nav-item">
-         <a class="nav-link " href="{{ route('publish') }}">Comprar</a>
+         <a class="nav-link " href="{{ route('search') }}">Comprar</a>
        </li>
        <li class="nav-item">
-        <a class="nav-link " href="{{ route('publish') }}">Alquilar</a>
+        <a class="nav-link " href="{{ route('search') }}">Alquilar</a>
       </li>
       
        @if (empty(Auth::user()->id))

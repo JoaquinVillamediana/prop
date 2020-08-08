@@ -30,17 +30,17 @@
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
-                                         <i class="fa fa-facebook"></i>
+                                     <i class="fa fa-calendar" aria-hidden="true"></i>
                                      </a>
                                  </div>
                                  <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-stop" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-instagram"></i>
+                                    <i class="fa fa-low-vision" aria-hidden="true"></i>
                                     </a>
                                 </div>
                              </div>
@@ -62,17 +62,17 @@
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
-                                         <i class="fa fa-facebook"></i>
+                                     <i class="fa fa-calendar" aria-hidden="true"></i>
                                      </a>
                                  </div>
                                  <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-stop" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-instagram"></i>
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
                                     </a>
                                 </div>
                              </div>
@@ -94,17 +94,17 @@
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
-                                         <i class="fa fa-facebook"></i>
+                                     <i class="fa fa-calendar" aria-hidden="true"></i>
                                      </a>
                                  </div>
                                  <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-stop" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-instagram"></i>
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
                                     </a>
                                 </div>
                              </div>
@@ -126,17 +126,17 @@
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
-                                         <i class="fa fa-facebook"></i>
+                                     <i class="fa fa-calendar" aria-hidden="true"></i>
                                      </a>
                                  </div>
                                  <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-stop" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-instagram"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
                                     </a>
                                 </div>
                              </div>
