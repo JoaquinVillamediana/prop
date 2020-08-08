@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PropietiesModel;
 use App\Models\Operation_typeModel;
-
+use App\Models\Propietie_typeModel;
 use DB;
 use Auth;
 use Illuminate\Http\Request;
@@ -31,9 +31,10 @@ class HomeController extends Controller
         $aPropieties = PropietiesModel::get();
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
+        $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
+        ->get();
             
-            
-        return view('frontend/home.index',compact('aPropieties','aOperationType'));
+        return view('frontend/home.index',compact('aPropieties','aOperationType','aPropietie_type'));
         
     }
 

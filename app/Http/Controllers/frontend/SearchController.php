@@ -11,10 +11,25 @@ use DB;
 
 class SearchController extends Controller {
 
-    public function index() {
+    public function index(Request $request) {
 
+        
+        $ubicacion =  $request['text'];
+      
+        
+        $operationtype =  $request['type'];
+        $propietie_type =  $request['building'];
+        
+        
+        $aPropieties=DB::select('SELECT *
+        FROM propieties
+        where deleted_at is null
+        and visible = 1
+        and operation_type_id = "'.$operationtype.'"
+        and propietie_type_id = "'.$propietie_type.'"
+   ');
         // $aUsers = User::get();
-        $aPropieties = PropietiesModel::get();
+        // $aPropieties = PropietiesModel::get();
         $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
         ->get();
         
@@ -22,7 +37,7 @@ class SearchController extends Controller {
         ->get();
         
 
-        return view('frontend/search.index',compact('aPropieties','aOperationType','aPropietie_type'));
+        return view('frontend/search.index',compact('aPropieties','aOperationType','aPropietie_type','ubicacion'));
     }
 
   
