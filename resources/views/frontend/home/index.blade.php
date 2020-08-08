@@ -31,13 +31,15 @@
             <div class="col-md-6 col-12"><input placeholder="Ubicacion:" type="text" name="text" id="text">
             </div>
             @if(!empty($aOperationType))
-              @foreach($aOperationType as $optype)
+              
             <div class="col-md-2 search-option col-12 ">
               <select name="type" id="type">
+                @foreach($aOperationType as $optype)
                 <option value="{{$optype->id}}">{{$optype->name}}</option>
+                @endforeach
                </select>
             </div>
-              @endforeach
+              
             @endif
             <div class="col-md-2 search-option last col-12">
               <select name="building" id="building">

@@ -1,14 +1,8 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
-<!-- Bootstrap CSS CDN -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <!-- Our Custom CSS -->
 <link rel="stylesheet" href="css/frontend/search.css">
-
-<!-- Font Awesome JS -->
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
     <div class="wrapper">
         <!-- Sidebar -->
@@ -32,7 +26,7 @@
                 <div class="input-group mb-3 mt-4">
                     <input type="text" class="form-control" placeholder="Ubicación" aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </li>
@@ -117,11 +111,11 @@
             <!-- Inicio de cantidad de ambientes -->
             <p> Ambientes </p>
                 <li>
-                    <button type="button" class="btn btn-outline-warning">1+</button>
-                    <button type="button" class="btn btn-outline-warning">2+</button>
-                    <button type="button" class="btn btn-outline-warning">3+</button>
-                    <button type="button" class="btn btn-outline-warning">4+</button>
-                    <button type="button" class="btn btn-outline-warning">5+</button>
+                    <button type="button" class="btn btn-prop">1+</button>
+                    <button type="button" class="btn btn-prop">2+</button>
+                    <button type="button" class="btn btn-prop">3+</button>
+                    <button type="button" class="btn btn-prop">4+</button>
+                    <button type="button" class="btn btn-prop">5+</button>
                 </li>
                 </br>
 
@@ -131,11 +125,11 @@
                 <p> Dormitorios </p>
                 <li>
                     
-                    <button type="button" class="btn btn-outline-warning">1+</button>
-                    <button type="button" class="btn btn-outline-warning">2+</button>
-                    <button type="button" class="btn btn-outline-warning">3+</button>
-                    <button type="button" class="btn btn-outline-warning">4+</button>
-                    <button type="button" class="btn btn-outline-warning">5+</button>
+                    <button type="button" class="btn btn-prop">1+</button>
+                    <button type="button" class="btn btn-prop">2+</button>
+                    <button type="button" class="btn btn-prop">3+</button>
+                    <button type="button" class="btn btn-prop">4+</button>
+                    <button type="button" class="btn btn-prop">5+</button>
 
                 </li>
                 <!-- FIn de cantidad de Dormitorios -->

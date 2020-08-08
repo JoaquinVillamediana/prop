@@ -13,7 +13,7 @@
 
               <span class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Dormitorio">1<i class="fas fa-bed"></i></span>
             </div>
-
+            
           </div>
 
           <div class="card-body">

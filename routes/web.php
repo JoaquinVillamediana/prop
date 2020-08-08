@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('/frontend/home.index');
-});
 
+Route::get('/', 'HomeController@index');
 
 Route::get('/admin', function () {
     return view('/admin/user.index');

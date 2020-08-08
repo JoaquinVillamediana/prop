@@ -18,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -28,8 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $aPropieties = DB::select('SELECT * FROM propieties');
-        
+        $aPropieties = PropietiesModel::get();
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
             
