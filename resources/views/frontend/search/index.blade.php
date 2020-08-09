@@ -18,18 +18,20 @@
 
   @if(!empty($aPropieties))
     @foreach($aPropieties as $optype)
+
       <div class="card" id="card-prop">
+
         <div class="row ">
           <div class="col-md-4">
             <img src="images/index/home1.jpg" class="w-100">
           </div>
           <div class="col-md-8 px-3">
           
-
+   <a href="{{ route('propietie',$optype->id) }}">
             <div class="card-block px-3">
               <h4 class="card-title mt-2">  {{$optype->name}} </h4>
               <p class="card-text"> {{$optype->description}} </p>
-              <a href="#" class="btn btn-danger">Contactar</a>
+              <a href="{{ route('propietie',$optype->id) }}" class="btn btn-danger">Contactar</a>
                 
                 <!--  -->
                 <div class="row row-caracs">
@@ -42,10 +44,12 @@
               </div>
             <!--  -->
             </div>
+</a>
           </div>
         </div>
+      
       </div>
-   
+     
                  @endforeach
               
    

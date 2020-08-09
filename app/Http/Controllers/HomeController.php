@@ -40,9 +40,16 @@ class HomeController extends Controller
         
     }
 
-    public function propietie()
+    public function propietie($id)
     {
-        return view('frontend/propietie.index');
+
+        $aProp=DB::select('SELECT *
+        FROM propieties
+        where deleted_at is null
+        and visible = 1
+        and id = "'.$id.'"
+   ');
+        return view('frontend/propietie.index',compact('aProp'));
         
     }
 }

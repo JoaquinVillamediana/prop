@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="/css/frontend/product.css">
 <div class="mt-5 pb-5 container-fluid">
 
-      
+      @if(!empty($aProp))
+      @foreach($aProp as $prop)
 
  <div class="container">
   <div class="row">
@@ -39,21 +40,22 @@
    
         </div>
         <div class="col-12 mt-3">
-          <h5 class="product-title">Departamento de prueba</h5>
+          <h5 class="product-title">{{ $prop->name }}</h5>
         </div>
         <div class="col-12">
-          Descripcion
+        {{ $prop->description }}
         </div>
         <div class="col-12 mt-2">
          
-              <p class="card-text product-price" style="color:#000;">U$D 250.000 </p>
+              <p class="card-text product-price" style="color:#000;">U$D {{ $prop->price }} </p>
           
         </div>
 
       <button  type="submit"  class="d-inline btn btn-add-cart">Contactar</button>
       </div>
     </div>
-
+    @endforeach
+@endif
   </div>
 
 

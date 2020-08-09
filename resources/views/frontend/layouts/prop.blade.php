@@ -21,8 +21,8 @@
           <div class="card-body">
             <h5 class="card-title mb-0"> {{$prop->name}}</h5>
 
-            <p class="card-text">4 baños y un par de boludeces.</p>
-            <a href="#" class="btn btn-moreinfo">Más información</a>
+            <p class="card-text">{{$prop->description}}.</p>
+            <a href="{{ route('propietie',$prop->id) }}" class="btn btn-moreinfo">Más información</a>
           </div>
         </div>
         {{-- </a> --}}

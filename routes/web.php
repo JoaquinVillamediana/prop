@@ -35,7 +35,7 @@ Route::get('user_propieties', 'frontend\PropietiesController@index')->name('user
 Route::get('search', 'frontend\SearchController@index')->name('search');
 
 
-Route::get('propietie', 'HomeController@propietie')->name('propietie');
+Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 
 Route::get('publish', 'frontend\PublishController@index')->name('publish');
 Route::get('profesional', 'frontend\PublishController@profesional')->name('profesional');
