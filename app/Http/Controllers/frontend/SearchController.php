@@ -16,7 +16,8 @@ class SearchController extends Controller {
         
         $ubicacion =  $request['text'];
       
-        
+        $locality= $request['locality'];
+
         $operationtype =  $request['type'];
         $propietie_type =  $request['building'];
         
@@ -25,6 +26,7 @@ class SearchController extends Controller {
         FROM propieties
         where deleted_at is null
         and visible = 1
+        and location_id = "'.$locality.'"
         and operation_type_id = "'.$operationtype.'"
         and propietie_type_id = "'.$propietie_type.'"
    ');
