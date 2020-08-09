@@ -1,6 +1,4 @@
-@extends('frontend/layouts.app')
-
-@include('frontend/layouts.header')
+@extends('layouts.app')
 
 @section('content')
 
@@ -81,7 +79,7 @@
 </script>
 
 <script src="/assets/js/admin/user/datatables.js" crossorigin="anonymous"></script>
-@include('frontend/layouts.footer')
+
 
 
 @endsection

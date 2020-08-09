@@ -103,25 +103,34 @@ h3{
     border-left: none;
   }
 
-  #container{
- 
+  #container {
+    
+    margin-left: 300px;
+    
   }
+
 
   #container .titulo{
     margin-top: 30px;
-    margin-left: 300px;
+    
+    margin-right: 550px;
   }
 
   #container .subtitulo{
-    margin-top: 10px;
-    margin-left: 300px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    margin-right: 550px;
   }
 
-  
+  #container p{
+    margin-top: 60px;
+  } 
+
   #container #building{
-    margin-top: 40px;
-    margin-left: 300px;
+    
+    
     width: 500px;
-    height: 20px;
+    height: 40px;
+    margin-right: 550px;
   }
   

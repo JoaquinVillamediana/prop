@@ -25,9 +25,6 @@
             <li>
                 <div class="input-group mb-3 mt-4">
                     <input type="text" class="form-control" placeholder="Ubicación" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
-                    </div>
                 </div>
             </li>
         <!-- Fin de ubicación  -->

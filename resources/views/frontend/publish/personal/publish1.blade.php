@@ -20,7 +20,7 @@
 <!-- Basic dropdown -->
         @if(!empty($aPropietie_type))
       <p>Qué tipo de propiedad querés publicar?</p>
-          <select name="building" id="building" >
+          <select name="building" id="building"  class="rounded" >
           @foreach($aPropietie_type as $optype)
             <option value="{{$optype->id}}">{{$optype->name}}</option>
             @endforeach
@@ -29,8 +29,56 @@
           
         @endif
 <!-- Basic dropdown -->
-
+<p>Ubicación *</p> 
     <!-- fin de lugar de seleccion -->
+<!-- Basic dropdown -->
+@if(!empty($aPropietie_type))
+      <p>Provincia</p>
+          <select name="building" id="building"  class="rounded" >
+          @foreach($aPropietie_type as $optype)
+            <option value="{{$optype->id}}">{{$optype->name}}</option>
+            @endforeach
+           
+          </select>
+          
+        @endif
+<!-- Basic dropdown -->
+<!-- Basic dropdown -->
+@if(!empty($aPropietie_type))
+      <p>Ciudad</p>
+          <select name="building" id="building"  class="rounded" >
+          @foreach($aPropietie_type as $optype)
+            <option value="{{$optype->id}}">{{$optype->name}}</option>
+            @endforeach
+           
+          </select>
+          
+        @endif
+<!-- Basic dropdown -->
+<!-- Basic dropdown -->
+@if(!empty($aPropietie_type))
+      <p>Barrio</p>
+          <select name="building" id="building"  class="rounded" >
+          @foreach($aPropietie_type as $optype)
+            <option value="{{$optype->id}}">{{$optype->name}}</option>
+            @endforeach
+           
+          </select>
+          
+        @endif
+<!-- Basic dropdown -->
+<!-- Basic dropdown -->
+@if(!empty($aPropietie_type))
+      <p>Zona</p>
+          <select name="building" id="building"  class="rounded" >
+          @foreach($aPropietie_type as $optype)
+            <option value="{{$optype->id}}">{{$optype->name}}</option>
+            @endforeach
+           
+          </select>
+          
+        @endif
+<!-- Basic dropdown -->
 
     </div>
   
