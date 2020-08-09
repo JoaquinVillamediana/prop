@@ -18,135 +18,51 @@
 
                 </div>
                 <div class="row">
+                @if(!empty($aPlans))
+                @foreach($aPlans as $planes)
                     <!-- card1 -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
-                        <a href="">
+                        @if (empty(Auth::user()->id))
+                        <a href="{{ route('pago',$planes->id) }}">
+                        @else
+                        <a href="{{ route('publish_personal_free') }}">
+                        @endif
                             <div class="card-body">
-                                <img src="images/index/userej2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
-                                <h3>5 SIMPLES</h3>
-                                <h3>$3.500</h3>
-                                <h5>Plan mensual</h5>
+                                <img src="images/index/userej.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
+                                <h3>{{ $planes->num_add }} AVISO</h3>
+                                <h3> ${{ $planes->price }}</h3>
+                                <h5> Plan {{ $planes->time }}</h5>
+                                <h5> Plan {{ $planes->description1 }}</h5>
+                                <h5> Plan {{ $planes->description2 }}</h5>
+                                <h5> Plan {{ $planes->description3 }}</h5>
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
-                                     <i class="fa fa-calendar" aria-hidden="true"></i>
+                                         <i class="fa fa-facebook"></i>
                                      </a>
                                  </div>
                                  <div class="p-4">
                                     <a href="#">
-                                    <i class="fa fa-stop" aria-hidden="true"></i>
+                                        <i class="fa fa-twitter"></i>
                                     </a>
                                 </div>
                                 <div class="p-4">
                                     <a href="#">
-                                    <i class="fa fa-low-vision" aria-hidden="true"></i>
+                                        <i class="fa fa-instagram"></i>
                                     </a>
                                 </div>
+
                              </div>
                              <button type="button" class="btn btn-outline-warning">Elegir</button>
+                        
                             </div>
                             </a>
                         </div>
                     </div>
                      <!-- card1 -->
-                    <!-- card2 -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <a href="">
-                            <div class="card-body">
-                                <img src="images/index/userej2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
-                                <h3>10 SIMPLES</h3>
-                                <h3>$4.500</h3>
-                                <h5> Plan mensual</h5>
-                             <div class="d-flex flex-row justify-content-center">
-                                 <div class="p-4">
-                                     <a href="#">
-                                     <i class="fa fa-calendar" aria-hidden="true"></i>
-                                     </a>
-                                 </div>
-                                 <div class="p-4">
-                                    <a href="#">
-                                    <i class="fa fa-stop" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                                <div class="p-4">
-                                    <a href="#">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                             </div>
-                             <button type="button" class="btn btn-outline-warning">Elegir</button>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- card2 -->
-                            <!-- card3 -->
-                            <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <a href="">
-                            <div class="card-body">
-                                <img src="images/index/userej2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
-                                <h3>10 SIMPLES</h3>
-                                <h3>$9.619</h3>
-                                <h5>Plan trimestral</h5>
-                             <div class="d-flex flex-row justify-content-center">
-                                 <div class="p-4">
-                                     <a href="#">
-                                     <i class="fa fa-calendar" aria-hidden="true"></i>
-                                     </a>
-                                 </div>
-                                 <div class="p-4">
-                                    <a href="#">
-                                    <i class="fa fa-stop" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                                <div class="p-4">
-                                    <a href="#">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                             </div>
-                             <button type="button" class="btn btn-outline-warning">Elegir</button>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- card3 -->
-                            <!-- card4 -->
-                            <div class="col-lg-3 col-md-6">
-                        <div class="card">
-                            <a href="">
-                            <div class="card-body">
-                                <img src="images/index/userej2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
-                                <h3>5 DESTACADOS</h3>
-                                <h3>$7.500</h3>
-                                <h5>Plan mensual</h5>
-                             <div class="d-flex flex-row justify-content-center">
-                                 <div class="p-4">
-                                     <a href="#">
-                                     <i class="fa fa-calendar" aria-hidden="true"></i>
-                                     </a>
-                                 </div>
-                                 <div class="p-4">
-                                    <a href="#">
-                                    <i class="fa fa-stop" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                                <div class="p-4">
-                                    <a href="#">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                             </div>
-                             <button type="button" class="btn btn-outline-warning">Elegir</button>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- card4 -->
-                     
+                   @endforeach
+                   @endif
                 </div>
         </div>
     </section>

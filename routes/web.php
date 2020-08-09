@@ -42,6 +42,7 @@ Route::get('profesional', 'frontend\PublishController@profesional')->name('profe
 Route::get('personal', 'frontend\PublishController@personal')->name('personal');
 Route::get('publish_personal_free', 'frontend\PublishController@personal_free')->name('publish_personal_free');
 
+Route::get('pago/{id}', 'frontend\PublishController@pago')->name('pago');
 
 
 Route::resource('loguser', 'frontend\LoguserController');
