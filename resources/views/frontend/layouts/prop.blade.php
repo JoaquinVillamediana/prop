@@ -1,4 +1,6 @@
+@if(!empty($aPropieties))
 <div class="row">
+  @foreach ($aPropieties as $prop)
       <div class="col-md-4 mb-4 propertie">
       {{-- <a href="{{ route('propietie') }}"> --}}
         <div class="card">
@@ -29,8 +31,9 @@
       
 
     
-      
+      @endforeach
     </div>
+    @endif
 <script>$(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })</script>

@@ -96,6 +96,23 @@
                 border-top-right-radius: 0;
             }
             
+            .row-overlay .options {
+                padding: 5px;
+                border: 2px solid var(--main-color);
+                border-top: none;
+                position: absolute;
+                width: 100%;
+                z-index: 100;
+                background-color: #ffffff;
+            }
+            
+            .row-overlay .options .option {
+                text-decoration: none;
+                color: #000000;
+                width: 100%;
+                display: block;
+            }
+            
             .row-overlay select {
                 border-left: none;
                 border-right: none;

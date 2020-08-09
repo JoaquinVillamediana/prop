@@ -3,8 +3,10 @@
 @include('frontend/layouts.header')
 
 @section('content')
+
 <link rel="stylesheet" href="/css/frontend/home.css">
 <link rel="stylesheet" href="/css/frontend/properties.css">
+
 <section id="main">
 
   <div id="carousel" class="carousel slide" data-ride="carousel" data-pause="false">
@@ -34,7 +36,11 @@
 
 
               <div class="col-md-6 col-12">
-                <input placeholder="Ubicacion:" type="text" name="text" id="text">
+                <input placeholder="Ubicacion:" type="text" name="text" id="location">
+                <input type="hidden" name="locality" value="" id="locality">
+                <div class="options">
+
+                </div>
               </div>
 
 
@@ -121,13 +127,63 @@
 
     </div>
 
-    @foreach ($aPropieties as $prop)
+    
     @include('frontend/layouts.prop')
-    @endforeach
+    
 
 
   </div>
 </section>
+
+<script>
+  var localities = <?php  echo json_encode($aLocalities); ?>;
+  $('.options').hide();
+  var aLocalities = localities.map((element) => {
+    return element.nombre;
+  });
+  
+  $('#location').on("input",() => {
+    $('.options').html('');
+    if($('#location').val() != '')
+    {
+      $('.options').show();
+      var matchs = localities.filter((element) =>{
+      let txt = $('#location').val();
+      txt = txt.toUpperCase();
+      if(element.nombre.includes(txt))
+      {
+        var options = $(".options *");
+        if(options.length < 8)
+        {
+          
+        $('.options').append('<a href="" onclick="selectLocation('+element.id+')" class="option">'+element.nombre+', '+element.municipio_nombre+', '+element.provincia_nombre+'</a>');
+        }
+      };
+    });
+    }
+    else{
+      $('.options').hide();
+    }
+    
+  });
+
+
+  function selectLocation(id)
+  {
+    event.preventDefault();
+    let local = localities.find((element) => {
+      if(element.id == id)
+      {
+        return true;
+      }
+    });
+    
+    document.getElementById("location").value = local.nombre;
+    document.getElementById("locality").value = id;
+    $('.options').hide();
+  }
+</script>
+
 @endif
 <!-- endprops -->
 @include('frontend/layouts.footer')
