@@ -38,7 +38,7 @@
               @if(!empty($aOperationType))
               
             
-                <select name="type" id="type">
+                <select name="type" id="type" >
                   @foreach($aOperationType as $optype)
                   <option value="{{$optype->id}}">{{$optype->name}}</option>
                   @endforeach

@@ -13,7 +13,10 @@
                 <div class="row mb-5">
                     <div class="col">
                         <h1>Opciones para publicar</h1>
-                        <div class="mt-3"> Elegí una opción para poder encontrar los planes que mas te sirvan</div>
+                        <div class="mt-3"> 
+                            Elegí una opción para poder encontrar los planes que mas te sirvan
+                        </div>
+                       
                     </div>
 
                 </div>
@@ -119,7 +122,7 @@
                             <!-- card4 -->
                             <div class="col-lg-3 col-md-6">
                         <div class="card">
-                            <a href="">
+                            <a href="{{ route('publish_personal_free') }}">
                             <div class="card-body">
                                 <img src="images/index/userej.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
                                 <h3>1 AVISO</h3>

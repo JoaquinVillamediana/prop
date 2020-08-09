@@ -40,6 +40,9 @@ Route::get('propietie', 'HomeController@propietie')->name('propietie');
 Route::get('publish', 'frontend\PublishController@index')->name('publish');
 Route::get('profesional', 'frontend\PublishController@profesional')->name('profesional');
 Route::get('personal', 'frontend\PublishController@personal')->name('personal');
+Route::get('publish_personal_free', 'frontend\PublishController@personal_free')->name('publish_personal_free');
+
+
 
 Route::resource('loguser', 'frontend\LoguserController');
 Route::resource('reset', 'frontend\NewPasswordController');
