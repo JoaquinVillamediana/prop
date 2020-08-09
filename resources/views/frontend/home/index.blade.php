@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/css/frontend/home.css">
 <link rel="stylesheet" href="/css/frontend/properties.css">
 <section id="main">
-  
+
   <div id="carousel" class="carousel slide" data-ride="carousel" data-pause="false">
     <div class="carousel-inner">
       <div class="carousel-item active">
@@ -20,58 +20,60 @@
       </div>
       <div class="overlay">
         <div class="container">
-          <div class="row row-overlay">
-            <div class="col-12 mt-4">
-              <h1>Bienvenido a CuloProp</h1>
-            </div>
-            <div class="col-12 text">
-              <p> Publica tu propiedad en 5 minutos y consigue que nuestros mas de 500.000 usuarios la vean.
-              </p>
-            </div>
 
-            <form action="{{ route('search') }}" class="col-md-6 col-12">
-                  
-            <div class="row">
-               
-              <input placeholder="Ubicacion:" type="text" name="text" id="text">
-            
+          <form action="{{ route('search') }}">
+            <div class="row row-overlay">
+              <div class="col-12 mt-4">
+                <h1>Bienvenido a CuloProp</h1>
+              </div>
+              <div class="col-12 text">
+                <p> Publica tu propiedad en 5 minutos y consigue que nuestros mas de 500.000 usuarios la vean.
+                </p>
+              </div>
+
+
+
+              <div class="col-md-6 col-12">
+                <input placeholder="Ubicacion:" type="text" name="text" id="text">
+              </div>
+
+
+
+
               @if(!empty($aOperationType))
-              
-            
+
+              <div class="col-md-2 search-option col-12 ">
                 <select name="type" id="type">
                   @foreach($aOperationType as $optype)
                   <option value="{{$optype->id}}">{{$optype->name}}</option>
                   @endforeach
-                 </select>
-             
-                
+                </select>
+              </div>
+
               @endif
               @if(!empty($aPropietie_type))
-          
-              <select name="building" id="building">
-              @foreach($aPropietie_type as $optype)
-                <option value="{{$optype->id}}">{{$optype->name}}</option>
-                @endforeach
-               
-              </select>
-           
-            @endif
-        
-              <button  type="submit" class="btn btn-search" ><i class="fas fa-search"></i></button>
-            
-          
-              <button type="submit" class="btn btn-search-mobile">Buscar!</button>
+              <div class="col-md-2 search-option last col-12">
+                <select name="building" id="building">
+                  @foreach($aPropietie_type as $optype)
+                  <option value="{{$optype->id}}">{{$optype->name}}</option>
+                  @endforeach
+
+                </select>
               </div>
-            </form>
-
-
-       
-            <div class="col-12 mt-2 advanced text-center">
-              <a href="{{ route('search') }}" class="btn btn-advanced">
-                Buscador Avanzado
-              </a>
+              @endif
+              <div class="col-md-2 col-12 text-right">
+                <button class="btn btn-search"><i class="fas fa-search"></i></button>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-search-mobile">Buscar!</button>
+              </div>
+              <div class="col-12 mt-2 advanced text-center">
+                <a href="{{ route('search') }}" class="btn btn-advanced">
+                  Buscador Avanzado
+                </a>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
 
       </div>
@@ -87,17 +89,17 @@
 
 
 <section class="section-publish">
-<div class="container">
-  <h2>
-    Publica tu Propiedad <span><a href=""> GRATIS</a></span>
-  </h2>
-</div>
+  <div class="container">
+    <h2>
+      Publica tu Propiedad <span><a href=""> GRATIS</a></span>
+    </h2>
+  </div>
 </section>
 
 
 
 
-    
+
 @if(!empty($aPropieties))
 
 
@@ -119,12 +121,12 @@
 
     </div>
 
-  @foreach ($aPropieties as $prop)
+    @foreach ($aPropieties as $prop)
     @include('frontend/layouts.prop')
-@endforeach
+    @endforeach
 
 
-    </div>
+  </div>
 </section>
 @endif
 <!-- endprops -->
