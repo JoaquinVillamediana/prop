@@ -40,9 +40,25 @@ Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 Route::get('publish', 'frontend\PublishController@index')->name('publish');
 Route::get('profesional', 'frontend\PublishController@profesional')->name('profesional');
 Route::get('personal', 'frontend\PublishController@personal')->name('personal');
-Route::get('publish_personal_free', 'frontend\PublishController@personal_free')->name('publish_personal_free');
 
+// publicacion de una propiedad con login hecho
+
+Route::get('publish_personal_free', 'frontend\PublishController@publish_login1')->name('publish_personal_free');
+
+
+// fin de pubnlicacion con lgoin
+
+// pagar piblicacion o pulblicare sin  login
 Route::get('pago/{id}', 'frontend\PublishController@pago')->name('pago');
+// 
+//rutas de admin
+Route::get('users', 'admin\UserController@index')->name('users');
+Route::get('propieties', 'admin\PropietiesController@index')->name('propieties');
+Route::get('plans', 'admin\PlansController@index')->name('plans');
+Route::get('propieties_type', 'admin\PropietiesController@Propieties_type')->name('propieties_type');
+Route::get('operation_type', 'admin\PropietiesController@operation_type')->name('operation_type');
+//fin de rutas de admin
+
 
 
 Route::resource('loguser', 'frontend\LoguserController');

@@ -154,9 +154,26 @@
         <div class="row links">
             <div class="col-12">
                 <div class="container">
-                    <a href=""><i class="fas fa-users"></i> Usuarios</a>
+                    <a href="{{ route('users') }}"><i class="fas fa-users"></i> Usuarios</a>
                 </div>
+                <div class="container">
+                    <a href="{{ route('propieties') }}"><i class="fas fa-building"></i> Propiedades</a>
+                </div>
+                <div class="container">
+                    <a href="{{ route('plans') }}"><i class="fas fa-money-check-alt"></i> Planes</a>
+                </div>
+
+                <div class="container">
+                    <a href="{{ route('propieties_type') }}"><i class="fas fa-cogs"></i> Tipos de propiedades</a>
+                </div>
+
+                <div class="container">
+                    <a href="{{ route('operation_type') }}"><i class="fas fa-cogs"></i> Tipos de operaciones</a>
+                </div>
+
             </div>
         </div>
     </div>
 </nav>
+
+

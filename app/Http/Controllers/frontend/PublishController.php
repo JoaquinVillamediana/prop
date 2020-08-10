@@ -46,8 +46,8 @@ return view('frontend/publish.profesional',compact('aPlans'));
         // return view('frontend/publish.profesional');
     }
 
-    
-    public function personal_free() {
+    // publicar
+    public function publish_login1() {
 
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
@@ -56,6 +56,53 @@ return view('frontend/publish.profesional',compact('aPlans'));
 
         return view('frontend/publish/personal.publish1',compact('aPropietie_type'));
     }
+
+    public function publish_login2() {
+
+        $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
+        ->get();
+        $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
+        ->get();
+
+        return view('frontend/publish/personal.publish2',compact('aPropietie_type'));
+    }
+
+    public function publish_login3() {
+
+        $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
+        ->get();
+        $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
+        ->get();
+
+        return view('frontend/publish/personal.publish3',compact('aPropietie_type'));
+    }
+
+
+    public function publish_login4() {
+
+        $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
+        ->get();
+        $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
+        ->get();
+
+        return view('frontend/publish/personal.publish4',compact('aPropietie_type'));
+    }
+
+    public function publish_login5() {
+
+        $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
+        ->get();
+        $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
+        ->get();
+
+        return view('frontend/publish/personal.publish5',compact('aPropietie_type'));
+    }
+
+
+
+
+// 
+
 
 
     public function create() {
