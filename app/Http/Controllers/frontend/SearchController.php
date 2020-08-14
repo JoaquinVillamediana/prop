@@ -21,7 +21,19 @@ class SearchController extends Controller {
         $operationtype =  $request['type'];
         $propietie_type =  $request['building'];
         
+     
         
+
+        $aPropietie_type_name=DB::select('SELECT name
+        FROM propietie_type
+        where 
+         id = "'.$propietie_type.'" ');
+
+   $aOperationType_name=DB::select('SELECT name
+   FROM operation_type
+   where id = "'.$operationtype.'"
+');
+
         $aPropieties=DB::select('SELECT *
         FROM propieties
         where deleted_at is null
@@ -37,11 +49,51 @@ class SearchController extends Controller {
         
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
-        
 
-        return view('frontend/search.index',compact('aPropieties','aOperationType','aPropietie_type','ubicacion'));
+
+
+    
+        
+        if(isset($request['cantidad_ambientes_1'])){
+            $ambientes =  $request['cantidad_ambientes_1'];
+      
+            $aPropieties=DB::select('SELECT *
+            FROM propieties
+            where deleted_at is null
+            and visible = 1
+            and rooms = "'.$ambientes.'"
+             ');
+            
+             return view('frontend/search.index',compact('aPropieties','aOperationType','aPropietie_type','ubicacion','aOperationType_name','aPropietie_type_name'));
+
+        }
+
+
+
+
+
+        return view('frontend/search.index',compact('aPropieties','aOperationType','aPropietie_type','ubicacion','aOperationType_name','aPropietie_type_name'));
+    
+    
+    
+    
+    
     }
 
+        public function index_personalizado(Request $request){
+           
+            
+        $ambientes =  $request['cantidad_ambientes_1'];
+      
+        $aPropieties=DB::select('SELECT *
+        FROM propieties
+        where deleted_at is null
+        and visible = 1
+        and rooms = "'.$ambientes.'"
+         ');
+
+         return view('frontend/search.index',compact('aPropieties'));
+        }
   
 
 }

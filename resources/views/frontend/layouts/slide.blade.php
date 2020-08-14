@@ -13,9 +13,14 @@
             <!-- inicio de filtros activos -->
             <li>
                 <h3> Seleccion actual </h3>
+                    @if(!empty($aPropietie_type_name))                
+                        <span class="badge badge-light">Departamento</span>     
+                    @endif
+                    @if(!empty($aOperationType_name))                
+                        <span class="badge badge-light">venta</span>     
+                    @endif
                 <span class="badge badge-light">Capital Federal</span>
                 <span class="badge badge-light">2 dormitorios</span>
-                <span class="badge badge-light">Departamento</span>
                 <span class="badge badge-light">Alquiler</span>
             </li>
 
@@ -44,9 +49,9 @@
                         @foreach($aOperationType as $optype)
 
                         <!--  -->
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                            value="{{$optype->id}}" checked>
-                        <label class="form-check-label" for="exampleRadios1">
+                        <input class="form-check-input" type="radio" name="optype{{$optype->id}}" id="optype{{$optype->id}}"
+                            value="optype{{$optype->id}}" checked>
+                        <label class="form-check-label" for="optype{{$optype->id}}">
                             {{$optype->name}}
                         </label>
                         </br>
@@ -76,13 +81,13 @@
                         @if(!empty($aPropietie_type))
 
 
-                        @foreach($aPropietie_type as $optype)
+                        @foreach($aPropietie_type as $prop_type)
 
                         <!--  -->
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                            value="{{$optype->id}}" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            {{$optype->name}}
+                        <input class="form-check-input" type="radio" name="prop_type{{$prop_type->id}}" id="prop_type{{$prop_type->id}}"
+                            value="prop_type{{$prop_type->id}}"checked>
+                        <label class="form-check-label" for="prop_type{{$prop_type->id}}">
+                            {{$prop_type->name}}
                         </label>
                         </br>
                         <!--  -->
@@ -103,11 +108,11 @@
             <!-- Inicio de cantidad de ambientes -->
             <p class="sidebar-subtitle"> Ambientes </p>
             <li>
-                <button type="button" class="btn btn-prop">1+</button>
-                <button type="button" class="btn btn-prop">2+</button>
-                <button type="button" class="btn btn-prop">3+</button>
-                <button type="button" class="btn btn-prop">4+</button>
-                <button type="button" class="btn btn-prop">5+</button>
+                <button type="button" id="cantidad_ambientes_1"  class="btn btn-prop">1+</button>
+                <button type="button" id="cantidad_ambientes_2" class="btn btn-prop">2+</button>
+                <button type="button" id="cantidad_ambientes_3" class="btn btn-prop">3+</button>
+                <button type="button" id="cantidad_ambientes_4" class="btn btn-prop">4+</button>
+                <button type="button" id="cantidad_ambientes_5" class="btn btn-prop">5+</button>
             </li>
             </br>
 

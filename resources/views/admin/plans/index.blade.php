@@ -15,7 +15,7 @@
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fa fa-table"></i> Planes
-            
+                <a class="btn btn-outline-primary ml-4" href="{{ route('propieties_type') }}" role="button">Crear</a>
             </div>         
             <div class="card-body">
                 <div class="table-responsive">

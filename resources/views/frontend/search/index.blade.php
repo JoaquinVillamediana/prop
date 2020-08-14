@@ -5,6 +5,7 @@
 
 
 @section('content')
+@include('frontend/layouts.ourJs')
 @include('frontend/layouts.slide')
 <!-- Our Custom CSS -->
 <link rel="stylesheet" href="css/frontend/propieties2.css">
@@ -29,18 +30,21 @@
           
    <a href="{{ route('propietie',$optype->id) }}">
             <div class="card-block px-3">
-              <h4 class="card-title mt-2">  {{$optype->name}} </h4>
+              <h3 class="card-title mt-2">  {{$optype->name}} </h3>
               <p class="card-text"> {{$optype->description}} </p>
-              <a href="{{ route('propietie',$optype->id) }}" class="btn btn-danger">Contactar</a>
-                
+          
                 <!--  -->
                 <div class="row row-caracs">
-
+                  <h3> USD{{$optype->price}}</h3>
                   <span class="characteristic" data-toggle="tooltip" data-placement="top" title="3 Ambientes">{{$optype->rooms}}<i class="fas fa-home"></i></span>
 
                   <span class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Baño">1<i class="fas fa-toilet"></i></span>
 
                   <span class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Dormitorio">2<i class="fas fa-bed"></i></span>
+
+                
+              <a href="{{ route('propietie',$optype->id) }}" class="btn btn-danger ml-auto mr-4 mb-4">Contactar</a>
+           
               </div>
             <!--  -->
             </div>

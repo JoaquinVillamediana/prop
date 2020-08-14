@@ -33,6 +33,7 @@ Route::get('user_profile', 'frontend\ProfileController@index')->name('user_profi
 Route::get('user_propieties', 'frontend\PropietiesController@index')->name('user_propieties');
 
 Route::get('search', 'frontend\SearchController@index')->name('search');
+Route::get('search_filter', 'frontend\SearchController@index_personalizado')->name('search_filter');
 
 
 Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
@@ -55,8 +56,18 @@ Route::get('pago/{id}', 'frontend\PublishController@pago')->name('pago');
 Route::get('users', 'admin\UserController@index')->name('users');
 Route::get('propieties', 'admin\PropietiesController@index')->name('propieties');
 Route::get('plans', 'admin\PlansController@index')->name('plans');
-Route::get('propieties_type', 'admin\PropietiesController@Propieties_type')->name('propieties_type');
-Route::get('operation_type', 'admin\PropietiesController@operation_type')->name('operation_type');
+
+
+Route::get('operation_type', 'admin\Operation_typeController@index')->name('operation_type');
+Route::get('operation_type_create', 'admin\Operation_typeController@create')->name('operation_type_create');
+Route::get('operation_type_store', 'admin\Operation_typeController@store')->name('operation_type_store');
+
+Route::get('propieties_type', 'admin\Propieties_typeController@index')->name('propieties_type');
+Route::get('propieties_type_create', 'admin\Propieties_typeController@create')->name('propieties_type_create');
+Route::get('propieties_type_store', 'admin\Propieties_typeController@store')->name('propieties_type_store');
+
+
+
 //fin de rutas de admin
 
 

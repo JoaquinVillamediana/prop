@@ -7,15 +7,15 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Tipos de Propiedades</a>
+                <a href="#">Tipos de operaciones</a>
             </li>
-            <li class="breadcrumb-item active">Lista de tipos de propiedades</li>       
+            <li class="breadcrumb-item active">Lista de tipos de operaciones</li>       
         </ol>
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> Tipos de Propiedades
-            
+                <i class="fa fa-table"></i> Tipos de operaciones
+                <a class="btn btn-outline-primary ml-4" href="{{ route('operation_type_create') }}" role="button">Crear</a>
             </div>         
             <div class="card-body">
                 <div class="table-responsive">
@@ -34,22 +34,22 @@
                         </thead>
                         
                         <tbody>
-                            @if(!empty($aPropietie_type))
-                            @foreach($aPropietie_type as $prop_type)
+                            @if(!empty($aOperation_type))
+                            @foreach($aOperation_type as $op_type)
                             <tr>
-                                <td>{{ $prop_type->id }}</td>
-                                <td>{{ $prop_type->name }}</td>
-                                <td>{{ $prop_type->visible }}</td>
-                                <td>{{ $prop_type->visible_at }}</td>
+                                <td>{{ $op_type->id }}</td>
+                                <td>{{ $op_type->name }}</td>
+                                <td>{{ $op_type->visible }}</td>
+                                <td>{{ $op_type->visible_at }}</td>
                                        
                                 
-                                <td>{{ $prop_type->created_at }}</td>
+                                <td>{{ $op_type->created_at }}</td>
                                 <td><a class="btn btn-primary btn-circle" href=""><i class="fa fa-list"></i></a></td>
                                 <td>
-                                    <form id="deleteForm_{{$prop_type->id}}" action="" method="post">
+                                    <form id="deleteForm_{{$op_type->id}}" action="" method="post">
                                         {{csrf_field()}}
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <button type="button" id="submiBtn" class="btn btn-warning btn-circle my-custom-confirmation" data-toggle="modal" onclick="openDelModal({{$prop_type->id}});"><i class="fa fa-times"></i></button>
+                                        <button type="button" id="submiBtn" class="btn btn-warning btn-circle my-custom-confirmation" data-toggle="modal" onclick="openDelModal({{$op_type->id}});"><i class="fa fa-times"></i></button>
                                     </form>                
                                 </td>
                             </tr>   

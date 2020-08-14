@@ -26,7 +26,7 @@
           <form action="{{ route('search') }}">
             <div class="row row-overlay">
               <div class="col-12 mt-4">
-                <h1>Bienvenido a CuloProp</h1>
+                <h1>Bienvenido a TuProximaProp</h1>
               </div>
               <div class="col-12 text">
                 <p> Publica tu propiedad en 5 minutos y consigue que nuestros mas de 500.000 usuarios la vean.
