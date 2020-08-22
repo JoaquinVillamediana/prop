@@ -2,8 +2,8 @@
 @include('frontend/layouts.header')
 @section('content')
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/frontend/publish1.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/frontend/publish1.css"> 
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">  -->
 
     
   <body>
@@ -79,7 +79,7 @@
           
         @endif
 <!-- Basic dropdown -->
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
+<!-- <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
     </div>
   
 <div class="linea-tiempo">
@@ -118,8 +118,8 @@ Descripción
     <div class="descripcion">
       Tipo de publicación 
     </div>
-  </div>
-</div>
+  </div>-->
+</div> 
 
 </body>
   @include('frontend/layouts.footer')

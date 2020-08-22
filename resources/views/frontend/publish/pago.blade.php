@@ -30,8 +30,9 @@
     <h6 class="card-subtitle mb-2 text-muted">1 Plan {{ $planes->name }}
 $ {{ $planes->price }} + imp *</h6>
     <p class="card-text">Total: ${{ $planes->price }}</p>
-    <a href="#" class="card-link">Comprar</a>
-   
+    <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+data-preference-id="339019119-a4ae314a-1ceb-48a1-962a-d90643be50ec">
+</script>
   </div>
 </div>
 @endforeach

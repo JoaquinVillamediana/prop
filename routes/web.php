@@ -52,6 +52,11 @@ Route::get('publish_personal_free', 'frontend\PublishController@publish_login1')
 // pagar piblicacion o pulblicare sin  login
 Route::get('pago/{id}', 'frontend\PublishController@pago')->name('pago');
 // 
+
+// cobro 
+Route::get('cobro', 'frontend\PublishController@cobro')->name('cobro');
+// 
+
 //rutas de admin
 Route::get('users', 'admin\UserController@index')->name('users');
 Route::get('propieties', 'admin\PropietiesController@index')->name('propieties');

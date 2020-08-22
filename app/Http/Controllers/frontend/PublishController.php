@@ -121,4 +121,8 @@ return view('frontend/publish.profesional',compact('aPlans'));
         return view('frontend/publish.pago',compact('aPlans'));
     }
 
+    public function cobro() {
+        return view('frontend/publish.cobro');
+    }
+
 }
