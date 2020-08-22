@@ -97,7 +97,7 @@
 <section class="section-publish">
   <div class="container">
     <h2>
-      Publica tu Propiedad <span><a href=""> GRATIS</a></span>
+        OFERTA  <span><a href=""> 6 MESES SIN INTERÉS</a></span>
     </h2>
   </div>
 </section>
