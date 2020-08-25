@@ -97,7 +97,7 @@
             }
             
             .row-overlay .options {
-                padding: 5px;
+                padding: 5px 0;
                 border: 2px solid var(--main-color);
                 border-top: none;
                 position: absolute;
@@ -107,10 +107,15 @@
             }
             
             .row-overlay .options .option {
+                padding: 0 5px;
                 text-decoration: none;
                 color: #000000;
                 width: 100%;
                 display: block;
+            }
+            
+            .row-overlay .options .option:hover {
+                background-color: #eeeeee;
             }
             
             .row-overlay select {
