@@ -39,23 +39,22 @@
                                 <h5> Plan {{ $planes->description1 }}</h5>
                                 <h5> Plan {{ $planes->description2 }}</h5>
                                 <h5> Plan {{ $planes->description3 }}</h5>
-                             <div class="d-flex flex-row justify-content-center">
+                                <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
-                                         <i class="fa fa-facebook"></i>
+                                     <i class="fas fa-ad"></i>
                                      </a>
                                  </div>
                                  <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-home" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-instagram"></i>
+                                    <i class="fa fa-bed" aria-hidden="true"></i>
                                     </a>
                                 </div>
-
                              </div>
                              <button type="button" class="btn btn-outline-warning">Elegir</button>
                         

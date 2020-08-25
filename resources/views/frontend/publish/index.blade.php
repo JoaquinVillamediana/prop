@@ -34,7 +34,7 @@
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
-                                     <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                     <i class="fas fa-ad"></i>
                                      </a>
                                  </div>
                                  <div class="p-4">
@@ -67,7 +67,7 @@
                              <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
-                                     <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                     <i class="fas fa-ad"></i>
                                      </a>
                                  </div>
                                  <div class="p-4">

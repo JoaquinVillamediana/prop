@@ -29,30 +29,29 @@
                         <a href="{{ route('publish_personal_free') }}">
                         @endif
                             <div class="card-body">
-                                <img src="images/index/userej.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
+                                <img src="images/index/userej2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
                                 <h3>{{ $planes->num_add }} AVISO</h3>
                                 <h3> ${{ $planes->price }}</h3>
                                 <h5> Plan {{ $planes->time }}</h5>
                                 <h5> Plan {{ $planes->description1 }}</h5>
                                 <h5> Plan {{ $planes->description2 }}</h5>
                                 <h5> Plan {{ $planes->description3 }}</h5>
-                             <div class="d-flex flex-row justify-content-center">
+                                <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
-                                         <i class="fa fa-facebook"></i>
+                                     <i class="fas fa-ad"></i>
                                      </a>
                                  </div>
                                  <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-twitter"></i>
+                                    <i class="fa fa-users" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="p-4">
                                     <a href="#">
-                                        <i class="fa fa-instagram"></i>
+                                    <i class="fa fa-suitcase" aria-hidden="true"></i>
                                     </a>
                                 </div>
-
                              </div>
                              <button type="button" class="btn btn-outline-warning">Elegir</button>
                         

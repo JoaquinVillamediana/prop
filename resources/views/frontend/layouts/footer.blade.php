@@ -6,24 +6,24 @@
       <div class="row text-center">
           <div class="col-12 col-lg">
           <div class="row">
-              <a href="#"> Vender </a>
+              <a href="{{ route('publish') }}"> Vender </a>
               </div>
               <div class="row">
-              <a href="#"> Alquilar </a>
+              <a href="{{ route('publish') }}"> Alquilar </a>
               </div>
 
               <div class="row">
-              <a href="#"> Ayuda </a>
+              <a href="{{ route('contact') }}"> Ayuda </a>
               </div>
               <div class="row">
-              <a href="#"> Publicidad </a>
+              <a href="{{ route('contact') }}"> Publicidad </a>
               </div>
               <div class="row">
-              <a href="#"> Noticias </a>
+              <a href="https://wbosoftware.com/"> Noticias </a>
               </div>
           </div>
           <div class="col-12 col-lg">
-              <a href="#"> Contactanos </a>
+              <a href="{{ route('contact') }}"> Contactanos </a>
           </div>
           <div class="col-12 col-lg">
           <a href="#"> Preguntas frecuentes </a>

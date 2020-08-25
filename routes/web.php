@@ -49,6 +49,9 @@ Route::get('publish_personal_free', 'frontend\PublishController@publish_login1')
 
 // fin de pubnlicacion con lgoin
 
+//contacto
+Route::get('contact', 'frontend\ContactController@index')->name('contact');
+
 // pagar piblicacion o pulblicare sin  login
 Route::get('pago/{id}', 'frontend\PublishController@pago')->name('pago');
 // 
@@ -56,6 +59,9 @@ Route::get('pago/{id}', 'frontend\PublishController@pago')->name('pago');
 // cobro 
 Route::get('cobro', 'frontend\PublishController@cobro')->name('cobro');
 // 
+
+//
+Route::get('register_users', 'frontend\RuserController@index')->name('register_users');
 
 //rutas de admin
 Route::get('users', 'admin\UserController@index')->name('users');

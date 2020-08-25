@@ -36,7 +36,7 @@
 
 
               <div class="col-md-6 col-12">
-                <input placeholder="Ubicacion:" type="text" name="text" id="location">
+                <input placeholder="Ubicacion:" type="text" name="text" id="location" autocomplete="off">
                 <input type="hidden" name="locality" value="" id="locality">
                 <div class="options">
 

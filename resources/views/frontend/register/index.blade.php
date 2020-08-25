@@ -1,4 +1,5 @@
 @extends('frontend/layouts.app')
+@include('frontend/layouts.header')
 
 @section('content')
 <div class="container">
@@ -8,7 +9,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register_users') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -74,4 +75,6 @@
         </div>
     </div>
 </div>
+@include('frontend/layouts.footer')
+
 @endsection

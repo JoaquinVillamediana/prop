@@ -24,7 +24,7 @@
   </div>
 </div>
 <!--  -->
-<div class="card" id="pago" style="width: 18rem;margin-top: 5rem;margin-left: 5rem;margin-bottom:10rem;">
+<div class="card" id="pago" style="width: 16rem;margin-top: 5rem;margin-left: 2rem;margin-bottom:10rem;">
   <div class="card-body">
     <h5 class="card-title">Detalle de la compra</h5>
     <h6 class="card-subtitle mb-2 text-muted">1 Plan {{ $planes->name }}
