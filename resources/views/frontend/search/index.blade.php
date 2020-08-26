@@ -42,17 +42,19 @@
                 <!--  -->
                 <div class="row row-caracs">
                   <h3> USD{{$optype->price}}</h3>
-                  <span class="characteristic" data-toggle="tooltip" data-placement="top"
+                  <span id ="rooms" class="characteristic" data-toggle="tooltip" data-placement="top"
                     title="3 Ambientes">{{$optype->rooms}}<i class="fas fa-home"></i></span>
 
-                  <span class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Baño">1<i
+                  <span id="bathrooms" class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Baño">1<i
                       class="fas fa-toilet"></i></span>
 
-                  <span class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Dormitorio">2<i
+                  <span id="bedrooms" class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Dormitorio">2<i
                       class="fas fa-bed"></i></span>
 
 
-                  <a href="{{ route('propietie',$optype->id) }}" class="btn btn-danger ml-auto mr-4 mb-4">Contactar</a>
+                  <a href="{{ route('propietie',$optype->id) }}" id="btncontacto" class="btn btn-danger ml-auto mr-4 mb-4">
+                    
+                  Contactar</a>
 
                 </div>
                 <!--  -->

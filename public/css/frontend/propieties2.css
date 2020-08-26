@@ -3,4 +3,23 @@
     margin-top: 20px;
     margin-right: 30px;
     margin-bottom: 20px;
+    border: none;
+    border-radius: 0px 30px 30px 0px ;  
+    box-shadow: 15px 10px 5px 0px rgba(147,3,46,0.75);
+}
+
+#card-prop h3{
+    font-style: oblique;
+}
+
+#card-prop p{
+    font-style: oblique;
+}
+#card-prop a#btncontacto{
+    font-style: oblique;
+    background-color: var(--main-color);
+}
+
+#card-prop span#rooms{
+    margin-bottom: 5px;
 }
