@@ -1,59 +1,169 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-body{
-    font-family: 'Raleway', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #777;
-}
-
-h1{
+h1 {
     font-size: 36px;
-color: #555;
-font-weight: bold;
+    color: #555;
+    font-weight: bold;
 }
 
-h3{
+h3 {
     font-size: 24px;
     color: #333;
     font-weight: bold;
 }
 
-#team img{
+#team img {
     margin-top: -50px;
-
 }
 
-#team i{
+#team i {
     font-size: 26px;
     color: #555;
 }
-#team p{
+
+#team p {
     font-weight: 500;
-   
 }
 
-#team .card{
+#team .card {
     border-radius: 0;
     box-shadow: 5px 5px 15px var(--main-color);
-transition: all 0.3s ease-in;
--webkit-transition: all 0.3s ease-in;
--moz-transition: all 0.3s ease-in;
-    
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
 }
- #team .card:hover{
-     background: var(--main-color);
-     color: #fff;
-     border-radius: 5px;
-     border: none;
-     box-shadow: 5px 5px 10px #9E9E9E;
- }
 
- #team .card:hover h3, #team .card:hover i{
-     color: #fff;
- }
- #team{
-     margin-left: 34%;
- }
+#team .card:hover {
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 5px 5px 10px #9E9E9E;
+}
+
+#team .card:hover h3,
+#team .card:hover i {
+    color: #fff;
+}
+
+#team {
+    margin-left: 34%;
+}
+
+.section-election {
+    text-align: center;
+}
+
+.section-election .option {
+    max-width: 600px;
+}
+
+.section-election .option .type-image-particular {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border: 2px solid var(--main-color);
+    border-right: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.section-election .option .icon-particular {
+    padding-left: 0;
+}
+
+.section-election .option .icon-business {
+    padding-right: 0;
+}
+
+.section-election .option .btn-particular {
+    font-size: 30px;
+    height: 100%;
+    width: 100%;
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.section-election .option .col-text {
+    padding: 15px 15px;
+    text-align: left;
+    border-top: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    color: #000000;
+}
+
+.section-election .option .col-text .link-name {
+    font-size: 35px;
+}
+
+.section-election .option .btn-particular:hover {
+    background-color: var(--main-light-color);
+}
+
+.section-election .option .btn-business:hover {
+    background-color: var(--main-light-color);
+}
+
+.section-election .option .btn-business {
+    font-size: 30px;
+    height: 100%;
+    width: 100%;
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.section-election .option .type-image-business {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border: 2px solid var(--main-color);
+    border-left: none;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.col-option {
+    display: flex;
+    justify-content: center;
+}
+
+.section-election {
+    display: flex;
+    height: 70%;
+    align-items: center;
+    justify-content: center;
+}
+
+.col-legend {
+    margin-bottom: 40px;
+}
+
+.col-legend h1 {
+    color: #000000;
+}
+
+footer {
+    display: none;
+}
+
+@media (orientation:portrait) {
+    .row-section {
+        width: 100%;
+    }
+    .option {
+        max-width: 80%;
+    }
+    .section-election .option .col-text .link-name {
+        font-size: 24px;
+    }
+}
