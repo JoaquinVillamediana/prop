@@ -225,3 +225,30 @@ ul ul a {
     background: var(--main-color);
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+    .col-list h4.site {
+        text-align: center;
+    }
+    #sidebar {
+        margin-left: 0;
+        margin-top: 20px;
+        height: auto;
+        width: 100%;
+        position: relative;
+        max-width: unset !important;
+    }
+    .wrapper {
+        display: flex;
+        justify-content: center;
+    }
+    .main-container {
+        margin: auto;
+    }
+    .main-container #card-prop {
+        margin: auto !important;
+    }
+    .main-container #card-prop .row-caracs {
+        margin: 0;
+    }
+}

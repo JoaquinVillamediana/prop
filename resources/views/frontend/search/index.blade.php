@@ -13,15 +13,15 @@
 
 
 <!------ Include the above in your HEAD tag ---------->
-<div class="row w-100">
-  <div class="col-3">
+<div class="row w-100 main-container">
+  <div class="col-md-3 col-12">
     @include('frontend/layouts.slide')
   </div>
-  <div class="col-9">
-    <h4>{{$ubicacion}}</h4>
+  <div class="col-md-9 col-12 col-list">
+    <h4 class="site">{{$ubicacion}}</h4>
 
 
-    <section>
+    <div>
 
       @if(!empty($aPropieties))
       @foreach($aPropieties as $optype)
@@ -32,10 +32,10 @@
           <div class="col-md-4">
             <img src="images/index/home1.jpg" class="w-100">
           </div>
-          <div class="col-md-8 px-3">
+          <div class="col-md-8">
 
             <a href="{{ route('propietie',$optype->id) }}">
-              <div class="card-block px-3">
+              <div class="card-block ">
                 <h3 class="card-title mt-2"> {{$optype->name}} </h3>
                 <p class="card-text"> {{$optype->description}} </p>
 
@@ -79,7 +79,7 @@
 
 
 
-    </section>
+    </div>
 
   </div>
 </div>
