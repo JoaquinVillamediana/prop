@@ -20,6 +20,8 @@
                         <div class="col-md-7 col-6 col-text">
                             <h5 class="link-name">Particular</h5>
                             <p class="link-description"><i class="fas fa-home mr-2"></i>Dueño directo</p>
+                            <p class="link-description"><i class="fas fa-mail-bulk"></i>Podes mirar los mensajes de los interesados.</p>
+                            <p class="link-description"><i class="fas fa-angle-double-up"></i>Posiciona tu publicacion con nuestros planes.</p>
                         </div>
                         <div class="col-md-1 col-2 icon-particular">
                             <a href="{{ route('personal') }}" class="btn btn-particular" href=""><i class="fas fa-chevron-right"></i></a>
@@ -37,6 +39,8 @@
                         <div class="col-md-7 col-6 col-text">
                             <h5 class="link-name">Profesional</h5>
                             <p class="link-description"><i class="fas fa-user-tie mr-2"></i> Inmobiliaria, corredor o constructora</p>
+                            <p class="link-description"><i class="fas fa-mail-bulk"></i>Podes mirar los mensajes de los interesados.</p>
+                            <p class="link-description"><i class="fas fa-angle-double-up"></i>Posiciona tu publicacion con nuestros planes.</p>
                         </div>
                         <div class="col-md-4 col-4 pl-0">
                             <img class="type-image-business" src="/images/business.jpg" alt="">
