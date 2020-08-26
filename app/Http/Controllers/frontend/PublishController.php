@@ -88,14 +88,14 @@ return view('frontend/publish.profesional',compact('aPlans'));
         return view('frontend/publish/personal.publish4',compact('aPropietie_type'));
     }
 
-    public function publish_login5() {
+    public function propietie_type() {
 
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
         $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
         ->get();
 
-        return view('frontend/publish/personal.publish5',compact('aPropietie_type'));
+        return view('frontend/publish.publicationtype',compact('aOperationType'));
     }
 
 

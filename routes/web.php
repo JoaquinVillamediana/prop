@@ -44,7 +44,10 @@ Route::get('personal', 'frontend\PublishController@personal')->name('personal');
 
 // publicacion de una propiedad con login hecho
 
-Route::get('publish_personal_free', 'frontend\PublishController@publish_login1')->name('publish_personal_free');
+Route::get('publish_publicationtype/{id}', 'frontend\PublishController@propietie_type')->name('publish_publicationtype');
+
+
+Route::get('publish_personal_free/{id}', 'frontend\PublishController@publish_login1')->name('publish_personal_free');
 
 
 // fin de pubnlicacion con lgoin

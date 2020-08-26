@@ -29,7 +29,7 @@
                         @if (empty(Auth::user()->id))
                         <a href="{{ route('pago',$planes->id) }}">
                         @else
-                        <a href="{{ route('publish_personal_free') }}">
+                        <a href="{{ route('publish_publicationtype',$planes->id) }}">
                         @endif
                             <div class="card-body">
                                 <img src="images/index/userej.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">

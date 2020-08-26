@@ -2,41 +2,42 @@
 @include('frontend/layouts.header')
 @section('content')
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/frontend/publish/estilos.css">
+    <link rel="stylesheet" href="css/frontend/publish.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
 
     
   <body>
 
-    <section id="team">
-        <div class="container my-3 py-5 text-center">
+  <div class="container my-3 py-5 text-center">
                 <div class="row mb-5">
                     <div class="col">
                         <h1>Opciones para publicar</h1>
-                        <div class="mt-3"> Elegí una opción para poder encontrar los planes que mas te sirvan</div>
+                        <div class="mt-3"> Elegí una opción para publicar</div>
                     </div>
 
                 </div>
+                </div>
+
+    <section id="team">
+        <div class="container my-3 py-5 text-center">
+     
                 <div class="row">
-                @if(!empty($aPlans))
-                @foreach($aPlans as $planes)
+                    @if(!empty($aOperationType))
+                    @foreach($aOperationType as $optype)
                     <!-- card1 -->
                     <div class="col-lg-3 col-md-6">
+                    <a href="{{ route('publish_personal_free',$optype->id) }}">
                         <div class="card">
-                        @if (empty(Auth::user()->id))
-                        <a href="{{ route('pago',$planes->id) }}">
-                        @else
-                        <a href="{{ route('publish_publicationtype',$planes->id) }}">
-                        @endif
+                       
                             <div class="card-body">
-                                <img src="images/index/userej2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
-                                <h3>{{ $planes->num_add }} AVISO</h3>
-                                <h3> ${{ $planes->price }}</h3>
-                                <h5> Plan {{ $planes->time }}</h5>
-                                <h5> Plan {{ $planes->description1 }}</h5>
-                                <h5> Plan {{ $planes->description2 }}</h5>
-                                <h5> Plan {{ $planes->description3 }}</h5>
-                                <div class="d-flex flex-row justify-content-center">
+                                @if($optype->id == 1)
+                                <img src="images/publish/house.png" alt="" class="img-fluid rounded-circle w-50 mb-3">
+                                @else
+                                <img src="images/publish/building.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
+                                @endif
+                                <h3>{{ $optype->name }}</h3>
+                                <h5> Dueño directo</h5>
+                             <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
                                      <i class="fas fa-ad"></i>
@@ -44,24 +45,26 @@
                                  </div>
                                  <div class="p-4">
                                     <a href="#">
-                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                    <i class="fa fa-home" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="p-4">
                                     <a href="#">
-                                    <i class="fa fa-suitcase" aria-hidden="true"></i>
+                                    <i class="fa fa-bed" aria-hidden="true"></i>
                                     </a>
                                 </div>
                              </div>
-                             <button type="button" class="btn btn-outline-warning">Elegir</button>
-                        
+                             <!-- <button type="button" href="{{ route('personal') }}" class="btn btn-outline-warning">Elegir</button> -->
                             </div>
-                            </a>
+                          
+                            
                         </div>
+                        </a>
                     </div>
                      <!-- card1 -->
-                   @endforeach
-                   @endif
+                  @endforeach
+                     @endif
+                     
                 </div>
         </div>
     </section>
