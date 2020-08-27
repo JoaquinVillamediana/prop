@@ -37,22 +37,23 @@ a:focus {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
+    
     background: transparent;
     transition: all 0.3s;
     margin-top: 77px;
-    margin-left: 20px;
+    margin-left: 15px;
     border-radius: 5px;
     border: 2px solid var(--main-color);
     padding: 10px;
     width: 320px;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     height: 100vh;
     z-index: 999;
     background: transparent;
     color: #000;
-    transition: all 0.3s;
+
     border-radius: 5px;
 }
 

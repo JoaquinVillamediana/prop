@@ -82,6 +82,8 @@ Route::get('propieties_type_create', 'admin\Propieties_typeController@create')->
 Route::get('propieties_type_store', 'admin\Propieties_typeController@store')->name('propieties_type_store');
 
 
+Route::get('propieties_create', 'admin\PropietiesController@create')->name('propieties_create');
+
 
 //fin de rutas de admin
 

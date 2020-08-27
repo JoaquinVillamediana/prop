@@ -27,7 +27,7 @@ class PropietiesController extends Controller {
     }
 
     public function create() {
-        return view('admin/user.create');
+        return view('admin/propieties.create');
     }
 
     public function store(Request $request) {
