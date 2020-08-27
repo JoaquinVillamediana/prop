@@ -43,11 +43,13 @@ class HomeController extends Controller
     public function propietie($id)
     {
 
-        $aProp=DB::select('SELECT *
-        FROM propieties
-        where deleted_at is null
-        and visible = 1
-        and id = "'.$id.'"
+        $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id
+        FROM propieties p
+        LEFT JOIN users u ON p.user_id = u.id
+        where p.deleted_at is null
+        and p.visible = 1
+        and p.id = "'.$id.'"
+        GROUP BY p.id;
    ');
         return view('frontend/propietie.index',compact('aProp'));
         

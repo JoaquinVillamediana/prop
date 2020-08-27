@@ -1,8 +1,54 @@
 .container-fluid{
   padding-right: 0;
   padding-left: 0;
+
+  
 }
 
+#carouselExampleControls{
+  width: 100%;
+  
+  max-height:600px;
+  object-fit:cover;
+  box-shadow: 15px 10px 5px 0px rgba(147,3,46,0.75);
+ 
+}
+
+#contacto{
+  border: red 5px dotted;
+  background-color: var(--main-color);
+}
+
+#contacto input{
+  width: 100%;
+  border: PowderBlue 5px solid;
+  border-radius: 20px;
+}
+#contacto textarea{
+  
+  border: PowderBlue 5px solid;
+  border-radius: 20px;
+}
+
+#contacto input#name{
+  /* margin-left: 30px; */
+  /* margin-right: 30px; */
+}
+
+#contacto label{
+  margin-left: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+#contacto input#email{
+  /* margin-left: 15px; */
+}
+
+#contacto #formulario{
+  width: max-content;
+
+}
 .discount{
   background-color:#FF0000 ;
   border-radius: 15px;
