@@ -21,13 +21,19 @@ class ProfileController extends Controller {
     public function user_perfil_publicaciones($user_id) {
         
       
-        $aUser = DB::select('SELECT *
-        FROM users
-        where deleted_at is null
-        and id = "'.$user_id.'"
+        $aUser = DB::select('SELECT u.*,COUNT(p.id) AS countprop
+        FROM users u
+        LEFT JOIN propieties p
+        ON p.user_id = u.id
+        where u.deleted_at is null
+        and p.deleted_at is null
+        and u.id = "'.$user_id.'"
+        GROUP BY u.id
          ');
 
-         return view('frontend/profile_userx.index',compact('aUser'));
+         $aPropieties=DB::select('SELECT * FROM propieties where deleted_at is null');
+
+         return view('frontend/profile_userx.index',compact('aUser','aPropieties'));
     }
 
     public function personal() {

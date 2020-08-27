@@ -43,7 +43,7 @@ class HomeController extends Controller
     public function propietie($id)
     {
 
-        $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id
+        $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id,(u.type) user_type,(u.phone) user_phone
         FROM propieties p
         LEFT JOIN users u ON p.user_id = u.id
         where p.deleted_at is null

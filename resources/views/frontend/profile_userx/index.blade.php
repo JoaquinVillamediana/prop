@@ -3,12 +3,16 @@
 @include('frontend/layouts.header')
 
 @section('content')
-<link rel="stylesheet" href="css/admin/users.css">
+<link rel="stylesheet" href="css/frontend/profile_users.css">
 @if(!empty($aUser))
 @foreach($aUser as $data_user)
 <div class="container-prueba mt-4 mb-2">
     <h1>
-    {{ $data_user->name }} 
+    {{ $data_user->name }} -     @if($data_user->type == 2)
+                            Particular 
+                            @else 
+                            Profesional
+                            @endif
     </h1>
     
 </div>
@@ -24,61 +28,42 @@
             </ul>
             <div class="tab-content py-4">
                 <div class="tab-pane active" id="profile">
-                    <h5 class="mb-3">User Profile</h5>
+                    <h5 class="mb-3" style="font-weight: bold;">User Profile</h5>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6>Nombre</h6>
+                            <h6 style="font-weight: bold;">Nombre</h6>
                             <p>
                             {{ $data_user->last_name }}  , {{ $data_user->last_name }} 
                             </p>
-                            <h6>Hobbies</h6>
+                            <h6 style="font-weight: bold;">Teléfono</h6>
                             <p>
-                                Indie music, skiing and hiking. I love the great outdoors.
+                                @if(!empty($data_user->phone))
+                            {{ $data_user->phone }} @else {{"El usuario no cargo su número de teléfono."}}@endif
+                            </p>
+                            <h6 style="font-weight: bold;">Email</h6>
+                            <p>
+                            @if(!empty($data_user->email))
+                            {{ $data_user->email }} @else {{"El usuario no cargo su email."}}@endif
                             </p>
                         </div>
                         <div class="col-md-6">
                             <h6>Etiquetas</h6>
+                            @if($data_user->type == 2)
+                            <a href="#" class="badge badge-dark badge-pill">Particular</a> 
+                            @else 
                             <a href="#" class="badge badge-dark badge-pill">Profesional</a>
-                            <a href="#" class="badge badge-dark badge-pill">Inmobiliaria</a>
-                            <a href="#" class="badge badge-dark badge-pill">35 Publicaciones</a>
+                            @endif
                             
-                            <hr>
-                            <span class="badge badge-primary"><i class="fa fa-user"></i> 23 Contactados</span>
-                            <span class="badge badge-success"><i class="fa fa-cog"></i> 23 Contactados</span>
-                            <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Publicaciones activas</span>
+                            @if($data_user->countprop != 0)
+                            <a href="#" class="badge badge-dark badge-pill">{{ $data_user->countprop }} Publicaciones</a>
+                            @else 
+                            <a href="#" class="badge badge-dark badge-pill">Este usuario no tiene publicaciones activas</a>
+                            @endif
+                          
+                        
+                            
                         </div>
-                        <div class="col-md-12">
-                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
-                            <table class="table table-sm table-hover table-striped">
-                                <tbody>                                    
-                                    <tr>
-                                        <td>
-                                            <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        
                     </div>
                     <!--/row-->
                 </div>
@@ -88,13 +73,80 @@
         </div>
         <div class="col-lg-4 order-lg-1 text-center">
             <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
-            <h6 class="mt-2">Upload a different photo</h6>
-            <label class="custom-file">
-                <input type="file" id="file" class="custom-file-input">
-                <span class="custom-file-control">Choose file</span>
-            </label>
+           
         </div>
     </div>
+
+
+<!-- carrousel  -->
+@if(!empty($aPropieties))
+<section id="props" class="mt-4">
+
+  <div class="container">
+    <div class="row">
+      <div class="col text-center text-uppercase">
+        <small> Conocé nuestras</small>
+        <h2> Propiedades destacadas</h2>
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+    
+    @if(!empty($aPropieties))
+<div class="row">
+  @foreach ($aPropieties as $prop)
+  @if($prop->user_id ==  $data_user->id)
+      <div class="col-md-4 mb-4 propertie">
+      {{-- <a href="{{ route('propietie') }}"> --}}
+        <div class="card">
+          <div class="image">
+            <img src="images/index/home1.jpg" class="card-img-top" alt="...">
+
+            <div class="row row-caracs">
+
+              <span class="characteristic" data-toggle="tooltip" data-placement="top" title="3 Ambientes">3<i class="fas fa-home"></i></span>
+
+              <span class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Baño">1<i class="fas fa-toilet"></i></span>
+
+              <span class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Dormitorio">1<i class="fas fa-bed"></i></span>
+            </div>
+            
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title mb-0"> {{$prop->name}}</h5>
+
+            <p class="card-text">{{$prop->description}}.</p>
+            <a href="{{ route('propietie',$prop->id) }}" class="btn btn-moreinfo">Más información</a>
+          </div>
+        </div>
+        {{-- </a> --}}
+      </div>
+
+      
+@endif
+    
+      @endforeach
+    </div>
+    @endif
+<script>$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})</script>
+    
+
+
+  </div>
+</section>
+@endif
+<!--  -->
+
+
 </div>
 @endforeach
 @endif

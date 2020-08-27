@@ -74,9 +74,10 @@
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Hola, vi esta propiedad en TuProximaProp y estoy interesado. Quiero que me contacten. Gracias.</textarea>
             </div>
             <div class="form-group">
-              <button class="btn btn-primary" type="submit">Contactar</button>
+              <button class="btn btn-primary" type="submit"><i class="fas fa-envelope-square"></i> Contactar</button>
             </div>
           </form>
+          <button class="btn btn-primary" type="submit"><i class="fas fa-phone"></i> Llamar</button>
         </section>
     </div>
     
@@ -90,10 +91,11 @@
     </div>
     <div class="col-md-5 col-12">
     <h2>Datos del anunciante</h2>
-    <div class="card w-50">
+    <div class="card w-70">
       <div class="card-body">
         <h5 class="card-title">{{ $prop->user_name }}</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">@if($prop->user_type == 2) <i class="fas fa-user"></i> {{"dueño directo"}} | <i class="fas fa-phone"></i> {{ $prop->user_phone }} @else <i class="fas fa-user-tie"></i> {{"Profesional"}} | <i class="fas fa-phone"></i> @if(!empty($data_user->phone))
+        {{ $prop->user_phone }} @else {{"El usuario no cargo su número de teléfono."}}@endif @endif</p>
         <a href="{{ route('user_profile_publications',$prop->user_id) }}" class="btn btn-primary">Ver perfil</a>
       </div>
     </div>
