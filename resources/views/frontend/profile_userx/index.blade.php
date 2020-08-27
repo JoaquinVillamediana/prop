@@ -55,7 +55,7 @@
                             @endif
                             
                             @if($data_user->countprop != 0)
-                            <a href="#" class="badge badge-dark badge-pill">{{ $data_user->countprop }} Publicaciones</a>
+                            <a href="#props" class="badge badge-dark badge-pill">{{ $data_user->countprop }} Publicaciones</a>
                             @else 
                             <a href="#" class="badge badge-dark badge-pill">Este usuario no tiene publicaciones activas</a>
                             @endif
@@ -85,8 +85,8 @@
   <div class="container">
     <div class="row">
       <div class="col text-center text-uppercase">
-        <small> Conocé nuestras</small>
-        <h2> Propiedades destacadas</h2>
+        <small> Mira todas las propiedades de </small>
+        <h2> {{ $data_user->name }} ({{ $data_user->countprop }})</h2>
 
 
 
