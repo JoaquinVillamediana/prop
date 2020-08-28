@@ -23,19 +23,15 @@
                     <!-- card1 -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
-                        @if (empty(Auth::user()->id))
-                        <a href="{{ route('pago',$planes->id) }}">
-                        @else
-                        <a href="{{ route('publish_publicationtype',$planes->id) }}">
-                        @endif
+                       
                             <div class="card-body">
                                 <img src="images/index/userej2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
                                 <h3>{{ $planes->num_add }} AVISO</h3>
                                 <h3> ${{ $planes->price }}</h3>
-                                <h5> Plan {{ $planes->time }}</h5>
-                                <h5> Plan {{ $planes->description1 }}</h5>
-                                <h5> Plan {{ $planes->description2 }}</h5>
-                                <h5> Plan {{ $planes->description3 }}</h5>
+                                <h5 > <i class="fas fa-check-square"></i> {{ $planes->time }}</h5>
+                                <h5> <i class="fas fa-check-square"></i> {{ $planes->description1 }}</h5>
+                                <h5> <i class="fas fa-check-square"></i> {{ $planes->description2 }}</h5>
+                                <h5> <i class="fas fa-check-square"></i> {{ $planes->description3 }}</h5>
                                 <div class="d-flex flex-row justify-content-center">
                                  <div class="p-4">
                                      <a href="#">
@@ -53,10 +49,16 @@
                                     </a>
                                 </div>
                              </div>
-                             <button type="button" class="btn btn-outline-warning">Elegir</button>
+                             @if(empty(Auth::user()->id))
+                        <!-- <a href="{{ route('pago',$planes->id) }}"> -->
+                        <a class="btn btn-outline-warning" href="{{ route('pago',$planes->id) }}" role="button">Elegir</a>
+                        @else
+                        <!-- <a href="{{ route('publish_publicationtype',$planes->id) }}"> -->
+                        <a class="btn btn-outline-warning" href="{{ route('publish_publicationtype',$planes->id) }}" role="button">Elegir</a>
+                        @endif
                         
                             </div>
-                            </a>
+                            
                         </div>
                     </div>
                      <!-- card1 -->

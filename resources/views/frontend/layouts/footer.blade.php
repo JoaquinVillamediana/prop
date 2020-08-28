@@ -38,7 +38,7 @@
           <a class="media-link" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                         <a class="media-link" href="https://twitter.com/"><i
                             class="fab fa-twitter"></i></a>
-                        <a class="media-link" href="https://www.instagram.com/"><i
+                        <a class="media-link" href="https://www.instagram.com/tuproximaprop/"><i
                             class="fab fa-instagram"></i></a>
                             <a class="media-link" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
                             
