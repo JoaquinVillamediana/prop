@@ -15,14 +15,17 @@
                 margin-bottom: auto;
             }
             
-            #carousel .overlay {
+            .overlay {
                 position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
+                height: 60vh;
+                width: 100%;
                 background-color: rgba(0, 0, 0, 0.5);
                 color: white;
+                z-index: 10;
+            }
+            
+            .overlay select {
+                background-color: #ffffff;
             }
             
             #searchinput {
@@ -82,7 +85,7 @@
                 outline: none;
             }
             
-            .row-overlay .col-md-6 {
+            .row-overlay .col-lg-6 {
                 padding-right: 0;
             }
             
@@ -149,11 +152,11 @@
                 display: none;
             }
             
-            @media (orientation:portrait) {
+            @media screen and (max-width:991px) {
                 .row-overlay .text {
                     display: none;
                 }
-                .row-overlay .col-md-6 {
+                .row-overlay .col-lg-6 {
                     padding-right: 15px !important;
                 }
                 .row-overlay .search-option {
@@ -174,6 +177,7 @@
                     display: none;
                 }
                 .row-overlay .btn-search-mobile {
+                    display: block;
                     width: 100%;
                     background-color: var(--main-color);
                     margin-top: 15px;
