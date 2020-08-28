@@ -21,7 +21,7 @@
     <h4 class="site">{{$ubicacion}}</h4>
 
 
-    <div>
+    <div id="prop-container">
 
       @if(!empty($aPropieties))
       @foreach($aPropieties as $optype)
@@ -111,19 +111,15 @@
 
   </div>
 </div>
-<script>
-   var localities = <?php  echo json_encode($aLocalities); ?>;
-  $('.options').hide();
-  var aLocalities = localities.map((element) => {
-    return element.nombre;
-  });
-  
-  $('#location').on("input",() => {
-    displayLocalities($('#location'));
-    
-  });
-</script>
-<script src="/js/functions.js"></script>
 
+
+<script>
+   const localities = {!! json_encode($aLocalities); !!};
+</script>
+
+
+<script src="/js/functions.js"></script>
+<script src="/js/search.js"></script>
+<script src="/js/ajax_request.js"></script>
 
 @endsection

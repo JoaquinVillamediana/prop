@@ -17,6 +17,21 @@
         <!-- empieza Seleccion de datos -->
             <div class="container">
             <form method="POST" action="{{ route('store1') }}" >
+                  
+                  <div class="row">
+
+                    <!--  Dropdown tipo de propiedad-->
+                    @if(!empty($aOperationType))
+                      <p>Qué tipo de operación querés hacer?</p>
+                      <select name="operation" id="operation"  class="rounded" >
+                        @foreach($aOperationType as $optype)
+                          <option value="{{$optype->id}}">{{$optype->name}}</option>
+                        @endforeach
+                      </select>   
+                    @endif
+                  
+                  <!-- Fin de tipo de propiedad -->
+                  
                   <!--  Dropdown tipo de propiedad-->
                   @if(!empty($aPropietie_type))
                       <p>Qué tipo de propiedad querés publicar?</p>
@@ -26,7 +41,7 @@
                         @endforeach
                       </select>   
                     @endif
-                  
+                    </div>
                   <!-- Fin de tipo de propiedad -->
                   <!-- Localidades -->
        
@@ -51,7 +66,7 @@
 </br>
 
 
-<button class="btn btn-primary" type="submit">Guardar y continuar</button>
+<button class="btn btn-primary mt-5" type="submit">Guardar y continuar</button>
 </form>
 <!--  -->
 

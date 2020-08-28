@@ -141,4 +141,35 @@ class SearchController extends Controller
 
         return view('frontend/search.index', compact('aPropieties'));
     }
+
+
+    public function getFilterProperties(Request $request)
+    {
+        $aRequest = $request->all();
+        $query = 'SELECT *
+        FROM propieties
+        where deleted_at is null
+        and visible = 1
+        and price > "'.$request['min_price'].'"
+        and price < "'.$request['max_price'].'"
+        and operation_type_id = "'.$request['operation_type_id'].'"
+        and propietie_type_id = "'.$request['propietie_type_id'].'"
+        ';
+        
+        if(!empty($request['rooms']))
+        {
+            $query = $query.' and rooms = "'.$request['rooms'].'"';
+        }
+        if(!empty($request['bedrooms']))
+        {
+            $query = $query.' and bedrooms = "'.$request['bedrooms'].'"';
+        }
+        if(!empty($request['locality']))
+        {
+            $query = $query.' and location_id = "'.$request['locality'].'"';
+        }
+        $aPropieties = DB::select($query);
+
+        return json_encode($aPropieties);
+    }
 }

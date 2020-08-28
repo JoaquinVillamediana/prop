@@ -10,7 +10,7 @@ function displayLocalities(input) {
 
                 if (options.length < 15) {
 
-                    $('.options').append('<a href="" onclick="selectLocation(' + element.id + ')" class="option">' + element.nombre + ', ' + element.municipio_nombre + ', ' + element.provincia_nombre + '</a>');
+                    $('.options').append('<a href="" data-locality_id="' + element.id + '" class="option">' + element.nombre + ', ' + element.municipio_nombre + ', ' + element.provincia_nombre + '</a>');
                 }
             };
         });

@@ -18,7 +18,7 @@
       <div class="col-md-7 col-12">
         <div class="name-responsive">
           <h5 class="product-title">{{ $prop->name }}</h5>
-          <p class="product-price" style="color:#000;">U$D {{ $prop->price }} </p>
+          <p class="product-price" style="color:#000;">{{ $prop->currency_name }} {{ $prop->price }} </p>
         </div>
         <!-- carrousel -->
         <div class="col-12 mt-2 mb-4 div-main-image col-images">
@@ -48,7 +48,7 @@
         {{-- <div class="container"> --}}
 
           <!-- Fin de carrousel  -->
-          <!-- Características generales -->
+          <!-- Características  -->
           <div class="characteristcs-div" style="border: 1px solid #ccc!important;">
             <div class="container">
               <h4>Caracteristicas</h4>
@@ -73,7 +73,74 @@
             </div>
           </div>
 
-          <!-- Fin de características generales -->
+          <!-- Fin de características  -->
+          
+          <!-- Caracteristicas generales  -->
+
+          @if(!empty($aPropieties_caracteristicas_generales))
+          <div class="characteristcs-div" style="border: 1px solid #ccc!important;">
+            <div class="container">
+              <h4>Caracteristicas Generales</h4>
+              <ul class="characteristcs">
+               @foreach($aPropieties_caracteristicas_generales as $cg)
+                <li class="carac-item"><span class="carac-desc">
+                <i class="fas fa-angle-right"></i></span>{{ $cg->caracteristicas_generales_name }} 
+                </li>
+               @endforeach
+              </ul>
+            </div>
+          </div>
+          @endif
+            <!-- fin de caracteristicas generales  -->
+
+
+            <!-- servicios -->
+            @if(!empty($aPropieties_services))
+            <div class="characteristcs-div" style="border: 1px solid #ccc!important; margin-top: 8px;">
+                        <div class="container">
+                          <h4>Servicios</h4>
+                          <ul class="characteristcs">
+                          @foreach($aPropieties_services as $servicios)
+                            <li class="carac-item"><span class="carac-desc">
+                            <i class="fas fa-angle-right"></i></span>{{ $servicios->service_name }} </li>
+                          @endforeach
+                          </ul>
+                        </div>
+                      </div>
+                @endif
+            <!--  fin de serivicios-->
+
+            <!--  ambientes-->
+            @if(!empty($aPropieties_ambientes))
+            <div class="characteristcs-div" style="border: 1px solid #ccc!important; margin-top: 8px;">
+                        <div class="container">
+                          <h4>Ambientes</h4>
+                          <ul class="characteristcs">
+                           @foreach($aPropieties_ambientes as $ambientes)
+                            <li class="carac-item"><span class="carac-desc">
+                            <i class="fas fa-angle-right"></i></span>{{ $ambientes->ambientes_name }} </li>
+                           @endforeach
+                          </ul>
+                        </div>
+                      </div>
+              @endif
+            <!--   fin de ambientes-->
+
+            <!--   comodidades-->
+            @if(!empty($aPropieties_comodidades))
+            <div class="characteristcs-div" style="border: 1px solid #ccc!important; margin-top: 8px;">
+                        <div class="container">
+                          <h4>Comodidades</h4>
+                          <ul class="characteristcs">
+                          @foreach($aPropieties_comodidades as $comodidades)
+                            <li class="carac-item"><span class="carac-desc"><i class="fas fa-angle-right"></i></span>{{ $comodidades->comodidades_name }} </li>
+                           @endforeach
+                          </ul>
+                        </div>
+                      </div>
+
+              @endif
+            <!--  fin de comodidades-->
 
         {{-- </div> --}}
       </div>
@@ -149,6 +216,12 @@
           </div>
         </section>
         <!-- findatos de anunciante -->
+
+        <!-- mapa -->
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2321.87546304566!2d-58.42185837762528!3d-34.61357291806038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca5947f1d6ad%3A0x7897cc83741b3272!2sCasa%20Salesiana%20P%C3%ADo%20IX!5e0!3m2!1ses-419!2sar!4v1598654542348!5m2!1ses-419!2sar" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+        <!-- fin mapa -->
       </div>
 
 
