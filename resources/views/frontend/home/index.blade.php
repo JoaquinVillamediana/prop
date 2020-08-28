@@ -74,7 +74,7 @@
                 <button class="btn btn-search-mobile">Buscar!</button>
               </div>
               <div class="col-12 mt-2 advanced text-center">
-                <a href="{{ route('search') }}" class="btn btn-advanced">
+                <a href="{{ route('search_avanzado') }}" class="btn btn-advanced">
                   Buscador Avanzado
                 </a>
               </div>

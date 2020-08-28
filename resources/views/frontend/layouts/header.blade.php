@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="/css/frontend/header.css">
 <nav id="header" class="navbar navbar-expand-lg navbar-light bg-prop">
   <div class="container">
+    
    <a class="navbar-brand" href="/">TuProximaProp</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
      <span class="navbar-toggler-icon"></span>
@@ -13,10 +14,10 @@
         <a class="nav-link important" href="{{ route('publish') }}">Publicar una propiedad</a>
       </li>
        <li class="nav-item">
-         <a class="nav-link " href="{{ route('search') }}">Comprar</a>
+         <a class="nav-link " href="{{ route('search_compra') }}">Comprar</a>
        </li>
        <li class="nav-item">
-        <a class="nav-link " href="{{ route('search') }}">Alquilar</a>
+        <a class="nav-link " href="{{ route('search_alquiler') }}">Alquilar</a>
       </li>
       
        @if (empty(Auth::user()->id))
@@ -33,7 +34,7 @@
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <a class="dropdown-item" href="{{ route('user_profile') }}">Perfil</a>
     <a class="dropdown-item" href="{{ route('user_propieties') }}">Mis publicaciones</a>
-    <a class="dropdown-item" href="#">Contactados</a>
+    <a class="dropdown-item" href="{{ route('messages') }}">Contactados</a>
     <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
   </div>
 </div>

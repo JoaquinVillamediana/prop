@@ -80,6 +80,52 @@ class SearchController extends Controller {
     
     }
 
+
+
+    public function index_avanzado(){
+      
+        $ubicacion="TODAS LAS PROPIEDADES DIPONIBLES";
+
+    $aPropieties=DB::select('SELECT *
+    FROM propieties
+    where deleted_at is null
+    and visible = 1
+    
+     ');
+
+     return view('frontend/search.index',compact('aPropieties','ubicacion'));
+    }
+
+
+        public function index_compra(){
+      
+            $ubicacion="TODAS LAS PROPIEDADES DIPONIBLES PARA COMPRAR";
+
+        $aPropieties=DB::select('SELECT *
+        FROM propieties
+        where deleted_at is null
+        and visible = 1
+        and operation_type_id = 1
+         ');
+
+         return view('frontend/search.index',compact('aPropieties','ubicacion'));
+        }
+
+        public function index_alquiler(){
+      
+            $ubicacion="TODAS LAS PROPIEDADES DIPONIBLES PARA ALQUILAR";
+
+            $aPropieties=DB::select('SELECT *
+            FROM propieties
+            where deleted_at is null
+            and visible = 1
+            and operation_type_id = 2
+             ');
+    
+             return view('frontend/search.index',compact('aPropieties','ubicacion'));
+            }
+
+
         public function index_personalizado(Request $request){
            
             

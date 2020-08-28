@@ -27,25 +27,36 @@
                     <h5 class="mb-3">User Profile</h5>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6>Nombre</h6>
+                            <h6 style="font-weight: bold;">Nombre</h6>
                             <p>
                             {{Auth::user()->name}} , {{Auth::user()->last_name}}
                             </p>
-                            <h6>Hobbies</h6>
+                            <h6 style="font-weight: bold;">Teléfono</h6>
                             <p>
-                                Indie music, skiing and hiking. I love the great outdoors.
+                                @if(!empty(Auth::user()->phone))
+                            {{ Auth::user()->phone }} @else {{"El usuario no cargo su número de teléfono."}}@endif
+                            </p>
+                            <h6 style="font-weight: bold;">Email</h6>
+                            <p>
+                            @if(!empty(Auth::user()->email))
+                            {{ Auth::user()->email }} @else {{"El usuario no cargo su email."}}@endif
                             </p>
                         </div>
                         <div class="col-md-6">
-                            <h6>Etiquetas</h6>
+                        <h6>Etiquetas</h6>
+                            @if(Auth::user()->type == 2)
+                            <a href="#" class="badge badge-dark badge-pill">Particular</a> 
+                            @else 
                             <a href="#" class="badge badge-dark badge-pill">Profesional</a>
-                            <a href="#" class="badge badge-dark badge-pill">Inmobiliaria</a>
-                            <a href="#" class="badge badge-dark badge-pill">35 Publicaciones</a>
+                            @endif
                             
-                            <hr>
-                            <span class="badge badge-primary"><i class="fa fa-user"></i> 23 Contactados</span>
-                            <span class="badge badge-success"><i class="fa fa-cog"></i> 23 Contactados</span>
-                            <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Publicaciones activas</span>
+                            <!-- @if(Auth::user()->countprop != 0)
+                            <a href="#props" class="badge badge-dark badge-pill">{{ Auth::user()->countprop }} Publicaciones</a>
+                            @else 
+                            <a href="#" class="badge badge-dark badge-pill">Este usuario no tiene publicaciones activas</a>
+                            @endif
+                             -->
+                       
                         </div>
                         <div class="col-md-12">
                             <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
@@ -82,7 +93,7 @@
                     </div>
                     <!--/row-->
                 </div>
-               
+               <!-- edit -->
                 <div class="tab-pane" id="edit">
                     <form role="form">
                         <div class="form-group row">
@@ -103,14 +114,20 @@
                                 <input class="form-control" type="email" value="{{Auth::user()->email}} ">
                             </div>
                         </div>
-           
                         <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Teléfono</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="number" value="{{Auth::user()->phone}} ">
+                            </div>
+                        </div>
+           
+                        <!-- <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
                             <div class="col-lg-9">
                                 <input class="form-control" type="text" value="" placeholder="Street">
                             </div>
-                        </div>
-                        <div class="form-group row">
+                        </div> -->
+                        <!-- <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-6">
                                 <input class="form-control" type="text" value="" placeholder="City">
@@ -118,8 +135,8 @@
                             <div class="col-lg-3">
                                 <input class="form-control" type="text" value="" placeholder="State">
                             </div>
-                        </div>
-                        <div class="form-group row">
+                        </div> -->
+                        <!-- <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
                             <div class="col-lg-9">
                                 <select id="user_time_zone" class="form-control" size="0">
@@ -133,30 +150,30 @@
                                     <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-group row">
+                        </div> -->
+                        <!-- <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Username</label>
                             <div class="col-lg-9">
                                 <input class="form-control" type="text" value="janeuser">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Password</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password" value="11111122333">
+                                <input class="form-control" type="password" value="{{Auth::user()->password}}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password" value="11111122333">
+                                <input class="form-control" type="password" value="{{Auth::user()->password}}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
                                 <input type="reset" class="btn btn-secondary" value="Cancel">
-                                <input type="button" class="btn btn-primary" value="Save Changes">
+                                <input type="button" class="btn btn-primary" value="Guardar cambios">
                             </div>
                         </div>
                     </form>
