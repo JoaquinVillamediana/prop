@@ -1,166 +1,183 @@
-.container-fluid{
-  padding-right: 0;
-  padding-left: 0;
-
-  
-}
-
-#carouselExampleControls{
-  width: 100%;
-  
-  max-height:600px;
-  object-fit:cover;
-  box-shadow: 15px 10px 5px 0px rgba(147,3,46,0.75);
- 
-}
-
-#contacto{
-  /* border: red 5px dotted; */
-  border-radius: 20px;
-  background-color: var(--main-color);
-  box-shadow: 15px 10px 5px 0px rgba(147,3,46,0.75);
-}
-
-#contacto input{
-  /* width: 100%; */
-  border: PowderBlue 5px solid;
-  border-radius: 20px;
-}
-#contacto textarea{
-  
-  border: PowderBlue 5px solid;
-  border-radius: 20px;
-}
-
-
-
-#contacto label{
-  margin-left: 10px;
-  color: white;
-  font-weight: bold;
-}
-
-#contacto input#email{
- width: 180px;
-
-   margin-left: 15px; 
-}
-
-#contacto input#name{
-   margin-left: 100px; 
-  /* margin-right: 30px; */
-  width: 180px;
-
-  margin-left: 15px; 
-}
-
-#contacto #formulario{
-  width: max-content;
-
-}
-.discount{
-  background-color:#FF0000 ;
-  border-radius: 15px;
-  color: #fff;
-  padding: 5px 15px;
-  font-size: 15px;
-  width: 55px;
-}
-.text-black{
-  color: white;
-}
-.product-title{
-  font-size: 30px;
-}
-
-@media (orientation:portrait)
-{
-  .div-main-image{
-    padding-left: 0;
+.container-fluid {
     padding-right: 0;
-  }
+    padding-left: 0;
 }
 
-.product-price{
-  font-size: 30px;
-}
-#btn-more{
-  border: 1px solid #ced4da;
-  border-left: none;border-top-right-radius: 25px;border-bottom-right-radius: 25px;
-}
-
-#btn-less{
-  border: 1px solid #ced4da;
-  border-right: none;border-top-left-radius: 25px;border-bottom-left-radius: 25px;
-}
-#spinner{
-  height: 100%;
-  width: 100%;
+#carouselExampleControls {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    /* box-shadow: 15px 10px 5px 0px rgba(147,3,46,0.75); */
 }
 
-.btn-add-cart{
-  width: 100%;
-  letter-spacing: -0.5px;
-  height: 100%;
-  background-color:var(--main-color) ;
-  padding: 10px 15px;
-  font-size: 10px;
-  font-weight: bold;
-
-  
-  border-radius: 25px;
-  text-transform: uppercase;
+#contacto {
+    padding-top: 20px;
+    border: 2px solid var(--main-light-color);
+    border-radius: 10px;
 }
 
-.btn-add-cart:hover{
-  background-color: var(--main-color);
+#contacto input {
+    /* width: 100%; */
+    border: var(--main-color) 2px solid;
+    border-radius: 10px;
 }
 
-#main-container{
-  max-width: 1500px;
-}
-.small-image{
- cursor: pointer; 
+#contacto textarea {
+    border: var(--main-color) 2px solid;
+    border-radius: 10px;
 }
 
-.small-image:hover{
-  opacity: 0.8;
+#contacto label {
+    margin-left: 10px;
+    color: #000000;
+    font-weight: bold;
 }
 
- .favBtn{
-  border: none; 
-
-  background-color:transparent;
-  
-  
-  cursor: pointer;
+#contacto input#email {
+    width: 100%;
 }
 
-
-
- .favBtnActive{
-  border: none;
-
-   color: rgb(218,15,15);
-
-  background-color:transparent;
-  
-  
-  cursor: pointer;
-  
+#contacto input#name {
+    /* margin-right: 30px; */
+    width: 100%;
 }
 
- .favBtn:hover{
-  color: red;
+#contacto .col-buttons {
+    display: flex;
+    justify-content: center;
 }
 
- .favBtnActive:hover{
-  color: black;
+#contacto #formulario {
+    margin: 0;
 }
 
-.col-fav{
-  display: flex;
-  justify-content: center;
-  
+.discount {
+    background-color: #FF0000;
+    border-radius: 15px;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 15px;
+    width: 55px;
 }
 
+.product-title {
+    font-size: 30px;
+}
+
+@media (orientation:portrait) {
+    .div-main-image {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.product-price {
+    font-size: 30px;
+}
+
+#btn-more {
+    border: 1px solid #ced4da;
+    border-left: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+#btn-less {
+    border: 1px solid #ced4da;
+    border-right: none;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+#spinner {
+    height: 100%;
+    width: 100%;
+}
+
+.btn-add-cart {
+    width: 100%;
+    letter-spacing: -0.5px;
+    height: 100%;
+    background-color: var(--main-color);
+    padding: 10px 15px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 25px;
+    text-transform: uppercase;
+}
+
+.btn-prop {
+    text-decoration: none;
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.btn-prop:hover {
+    color: #fff;
+    background-color: var(--main-light-color);
+}
+
+.btn-add-cart:hover {
+    background-color: var(--main-color);
+}
+
+#main-container {
+    max-width: 1500px;
+}
+
+.small-image {
+    cursor: pointer;
+}
+
+.small-image:hover {
+    opacity: 0.8;
+}
+
+.favBtn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.favBtnActive {
+    border: none;
+    color: rgb(218, 15, 15);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.favBtn:hover {
+    color: red;
+}
+
+.favBtnActive:hover {
+    color: black;
+}
+
+.col-fav {
+    display: flex;
+    justify-content: center;
+}
+
+.characteristcs {
+    padding-left: 0 !important;
+}
+
+.characteristcs .carac-item {
+    font-weight: 400;
+    list-style: none;
+}
+
+.characteristcs .carac-item .carac-desc {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.characteristcs .carac-item i {
+    margin-right: 5px;
+}
+
+.characteristcs-div {
+    /* margin-left: 20px; */
+    padding-top: 10px;
+}
