@@ -16,9 +16,12 @@
 
 
       <div class="col-md-7 col-12">
-
+        <div class="name-responsive">
+          <h5 class="product-title">{{ $prop->name }}</h5>
+          <p class="product-price" style="color:#000;">U$D {{ $prop->price }} </p>
+        </div>
         <!-- carrousel -->
-        <div class="col-12 mt-2 mb-4 div-main-image">
+        <div class="col-12 mt-2 mb-4 div-main-image col-images">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -42,7 +45,7 @@
           </div>
         </div>
 
-        <div class="container">
+        {{-- <div class="container"> --}}
 
           <!-- Fin de carrousel  -->
           <!-- Características generales -->
@@ -63,7 +66,7 @@
           </div>
 
           <div class="card bg-light mb-3 mt-2"
-            style="max-width: 35rem;  font-weight: bold;    border: 1px solid #ccc!important;">
+            style="  font-weight: bold;    border: 1px solid #ccc!important;">
             <div class="card-body">
               <h5 class="card-title">Descripción</h5>
               <p class="card-text">{{ $prop->description }}</p>
@@ -72,14 +75,14 @@
 
           <!-- Fin de características generales -->
 
-        </div>
+        {{-- </div> --}}
       </div>
       <!-- FIN DE COLUMNA DE CARACTERÍSTICAS Y DE FOTOS -->
 
       <!-- COLUMNA DE FORMULARIO DE CONTACTO Y USUARIO -->
       <div class="col-md-5 col-12">
         <div class="row">
-          <div class="container">
+          <div class="container name-default">
             <h5 class="product-title">{{ $prop->name }}</h5>
             <p class="product-price" style="color:#000;">U$D {{ $prop->price }} </p>
           </div>
@@ -91,13 +94,13 @@
             <form id="formulario">
               <div class="row">
                 
-                  <div class="col-6">
+                  <div class="col-lg-6 col-12">
                     <div class="form-group">
                       <label for="email">Dirección de email</label>
                       <input type="email" class="form-control" id="email" placeholder="name@example.com">
                     </div>
                   </div>
-                  <div class="col-6">
+                  <div class="col-lg-6 col-12">
                     <div class="form-group">
                       <label for="name">Nombre</label>
                       <input type="text" class="form-control" id="name" placeholder="Nombre y apellido">

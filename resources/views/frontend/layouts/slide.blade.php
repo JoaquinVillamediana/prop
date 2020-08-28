@@ -22,9 +22,14 @@
 
         <!-- inicio  Agregar Ubicacion  -->
         <li>
-          <div class="input-group mb-3 mt-4">
-            <input type="text" class="form-control" placeholder="Ubicación" aria-label="Recipient's username"
-              aria-describedby="button-addon2">
+          <div class="input-group mb-3 mt-4 search-location">
+            {{-- <input type="text" class="form-control" placeholder="Ubicación" aria-label="Recipient's username"
+              aria-describedby="button-addon2"> --}}
+              <input placeholder="Ubicacion:" type="text" name="text" id="location" autocomplete="off">
+                <input type="hidden" name="locality" value="" id="locality">
+                <div class="options">
+
+                </div>
           </div>
         </li>
         <!-- Fin de ubicación  -->

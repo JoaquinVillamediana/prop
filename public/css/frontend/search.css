@@ -37,7 +37,6 @@ a:focus {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-    
     background: transparent;
     transition: all 0.3s;
     margin-top: 77px;
@@ -53,7 +52,6 @@ a:focus {
     z-index: 999;
     background: transparent;
     color: #000;
-
     border-radius: 5px;
 }
 
@@ -130,6 +128,27 @@ ul ul a {
 
 .btn-search:hover {
     background-color: var(--main-light-color);
+}
+
+.search-location .options {
+    padding: 5px 0;
+    border: 2px solid var(--main-color);
+    border-top: none;
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    z-index: 100;
+    background-color: #ffffff;
+}
+
+.search-location .options .option {
+    font-size: 15px !important;
+}
+
+.search-location #location {
+    width: 100%;
+    padding: 5px;
+    border: 2px solid var(--main-color);
 }
 
 .overlay {
@@ -227,7 +246,7 @@ ul ul a {
     cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
     .col-list h4.site {
         text-align: center;
     }
