@@ -23,8 +23,6 @@
         <!-- inicio  Agregar Ubicacion  -->
         <li>
           <div class="input-group mb-3 mt-4 search-location">
-            {{-- <input type="text" class="form-control" placeholder="Ubicación" aria-label="Recipient's username"
-              aria-describedby="button-addon2"> --}}
               <input placeholder="Ubicacion:" type="text" name="text" id="location" autocomplete="off">
                 <input type="hidden" name="locality" value="" id="locality">
                 <div class="options">
@@ -36,7 +34,7 @@
 
         <!-- Inicio de TIPO DE OPERACION -->
         <li class="active">
-          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tipo de
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar-subtitle">Tipo de
             operacion </a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
 
@@ -48,12 +46,13 @@
               @foreach($aOperationType as $optype)
 
               <!--  -->
-              <input class="form-check-input" type="radio" name="optype{{$optype->id}}" id="optype{{$optype->id}}"
-                value="optype{{$optype->id}}" checked>
+              <div class="radio-option">
+              <input class="form-check-input" type="radio" name="optype" id="optype{{$optype->id}} "checked
+                value="{{$optype->id}}">
               <label class="form-check-label" for="optype{{$optype->id}}">
                 {{$optype->name}}
               </label>
-              </br>
+            </div>
               <!--  -->
 
 
@@ -71,7 +70,7 @@
         <!-- Fin de tipo de operacion  -->
         <!-- Inicio de tipo de propiedad -->
         <li class="active">
-          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tipo de
+          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar-subtitle">Tipo de
             propiedad </a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
             <div class="form-check">
@@ -83,12 +82,14 @@
               @foreach($aPropietie_type as $prop_type)
 
               <!--  -->
-              <input class="form-check-input" type="radio" name="prop_type{{$prop_type->id}}"
-                id="prop_type{{$prop_type->id}}" value="prop_type{{$prop_type->id}}" checked>
+              <div class="radio-option">
+              <input class="form-check-input" type="radio" name="prop_type"
+                id="prop_type{{$prop_type->id}}" value="{{$prop_type->id}}" checked>
               <label class="form-check-label" for="prop_type{{$prop_type->id}}">
                 {{$prop_type->name}}
               </label>
-              </br>
+            </div>
+
               <!--  -->
 
 
@@ -107,13 +108,13 @@
         <!-- Inicio de cantidad de ambientes -->
         <p class="sidebar-subtitle"> Ambientes </p>
         <li>
-          <button type="button" id="cantidad_ambientes_1" class="btn btn-prop">1+</button>
-          <button type="button" id="cantidad_ambientes_2" class="btn btn-prop">2+</button>
-          <button type="button" id="cantidad_ambientes_3" class="btn btn-prop">3+</button>
-          <button type="button" id="cantidad_ambientes_4" class="btn btn-prop">4+</button>
-          <button type="button" id="cantidad_ambientes_5" class="btn btn-prop">5+</button>
+          <button type="button" id="cantidad_ambientes_1" data-rooms="1" class="rooms btn btn-prop">1+</button>
+          <button type="button" id="cantidad_ambientes_2" data-rooms="2" class="rooms btn btn-prop">2+</button>
+          <button type="button" id="cantidad_ambientes_3" data-rooms="3" class="rooms btn btn-prop">3+</button>
+          <button type="button" id="cantidad_ambientes_4" data-rooms="4" class="rooms btn btn-prop">4+</button>
+          <button type="button" id="cantidad_ambientes_5" data-rooms="5" class="rooms btn btn-prop">5+</button>
         </li>
-        </br>
+        
 
         <!-- FIn de cantidad de ambientes -->
         <!-- Inicio de cantidad de dormitorios -->
@@ -121,11 +122,11 @@
         <p class="sidebar-subtitle"> Dormitorios </p>
         <li>
 
-          <button type="button" class="btn btn-prop">1+</button>
-          <button type="button" class="btn btn-prop">2+</button>
-          <button type="button" class="btn btn-prop">3+</button>
-          <button type="button" class="btn btn-prop">4+</button>
-          <button type="button" class="btn btn-prop">5+</button>
+          <button type="button" data-bedrooms="1" class="bedrooms btn btn-prop">1+</button>
+          <button type="button" data-bedrooms="2" class="bedrooms btn btn-prop">2+</button>
+          <button type="button" data-bedrooms="3" class="bedrooms btn btn-prop">3+</button>
+          <button type="button" data-bedrooms="4" class="bedrooms btn btn-prop">4+</button>
+          <button type="button" data-bedrooms="5" class="bedrooms btn btn-prop">5+</button>
 
         </li>
         <!-- FIn de cantidad de Dormitorios -->
@@ -165,29 +166,7 @@
 
     </nav>
     <script>
-      var slider_price_min = document.getElementById("slider-price-min");
-        var price_min = document.getElementById("price-min");
-        var slider_price_max = document.getElementById("slider-price-max");
-        var price_max = document.getElementById("price-max");
-        slider_price_max.oninput = function() {
-            price_max.innerHTML = this.value;
-        }
-        slider_price_min.oninput = function() {
-            price_min.innerHTML = this.value;
-        }
-
-
-
-        var slider_expenses_min = document.getElementById("slider-expenses-min");
-        var expenses_min = document.getElementById("expenses-min");
-        var slider_expenses_max = document.getElementById("slider-expenses-max");
-        var expenses_max = document.getElementById("expenses-max");
-        slider_expenses_max.oninput = function() {
-            expenses_max.innerHTML = this.value;
-        }
-        slider_expenses_min.oninput = function() {
-            expenses_min.innerHTML = this.value;
-        }
+     
     </script>
     <!-- Page Content -->
     <!-- end -->

@@ -39,16 +39,11 @@ a:focus {
     /* don't forget to add all the previously mentioned styles here too */
     background: transparent;
     transition: all 0.3s;
-    margin-top: 77px;
-    margin-left: 15px;
+    margin-top: 20px;
+    margin-left: 10px;
     border-radius: 5px;
     border: 2px solid var(--main-color);
     padding: 10px;
-    width: 320px;
-    /* position: fixed; */
-    top: 0;
-    left: 0;
-    height: 100vh;
     z-index: 999;
     background: transparent;
     color: #000;
@@ -61,7 +56,7 @@ a:focus {
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
+    padding-top: 20px;
 }
 
 #sidebar ul .formcheck {
@@ -108,19 +103,13 @@ ul ul a {
 }
 
 #sidebar {
-    min-width: 320px;
     max-width: 320px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    /* top layer */
     z-index: 9999;
     border-radius: 5px;
 }
 
 .btn-search {
-    margin-top: 10px;
+    margin-top: 20px;
     width: 100%;
     background-color: var(--main-color);
     color: #fff;
@@ -190,9 +179,18 @@ ul ul a {
 }
 
 .sidebar-subtitle {
-    font-size: 20px;
+    font-size: 20px !important;
     margin-bottom: 0;
+    padding-left: 0 !important;
     padding-bottom: 0 !important;
+}
+
+.radio-option {
+    width: 100%;
+}
+
+.radio-option input[type="radio"] {
+    background-color: var(--main-color);
 }
 
 .sidebar-indicator {
@@ -244,6 +242,12 @@ ul ul a {
     height: 20px;
     background: var(--main-color);
     cursor: pointer;
+}
+
+.bedrooms.active,
+.rooms.active {
+    background-color: var(--main-color);
+    color: #ffffff;
 }
 
 @media screen and (max-width: 991px) {

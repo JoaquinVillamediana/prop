@@ -96,3 +96,6 @@ Route::get('propieties_create', 'admin\PropietiesController@create')->name('prop
 Route::resource('loguser', 'frontend\LoguserController');
 Route::resource('reset', 'frontend\NewPasswordController');
 Route::resource('register', 'frontend\RegisterController');
+
+
+Route::get('getFilterProperties','frontend\SearchController@getFilterProperties')->name('getFilterProperties');
