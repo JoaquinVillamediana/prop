@@ -143,50 +143,16 @@
   });
   
   $('#location').on("input",() => {
-    $('.options').html('');
-    if($('#location').val() != '')
-    {
-      $('.options').show();
-      var matchs = localities.filter((element) =>{
-      let txt = $('#location').val();
-      txt = txt.toUpperCase();
-      if(element.nombre.includes(txt))
-      {
-        var options = $(".options *");
-        if(options.length < 8)
-        {
-          
-        $('.options').append('<a href="" onclick="selectLocation('+element.id+')" class="option">'+element.nombre+', '+element.municipio_nombre+', '+element.provincia_nombre+'</a>');
-        }
-      };
-    });
-    }
-    else{
-      $('.options').hide();
-    }
+    displayLocalities($('#location'));
     
   });
 
-
-  function selectLocation(id)
-  {
-    event.preventDefault();
-    let local = localities.find((element) => {
-      if(element.id == id)
-      {
-        return true;
-      }
-    });
-    
-    document.getElementById("location").value = local.nombre;
-    document.getElementById("locality").value = id;
-    $('.options').hide();
-  }
+ 
 </script>
 
 @endif
 <!-- endprops -->
 @include('frontend/layouts.footer')
-
+<script src="/js/functions.js"></script>
 
 @endsection

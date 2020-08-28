@@ -3,6 +3,10 @@
     padding-left: 0;
 }
 
+.col-images {
+    padding: 0;
+}
+
 #carouselExampleControls {
     width: 100%;
     max-height: 600px;
@@ -180,4 +184,17 @@
 .characteristcs-div {
     /* margin-left: 20px; */
     padding-top: 10px;
+}
+
+.name-responsive {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .name-responsive {
+        display: block;
+    }
+    .name-default {
+        display: none;
+    }
 }
