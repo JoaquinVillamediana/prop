@@ -24,7 +24,7 @@ h3{
 
   #container {
     
-    margin-left: 300px;
+    margin-left: 30%;
     
   }
 
@@ -45,11 +45,11 @@ h3{
     margin-top: 60px;
   } 
 
-  #container #building{
+   #container #building{
     
-    
+    margin-left: 30%;
     width: 500px;
     height: 40px;
-    margin-right: 550px;
+    /* margin-right: 550px; */
   }
   

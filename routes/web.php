@@ -53,7 +53,11 @@ Route::get('publish_publicationtype/{id}', 'frontend\PublishController@propietie
 
 
 Route::get('publish_personal_free/{id}', 'frontend\PublishController@publish_login1')->name('publish_personal_free');
+Route::post('store1', 'frontend\PublishController@store1')->name('store1');
 
+Route::get('publish_personal_free2', 'frontend\PublishController@publish_login2')->name('publish_personal_free2');
+Route::get('publish_personal_free3', 'frontend\PublishController@publish_login3')->name('publish_personal_free3');
+Route::get('publish_personal_free4', 'frontend\PublishController@publish_login4')->name('publish_personal_free4');
 
 // fin de pubnlicacion con lgoin
 

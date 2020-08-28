@@ -82,9 +82,6 @@
       <div class="carousel-item">
         <img src="images/index/slider3.jpg" class="d-block w-100" alt=" img 3 ">
       </div>
-<<<<<<< HEAD
-      
-=======
       <div class="overlay">
         <div class="container">
 
@@ -148,7 +145,6 @@
         </div>
 
       </div>
->>>>>>> 980f1119e84423f8b5a4b5b088be950e93c3ecd2
     </div>
 
 

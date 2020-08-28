@@ -9,6 +9,7 @@ use App\Models\PropietiesModel;
 use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
 use App\Models\PlansModel;
+use App\Models\LocalitiesModel;
 
 
 class PublishController extends Controller {
@@ -54,7 +55,29 @@ return view('frontend/publish.profesional',compact('aPlans'));
         $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
         ->get();
 
-        return view('frontend/publish/personal.publish1',compact('aPropietie_type'));
+        $aLocalities = LocalitiesModel::get();
+        return view('frontend/publish/personal.publish1',compact('aPropietie_type','aLocalities','aOperationType'));
+    }
+
+    public function store1(Request $request){
+
+        $aValidations = array(
+            
+            
+            'locality' => 'required|max:200',
+            
+            'building' => 'required|numeric'
+            
+           
+        );
+
+        $this->validate($request, $aValidations);
+            
+        PropietiesModel::create($request->all());         
+        $id = PropietiesModel::max('id');
+        return redirect()->route('publish_personal_free2' , $id);
+
+
     }
 
     public function publish_login2() {
