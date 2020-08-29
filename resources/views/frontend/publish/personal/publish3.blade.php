@@ -17,51 +17,72 @@
         <!-- empieza Seleccion de datos -->
             <div class="container mt-7">
         
-            <h3>Titulo(*)</h3>
             
-            <input type="text" class="form-control" aria-label="Text input with checkbox" >
+            <!-- Titulo de la publicacion -->
+                <h4>Titulo(*)</h4>            
+                <input type="text" class="form-control" aria-label="Text input with checkbox" style="width: 50%;">
+            <!-- Fin del titulo de la publicacion -->
+
+            <!-- Pequeña introducción para poner en el inicio (fijarse si es totalmente necesario) -->
             
-            <h3>Descripción(*)</h3>
-              
+            <h4  style="margin-top:10px;">Introducción(*)</h4>  
             <textarea id="desc" name="desc" rows="4" cols="50">Te recomendamos escribir un minímo de 100 caracteres.</textarea>
 
-            <div class="container">
-            <h3>Precio(*)</h3>
-            
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Moneda</button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Dolares</a>
-                  <a class="dropdown-item" href="#">Pesos</a>   
+            <!-- FIN DE LA Pequeña introducción para poner en el inicio (fijarse si es totalmente necesario) -->
+              
+              
+              <!-- DESCRIPCION DE LA PROPIEDAD  -->
+
+              <h4  style="margin-top:10px;">Descripción(*)</h4>
+              <textarea id="desc" name="desc" rows="4" cols="50">Te recomendamos escribir un minímo de 100 caracteres.</textarea>
+              
+              <!-- FIN DE LA DESCRIPCION -->
+
+            <!-- Precio -->
+
+            <div class="container mt-5">
+              <h3>Precio(*)</h3>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Moneda</button>
+                      <div class="dropdown-menu">
+                      @if(!empty($aCurrency))
+                        @foreach($aCurrency as $moneda)    
+                          <a class="dropdown-item" href="#">{{$moneda->name}}</a>
+                          @endforeach   
+                      @endif
+                      </div>
+                      <input type="number" class="form-control" aria-label="Text input with dropdown button">
+                  </div>
                 </div>
-              <input type="number" class="form-control" aria-label="Text input with dropdown button">
-              </div>
             </div>
-            </div>
-            
+
+            <!--FIN DE PRECIO EN SI  -->
             <div class="container">
                <p>Agregar Expensas </p>
-                <div class="input-group">
+                <div class="input-group" style="width: 50%;">
                     <div class="input-group-prepend">
                         <span class="input-group-text">$</span>                  
                     </div>
-                    <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                    <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" >
                 </div>
             </div>
 
-            <div class="container">
+        <!-- fin de sector de precios con la opcion de expensas -->
+
+          <!--  Opciones de compra -->
+            <div class="container" style="margin-top:10px;">
               <p> Apto crédito</p> <input type="checkbox">
               <p> Apto Financiación</p> <input type="checkbox">
             </div>
-
+          <!-- FIN DE Opciones de compra -->
 
             <!-- CANTIDAD DE CADA COSA -->
             <div class="container">
             <h3>Espacios</h3>
           
             <!-- CANTIDAD DE AMBIENTES -->
-            <div class="input-group">
+            <div class="input-group" style="width: 50%;" >
               <div class="input-group-prepend">
                 <span class="input-group-text">Ambientes</span>
               </div>
@@ -71,7 +92,7 @@
             <!-- FIN DE AMBIENTES -->
 
                         <!-- CANTIDAD DE DORMITORIOS -->
-                        <div class="input-group">
+                        <div class="input-group" style="width: 50%;">
               <div class="input-group-prepend">
                 <span class="input-group-text">Dormitorios</span>
               </div>
@@ -81,7 +102,7 @@
             <!-- FIN DE dormitorios -->
 
                         <!-- CANTIDAD DE baños -->
-                        <div class="input-group">
+                        <div class="input-group"style="width: 50%;">
               <div class="input-group-prepend">
                 <span class="input-group-text">Baños</span>
               </div>
@@ -91,7 +112,7 @@
             <!-- FIN DE baños -->
 
                         <!-- CANTIDAD DE Cocheras -->
-                        <div class="input-group">
+                        <div class="input-group" style="width: 50%;">
               <div class="input-group-prepend">
                 <span class="input-group-text">Cocheras</span>
               </div>
@@ -101,7 +122,7 @@
             <!-- FIN DE Cocheras -->
 
                         <!-- CANTIDAD DE Toilettes -->
-                        <div class="input-group">
+                        <div class="input-group" style="width: 50%;">
               <div class="input-group-prepend">
                 <span class="input-group-text">Toilettes</span>
               </div>
@@ -118,7 +139,7 @@
             <!-- Antiguedad -->
 
 
-            <div class="container">
+            <div class="container mt-5">
             <h3>Antiguedad (*)</h3>
             <p> A estrenar</p> <input type="checkbox">
             <p> Años</p> <input type="checkbox"> <!-- Agregar cantidad de años --> 
@@ -128,7 +149,7 @@
             <!-- fin de antiguedad -->
 
             <!-- Superficie -->
-            <div class="container">
+            <div class="container mt-5">
             <h3>¿Cuál es la superficie? (*)</h3>
             <div class="row">
               <div class="col">
@@ -142,7 +163,7 @@
             <!-- fin de la superficie -->
               
             </div>
-            <button type="button" class="btn btn-primary">Continuar</button>
+            <button type="button" class="btn btn-primary mt-5 mb-5">Continuar</button>
           </div> 
 
 

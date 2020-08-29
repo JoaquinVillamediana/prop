@@ -72,8 +72,8 @@
             </div>
         </div>
         <div class="col-lg-4 order-lg-1 text-center">
-            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
-           
+            <img src="images/profile_pictures_users/{{$data_user->profile_image}}" class="mx-auto img-fluid img-circle d-block" alt="Profile_imagen">
+            
         </div>
     </div>
 

@@ -10,7 +10,7 @@
            <!-- <div class="container"> -->
           <div class="container" id="container"> 
       
-            <h2>Ahora a ponerlo lindo!</h2> 
+            <h2 style="margin-top: 5x;">Ahora a ponerlo lindo!</h2> 
             <p>Las propiedades con imagenes se venden más rápido</p> 
          
           
@@ -31,7 +31,7 @@
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                           
                             <div class="col-lg-4 order-lg-1 text-center">
-                                <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+                                <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar" style="margin-top:15px;">
                                 <h6 class="mt-2">Agregar una foto</h6>
                                 <label class="custom-file">
                                 <input type="file" id="file" class="custom-file-input">
@@ -41,7 +41,7 @@
                         </div>
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                           <div class="col-lg-4 order-lg-1 text-center">
-                              <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+                              <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar" style="margin-top:15px;">
                               <h6 class="mt-2">Agregar una video</h6>
                               <label class="custom-file">
                               <input type="file" id="file" class="custom-file-input">
@@ -51,7 +51,7 @@
                         </div>
                         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                           <div class="col-lg-4 order-lg-1 text-center">
-                              <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+                              <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar" style="margin-top:15px;">
                               <h6 class="mt-2">Agregar una Plano</h6>
                               <label class="custom-file">
                               <input type="file" id="file" class="custom-file-input">
@@ -62,7 +62,8 @@
                     
                       </div>
                       <!-- imagenes -->
-                      <button type="button" class="btn btn-link">Cargar archivos y seguir</button>
+                      </br></br>
+                      <button type="button" class="btn btn-link mt-7">Cargar archivos y seguir</button>
 
               </div>
           </div> 

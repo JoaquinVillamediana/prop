@@ -207,6 +207,7 @@
           <div class="card w-70">
             <div class="card-body">
               <h5 class="card-title">{{ $prop->user_name }}</h5>
+              <img src="images/profile_pictures_users/{{ $prop->profile_image }}" class="mx-auto img-fluid img-circle d-block" alt="avatar">
               <p class="card-text">@if($prop->user_type == 2) <i class="fas fa-user"></i> {{"dueño directo"}} | <i
                   class="fas fa-phone"></i> {{ $prop->user_phone }} @else <i class="fas fa-user-tie"></i>
                 {{"Profesional"}} | <i class="fas fa-phone"></i> @if(!empty($data_user->phone))

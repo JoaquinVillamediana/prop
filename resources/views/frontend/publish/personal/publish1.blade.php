@@ -35,7 +35,7 @@
                   <!--  Dropdown tipo de propiedad-->
                   @if(!empty($aPropietie_type))
                       <p>Qué tipo de propiedad querés publicar?</p>
-                      <select name="building" id="building"  class="rounded" >
+                      <select name="building" id="building"  class="rounded" style="margin-left: 8xp; margin-right: 10xp;">
                         @foreach($aPropietie_type as $optype)
                           <option value="{{$optype->id}}">{{$optype->name}}</option>
                         @endforeach
@@ -50,7 +50,7 @@
                       </br>
                           <p>Ubicación(*)</p> 
                     
-                          <input placeholder="Ubicacion:" type="text" name="text" id="location" autocomplete="off">
+                          <input placeholder="Ubicacion:" type="text" name="text" id="location" autocomplete="off" style="width:50%;">
                           <input type="hidden" name="locality" value="" id="locality">
                           <div class="options">
                           
@@ -60,7 +60,7 @@
                       </br>                  
                       </br>
                       <p>Ingresar dirección</p>
-                      <input type="text" placeholder="Dirección">
+                      <input type="text" placeholder="Dirección" style="width:50%;">
 
                       <!--Fin de localidades  -->
 </br>
