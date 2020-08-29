@@ -2,7 +2,7 @@
 @include('frontend/layouts.header')
 @section('content')
     <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="css/frontend/publish1.css"> 
+      <!-- <link rel="stylesheet" href="css/frontend/publish1.css">  -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">  -->
 
     
@@ -60,16 +60,17 @@
                       </br>                  
                       </br>
                       <p>Ingresar dirección</p>
-                      <input type="text" placeholder="Dirección" style="width:50%;">
+                      <input type="text" id="direction" name="direction"placeholder="Dirección" style="width:50%;">
 
                       <!--Fin de localidades  -->
-</br>
+                      </br>
 
 
-<button class="btn btn-primary mt-5" type="submit">Guardar y continuar</button>
-</form>
-<!--  -->
-
+                      <button class="btn btn-primary mt-5" type="submit">Guardar y continuar</button>
+                 
+                      </form>
+                      <!--  -->
+                      <a class="btn btn-primary" href="{{ route('publish_personal_free2') }}" role="button">Continuar sin guardar</a>
 
 
 

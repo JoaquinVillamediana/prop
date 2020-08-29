@@ -61,19 +61,29 @@ return view('frontend/publish.profesional',compact('aPlans'));
 
     public function store1(Request $request){
 
+        $user= Auth::user()->id;
+
         $aValidations = array(
             
-            
+           
+            'direction' => 'required|max:200',
             'locality' => 'required|max:200',
-            
+            'operation' => 'required|numeric',
             'building' => 'required|numeric'
             
-           
+            
         );
 
         $this->validate($request, $aValidations);
-            
-        PropietiesModel::create($request->all());         
+         
+        $direction =  $request['direction'];
+        $operation_type_id =  $request['operation'];
+        $propietie_type_id =  $request['building'];
+        $location_id =  $request['locality'];
+
+        $data=array('operation_type_id' => $operation_type_id,'building' => $propietie_type_id,'location_id' => $location_id,'user_id' => $user,'direction' => $direction);
+        PropietiesModel::insert($data);
+        
         $id = PropietiesModel::max('id');
         return redirect()->route('publish_personal_free2' , $id);
 

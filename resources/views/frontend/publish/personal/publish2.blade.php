@@ -64,6 +64,7 @@
                       <!-- imagenes -->
                       </br></br>
                       <button type="button" class="btn btn-link mt-7">Cargar archivos y seguir</button>
+                      <a class="btn btn-primary" href="{{ route('publish_personal_free3') }}" role="button">Continuar sin guardar</a>
 
               </div>
           </div> 
