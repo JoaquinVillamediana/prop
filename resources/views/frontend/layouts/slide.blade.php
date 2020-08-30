@@ -1,173 +1,176 @@
 <div class="wrapper">
-    <!-- Sidebar -->
-    <nav id="sidebar">
+  <!-- Sidebar -->
+  <nav id="sidebar">
 
 
-      <ul class="list-unstyled components">
-        <!-- inicio de filtros activos -->
-        <li>
-          <h3> Seleccion actual </h3>
+    <ul class="list-unstyled components">
+      <!-- inicio de filtros activos -->
+      <li>
+        <h3> Seleccion actual </h3>
+        <div class="selected-tags">
           @if(!empty($aPropietie_type_name))
-          <span class="badge badge-light">Departamento</span>
+          <span class="badge badge-light selected-tag ">Departamento</span>
           @endif
           @if(!empty($aOperationType_name))
-          <span class="badge badge-light">venta</span>
+          <span class="badge badge-light selected-tag">venta</span>
           @endif
-          <span class="badge badge-light">Capital Federal</span>
-          <span class="badge badge-light">2 dormitorios</span>
-          <span class="badge badge-light">Alquiler</span>
-        </li>
-
-        <!--  fin de filtros activos -->
-
-        <!-- inicio  Agregar Ubicacion  -->
-        <li>
-          <div class="input-group mb-3 mt-4 search-location">
-              <input placeholder="Ubicacion:" type="text" name="text" id="location" autocomplete="off">
-                <input type="hidden" name="locality" value="" id="locality">
-                <div class="options">
-
-                </div>
-          </div>
-        </li>
-        <!-- Fin de ubicación  -->
-
-        <!-- Inicio de TIPO DE OPERACION -->
-        <li class="active">
-          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar-subtitle">Tipo de
-            operacion </a>
-          <ul class="collapse list-unstyled" id="homeSubmenu">
-
-            <div class="form-check">
-
-              @if(!empty($aOperationType))
-
-
-              @foreach($aOperationType as $optype)
-
-              <!--  -->
-              <div class="radio-option">
-              <input class="form-check-input" type="radio" name="optype" id="optype{{$optype->id}} "checked
-                value="{{$optype->id}}">
-              <label class="form-check-label" for="optype{{$optype->id}}">
-                {{$optype->name}}
-              </label>
-            </div>
-              <!--  -->
-
-
-              @endforeach
-
-
-
-              @endif
-
-
-            </div>
-          </ul>
-
-        </li>
-        <!-- Fin de tipo de operacion  -->
-        <!-- Inicio de tipo de propiedad -->
-        <li class="active">
-          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar-subtitle">Tipo de
-            propiedad </a>
-          <ul class="collapse list-unstyled" id="pageSubmenu">
-            <div class="form-check">
-
-
-              @if(!empty($aPropietie_type))
-
-
-              @foreach($aPropietie_type as $prop_type)
-
-              <!--  -->
-              <div class="radio-option">
-              <input class="form-check-input" type="radio" name="prop_type"
-                id="prop_type{{$prop_type->id}}" value="{{$prop_type->id}}" checked>
-              <label class="form-check-label" for="prop_type{{$prop_type->id}}">
-                {{$prop_type->name}}
-              </label>
-            </div>
-
-              <!--  -->
-
-
-              @endforeach
-
-
-
-              @endif
-
-
-            </div>
-
-          </ul>
-        </li>
-        <!-- FIn de tipo de propiedad -->
-        <!-- Inicio de cantidad de ambientes -->
-        <p class="sidebar-subtitle"> Ambientes </p>
-        <li>
-          <button type="button" id="cantidad_ambientes_1" data-rooms="1" class="rooms btn btn-prop">1+</button>
-          <button type="button" id="cantidad_ambientes_2" data-rooms="2" class="rooms btn btn-prop">2+</button>
-          <button type="button" id="cantidad_ambientes_3" data-rooms="3" class="rooms btn btn-prop">3+</button>
-          <button type="button" id="cantidad_ambientes_4" data-rooms="4" class="rooms btn btn-prop">4+</button>
-          <button type="button" id="cantidad_ambientes_5" data-rooms="5" class="rooms btn btn-prop">5+</button>
-        </li>
+          <span class="badge badge-light selected-tag">Capital Federal</span>
+          <span class="badge badge-light selected-tag">2 dormitorios</span>
+          <span class="badge badge-light selected-tag">Alquiler</span>
+        </div>
         
+      </li>
 
-        <!-- FIn de cantidad de ambientes -->
-        <!-- Inicio de cantidad de dormitorios -->
+      <!--  fin de filtros activos -->
 
-        <p class="sidebar-subtitle"> Dormitorios </p>
-        <li>
+      <!-- inicio  Agregar Ubicacion  -->
+      <li>
+        <div class="input-group mb-3 mt-4 search-location">
+            <input placeholder="Ubicacion:" type="text" name="text" id="location" autocomplete="off">
+              <input type="hidden" name="locality" value="" id="locality">
+              <div class="options">
 
-          <button type="button" data-bedrooms="1" class="bedrooms btn btn-prop">1+</button>
-          <button type="button" data-bedrooms="2" class="bedrooms btn btn-prop">2+</button>
-          <button type="button" data-bedrooms="3" class="bedrooms btn btn-prop">3+</button>
-          <button type="button" data-bedrooms="4" class="bedrooms btn btn-prop">4+</button>
-          <button type="button" data-bedrooms="5" class="bedrooms btn btn-prop">5+</button>
+              </div>
+        </div>
+      </li>
+      <!-- Fin de ubicación  -->
 
-        </li>
-        <!-- FIn de cantidad de Dormitorios -->
-        <!-- Inicio de precios -->
+      <!-- Inicio de TIPO DE OPERACION -->
+      <li class="active">
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar-subtitle">Tipo de
+          operacion </a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
 
-        <li class="active">
-          <p class="sidebar-subtitle">Precio</p>
-          <p class="sidebar-indicator">Desde: $<span id="price-min">0</span></p>
+          <div class="form-check">
+
+            @if(!empty($aOperationType))
+
+
+            @foreach($aOperationType as $optype)
+
+            <!--  -->
+            <div class="radio-option">
+            <input class="form-check-input" type="radio" name="optype" id="optype{{$optype->id}} "checked
+              value="{{$optype->id}}">
+            <label class="form-check-label" for="optype{{$optype->id}}">
+              {{$optype->name}}
+            </label>
+          </div>
+            <!--  -->
+
+
+            @endforeach
+
+
+
+            @endif
+
+
+          </div>
+        </ul>
+
+      </li>
+      <!-- Fin de tipo de operacion  -->
+      <!-- Inicio de tipo de propiedad -->
+      <li class="active">
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle sidebar-subtitle">Tipo de
+          propiedad </a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <div class="form-check">
+
+
+            @if(!empty($aPropietie_type))
+
+
+            @foreach($aPropietie_type as $prop_type)
+
+            <!--  -->
+            <div class="radio-option">
+            <input class="form-check-input" type="radio" name="prop_type"
+              id="prop_type{{$prop_type->id}}" value="{{$prop_type->id}}" checked>
+            <label class="form-check-label" for="prop_type{{$prop_type->id}}">
+              {{$prop_type->name}}
+            </label>
+          </div>
+
+            <!--  -->
+
+
+            @endforeach
+
+
+
+            @endif
+
+
+          </div>
+
+        </ul>
+      </li>
+      <!-- FIn de tipo de propiedad -->
+      <!-- Inicio de cantidad de ambientes -->
+      <p class="sidebar-subtitle"> Ambientes </p>
+      <li>
+        <button type="button" id="cantidad_ambientes_1" data-rooms="1" class="rooms btn btn-prop">1+</button>
+        <button type="button" id="cantidad_ambientes_2" data-rooms="2" class="rooms btn btn-prop">2+</button>
+        <button type="button" id="cantidad_ambientes_3" data-rooms="3" class="rooms btn btn-prop">3+</button>
+        <button type="button" id="cantidad_ambientes_4" data-rooms="4" class="rooms btn btn-prop">4+</button>
+        <button type="button" id="cantidad_ambientes_5" data-rooms="5" class="rooms btn btn-prop">5+</button>
+      </li>
+      
+
+      <!-- FIn de cantidad de ambientes -->
+      <!-- Inicio de cantidad de dormitorios -->
+
+      <p class="sidebar-subtitle"> Dormitorios </p>
+      <li>
+
+        <button type="button" data-bedrooms="1" class="bedrooms btn btn-prop">1+</button>
+        <button type="button" data-bedrooms="2" class="bedrooms btn btn-prop">2+</button>
+        <button type="button" data-bedrooms="3" class="bedrooms btn btn-prop">3+</button>
+        <button type="button" data-bedrooms="4" class="bedrooms btn btn-prop">4+</button>
+        <button type="button" data-bedrooms="5" class="bedrooms btn btn-prop">5+</button>
+
+      </li>
+      <!-- FIn de cantidad de Dormitorios -->
+      <!-- Inicio de precios -->
+
+      <li class="active">
+        <p class="sidebar-subtitle">Precio</p>
+        <p class="sidebar-indicator">Desde: $<span id="price-min">0</span></p>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="10000000" value="0" class="slider" id="slider-price-min">
+        </div>
+        <p class="sidebar-indicator">Hasta: $<span id="price-max">10000000</span></p>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-price-max">
+        </div>
+      </li>
+      <!--  -->
+      <li class="active">
+          <p class="sidebar-subtitle">Expensas</p>
+          <p class="sidebar-indicator">Desde: $<span id="expenses-min">0</span></p>
           <div class="slidecontainer">
-            <input type="range" min="0" max="10000000" value="0" class="slider" id="slider-price-min">
+            <input type="range" min="0" max="10000000" value="0" class="slider" id="slider-expenses-min">
           </div>
-          <p class="sidebar-indicator">Hasta: $<span id="price-max">10000000</span></p>
+          <p class="sidebar-indicator">Hasta: $<span id="expenses-max">10000000</span></p>
           <div class="slidecontainer">
-            <input type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-price-max">
+            <input type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-expenses-max">
           </div>
         </li>
-        <!--  -->
-        <li class="active">
-            <p class="sidebar-subtitle">Expensas</p>
-            <p class="sidebar-indicator">Desde: $<span id="expenses-min">0</span></p>
-            <div class="slidecontainer">
-              <input type="range" min="0" max="10000000" value="0" class="slider" id="slider-expenses-min">
-            </div>
-            <p class="sidebar-indicator">Hasta: $<span id="expenses-max">10000000</span></p>
-            <div class="slidecontainer">
-              <input type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-expenses-max">
-            </div>
-          </li>
 
-          <div class="search-button">
-              <button class="btn btn-search">Buscar</button>
-          </div>
-        <!--  -->
+        <div class="search-button">
+            <button class="btn btn-search">Buscar</button>
+        </div>
+      <!--  -->
 
 
-      </ul>
+    </ul>
 
-    </nav>
-    <script>
-     
-    </script>
-    <!-- Page Content -->
-    <!-- end -->
-  </div>
+  </nav>
+  <script>
+   
+  </script>
+  <!-- Page Content -->
+  <!-- end -->
+</div>

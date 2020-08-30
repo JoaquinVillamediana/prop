@@ -168,6 +168,10 @@ class SearchController extends Controller
         {
             $query = $query.' and location_id = "'.$request['locality'].'"';
         }
+        if($request['order'] == 'ASC' || $request['order'] == 'DESC')
+        {
+            $query = $query.' ORDER BY price '.$request['order'].'';
+        }
         $aPropieties = DB::select($query);
 
         return json_encode($aPropieties);
