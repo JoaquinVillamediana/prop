@@ -7,16 +7,15 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Usuarios</a>
+                <a href="#">Tipos de monedas</a>
             </li>
-            <li class="breadcrumb-item active">Lista de Usuarios</li>       
+            <li class="breadcrumb-item active">Lista de tipos de monedas</li>       
         </ol>
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> Usuarios
-                <a class="btn btn-outline-primary ml-4" href="{{ route('propieties_type') }}" role="button">Crear</a>
-      
+                <i class="fa fa-table"></i> Tipos de operaciones
+                <a class="btn btn-outline-primary ml-4" href="{{ route('operation_type_create') }}" role="button">Crear</a>
             </div>         
             <div class="card-body">
                 <div class="table-responsive">
@@ -26,9 +25,6 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre</th>                                
-                                <th>Email</th>
-                                <th>Teléfono</th>
-                                <th>Tipo</th>
                                 <th>Creado</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
@@ -36,23 +32,21 @@
                         </thead>
                         
                         <tbody>
-                            @if(!empty($aUsers))
-                            @foreach($aUsers as $user)
+                            @if(!empty($aMonedas))
+                            @foreach($aMonedas as $op_type)
                             <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>Nombre</td>
-                                <td>Email</td>
-                                <td>Telefono</td>
+                                <td>{{ $op_type->id }}</td>
+                                <td>{{ $op_type->name }}</td>
+                              
                                        
-                                    <td>Usuario</td>
                                 
-                                <td>{{ $user->created_at }}</td>
+                                <td>{{ $op_type->created_at }}</td>
                                 <td><a class="btn btn-primary btn-circle" href=""><i class="fa fa-list"></i></a></td>
                                 <td>
-                                    <form id="deleteForm_{{$user->id}}" action="" method="post">
+                                    <form id="deleteForm_{{$op_type->id}}" action="" method="post">
                                         {{csrf_field()}}
                                         <input name="_method" type="hidden" value="DELETE">
-                                        <button type="button" id="submiBtn" class="btn btn-warning btn-circle my-custom-confirmation" data-toggle="modal" onclick="openDelModal({{$user->id}});"><i class="fa fa-times"></i></button>
+                                        <button type="button" id="submiBtn" class="btn btn-warning btn-circle my-custom-confirmation" data-toggle="modal" onclick="openDelModal({{$op_type->id}});"><i class="fa fa-times"></i></button>
                                     </form>                
                                 </td>
                             </tr>   

@@ -160,6 +160,28 @@
                     <a href="{{ route('propieties') }}"><i class="fas fa-building"></i> Propiedades</a>
                 </div>
                 <div class="container">
+                    <a href="{{ route('ambientes') }}"><i class="fas fa-building"></i> Ambientes</a>
+                </div>
+                <div class="container">
+                    <a href="{{ route('caracteristicas_gen') }}"><i class="fas fa-building"></i> Características generales</a>
+                </div>
+                <div class="container">
+                    <a href="{{ route('moneda') }}"><i class="fas fa-building"></i> Moneda</a>
+                </div>
+                
+                <div class="container">
+                    <a href="{{ route('servicios') }}"><i class="fas fa-building"></i> Servicios</a>
+                </div>
+                
+                <div class="container">
+                    <a href="{{ route('favoritos') }}"><i class="fas fa-building"></i> Favoritos</a>
+                </div>
+
+                <div class="container">
+                    <a href="{{ route('localidades') }}"><i class="fas fa-building"></i> Localidades</a>
+                </div>
+
+                <div class="container">
                     <a href="{{ route('plans') }}"><i class="fas fa-money-check-alt"></i> Planes</a>
                 </div>
 

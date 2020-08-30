@@ -94,7 +94,12 @@ Route::get('register_users', 'frontend\RuserController@index')->name('register_u
 Route::get('users', 'admin\UserController@index')->name('users');
 Route::get('propieties', 'admin\PropietiesController@index')->name('propieties');
 Route::get('plans', 'admin\PlansController@index')->name('plans');
-
+Route::get('ambientes', 'admin\AmbientesController@index')->name('ambientes');
+Route::get('caracteristicas_gen', 'admin\CargenController@index')->name('caracteristicas_gen');
+Route::get('moneda', 'admin\MonedaController@index')->name('moneda');
+Route::get('servicios', 'admin\ServiciosController@index')->name('servicios');
+Route::get('localidades', 'admin\LocalidadesController@index')->name('localidades');
+Route::get('favoritos', 'admin\FavoritosController@index')->name('favoritos');
 
 Route::get('operation_type', 'admin\Operation_typeController@index')->name('operation_type');
 Route::get('operation_type_create', 'admin\Operation_typeController@create')->name('operation_type_create');

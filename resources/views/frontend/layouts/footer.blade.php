@@ -32,7 +32,7 @@
           </div>
           <div class="col-12 col-lg">
              
-          <a href="https://wbosoftware.com/"> Conocé más sobre W.B.O. Software </a>
+          <a href="https://wbosoftware.com/" style="text-decoration: none;"> Conocé más sobre W.B.O. Software </a>
           </div>
           <div class="col-12 col-lg">
           <a class="media-link" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
@@ -46,7 +46,7 @@
           </div>
       </div>
          </br>
-      <a href="{{ route('tycdu') }}">Términos y Condiciones de Uso - </a><a href="{{ route('tycdc') }}">Términos y Condiciones de Contratación - </a><a href="{{ route('pdp') }}">Política de privacidad - </a><a href="{{ route('pdgdc') }}">Política de Gestión de Calidad</a>
+      <a href="{{ route('tycdu') }}" >Términos y Condiciones de Uso - </a><a href="{{ route('tycdc') }}">Términos y Condiciones de Contratación - </a><a href="{{ route('pdp') }}">Política de privacidad - </a><a href="{{ route('pdgdc') }}">Política de Gestión de Calidad</a>
   </div>
 </footer>
 
