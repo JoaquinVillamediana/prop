@@ -8,15 +8,7 @@
       <li>
         <h3> Seleccion actual </h3>
         <div class="selected-tags">
-          @if(!empty($aPropietie_type_name))
-          <span class="badge badge-light selected-tag ">Departamento</span>
-          @endif
-          @if(!empty($aOperationType_name))
-          <span class="badge badge-light selected-tag">venta</span>
-          @endif
-          <span class="badge badge-light selected-tag">Capital Federal</span>
-          <span class="badge badge-light selected-tag">2 dormitorios</span>
-          <span class="badge badge-light selected-tag">Alquiler</span>
+
         </div>
         
       </li>
@@ -50,7 +42,7 @@
 
             <!--  -->
             <div class="radio-option">
-            <input class="form-check-input" type="radio" name="optype" id="optype{{$optype->id}} "checked
+            <input class="form-check-input" type="radio" name="optype" id="optype{{$optype->id}}"checked
               value="{{$optype->id}}">
             <label class="form-check-label" for="optype{{$optype->id}}">
               {{$optype->name}}
@@ -139,11 +131,11 @@
         <p class="sidebar-subtitle">Precio</p>
         <p class="sidebar-indicator">Desde: $<span id="price-min">0</span></p>
         <div class="slidecontainer">
-          <input type="range" min="0" max="10000000" value="0" class="slider" id="slider-price-min">
+          <input step="1000" type="range" min="0" max="10000000" value="0" class="slider" id="slider-price-min">
         </div>
-        <p class="sidebar-indicator">Hasta: $<span id="price-max">10000000</span></p>
+        <p class="sidebar-indicator">Hasta: $<span id="price-max">{{ number_format(10000000, 0, ',', '.')  }}</span></p>
         <div class="slidecontainer">
-          <input type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-price-max">
+          <input step="1000" type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-price-max">
         </div>
       </li>
       <!--  -->
@@ -151,11 +143,11 @@
           <p class="sidebar-subtitle">Expensas</p>
           <p class="sidebar-indicator">Desde: $<span id="expenses-min">0</span></p>
           <div class="slidecontainer">
-            <input type="range" min="0" max="10000000" value="0" class="slider" id="slider-expenses-min">
+            <input step="1000" type="range" min="0" max="10000000" value="0" class="slider" id="slider-expenses-min">
           </div>
-          <p class="sidebar-indicator">Hasta: $<span id="expenses-max">10000000</span></p>
+          <p class="sidebar-indicator">Hasta: $<span id="expenses-max">{{number_format(10000000, 0, ',', '.')  }}</span></p>
           <div class="slidecontainer">
-            <input type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-expenses-max">
+            <input step="1000" type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-expenses-max">
           </div>
         </li>
 

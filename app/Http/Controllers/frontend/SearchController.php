@@ -16,66 +16,21 @@ class SearchController extends Controller
 
     public function index(Request $request)
     {
+        $default_locality = $request['locality'];
 
+        $default_type  =  $request['type'];
+        $default_property =  $request['building'];
 
-        $ubicacion =  $request['text'];
-
-        $locality = $request['locality'];
-
-        $operationtype =  $request['type'];
-        $propietie_type =  $request['building'];
-
-
-
-
-        $aPropietie_type_name = DB::select('SELECT name
-        FROM propietie_type
-        where id = "' . $propietie_type . '" '
-        );
-
-        $aOperationType_name = DB::select('SELECT name
-        FROM operation_type
-        where id = "' . $operationtype . '"
-        ');
-
-        $aPropieties = DB::select('SELECT *
-        FROM propieties
-        where deleted_at is null
-        and visible = 1
-        and location_id = "' . $locality . '"
-        and operation_type_id = "' . $operationtype . '"
-        and propietie_type_id = "' . $propietie_type . '"
-        ');
-        // $aUsers = User::get();
-        // $aPropieties = PropietiesModel::get();
         $aPropietie_type = Propietie_typeModel::where('propietie_type.visible', '=', '1')
             ->get();
 
         $aOperationType = Operation_typeModel::where('operation_type.visible', '=', '1')
             ->get();
 
+        $aLocalities = LocalitiesModel::get();
 
 
-            $aLocalities = LocalitiesModel::get();
-
-        if (isset($request['cantidad_ambientes_1'])) {
-            $ambientes =  $request['cantidad_ambientes_1'];
-
-            $aPropieties = DB::select('SELECT *
-            FROM propieties
-            where deleted_at is null
-            and visible = 1
-            and rooms = "' . $ambientes . '"
-             ');
-
-            return view('frontend/search.index', compact('aLocalities','aPropieties', 'aOperationType', 'aPropietie_type', 'ubicacion', 'aOperationType_name', 'aPropietie_type_name'));
-        }
-
-
-
-
-
-        return view('frontend/search.index', compact('aLocalities','aPropieties', 'aOperationType', 'aPropietie_type', 'ubicacion', 'aOperationType_name', 'aPropietie_type_name'));
+        return view('frontend/search.index', compact('aLocalities', 'aOperationType', 'aPropietie_type', 'default_type','default_property','default_locality'));
     }
 
 
@@ -98,49 +53,32 @@ class SearchController extends Controller
         public function index_compra(){
       
             $ubicacion="TODAS LAS PROPIEDADES DIPONIBLES PARA COMPRAR";
+            $default_type = 1;
+            $aLocalities = LocalitiesModel::get();
 
-        $aPropieties=DB::select('SELECT *
-        FROM propieties
-        where deleted_at is null
-        and visible = 1
-        and operation_type_id = 1
-         ');
+            $aPropietie_type = Propietie_typeModel::where('propietie_type.visible', '=', '1')
+            ->get();
 
-         return view('frontend/search.index',compact('aPropieties','ubicacion'));
+             $aOperationType = Operation_typeModel::where('operation_type.visible', '=', '1')
+            ->get();
+
+            return view('frontend/search.index',compact('default_type','aLocalities','aOperationType', 'aPropietie_type'));
         }
 
         public function index_alquiler(){
       
-            $ubicacion="TODAS LAS PROPIEDADES DIPONIBLES PARA ALQUILAR";
+            $ubicacion="TODAS LAS PROPIEDADES DIPONIBLES PARA COMPRAR";
+            $default_type = 2;
+            $aLocalities = LocalitiesModel::get();
 
-            $aPropieties=DB::select('SELECT *
-            FROM propieties
-            where deleted_at is null
-            and visible = 1
-            and operation_type_id = 2
-             ');
-    
-             return view('frontend/search.index',compact('aPropieties','ubicacion'));
+            $aPropietie_type = Propietie_typeModel::where('propietie_type.visible', '=', '1')
+            ->get();
+
+             $aOperationType = Operation_typeModel::where('operation_type.visible', '=', '1')
+            ->get();
+
+            return view('frontend/search.index',compact('default_type','aLocalities','aOperationType', 'aPropietie_type'));
             }
-
-
-           
-            
-    public function index_personalizado(Request $request)
-    {
-
-
-        $ambientes =  $request['cantidad_ambientes_1'];
-
-        $aPropieties = DB::select('SELECT *
-        FROM propieties
-        where deleted_at is null
-        and visible = 1
-        and rooms = "' . $ambientes . '"
-         ');
-
-        return view('frontend/search.index', compact('aPropieties'));
-    }
 
 
     public function getFilterProperties(Request $request)

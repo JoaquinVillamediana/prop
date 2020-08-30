@@ -18,7 +18,7 @@
       <div class="col-md-7 col-12">
         <div class="name-responsive">
           <h5 class="product-title">{{ $prop->name }}</h5>
-          <p class="product-price" style="color:#000;">{{ $prop->currency_name }} {{ $prop->price }} </p>
+          <p class="product-price" style="color:#000;">{{ $prop->currency_name }} {{ number_format($prop->price, 0, ',', '.')  }} </p>
         </div>
         <!-- carrousel -->
         <div class="col-12 mt-2 mb-4 div-main-image col-images">
@@ -151,7 +151,7 @@
         <div class="row">
           <div class="container name-default">
             <h5 class="product-title">{{ $prop->name }}</h5>
-            <p class="product-price" style="color:#000;">U$D {{ $prop->price }} </p>
+            <p class="product-price" style="color:#000;">U$D {{ number_format($prop->price, 0, ',', '.')  }} </p>
           </div>
         </div>
         <p>{{ $prop->description }}</p>
