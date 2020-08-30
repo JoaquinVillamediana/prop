@@ -68,7 +68,7 @@ $(document).on('click', '.bedrooms', function() {
     } else {
         aButtons.removeClass('active');
         $(this).addClass('active')
-        oSearch.bedrooms = undefined;
+        oSearch.bedrooms = quantity;
     }
 
 });
@@ -96,13 +96,64 @@ $(document).on('click', '.btn-search', function() {
 });
 
 function updateProps(data) {
-    $('#prop-container').empty();
+    $('#props').empty();
+    setSelectedTags();
     if (data.length > 0) {
         data.forEach(element => {
-            $('#prop-container').append('<div class="card" id="card-prop"><div class="row "><div class="col-md-4"><img src="images/index/home1.jpg" class="w-100"></div><div class="col-md-8"><a href=""><div class="card-block "><h3 class="card-title mt-2"> ' + element.name + ' </h3><p class="card-text"> ' + element.description + ' </p><div class="row row-caracs"><h3> USD' + element.price + '</h3><span id="rooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="3 Ambientes">' + element.rooms + '<i class="fas fa-home"></i></span><span id="bathrooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="1 Baño">1<i class="fas fa-toilet"></i></span><span id="bedrooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="1 Dormitorio">2<i class="fas fa-bed"></i></span><a href="" id="btncontacto"class="btn btn-danger ml-auto mr-4 mb-4">Contactar</a></div></div></a></div></div></div>');
+            $('#props').append('<div class="card" id="card-prop"><div class="row "><div class="col-md-4"><img src="images/index/home1.jpg" class="w-100"></div><div class="col-md-8"><a href=""><div class="card-block "><h3 class="card-title mt-2"> ' + element.name + ' </h3><p class="card-text"> ' + element.description + ' </p><div class="row row-caracs"><h3> USD' + element.price + '</h3><span id="rooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="3 Ambientes">' + element.rooms + '<i class="fas fa-home"></i></span><span id="bathrooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="1 Baño">1<i class="fas fa-toilet"></i></span><span id="bedrooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="1 Dormitorio">2<i class="fas fa-bed"></i></span><a href="" id="btncontacto"class="btn btn-danger ml-auto mr-4 mb-4">Contactar</a></div></div></a></div></div></div>');
         });
     } else {
-        $('#prop-container').append('<div class="row not-found"><h2>Lo sentimos! No encontramos propiedades compatibles con tu busqueda</h2><div class="not-found-lottie"><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://assets4.lottiefiles.com/packages/lf20_g8sNgp.json" background="transparent"speed="1" style="width: 200px; height: 200px;" autoplay></lottie-player></div></div>');
+        $('#props').append('<div class="row not-found"><h2>Lo sentimos! No encontramos propiedades compatibles con tu busqueda</h2><div class="not-found-lottie"><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://assets4.lottiefiles.com/packages/lf20_g8sNgp.json" background="transparent"speed="1" style="width: 200px; height: 200px;" autoplay></lottie-player></div></div>');
     }
 
 }
+
+
+function setSelectedTags() {
+    $('.selected-tags').empty();
+    if (oSearch.propietie_type_id == 1) {
+        $('.selected-tags').append('<span class="badge badge-light selected-tag">Casa</span>');
+    }
+    if (oSearch.propietie_type_id == 2) {
+        $('.selected-tags').append('<span class="badge badge-light selected-tag">Departamento</span>');
+    }
+    if (oSearch.operation_type_id == 1) {
+        $('.selected-tags').append('<span class="badge badge-light selected-tag">Compra</span>');
+    }
+    if (oSearch.operation_type_id == 2) {
+        $('.selected-tags').append('<span class="badge badge-light selected-tag">Alquiler</span>');
+    }
+    if (oSearch.rooms > 0) {
+        $('.selected-tags').append('<span class="badge badge-light selected-tag">' + oSearch.rooms + ' Ambientes</span>');
+    }
+    if (oSearch.bedrooms > 0) {
+        $('.selected-tags').append('<span class="badge badge-ligh selected-tag">' + oSearch.bedrooms + ' Dormitorios</span>');
+    }
+
+}
+
+
+$(document).on('click', '#order-by', function() {
+    event.preventDefault();
+    if ($(".order-options").hasClass("visible")) {
+        $('.order-options').hide();
+        $(".order-options").removeClass('visible');
+        $("#order-arrow").removeClass('rotate');
+    } else {
+        $('.order-options').show();
+        $(".order-options").addClass('visible');
+        $("#order-arrow").addClass('rotate');
+    }
+
+});
+
+$(document).on('click', '.order-option', function() {
+    event.preventDefault();
+    $('.order-options').hide();
+    $(".order-options").removeClass('visible');
+    oSearch.propietie_type_id = $("input[name='prop_type']:checked").val();
+    oSearch.operation_type_id = $("input[name='optype']:checked").val();
+    oSearch.order = $(this).data('order');
+    $('.order-selected').html($(this).html() + '<i id="order-arrow"class="ml-1 fas fa-angle-down"></i>');
+    ajaxRequest("GET", 'getFilterProperties', oSearch, "updateProps");
+});

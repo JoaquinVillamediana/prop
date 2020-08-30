@@ -250,6 +250,39 @@ ul ul a {
     color: #ffffff;
 }
 
+.selected-tag {
+    border: 1px solid;
+    border-color: rgba(200, 200, 200, .8);
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.order .order-by .order-selected {
+    font-weight: bold;
+}
+
+.order .order-options {
+    z-index: 1000;
+    display: none;
+    padding: 10px;
+    background-color: #fff;
+    position: absolute;
+    width: 160px;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: all .5s ease;
+}
+
+.order .order-options .order-option {
+    display: block;
+}
+
+.order .order-options .order-option:hover {
+    color: var(--main-color);
+}
+
 @media screen and (max-width: 991px) {
     .col-list h4.site {
         text-align: center;
