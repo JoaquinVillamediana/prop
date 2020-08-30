@@ -45,6 +45,8 @@
 
           </div>
       </div>
+         </br>
+      <a href="{{ route('tycdu') }}">Términos y Condiciones de Uso - </a><a href="{{ route('tycdc') }}">Términos y Condiciones de Contratación - </a><a href="{{ route('pdp') }}">Política de privacidad - </a><a href="{{ route('pdgdc') }}">Política de Gestión de Calidad</a>
   </div>
 </footer>
 
