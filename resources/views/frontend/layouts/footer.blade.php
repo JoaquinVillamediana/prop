@@ -13,7 +13,7 @@
               </div>
 
               <div class="row">
-              <a href="{{ route('contact') }}"> Ayuda </a>
+              <a href="{{ route('ayuda') }}"> Ayuda </a>
               </div>
               <div class="row">
               <a href="{{ route('contact') }}"> Publicidad </a>
@@ -26,7 +26,7 @@
               <a href="{{ route('contact') }}"> Contactanos </a>
           </div>
           <div class="col-12 col-lg">
-          <a href="#"> Preguntas frecuentes </a>
+          <a href="{{ route('frecuentes') }}"> Preguntas frecuentes </a>
          
          
           </div>

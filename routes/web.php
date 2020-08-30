@@ -52,11 +52,19 @@ Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 
 Route::get('publish', 'frontend\PublishController@index')->name('publish');
 Route::get('profesional', 'frontend\PublishController@profesional')->name('profesional');
+
 Route::get('personal', 'frontend\PublishController@personal')->name('personal');
+
+//preguntas frecuentes 
+Route::get('frecuentes', 'frontend\FrecuentesController@index')->name('frecuentes');
+// ayuda
+Route::get('ayuda', 'frontend\FrecuentesController@ayuda')->name('ayuda');
 
 // publicacion de una propiedad con login hecho
 
 Route::get('publish_publicationtype/{id}', 'frontend\PublishController@propietie_type')->name('publish_publicationtype');
+
+
 
 
 Route::get('publish_personal_free/{id}', 'frontend\PublishController@publish_login1')->name('publish_personal_free');
