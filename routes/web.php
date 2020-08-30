@@ -40,6 +40,13 @@ Route::get('search_avanzado', 'frontend\SearchController@index_avanzado')->name(
 // messages
 Route::get('messages', 'frontend\MessageController@index')->name('messages');
 // 
+// condiciones del footer
+Route::get('tycdu', 'frontend\CondicionesController@terminos_y_condiciones_de_uso')->name('tycdu');
+Route::get('tycdc', 'frontend\CondicionesController@terminos_y_condiciones_de_contratacion')->name('tycdc');
+Route::get('pdp', 'frontend\CondicionesController@politica_de_privacidad')->name('pdp');
+Route::get('pdgdc', 'frontend\CondicionesController@politica_de_gestion_de_calidad')->name('pdgdc');
+// 
+
 
 Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 
