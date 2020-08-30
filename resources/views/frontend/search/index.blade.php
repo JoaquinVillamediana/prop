@@ -70,5 +70,5 @@ if(empty($default_locality))
 <script src="/js/functions.js"></script>
 <script src="/js/search.js"></script>
 <script src="/js/ajax_request.js"></script>
-
+@include('frontend/layouts.footer')
 @endsection
