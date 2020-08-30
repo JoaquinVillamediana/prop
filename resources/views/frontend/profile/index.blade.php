@@ -181,7 +181,7 @@
             </div>
         </div>
         <div class="col-lg-4 order-lg-1 text-center">
-            <img src="images/profile_pictures_users/{{Auth::user()->profile_image}}" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+            <img src="/images/profile_pictures_users/{{Auth::user()->profile_image}}" class="mx-auto img-fluid img-circle d-block" alt="avatar">
             <h6 class="mt-2">Upload a different photo</h6>
             <label class="custom-file">
                 <input type="file" id="file" class="custom-file-input">
