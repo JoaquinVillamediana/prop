@@ -9,11 +9,11 @@ var price_max = document.getElementById("price-max");
 
 
 slider_price_max.oninput = function() {
-    price_max.innerHTML = this.value;
+    price_max.innerHTML = formatNumber.new(this.value);
     oSearch.max_price = this.value;
 }
 slider_price_min.oninput = function() {
-    price_min.innerHTML = this.value;
+    price_min.innerHTML = formatNumber.new(this.value);
     oSearch.min_price = this.value;
 }
 
@@ -24,11 +24,11 @@ var expenses_min = document.getElementById("expenses-min");
 var slider_expenses_max = document.getElementById("slider-expenses-max");
 var expenses_max = document.getElementById("expenses-max");
 slider_expenses_max.oninput = function() {
-    expenses_max.innerHTML = this.value;
+    expenses_max.innerHTML = formatNumber.new(this.value);
     oSearch.max_expenses = this.value;
 }
 slider_expenses_min.oninput = function() {
-    expenses_min.innerHTML = this.value;
+    expenses_min.innerHTML = formatNumber.new(this.value);
     oSearch.min_expenses = this.value;
 }
 
@@ -42,6 +42,27 @@ $(document).ready(() => {
     oSearch.min_price = $('#slider-price-min').val();
     oSearch.max_expenses = $('#slider-expenses-max').val();
     oSearch.min_expenses = $('#slider-expenses-min').val();
+
+
+
+    if (default_type != null) {
+        $('#optype' + default_type).prop('checked', true);
+    }
+
+    if (default_property != null) {
+        $('#prop_type' + default_property).prop('checked', true);
+    }
+
+    if (default_locality != null) {
+        oSearch.locality = default_locality;
+        selectLocation(default_locality);
+    }
+
+
+    oSearch.propietie_type_id = $("input[name='prop_type']:checked").val();
+    oSearch.operation_type_id = $("input[name='optype']:checked").val();
+
+    ajaxRequest("GET", 'getFilterProperties', oSearch, "updateProps");
 });
 
 
@@ -52,6 +73,7 @@ $('#location').on("input", () => {
 
 
 $(document).on('click', '.option', function() {
+    event.preventDefault();
     let locality_id = $(this).data('locality_id');
     selectLocation(locality_id);
     oSearch.locality = $('#locality').val();
@@ -100,7 +122,7 @@ function updateProps(data) {
     setSelectedTags();
     if (data.length > 0) {
         data.forEach(element => {
-            $('#props').append('<div class="card" id="card-prop"><div class="row "><div class="col-md-4"><img src="images/index/home1.jpg" class="w-100"></div><div class="col-md-8"><a href=""><div class="card-block "><h3 class="card-title mt-2"> ' + element.name + ' </h3><p class="card-text"> ' + element.description + ' </p><div class="row row-caracs"><h3> USD' + element.price + '</h3><span id="rooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="3 Ambientes">' + element.rooms + '<i class="fas fa-home"></i></span><span id="bathrooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="1 Baño">1<i class="fas fa-toilet"></i></span><span id="bedrooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="1 Dormitorio">2<i class="fas fa-bed"></i></span><a href="" id="btncontacto"class="btn btn-danger ml-auto mr-4 mb-4">Contactar</a></div></div></a></div></div></div>');
+            $('#props').append('<div class="card" id="card-prop"><div class="row "><div class="col-md-4"><img src="images/index/home1.jpg" class="w-100"></div><div class="col-md-8"><a href="http://192.168.0.200:8080/propietie/' + element.id + '"><div class="card-block "><h3 class="card-title mt-2"> ' + element.name + ' </h3><p class="card-text"> ' + element.description + ' </p><div class="row row-caracs"><h3> USD' + formatNumber.new(element.price) + '</h3><span id="rooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="3 Ambientes">' + element.rooms + '<i class="fas fa-home"></i></span><span id="bathrooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="1 Baño">1<i class="fas fa-toilet"></i></span><span id="bedrooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="1 Dormitorio">2<i class="fas fa-bed"></i></span><a href="" id="btncontacto"class="btn btn-danger ml-auto mr-4 mb-4">Contactar</a></div></div></a></div></div></div>');
         });
     } else {
         $('#props').append('<div class="row not-found"><h2>Lo sentimos! No encontramos propiedades compatibles con tu busqueda</h2><div class="not-found-lottie"><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://assets4.lottiefiles.com/packages/lf20_g8sNgp.json" background="transparent"speed="1" style="width: 200px; height: 200px;" autoplay></lottie-player></div></div>');
