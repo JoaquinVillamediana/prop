@@ -23,7 +23,7 @@
                 <div class="row">
              
                     <!-- card1 -->
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6 mb-5">
                         <div class="card">               
                             <div class="card-body" >                            
                                 <h3>PREGUNTAS FRECUENTES</h3>      
@@ -32,6 +32,20 @@
 
                         </div>
                     </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">               
+                            <div class="card-body" >                            
+                                <h3>INFORMACIÓN PUBLICITARIA</h3>      
+                                <a class="btn btn-outline-warning" href="{{ route('publish_questions') }}" role="button">Elegir</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    </div>
+                    <h1>Legales</h1>
+                    </br>
+                    
+                <div class="row">
                      <!-- card1 -->
                           <!-- card1 -->
                     <div class="col-lg-3 col-md-6">
@@ -43,12 +57,14 @@
 
                         </div>
                     </div>
+                  
                      <!-- card1 -->
+                    
                           <!-- card1 -->
                     <div class="col-lg-3 col-md-6">
                         <div class="card">               
                             <div class="card-body" >                            
-                                <h3>TÉRMINOS Y CONDICIONES DE CONTRATACIÓN</h3>      
+                                <h3>TÉRMINOS Y CONDICIONES DE CONTRATO</h3>      
                                 <a class="btn btn-outline-warning" href="{{ route('tycdc') }}" role="button">Elegir</a>
                             </div>
 

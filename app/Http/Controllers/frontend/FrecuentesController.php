@@ -35,6 +35,11 @@ class FrecuentesController extends Controller {
         return view('frontend/ayuda.index');
        }
 
+       public function publish_questions(){
+        return view('frontend/frecuent.publish_questions');
+       }
+
+
    public function terminos_y_condiciones_de_uso(){
     return view('frontend/condiciones.tycdu');
    }

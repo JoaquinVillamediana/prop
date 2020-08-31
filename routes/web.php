@@ -62,6 +62,7 @@ Route::get('personal', 'frontend\PublishController@personal')->name('personal');
 Route::get('frecuentes', 'frontend\FrecuentesController@index')->name('frecuentes');
 // ayuda
 Route::get('ayuda', 'frontend\FrecuentesController@ayuda')->name('ayuda');
+Route::get('publish_questions', 'frontend\FrecuentesController@publish_questions')->name('publish_questions');
 
 // publicacion de una propiedad con login hecho
 

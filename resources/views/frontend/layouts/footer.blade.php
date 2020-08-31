@@ -16,7 +16,7 @@
               <a href="{{ route('ayuda') }}"> Ayuda </a>
               </div>
               <div class="row">
-              <a href="{{ route('contact') }}"> Publicidad </a>
+              <a href="{{ route('publish_questions') }}"> Publicidad </a>
               </div>
               <div class="row">
               <a href="https://wbosoftware.com/"> Noticias </a>

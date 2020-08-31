@@ -25,19 +25,19 @@
 <div class="row">
   
 
-  <div class="col-12 faq">
-    <h2 class="faqs-head"><a onclick="displayText(1)" href="">1. ¿Pregunta 1?<span id="sign-1" class="float-right">+</span></a> </h2>
-    <p id="1" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur distinctio fuga sed voluptate omnis consectetur in, sunt totam cumque consequatur delectus, autem assumenda numquam aspernatur inventore fugiat quas! Aperiam, quisquam.</p>
+<div class="col-12 faq">
+    <h2 class="faqs-head"><a onclick="displayText(1)" href="">. ¿Cómo publicar una propiedad?<span id="sign-1" class="float-right">+</span></a> </h2>
+    <p id="1" style="display: none;">Para publicar tu propiedad se requiere contratar algúno de los planes disponibles en la seccion de <a href="{{ route('publish') }}">planes</a>. Allí encontraras todas las opciones para publicarla, tanto para profesional como para propietario. Es necesario haber iniciado sesión para poder acceder a la opcion de compra de cualquier plan. Teniendo en cuenta esto, si el comprador no posee una cuenta deberá registrarse primero.</br></br> Si se presenta algún inconveniente <a href="{{ route('contact') }}">contactarnos</a> estamos disponibles para consultas las 24hs.</p>
   </div>
 
   <div class="col-12 faq">
-    <h2 class="faqs-head"><a onclick="displayText(2)" href="">2. ¿Pregunta 2?<span id="sign-2" class="float-right"><b>+</b></span></a> </h2>
-    <p id="2" style="display: none;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi error at dolore repellendus vitae, iure modi quos fugit ab. Iure tempora expedita id quo ducimus esse quos, dolor cum cupiditate.</p>
+    <h2 class="faqs-head"><a onclick="displayText(2)" href="">. ¿Cómo puedo buscar una propiedad con los filtros que quiero?<span id="sign-2" class="float-right"><b>+</b></span></a> </h2>
+    <p id="2" style="display: none;">Para poder buscar una propiedad se necesita ingresar una localidad en el buscador, el tipo de operación que busca y el tipo de propiedad. Si no existen preferencias a la hora de comenzar la busqueda puede oprimir directamente el botón de busqueda avanzada y te mostraremos nuestras propiedades destacadas. </br></br> Si se presenta algún inconveniente <a href="{{ route('contact') }}">contactarnos</a> estamos disponibles para consultas las 24hs.</p>
   </div>
 
   <div class="col-12 faq">
-    <h2 class="faqs-head"><a onclick="displayText(3)" href="">3. ¿Pregunta 3?<span id="sign-3" class="float-right"><b>+</b></span></a> </h2>
-    <p id="3" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, eligendi. Ipsam, modi nemo voluptas reiciendis, id aliquam enim quisquam numquam dolore dolor fugiat. Quis provident, nobis sit explicabo illum est?</p>
+    <h2 class="faqs-head"><a onclick="displayText(3)" href="">. ¿Qué opciones de pago existen?<span id="sign-3" class="float-right"><b>+</b></span></a> </h2>
+    <p id="3" style="display: none;"> A la hora de pagar el usuario puede elegir entre realizar la transacción por Mercado Pago, Terjeta de Débito o crédito, Efectivo(Pago Fácil, Rapipago y kioscos) o transferencia por Red Link. </br></br> Si se presenta algún inconveniente <a href="{{ route('contact') }}">contactarnos</a> estamos disponibles para consultas las 24hs.</p>
   </div>
 
   <div class="col-12 faq">
