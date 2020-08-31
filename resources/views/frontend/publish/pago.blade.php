@@ -1,6 +1,10 @@
 @extends('frontend/layouts.app')
 @include('frontend/layouts.header')
 @section('content')
+<?php 
+MercadoPago\SDK::setAccessToken('TEST-1532561834263359-083119-38234f00b3b2c49854f957f11e71411b-339019119');
+
+?>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/frontend/pago.css">
    
@@ -30,9 +34,21 @@
     <h6 class="card-subtitle mb-2 text-muted">1 Plan {{ $planes->name }}
 $ {{ $planes->price }} + imp *</h6>
     <p class="card-text">Total: ${{ $planes->price }}</p>
-    <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-data-preference-id="339019119-a4ae314a-1ceb-48a1-962a-d90643be50ec">
-</script>
+    <?php
+    $preference = new MercadoPago\Preference();
+
+// Crea un ítem en la preferencia
+$item = new MercadoPago\Item();
+$item->title = 'Mi producto';
+$item->quantity = 1;
+$item->unit_price = 75.56;
+$preference->items = array($item);
+$preference->save();
+    ?>
+     <script
+     src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+     data-preference-id="<?php echo $preference->id; ?>">
+    </script>
   </div>
 </div>
 @endforeach
