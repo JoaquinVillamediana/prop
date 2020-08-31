@@ -41,7 +41,7 @@
   </div>
 
   <div class="col-12 faq">
-    <h2 class="faqs-head"><a onclick="displayText(4)" href="">4. ¿Pregunta 4?<span id="sign-4" class="float-right"><b>+</b></span></a> </h2>
+    <h2 class="faqs-head"><a onclick="displayText(4)" href="">4. ¿Puedo contactar ?<span id="sign-4" class="float-right"><b>+</b></span></a> </h2>
     <p id="4" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio veritatis quidem culpa neque? Commodi voluptas quidem odio a neque similique doloremque id reiciendis cum maxime, tempora, saepe pariatur quibusdam possimus.</p>
   </div>
 
