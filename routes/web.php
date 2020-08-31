@@ -34,8 +34,8 @@ Route::get('user_profile_publications/{user_id}', 'frontend\ProfileController@us
 Route::get('user_propieties', 'frontend\PropietiesController@index')->name('user_propieties');
 
 Route::get('search', 'frontend\SearchController@index')->name('search');
-Route::get('search_compra', 'frontend\SearchController@index_compra')->name('search_compra');
-Route::get('search_alquiler', 'frontend\SearchController@index_alquiler')->name('search_alquiler');
+Route::get('/search/compra', 'frontend\SearchController@index_compra')->name('search_compra');
+Route::get('/search/alquiler', 'frontend\SearchController@index_alquiler')->name('search_alquiler');
 Route::get('search_avanzado', 'frontend\SearchController@index_avanzado')->name('search_avanzado');
 // messages
 Route::get('messages', 'frontend\MessageController@index')->name('messages');
@@ -51,9 +51,9 @@ Route::get('pdgdc', 'frontend\CondicionesController@politica_de_gestion_de_calid
 Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 
 Route::get('publish', 'frontend\PublishController@index')->name('publish');
-Route::get('profesional', 'frontend\PublishController@profesional')->name('profesional');
+Route::get('publish/profesional', 'frontend\PublishController@profesional')->name('profesional');
 
-Route::get('personal', 'frontend\PublishController@personal')->name('personal');
+Route::get('publish/personal', 'frontend\PublishController@personal')->name('personal');
 
 //preguntas frecuentes 
 Route::get('frecuentes', 'frontend\FrecuentesController@index')->name('frecuentes');

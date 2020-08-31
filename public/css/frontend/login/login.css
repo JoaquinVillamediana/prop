@@ -1,98 +1,21 @@
-
-body{
-  box-sizing: border-box;
+footer {
+    display: none !important;
 }
 
-#form-login input{
-  border-radius: 30px;
-  padding: 10px 25px;
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc( 80vh - 70px);
 }
 
-.section-login{
-  margin-top: 150px;
+.main-container .login.row {
+    width: 100%;
 }
 
-.continue{
-  margin-top: 100px;
-  text-decoration: none;
-  color: #000;
-  padding-top: 10px;
-  font-size: 13px;
-}
-
-.continue a:hover{
-  color: #000;
-}
-
-#form-login input{
-  border-radius: 30px;
-  padding: 10px 25px;
-  width: 100%;
-}
-input:focus{
-  outline: none !important;
-}
-
-footer{
-  display: none !important;
-}
-
-.eye{
-  border-top-right-radius: 30px !important;
-  border-bottom-right-radius:30px !important;
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius:0 !important;
-  display: inline-block;
-  border-left: none !important;
-  padding-left:10px ;
-  padding-right: 25px;
-  padding-top:10px ;
-  padding-bottom:10px ;
-  width: 10% !important;
-  height: 46px;
-  float: left;
-  border: 1px solid #ced4da;
-}
-
-#eye-pass{
-  cursor: pointer;
-  color: #555;
-  text-decoration:none;
-}
-
-.input-password{
-  float: left;
-  border-top-left-radius: 30px !important;
-  border-bottom-left-radius:30px !important;
-  border-top-right-radius: 0 !important;
-  border-bottom-right-radius:0 !important;
-  display: inline-block;
-  border-right: none !important;
-  padding: 10px 25px; 
-  width: 90% !important;
-}
-
-#form-login button{
-  background-color: #FBB03B;
-  color: #000;
-  border-radius: 30px;
-  padding: 10px 25px;
-  width: 100%;
-}
-
-#form-login button:hover{
-  background-color: #f9ca3b;
-}
-
-#main-container .container{
-  max-width: 600px ;
-}
-
-@media (orientation: portrait)
-{
-  .input-password{
- 
-    width: 88% !important;
-  }
-
+.main-container .btn-link {
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    margin-top: 10px;
 }
