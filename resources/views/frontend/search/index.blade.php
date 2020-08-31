@@ -8,8 +8,8 @@
 @include('frontend/layouts.ourJs')
 
 <!-- Our Custom CSS -->
-<link rel="stylesheet" href="css/frontend/search.css">
-<link rel="stylesheet" href="css/frontend/propieties2.css">
+<link rel="stylesheet" href="/css/frontend/search.css">
+<link rel="stylesheet" href="/css/frontend/propieties2.css">
 
 <?php
 if(empty($default_type))
