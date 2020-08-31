@@ -58,7 +58,7 @@
                 <li class="carac-item"><span class="carac-desc"><i
                       class="fas fa-bed"></i>Habitaciones</span>{{ $prop->bedrooms }}</li>
                 <li class="carac-item"><span class="carac-desc"><i
-                      class="fas fa-bath"></i>Baños</span>{{ $prop->bathroooms }}</li>
+                      class="fas fa-bath"></i>Baños</span>{{ $prop->bathrooms }}</li>
                 <li class="carac-item"><span class="carac-desc"><i
                       class="fas fa-ruler-combined"></i>Tamaño</span>{{ $prop->rooms }}m<sup>2</sup></li>
               </ul>
@@ -158,7 +158,7 @@
         <!-- FORMULARIO DE CONTACTO -->
         <section id="contacto">
           <div class="container">
-            <form id="formulario">
+            <form id="formulario" action="{{route('send_user_mail',$prop->user_id)}}">
               <div class="row">
                 
                   <div class="col-lg-6 col-12">
@@ -176,9 +176,9 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="exampleFormControlInput1">Telefono</label>
-                <input type="number" class="form-control" id="exampleFormControlInput1"
-                  placeholder="Numero de teléfono">
+                <label for="number">Teléfono</label>
+                <input type="number" class="form-control" id="number" name="number"
+                  placeholder="Número de teléfono">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Mensaje</label>

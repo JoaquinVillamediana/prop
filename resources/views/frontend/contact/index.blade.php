@@ -7,23 +7,29 @@
 
 <link rel="stylesheet" href="/css/frontend/contact.css">
 <div class="container">
-  <form action="action_page.php">
+  <form action="{{ route('send_mail') }}">
 
-    <label for="fname">Nombre</label></br>
-    <input type="text" id="fname" name="firstname" placeholder="Ej: Eduardo">
+    <label for="fname">Nombre y apellido</label></br>
+    <input type="text" id="name" name="name" placeholder="Ej: Eduardo Perez">
 </br>
-    <label for="lname">Apellido</label></br>
-    <input type="text" id="lname" name="lastname" placeholder="Ej: Perez">
+    <label for="lname">Email</label></br>
+    <input type="text" id="email" name="email" placeholder="Ej: nombre@mail.com">
     </br>
-    <label for="country">Localidad</label></br>
+    <!-- <label for="lname">Email</label></br>
+    <input type="email" id="email" name="email" placeholder="Ej: nombre@mail.com">
+    </br> -->
+    <label for="lname">Asunto</label></br>
+    <input type="text" id="subject" name="subject" placeholder="Ej: Consulta">
+    </br>
+    <!-- <label for="country">Localidad</label></br>
     <select id="country" name="country">
       <option value="australia">Australia</option>
       <option value="canada">Canada</option>
       <option value="usa">USA</option>
     </select>
-    </br>
+    </br> -->
     <label for="subject">Mensaje</label></br>
-    <textarea id="subject" name="subject" placeholder="Me gustaría consultar sobre.." style="height:200px"></textarea>
+    <textarea id="message" name="message" placeholder="Me gustaría consultar sobre.." style="height:200px"></textarea>
     </br>
     <input type="submit" value="Enviar">
 

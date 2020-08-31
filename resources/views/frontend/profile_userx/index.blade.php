@@ -7,13 +7,14 @@
 @if(!empty($aUser))
 @foreach($aUser as $data_user)
 <div class="container-prueba mt-4 mb-2">
-    <h1>
+    <h1 style="text-align:center;">
     {{ $data_user->name }} -     @if($data_user->type == 2)
                             Particular 
                             @else 
                             Profesional
                             @endif
     </h1>
+    </br>
     
 </div>
 <div class="container">
@@ -106,7 +107,7 @@
       {{-- <a href="{{ route('propietie') }}"> --}}
         <div class="card">
           <div class="image">
-            <img src="images/index/home1.jpg" class="card-img-top" alt="...">
+            <img src="/images/index/home1.jpg" class="card-img-top" alt="...">
 
             <div class="row row-caracs">
 
