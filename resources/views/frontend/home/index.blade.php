@@ -71,18 +71,18 @@
 </div>
 <section id="main">
 
-  <div id="carousel" class="carousel slide" data-ride="carousel" data-pause="false">
+   <div id="carousel" class="carousel slide" data-ride="carousel" data-pause="false">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="images/index/slider1.jpg" class="d-block w-100" alt=" img 1">
+       <img src="images/index/slider5.jpg" class="d-block w-100" alt=" img 1">
+       </div>
+       <div class="carousel-item">
+      <img src="images/index/slider5.jpg" class="d-block w-100" alt=" img 1">
       </div>
       <div class="carousel-item">
-        <img src="images/index/slider2.jpg" class="d-block w-100" alt=" img 2">
+        <img src="images/index/slider5.jpg" class="d-block w-100" alt=" img 1">
       </div>
-      <div class="carousel-item">
-        <img src="images/index/slider3.jpg" class="d-block w-100" alt=" img 3 ">
-      </div>
-    </div>
+    </div> 
 
 
   </div>
