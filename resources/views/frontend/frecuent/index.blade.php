@@ -41,12 +41,12 @@
   </div>
 
   <div class="col-12 faq">
-    <h2 class="faqs-head"><a onclick="displayText(4)" href="">4. ¿Pregunta 4?<span id="sign-4" class="float-right"><b>+</b></span></a> </h2>
-    <p id="4" style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio veritatis quidem culpa neque? Commodi voluptas quidem odio a neque similique doloremque id reiciendis cum maxime, tempora, saepe pariatur quibusdam possimus.</p>
+    <h2 class="faqs-head"><a onclick="displayText(4)" href="">. ¿Cómo recupero la contraseña si me la olvidé?<span id="sign-4" class="float-right"><b>+</b></span></a> </h2>
+    <p id="4" style="display: none;">Al estar por iniciar sesión, se ecuentra un botón que indica que mediante ese pueden recuperar la contraseña, luego de ingresar el mail. </br></br> Si se presenta algún inconveniente <a href="{{ route('contact') }}">contactarnos</a> estamos disponibles para consultas las 24hs.</p>
   </div>
 
-  <div class="col-12 faq">
-    <h2 class="faqs-head"><a onclick="displayText(5)" href="">5. ¿Pregunta 5?<span id="sign-5" class="float-right"><b>+</b></span></a> </h2>
+  <!-- <div class="col-12 faq">
+    <h2 class="faqs-head"><a onclick="displayText(5)" href="">5. ¿Es posible que ?<span id="sign-5" class="float-right"><b>+</b></span></a> </h2>
     <p id="5" style="display: none;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente labore ipsa esse accusamus, numquam quod, fugiat nesciunt exercitationem necessitatibus est ut itaque dolorum adipisci! Sit perferendis laudantium dignissimos ad beatae!</p>
   </div>
 
@@ -59,7 +59,7 @@
     <h2 class="faqs-head"><a onclick="displayText(7)" href="">7. ¿Pregunta 7?<span id="sign-7" class="float-right"><b>+</b></span></a> </h2>
     <p id="7" style="display: none;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias, soluta. Nostrum neque veritatis, odit facere harum eius, accusantium, assumenda iusto soluta officia eum ex dolores totam asperiores alias sint qui?
     </p>
-  </div>
+  </div> -->
 
 
 </div>

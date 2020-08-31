@@ -12,6 +12,10 @@ use App\Models\Propietie_typeModel;
 use App\Models\PlansModel;
 use App\Models\LocalitiesModel;
 use App\Models\ImageModel;
+use App\Models\AmbientesModel;
+use App\Models\CargenModel;
+use App\Models\ServiciosModel;
+
 
 class PublishController extends Controller {
 
@@ -134,7 +138,40 @@ return view('frontend/publish.profesional',compact('aPlans'));
         'bedrooms' => $bedrooms,'bathrooms' => $bathroooms,'garages' => $garages,'toilettes' => $toilettes,'years' => $years,'size' => $size);
         PropietiesModel::insert($data);
         
-        // $propietie_id = DB::select('SELECT max(id) from propieties where user_id =  "'.$user.'"');
+         $propietie_id = DB::select('SELECT max(id) from propieties where user_id =  "'.$user.'"');
+
+         ;
+         
+                  $comodidades =  $request['checkbox_comodidades'];
+
+         if(!empty($request['checkbox_ambientes'])){
+
+            $ambientes =  $request['checkbox_ambientes'];
+
+         $dataxd=array('propietie_id' => $propietie_id,'ambientes_id' => $ambientes);
+           AmbientesModel::insert($dataxd);
+
+         }
+         
+         
+
+         if(!empty($request['checkbox_servicios'])){
+
+            $servicios =  $request['checkbox_servicios'];
+
+         $dataxd1=array('propietie_id' => $propietie_id,'services_id' => $servicios);
+         ServiciosModel::insert($dataxd1);
+
+         }
+
+         if(!empty($request['checkbox_cargen'])){
+
+            $cargen2 =  $request['checkbox_cargen'];
+
+         $dataxd2=array('propietie_id' => $propietie_id,'caracteristicas_generales_id' => $cargen2);
+         CargenModel::insert($dataxd2);
+
+         }
 
         // // if(!empty($request['image']))
         // // {
