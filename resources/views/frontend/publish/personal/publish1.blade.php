@@ -16,8 +16,9 @@
           
         <!-- empieza Seleccion de datos -->
             <div class="container">
-            <form method="POST" action="{{ route('store1') }}" >
+            <form method="POST" action="{{ route('store1') }}" enctype="multipart/form-data">
             <!--  -->
+            {{ csrf_field() }}
                   <div class="row">
 
                     <!--  Dropdown tipo de propiedad-->
@@ -103,7 +104,15 @@
                                                     <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar" style="margin-top:15px;">
                                                     <h6 class="mt-2">Agregar una foto</h6>
                                                     <label class="custom-file">
-                                                    <input type="file" id="file" class="custom-file-input">
+                                                    <input type="file" id="image"  name="image" class="custom-file-input">
+                                                    @if ($errors->has('image'))
+                            <span id="image_error_lrv" class="invalid-feedback" role="alert" style="display:block;">
+                                <strong>Debe cargar una imagen ( .jpeg, .jpg, .png, .gif ).</strong>
+                            </span>
+                            @endif
+                            <span id="image_error" class="invalid-feedback" role="alert" style="display:none;">
+                                <strong>Debe cargar una imagen ( .jpeg, .jpg, .png, .gif ).</strong>
+                            </span>
                                                     <span class="custom-file-control"><i class="fas fa-plus"></i>Elegir una foto</span>
                                                     </label>
                                                 </div>
@@ -161,13 +170,13 @@
                                 
                                 <!-- Titulo de la publicacion -->
                                     <h4>Titulo(*)</h4>            
-                                    <input type="text" class="form-control" aria-label="Text input with checkbox" style="width: 50%;">
+                                    <input type="text" name="titulo" id="titulo" class="form-control" aria-label="Text input with checkbox" style="width: 50%;">
                                 <!-- Fin del titulo de la publicacion -->
 
                                 <!-- Pequeña introducción para poner en el inicio (fijarse si es totalmente necesario) -->
                                 
                                 <h4  style="margin-top:10px;">Introducción(*)</h4>  
-                                <textarea id="desc" name="desc" rows="4" cols="50">Te recomendamos escribir un minímo de 100 caracteres.</textarea>
+                                <textarea id="introduccion" name="introduccion" rows="4" cols="50">Te recomendamos escribir un minímo de 100 caracteres.</textarea>
 
                                 <!-- FIN DE LA Pequeña introducción para poner en el inicio (fijarse si es totalmente necesario) -->
                                   
@@ -175,7 +184,7 @@
                                   <!-- DESCRIPCION DE LA PROPIEDAD  -->
 
                                   <h4  style="margin-top:10px;">Descripción(*)</h4>
-                                  <textarea id="desc" name="desc" rows="4" cols="50">Te recomendamos escribir un minímo de 100 caracteres.</textarea>
+                                  <textarea id="descripcion" name="descripcion" rows="4" cols="50">Te recomendamos escribir un minímo de 100 caracteres.</textarea>
                                   
                                   <!-- FIN DE LA DESCRIPCION -->
 
@@ -189,11 +198,11 @@
                                           <div class="dropdown-menu">
                                           @if(!empty($aCurrency))
                                             @foreach($aCurrency as $moneda)    
-                                              <a class="dropdown-item" href="#">{{$moneda->name}}</a>
+                                              <a class="dropdown-item" value="{{$moneda->id}}" id="currency_id" name="currency_id" href="#">{{$moneda->name}}</a>
                                               @endforeach   
                                           @endif
                                           </div>
-                                          <input type="number" class="form-control" aria-label="Text input with dropdown button">
+                                          <input type="number" id="price" name="price" class="form-control" aria-label="Text input with dropdown button">
                                       </div>
                                     </div>
                                 </div>
@@ -205,7 +214,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>                  
                                         </div>
-                                        <input type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" >
+                                        <input type="number" id="expensas"name="expensas" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" >
                                     </div>
                                 </div>
 
@@ -227,7 +236,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text">Ambientes</span>
                                   </div>
-                                    <input type="Number" aria-label="1" class="form-control">
+                                    <input type="Number" id="rooms" name="rooms" aria-label="1" class="form-control">
                                   
                                 </div>
                                 <!-- FIN DE AMBIENTES -->
@@ -237,7 +246,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text">Dormitorios</span>
                                   </div>
-                                    <input type="Number" aria-label="1" class="form-control">
+                                    <input type="Number" id="bedrooms" name="bedrooms" aria-label="1" class="form-control">
                                   
                                 </div>
                                 <!-- FIN DE dormitorios -->
@@ -247,7 +256,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text">Baños</span>
                                   </div>
-                                    <input type="Number" aria-label="1" class="form-control">
+                                    <input type="Number" id="bathroooms" name="bathroooms" aria-label="1" class="form-control">
                                   
                                 </div>
                                 <!-- FIN DE baños -->
@@ -257,7 +266,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text">Cocheras</span>
                                   </div>
-                                    <input type="Number" aria-label="1" class="form-control">
+                                    <input type="Number" id="garages" name="garages" aria-label="1" class="form-control">
                                   
                                 </div>
                                 <!-- FIN DE Cocheras -->
@@ -267,7 +276,7 @@
                                   <div class="input-group-prepend">
                                     <span class="input-group-text">Toilettes</span>
                                   </div>
-                                    <input type="Number" aria-label="1" class="form-control">
+                                    <input type="Number" id="toilettes" name="toilettes" aria-label="1" class="form-control">
                                   
                                 </div>
                                 <!-- FIN DE Toilettes -->
@@ -282,8 +291,8 @@
 
                                 <div class="container mt-5">
                                 <h3>Antiguedad (*)</h3>
-                                <p> A estrenar</p> <input type="checkbox">
-                                <p> Años</p> <input type="checkbox"> <!-- Agregar cantidad de años --> 
+                                <p> A estrenar</p> <input type="checkbox" value="0" id="years" name="years">
+                                <p> Años</p> <input type="checkbox" value="1" id="years" name="years"> <!-- Agregar cantidad de años --> 
                                 
                                 </div>
 
@@ -297,7 +306,7 @@
                                     <input type="text" class="form-control" placeholder="Counstruida">
                                   </div>
                                   <div class="col">
-                                    <input type="text" class="form-control" placeholder="Total (*)">
+                                    <input type="text" class="form-control" id="size" name="size"placeholder="Total (*)">
                                   </div>
                                 </div>
                                 </div>

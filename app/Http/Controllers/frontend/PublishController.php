@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\frontend;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
@@ -10,7 +11,7 @@ use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
 use App\Models\PlansModel;
 use App\Models\LocalitiesModel;
-
+use App\Models\ImageModel;
 
 class PublishController extends Controller {
 
@@ -90,15 +91,13 @@ return view('frontend/publish.profesional',compact('aPlans'));
 
     public function store1(Request $request){
 
-        $user= Auth::user()->id;
+         $user= Auth::user()->id;
 
         $aValidations = array(
             
            
             'direction' => 'required|max:200',
-            'locality' => 'required|max:200',
-            'operation' => 'required|numeric',
-            'building' => 'required|numeric'
+          
             
             
         );
@@ -108,14 +107,100 @@ return view('frontend/publish.profesional',compact('aPlans'));
         $direction =  $request['direction'];
         $operation_type_id =  $request['operation'];
         $propietie_type_id =  $request['building'];
-        $location_id =  $request['locality'];
+        // $location_id =  $request['locality'];
+        $location_id = '66140050000';
+        $name =  $request['titulo'];
+        $introduccion =  $request['introduccion'];
+        $descripcion =  $request['descripcion'];
+        $currency_id =  $request['currency_id'];
+        $price =  $request['price'];
 
-        $data=array('operation_type_id' => $operation_type_id,'building' => $propietie_type_id,'location_id' => $location_id,'user_id' => $user,'direction' => $direction);
+        if(!empty($request['expensas'])){
+            $expensas =  $request['expensas'];
+        }else{
+            $expensas = 0;
+        }
+        
+        $rooms =  $request['rooms'];
+        $bedrooms =  $request['bedrooms'];
+        $bathroooms =  $request['bathroooms'];
+        $garages =  $request['garages'];
+        $toilettes =  $request['toilettes'];
+        $years =  $request['years'];
+        $size =  $request['size'];
+
+        $data=array('operation_type_id' => $operation_type_id,'propietie_type_id' => $propietie_type_id,'location_id' => $location_id,'user_id' => $user,'direction' => $direction,
+        'name' => $name,'introduccion' => $introduccion,'description' => $descripcion,'currency_id' => $currency_id,'price' => $price,'expensas' => $expensas,'rooms' => $rooms,
+        'bedrooms' => $bedrooms,'bathrooms' => $bathroooms,'garages' => $garages,'toilettes' => $toilettes,'years' => $years,'size' => $size);
         PropietiesModel::insert($data);
         
-   
-        return redirect()->route('user_propieties');
+        // $propietie_id = DB::select('SELECT max(id) from propieties where user_id =  "'.$user.'"');
 
+        // // if(!empty($request['image']))
+        // // {
+        // //     $aValidations = array(
+        // //         'image' => 'required|max:10240|mimes:jpeg,png,jpg,gif,mp4'
+        // //     );               
+        // // }
+        // // else
+        // // {
+        // //     $aValidations = array(
+        // //         'video' => 'required|max:10240|mimes:jpeg,png,jpg,gif,mp4'
+        // //     ); 
+        // // }
+
+        
+
+        // // $this->validate($request , $aValidations);
+
+        // if (!empty($request['image'] || !empty($request['video']) )) {
+            
+        //     if(!empty($request['image']))
+        //     {
+        //     $image = $request['image'];   
+        //     $type = 0;             
+        //     }
+        //     else
+        //     {
+        //         $image = $request['video'];  
+        //         $type = 1;
+        //     }
+            
+        //     $fileName = $image->getClientOriginalName();
+        //     $storeImageName = uniqid(rand(0, 1000), true) . "-" . $fileName;
+        //     $fileExtension = $image->getClientOriginalExtension();
+        //     $realPath = $image->getRealPath();
+        //     $fileSize = $image->getSize();
+        //     $fileMimeType = $image->getMimeType();
+            
+
+        //     $destinationPath = '/images/publish';
+        //     $image->move($destinationPath, $storeImageName);
+
+        //     $dataxd=array('image' => $storeImageName,'propietie_id' => $propietie_id,'type' => $type,'main_image' => 1);
+        //     ImageModel::insert($dataxd);
+            //  $image_id = ImageModel::max('id');
+            //  $aImages = ImageModel::where('product_id','=',$request['product_id'])
+            // ->get();
+
+            //  foreach($aImages as $image)
+            // {
+            //      if($image->id != $image_id)
+            //     {
+            //        if($image->main_image == 1)
+            //         {
+            //              $image->main_image = 0;
+            //              $image->save();
+            //          }
+            //      }
+
+            //  }
+            
+        //  }
+
+
+         return redirect()->route('user_propieties');
+        // return view('frontend/publish.pago');
 
     }
 
