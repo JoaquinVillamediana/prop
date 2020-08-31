@@ -30,6 +30,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('user_profile', 'frontend\ProfileController@index')->name('user_profile');
+Route::post('user_profile_edit', 'frontend\ProfileController@edit')->name('user_profile_edit');
+
+
 Route::get('user_profile_publications/{user_id}', 'frontend\ProfileController@user_perfil_publicaciones')->name('user_profile_publications');
 Route::get('user_propieties', 'frontend\PropietiesController@index')->name('user_propieties');
 

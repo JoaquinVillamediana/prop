@@ -94,30 +94,33 @@
                     <!--/row-->
                 </div>
                <!-- edit -->
+
+
                 <div class="tab-pane" id="edit">
-                    <form role="form">
+                    <form role="form" action="{{ route('user_profile_edit') }}" method="POST">
+                    @csrf
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="{{Auth::user()->name}} ">
+                                <input class="form-control" type="text" id="name" name="name" value="{{Auth::user()->name}} ">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="{{Auth::user()->last_name}} ">
+                                <input class="form-control" type="text" id="last_name" name="last_name" value="{{Auth::user()->last_name}} ">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Email</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" value="{{Auth::user()->email}} ">
+                                <input class="form-control" type="email" id="email" name="email" value="{{Auth::user()->email}} ">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Teléfono</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="number" value="{{Auth::user()->phone}} ">
+                                <input class="form-control" type="number" id="phone" name="phone" value="{{Auth::user()->phone}} ">
                             </div>
                         </div>
            
@@ -157,23 +160,12 @@
                                 <input class="form-control" type="text" value="janeuser">
                             </div>
                         </div> -->
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="{{Auth::user()->password}}">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="{{Auth::user()->password}}">
-                            </div>
-                        </div>
+                    
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
                                 <input type="reset" class="btn btn-secondary" value="Cancel">
-                                <input type="button" class="btn btn-primary" value="Guardar cambios">
+                                <input type="submit" class="btn btn-primary" value="Guardar cambios">
                             </div>
                         </div>
                     </form>
