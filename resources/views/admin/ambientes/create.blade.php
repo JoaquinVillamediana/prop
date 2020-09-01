@@ -2,19 +2,19 @@
 
 @section('content')
 
-<div class="content-wrapper">
+<div class="content-wrapper" style="margin-left:80px;">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Tipos de Operación</a>
+                <a href="#">Tipos de Ambientes</a>
             </li>
-            <li class="breadcrumb-item active">Lista de tipos de operación</li>       
+            <li class="breadcrumb-item active">Lista de tipos de ambientes</li>       
         </ol>
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> Crear tipo de operación
+                <i class="fa fa-table"></i> Crear tipo de ambientes
             
             </div>         
             <div class="card-body">
@@ -22,15 +22,12 @@
             <div class="input-group mb-3">
             
              
-                <form action="{{ route('operation_type_store') }}">
+                <form action="{{ route('ambientes_store') }}">
                 <div class="row">
                 <h3>Nombre</h3>
                 <input id="name" name="name" type="text" class="form-control ml-4" aria-label="Text input with dropdown button"> 
                 </div>
-                <div class="row mt-2">
-                <h3>Visible</h3>   
-                <input type="checkbox" id="visible" name="visible" value="1">
-                </div>
+             
                 <button type="submit" class="btn btn-outline-primary">Crear</button>
                 </form>
             </div>

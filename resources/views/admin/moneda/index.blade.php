@@ -14,8 +14,8 @@
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> Tipos de operaciones
-                <a class="btn btn-outline-primary ml-4" href="{{ route('operation_type_create') }}" role="button">Crear</a>
+                <i class="fa fa-table"></i> Tipos de monedas
+                <a class="btn btn-outline-primary ml-4" href="{{ route('moneda_create') }}" role="button">Crear</a>
             </div>         
             <div class="card-body">
                 <div class="table-responsive">

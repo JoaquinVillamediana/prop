@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="content-wrapper">
+<div class="content-wrapper" style="margin-left:80px;">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
@@ -22,15 +22,12 @@
             <div class="input-group mb-3">
             
              
-                <form action="{{ route('operation_type_store') }}">
+                <form action="{{ route('moneda_store') }}">
                 <div class="row">
                 <h3>Nombre</h3>
                 <input id="name" name="name" type="text" class="form-control ml-4" aria-label="Text input with dropdown button"> 
                 </div>
-                <div class="row mt-2">
-                <h3>Visible</h3>   
-                <input type="checkbox" id="visible" name="visible" value="1">
-                </div>
+               
                 <button type="submit" class="btn btn-outline-primary">Crear</button>
                 </form>
             </div>

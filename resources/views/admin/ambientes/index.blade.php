@@ -15,7 +15,7 @@
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fa fa-table"></i> Tipos de Ambientes
-                <a class="btn btn-outline-primary ml-4" href="{{ route('operation_type_create') }}" role="button">Crear</a>
+                <a class="btn btn-outline-primary ml-4" href="{{ route('ambientes_create') }}" role="button">Crear</a>
             </div>         
             <div class="card-body">
                 <div class="table-responsive">

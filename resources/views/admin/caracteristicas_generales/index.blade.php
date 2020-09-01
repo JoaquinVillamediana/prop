@@ -15,7 +15,7 @@
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fa fa-table"></i> Tipos de caracteristicas generales
-                <a class="btn btn-outline-primary ml-4" href="{{ route('operation_type_create') }}" role="button">Crear</a>
+                <a class="btn btn-outline-primary ml-4" href="{{ route('caracteristicas_gen_create') }}" role="button">Crear</a>
             </div>         
             <div class="card-body">
                 <div class="table-responsive">

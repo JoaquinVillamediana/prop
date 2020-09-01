@@ -101,10 +101,7 @@ Route::get('register_users', 'frontend\RuserController@index')->name('register_u
 Route::get('users', 'admin\UserController@index')->name('users');
 Route::get('propieties', 'admin\PropietiesController@index')->name('propieties');
 Route::get('plans', 'admin\PlansController@index')->name('plans');
-Route::get('ambientes', 'admin\AmbientesController@index')->name('ambientes');
-Route::get('caracteristicas_gen', 'admin\CargenController@index')->name('caracteristicas_gen');
-Route::get('moneda', 'admin\MonedaController@index')->name('moneda');
-Route::get('servicios', 'admin\ServiciosController@index')->name('servicios');
+
 Route::get('localidades', 'admin\LocalidadesController@index')->name('localidades');
 Route::get('favoritos', 'admin\FavoritosController@index')->name('favoritos');
 
@@ -119,6 +116,29 @@ Route::get('propieties_type_store', 'admin\Propieties_typeController@store')->na
 
 Route::get('propieties_create', 'admin\PropietiesController@create')->name('propieties_create');
 
+// RUTAS DE AMBIENTES
+Route::get('ambientes', 'admin\AmbientesController@index')->name('ambientes');
+Route::get('ambientes_create', 'admin\AmbientesController@create')->name('ambientes_create');
+Route::get('ambientes_store', 'admin\AmbientesController@store')->name('ambientes_store');
+// FIN DE RUTAS DE AMBIENTES
+
+// RUTAS DE CARACTERISTICAS GENERALES
+Route::get('caracteristicas_gen', 'admin\CargenController@index')->name('caracteristicas_gen');
+Route::get('caracteristicas_gen_create', 'admin\CargenController@create')->name('caracteristicas_gen_create');
+Route::get('caracteristicas_gen_store', 'admin\CargenController@store')->name('caracteristicas_gen_store');
+// FIN DE RUTAS DE CARACTERISTICAS GENERALES
+
+// Rutas de servicios
+Route::get('servicios', 'admin\ServiciosController@index')->name('servicios');
+Route::get('servicios_create', 'admin\ServiciosController@create')->name('servicios_create');
+Route::get('servicios_store', 'admin\ServiciosController@store')->name('servicios_store');
+// Fin de rutas de servicios
+
+// Rutas moneda
+Route::get('moneda', 'admin\MonedaController@index')->name('moneda');
+Route::get('moneda_create', 'admin\MonedaController@create')->name('moneda_create');
+Route::get('moneda_store', 'admin\MonedaController@store')->name('moneda_store');
+//  Fin de rutas moneda
 
 //fin de rutas de admin
 
