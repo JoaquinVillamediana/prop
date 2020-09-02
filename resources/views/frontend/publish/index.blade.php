@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="css/frontend/publish.css">
 
 <body>
+    <div class="body-overlay">
+
+    </div>
     <section class="section-election">
         <div class="row row-section">
             <div class="col-12 col-legend">
