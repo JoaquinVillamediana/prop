@@ -50,7 +50,7 @@ Route::get('pdp', 'frontend\CondicionesController@politica_de_privacidad')->name
 Route::get('pdgdc', 'frontend\CondicionesController@politica_de_gestion_de_calidad')->name('pdgdc');
 // 
 // 
-Route::get('send_mail', 'frontend\ContactController@mail')->name('send_mail');
+Route::post('send_mail', 'frontend\ContactController@mail')->name('send_mail');
 Route::get('send_user_mail/{user_id}', 'frontend\ContactController@users_mail')->name('send_user_mail');
 // 
 

@@ -7,8 +7,8 @@
 
 <link rel="stylesheet" href="/css/frontend/contact.css">
 <div class="container">
-  <form action="{{ route('send_mail') }}">
-
+  <form  method="POST" action="{{ route('send_mail') }}" role="form" enctype="multipart/form-data">
+  {{ csrf_field() }}
     <label for="fname">Nombre y apellido</label></br>
     <input type="text" id="name" name="name" placeholder="Ej: Eduardo Perez">
 </br>
@@ -31,7 +31,7 @@
     <label for="subject">Mensaje</label></br>
     <textarea id="message" name="message" placeholder="Me gustaría consultar sobre.." style="height:200px"></textarea>
     </br>
-    <input type="submit" value="Enviar">
+    <button type="submit" class="btn shop-btn">Enviar</button>
 
   </form>
 </div>

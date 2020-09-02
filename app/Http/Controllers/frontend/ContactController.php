@@ -4,8 +4,10 @@ namespace App\Http\Controllers\frontend;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\MessageBag;
 use DB;
 use Hash;
+use Auth;
 class ContactController extends Controller {
 
     public function index() {
