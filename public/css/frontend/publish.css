@@ -1,3 +1,12 @@
+.body-overlay {
+    position: absolute;
+    height: calc( 100vh - 60px);
+    width: 100%;
+    filter: opacity(0.5) blur(2px);
+    background-position: center;
+    background-image: url('/images/publish/congreso.jpg');
+}
+
 h1 {
     font-size: 36px;
     color: #555;
@@ -94,7 +103,7 @@ h3 {
     border-top: 2px solid var(--main-color);
     border-bottom: 2px solid var(--main-color);
     color: #000000;
-     background: rgb(255,255,255);
+    background: rgba(255, 255, 255, .5);
     /* background: linear-gradient(90deg, rgba(255,255,255,1) 52%, rgba(147,3,46,1) 100%);; */
 }
 
