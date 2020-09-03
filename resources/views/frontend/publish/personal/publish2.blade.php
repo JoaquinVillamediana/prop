@@ -63,6 +63,124 @@
                       </div>
                       <!-- imagenes -->
                       </br></br>
+
+<hr><hr>
+
+    <!-- INICIO DE DATOS VISIBLES OPCIONALES -->
+
+
+                        <!-- <div class="container"> -->
+                        <div class="container" id="container"> 
+                        
+                        <h2>Ya casi esta todo listo!</h2> 
+                        <p>Contale a la gente los ultimos detalles de tu propiedad</p> 
+                    
+                      <!-- servicios -->
+                      <div class="container">
+                        
+                        
+                          <!-- Basic dropdown -->
+                          @if(!empty($aServicios))
+                          <button class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                                  aria-haspopup="true" aria-expanded="false">Servicios</button>
+
+                          
+                          <div class="dropdown-menu">
+                  @foreach($aServicios as $servicios)
+                            <a class="dropdown-item">
+                              <!-- Default unchecked -->
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="checkbox_servicios" name="checkbox_servicios" value="{{$servicios->id}}">
+                                <label class="custom-control-label" for="checkbox_servicios">{{$servicios->name}}</label>
+                              </div>
+                            </a>
+                          @endforeach
+                          </div>
+                          @endif
+                          <!-- Basic dropdown -->
+                                    </div>
+                      <!-- fin servicios -->
+
+                        
+
+                        <!-- características generales -->
+                        <div class="container mt-3">
+                        
+                        @if(!empty($aCaracteristocasg))
+                        <!-- Basic dropdown -->
+                        <button class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Características generales</button>
+
+                        <div class="dropdown-menu">
+                        @foreach($aCaracteristocasg as $car)
+                          <a class="dropdown-item">
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="checkbox_cargen" name ="checkbox_cargen" value="{{$car->name}}">
+                              <label class="custom-control-label" for="checkbox_cargen">{{$car->name}}</label>
+                            </div>
+                          </a>
+                        @endforeach
+                        </div>
+                        @endif
+                        <!-- Basic dropdown -->
+                                  </div>
+                    <!-- fin caracteristicas genrales -->
+                    
+                    <!-- ambientes -->
+                    <div class="container mt-3">
+                        @if(!empty($aAmbientes))
+                        
+                        <!-- Basic dropdown -->
+                        <button class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Ambientes</button>
+
+                        <div class="dropdown-menu">
+                        @foreach($aAmbientes as $amb)
+                          <a class="dropdown-item">
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="checkbox_ambientes" name="checkbox_ambientes" value="{{$amb->id}}">
+                              <label class="custom-control-label" for="checkbox_ambientes">{{$amb->name}}</label>
+                            </div>
+                          </a>
+                        @endforeach
+                        </div>
+                        <!-- Basic dropdown -->
+                                  @endif
+                                  </div>
+                    <!-- fin ambienbte -->
+
+                    <!-- comodidades -->
+                    <div class="container mt-3">
+                        @if(!empty($aComodidades))
+                        
+                        <!-- Basic dropdown -->
+                        <button class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Comodidades</button>
+
+                        <div class="dropdown-menu">
+                          @foreach($aComodidades as $com)
+                          <a class="dropdown-item">
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="checkbox_comodidades" name="checkbox_comodidades" value="{{$com->name}}">
+                              <label class="custom-control-label" for="checkbox_comodidades">{{$com->name}}</label>
+                            </div>
+                          </a>
+                        @endforeach
+                        </div>
+                        <!-- Basic dropdown -->
+                                  @endif
+                                  </div>
+                    <!-- fin comodidades -->
+                    <!-- <button type="button" class="btn btn-primary mt-5 mb-3">Siguiente</button> -->
+                      </div> 
+
+
+                  <!-- FIN DE DATOS VISIBLES OPCIONALES -->
+
+
                       <button type="button" class="btn btn-link mt-7">Cargar archivos y seguir</button>
                       <a class="btn btn-primary" href="{{ route('publish_personal_free3') }}" role="button">Continuar sin guardar</a>
 

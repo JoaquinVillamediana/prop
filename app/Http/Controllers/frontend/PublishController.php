@@ -140,40 +140,33 @@ return view('frontend/publish.profesional',compact('aPlans'));
         
          $propietie_id = DB::select('SELECT max(id) from propieties where user_id =  "'.$user.'"');
 
-         ;
-         
-                  $comodidades =  $request['checkbox_comodidades'];
+         return redirect()->route('publish_personal_free2', $propietie_id);
+        // return view('frontend/publish.pago');
 
-         if(!empty($request['checkbox_ambientes'])){
+    }
 
-            $ambientes =  $request['checkbox_ambientes'];
+         public function publish_login2($propietie_id) {
 
-         $dataxd=array('propietie_id' => $propietie_id,'ambientes_id' => $ambientes);
-           AmbientesModel::insert($dataxd);
+        $aImages = ImageModel::select('images.*','propietie.name as propietie_name')
+        ->leftjoin('propietie','propietie.id','=','images.propietie_id')
+        ->where('propietie_id','=',$propietie_id)
+        ->get();
 
-         }
-         
-         
+         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
+         ->get();
+         $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
+         ->get();
 
-         if(!empty($request['checkbox_servicios'])){
+ 
 
-            $servicios =  $request['checkbox_servicios'];
 
-         $dataxd1=array('propietie_id' => $propietie_id,'services_id' => $servicios);
-         ServiciosModel::insert($dataxd1);
+         return view('frontend/publish/personal.publish2',compact('aPropietie_type'));
+     }
 
-         }
+            public function store2(){
 
-         if(!empty($request['checkbox_cargen'])){
 
-            $cargen2 =  $request['checkbox_cargen'];
-
-         $dataxd2=array('propietie_id' => $propietie_id,'caracteristicas_generales_id' => $cargen2);
-         CargenModel::insert($dataxd2);
-
-         }
-
-        // // if(!empty($request['image']))
+                // // if(!empty($request['image']))
         // // {
         // //     $aValidations = array(
         // //         'image' => 'required|max:10240|mimes:jpeg,png,jpg,gif,mp4'
@@ -234,22 +227,8 @@ return view('frontend/publish.profesional',compact('aPlans'));
             //  }
             
         //  }
+            }
 
-
-         return redirect()->route('user_propieties');
-        // return view('frontend/publish.pago');
-
-    }
-
-    // public function publish_login2() {
-
-    //     $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
-    //     ->get();
-    //     $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
-    //     ->get();
-
-    //     return view('frontend/publish/personal.publish2',compact('aPropietie_type'));
-    // }
 
     // public function publish_login3() {
 
