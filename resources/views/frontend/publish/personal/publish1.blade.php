@@ -70,11 +70,6 @@
                       <hr>
 
 
-
-
-           
-
-
                     <!-- INICIA DATOS VISIBLES DE LA PUBLICACION -->
 
                     
@@ -115,14 +110,15 @@
                                   <h3>Precio(*)</h3>
                                     <div class="input-group mb-3">
                                       <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Moneda</button>
-                                          <div class="dropdown-menu">
+                                      
                                           @if(!empty($aCurrency))
-                                            @foreach($aCurrency as $moneda)    
-                                              <a class="dropdown-item" value="{{$moneda->id}}" id="currency_id" name="currency_id" href="#">{{$moneda->name}}</a>
+                                            @foreach($aCurrency as $moneda)
+                                          
+                                             <p>{{$moneda->name}}</p> <input type="checkbox" id="currency_id" name="currency_id">
+                               
                                               @endforeach   
                                           @endif
-                                          </div>
+                                       
                                           <input type="number" id="price" name="price" class="form-control" aria-label="Text input with dropdown button">
                                       </div>
                                     </div>
