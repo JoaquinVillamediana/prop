@@ -54,6 +54,8 @@ Route::post('send_mail', 'frontend\ContactController@mail')->name('send_mail');
 Route::get('send_user_mail/{user_id}', 'frontend\ContactController@users_mail')->name('send_user_mail');
 // 
 
+Route::get('edit_propietie/{id}', 'HomeController@edit_propietie')->name('edit_propietie');
+
 Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 
 Route::get('publish', 'frontend\PublishController@index')->name('publish');

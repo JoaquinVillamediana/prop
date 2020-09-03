@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="css/admin/users.css">
 <div class="container" style="text-align: center;">
     <h2>
-    Mis anuncios
+    Panel de control
     </h2>
     
 
@@ -16,7 +16,7 @@
   <div class="card-header">Mis publicaciones</div>
   <div class="card-body">
     <h5 class="card-title">@if(!empty($aDatosProp)) @foreach($aDatosProp as $datos) {{$datos->countprop}} @endforeach @endif</h5>
-    <p class="card-text">  <a href="">Ver propiedades</a> </p>
+    <p class="card-text">  <a href="#propiedades">Ver propiedades</a> </p>
   </div>
 </div>
 <!--  -->
@@ -46,6 +46,11 @@
 <!--  -->
 
     </div>
+
+
+<section id="propiedades">
+    <h2>Mis porpiedades publicadas</h2>
+
     @if(!empty($aPropieties))
     @foreach($aPropieties as $optype)
     
@@ -68,7 +73,7 @@
                   <span class="characteristic" data-toggle="tooltip" data-placement="top" title="3 Ambientes">{{$optype->rooms}}<i class="fas fa-home"></i></span>
                   <span class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Baño">1<i class="fas fa-toilet"></i></span>
                   <span class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Dormitorio">2<i class="fas fa-bed"></i></span>
-                  <a href="{{ route('propietie',$optype->id) }}" class="btn btn-danger ml-auto mr-4 mb-4">Editar</a>
+                  <a href="{{ route('edit_propietie',$optype->id) }}" class="btn btn-danger ml-auto mr-4 mb-4">Editar</a>
                   <a href="{{ route('propietie',$optype->id) }}" class="btn btn-danger  mb-4">Ver anuncio</a>
                 </div>
                 <!--  -->
@@ -79,11 +84,9 @@
       
       </div>
       </div>
-                 @endforeach
-              
-   
-                
-              @endif
+       @endforeach        
+      @endif
+      </section>     
               </div>
 
 
