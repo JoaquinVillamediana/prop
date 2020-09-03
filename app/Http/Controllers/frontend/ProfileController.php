@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Auth;
+use Illuminate\Support\MessageBag;
+
+use Hash;
+
 
 class ProfileController extends Controller {
 
@@ -87,5 +91,54 @@ class ProfileController extends Controller {
         return view('frontend/profile.index');
         // return redirect()->route('user.index')->with('success', 'Registro actualizado satisfactoriamente');
     }
+
+    
+
+        
+
+    public function edit_profile_photo(Request $request){
+ 
+
+        
+            $aValidations = array(
+                'image' => 'required|max:10240|mimes:jpeg,png,jpg,gif,mp4'
+            );               
+        
+        
+
+        
+
+        $this->validate($request , $aValidations);
+
+        
+            $image = $request['image'];   
+                      
+           
+            
+            $fileName = $image->getClientOriginalName();
+            $storeImageName = uniqid(rand(0, 1000), true) . "-" . $fileName;
+            $fileExtension = $image->getClientOriginalExtension();
+            $realPath = $image->getRealPath();
+            $fileSize = $image->getSize();
+            $fileMimeType = $image->getMimeType();
+            
+
+            $destinationPath = 'images/profile_pictures_users';
+            $image->move($destinationPath, $storeImageName);
+
+            
+            
+            $oUser = Auth::user();
+            $oUser->profile_image = $storeImageName;
+            $oUser->save();
+           
+
+           
+                    
+
+        return view('frontend/profile.index');
+
+    }
+    
 
 }

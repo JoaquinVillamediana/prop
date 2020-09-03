@@ -69,7 +69,7 @@
                                   
               <!-- FIN DE LA DESCRIPCION -->
             
-            </div>
+          </div>
           <div class="characteristcs-div" style="border: 1px solid #ccc!important;">
             <div class="container">
               <h4>Caracteristicas</h4>

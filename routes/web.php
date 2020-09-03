@@ -31,6 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('user_profile', 'frontend\ProfileController@index')->name('user_profile');
 Route::post('user_profile_edit', 'frontend\ProfileController@edit')->name('user_profile_edit');
+Route::post('user_profilepicture_edit', 'frontend\ProfileController@edit_profile_photo')->name('user_profilepicture_edit');
 
 
 Route::get('user_profile_publications/{user_id}', 'frontend\ProfileController@user_perfil_publicaciones')->name('user_profile_publications');
@@ -54,7 +55,7 @@ Route::post('send_mail', 'frontend\ContactController@mail')->name('send_mail');
 Route::get('send_user_mail/{user_id}', 'frontend\ContactController@users_mail')->name('send_user_mail');
 // 
 
-Route::get('edit_propietie/{id}', 'HomeController@edit_propietie')->name('edit_propietie');
+// Route::get('edit_propietie/{id}', 'HomeController@edit_propietie')->name('edit_propietie');
 
 Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 
