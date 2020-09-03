@@ -6,7 +6,9 @@
     <ul class="list-unstyled components">
       <!-- inicio de filtros activos -->
       <li>
-        <h3> Seleccion actual </h3>
+        <div class="actual-selection">
+        <h3> Seleccion actual </h3><span class="filters-delete" onclick="deleteFilters()"><i class="fas fa-trash-alt"></i></span>
+      </div>
         <div class="selected-tags">
 
         </div>
@@ -42,7 +44,7 @@
 
             <!--  -->
             <div class="radio-option">
-            <input class="form-check-input" type="radio" name="optype" id="optype{{$optype->id}}"checked
+            <input class="form-check-input" type="radio" name="optype" id="optype{{$optype->id}}" {{ $optype->id == 2 ? 'checked' : '' }}
               value="{{$optype->id}}">
             <label class="form-check-label" for="optype{{$optype->id}}">
               {{$optype->name}}
@@ -79,7 +81,7 @@
             <!--  -->
             <div class="radio-option">
             <input class="form-check-input" type="radio" name="prop_type"
-              id="prop_type{{$prop_type->id}}" value="{{$prop_type->id}}" checked>
+              id="prop_type{{$prop_type->id}}" value="{{$prop_type->id}}" {{ $prop_type->id == 2 ? 'checked' : '' }}>
             <label class="form-check-label" for="prop_type{{$prop_type->id}}">
               {{$prop_type->name}}
             </label>
@@ -129,11 +131,17 @@
 
       <li class="active">
         <p class="sidebar-subtitle">Precio</p>
-        <p class="sidebar-indicator">Desde: $<span id="price-min">0</span></p>
+        <label for="">Moneda</label>
+        <select name="currency" id="currency" class="currency_select">
+          @foreach ($aCurrencies as $currency)
+              <option id="currency-{{$currency->id}}" {{ $currency->symbol == 'U$D' ? 'checked' : '' }} value="{{$currency->id}}">{{$currency->name}}</option>
+          @endforeach
+        </select>
+        <p class="sidebar-indicator">Desde: <span class="currency-symbol mr-1">$</span><span id="price-min">0</span></p>
         <div class="slidecontainer">
           <input step="1000" type="range" min="0" max="10000000" value="0" class="slider" id="slider-price-min">
         </div>
-        <p class="sidebar-indicator">Hasta: $<span id="price-max">{{ number_format(10000000, 0, ',', '.')  }}</span></p>
+        <p class="sidebar-indicator">Hasta: <span class="currency-symbol mr-1">$</span><span id="price-max">{{ number_format(10000000, 0, ',', '.')  }}</span></p>
         <div class="slidecontainer">
           <input step="1000" type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-price-max">
         </div>
@@ -143,11 +151,11 @@
           <p class="sidebar-subtitle">Expensas</p>
           <p class="sidebar-indicator">Desde: $<span id="expenses-min">0</span></p>
           <div class="slidecontainer">
-            <input step="1000" type="range" min="0" max="10000000" value="0" class="slider" id="slider-expenses-min">
+            <input step="100" type="range" min="0" max="100000" value="0" class="slider" id="slider-expenses-min">
           </div>
-          <p class="sidebar-indicator">Hasta: $<span id="expenses-max">{{number_format(10000000, 0, ',', '.')  }}</span></p>
+          <p class="sidebar-indicator">Hasta: $<span id="expenses-max">{{number_format(100000, 0, ',', '.')  }}</span></p>
           <div class="slidecontainer">
-            <input step="1000" type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-expenses-max">
+            <input step="100" type="range" min="0" max="100000" value="100000" class="slider" id="slider-expenses-max">
           </div>
         </li>
 
