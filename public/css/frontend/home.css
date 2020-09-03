@@ -152,6 +152,28 @@
                 display: none;
             }
             
+            .pag {
+                display: flex;
+                justify-content: center;
+            }
+            
+            .pag nav {
+                border: none !important;
+            }
+            
+            .pag nav .page-link {
+                color: var(--main-color);
+            }
+            
+            .pag nav .page-item.active .page-link {
+                background-color: var(--main-color);
+                color: #ffffff;
+            }
+            
+            .pag nav .page-item.active .page-link:hover {
+                background-color: var(--main-light-color);
+            }
+            
             @media screen and (max-width:991px) {
                 .row-overlay .text {
                     display: none;

@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         $aLocalities = LocalitiesModel::get();
-        $aPropieties = PropietiesModel::get();
+        $aPropieties = PropietiesModel::paginate(9);;
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
         $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
