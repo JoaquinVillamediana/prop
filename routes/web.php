@@ -31,6 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('user_profile', 'frontend\ProfileController@index')->name('user_profile');
 Route::post('user_profile_edit', 'frontend\ProfileController@edit')->name('user_profile_edit');
+Route::post('user_profilepicture_edit', 'frontend\ProfileController@edit_profile_photo')->name('user_profilepicture_edit');
 
 
 Route::get('user_profile_publications/{user_id}', 'frontend\ProfileController@user_perfil_publicaciones')->name('user_profile_publications');
@@ -43,56 +44,59 @@ Route::get('search_avanzado', 'frontend\SearchController@index_avanzado')->name(
 // messages
 Route::get('messages', 'frontend\MessageController@index')->name('messages');
 // 
-// condiciones del footer
-Route::get('tycdu', 'frontend\CondicionesController@terminos_y_condiciones_de_uso')->name('tycdu');
-Route::get('tycdc', 'frontend\CondicionesController@terminos_y_condiciones_de_contratacion')->name('tycdc');
-Route::get('pdp', 'frontend\CondicionesController@politica_de_privacidad')->name('pdp');
-Route::get('pdgdc', 'frontend\CondicionesController@politica_de_gestion_de_calidad')->name('pdgdc');
-// 
+
 // 
 Route::post('send_mail', 'frontend\ContactController@mail')->name('send_mail');
 Route::get('send_user_mail/{user_id}', 'frontend\ContactController@users_mail')->name('send_user_mail');
 // 
 
+ Route::get('edit_propietie/{id}', 'HomeController@edit_propietie')->name('edit_propietie');
+
 Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 
-Route::get('publish', 'frontend\PublishController@index')->name('publish');
-Route::get('publish/profesional', 'frontend\PublishController@profesional')->name('profesional');
 
-Route::get('publish/personal', 'frontend\PublishController@personal')->name('personal');
 
-//preguntas frecuentes 
-Route::get('frecuentes', 'frontend\FrecuentesController@index')->name('frecuentes');
-// ayuda
+
+// condiciones del footer
+Route::get('tycdu', 'frontend\CondicionesController@terminos_y_condiciones_de_uso')->name('tycdu');
+Route::get('tycdc', 'frontend\CondicionesController@terminos_y_condiciones_de_contratacion')->name('tycdc');
+Route::get('pdp', 'frontend\CondicionesController@politica_de_privacidad')->name('pdp');
+Route::get('pdgdc', 'frontend\CondicionesController@politica_de_gestion_de_calidad')->name('pdgdc');
 Route::get('ayuda', 'frontend\FrecuentesController@ayuda')->name('ayuda');
 Route::get('publish_questions', 'frontend\FrecuentesController@publish_questions')->name('publish_questions');
+Route::get('frecuentes', 'frontend\FrecuentesController@index')->name('frecuentes');
+// fin de footer
 
-// publicacion de una propiedad con login hecho
 
+// publicar
+// 
+// 
+
+// pagar piblicacion o pulblicare sin  login
+Route::get('pago/{id}', 'frontend\PublishController@pago')->name('pago'); 
+
+// cobro 
+Route::get('cobro', 'frontend\PublishController@cobro')->name('cobro');
+
+Route::post('upload_propietie_picture', 'frontend\PublishController@store2')->name('upload_propietie_picture');
 Route::get('publish_publicationtype/{id}', 'frontend\PublishController@propietie_type')->name('publish_publicationtype');
-
-
-
 
 Route::get('publish_personal_free/{id}', 'frontend\PublishController@publish_login1')->name('publish_personal_free');
 Route::post('store1', 'frontend\PublishController@store1')->name('store1');
 
-Route::get('publish_personal_free2', 'frontend\PublishController@publish_login2')->name('publish_personal_free2');
-Route::get('publish_personal_free3', 'frontend\PublishController@publish_login3')->name('publish_personal_free3');
-Route::get('publish_personal_free4', 'frontend\PublishController@publish_login4')->name('publish_personal_free4');
+Route::get('publish_personal_free2/{propietie_id}', 'frontend\PublishController@publish_login2')->name('publish_personal_free2');
 
-// fin de pubnlicacion con lgoin
+Route::get('publish', 'frontend\PublishController@index')->name('publish');
+Route::get('publish/profesional', 'frontend\PublishController@profesional')->name('profesional');
+Route::get('publish/personal', 'frontend\PublishController@personal')->name('personal');
+// 
+// 
+// fin de pubnlicacion
 
 //contacto
 Route::get('contact', 'frontend\ContactController@index')->name('contact');
 
-// pagar piblicacion o pulblicare sin  login
-Route::get('pago/{id}', 'frontend\PublishController@pago')->name('pago');
-// 
 
-// cobro 
-Route::get('cobro', 'frontend\PublishController@cobro')->name('cobro');
-// 
 
 //
 Route::get('register_users', 'frontend\RuserController@index')->name('register_users');

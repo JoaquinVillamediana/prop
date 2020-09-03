@@ -89,4 +89,61 @@ class HomeController extends Controller
         return view('frontend/propietie.index',compact('aProp','aPropieties_comodidades','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services'));
         
     }
+
+
+    public function edit_propietie($id)
+    {
+
+        $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id,(u.type) user_type,(u.phone) user_phone,(c.name) currency_name,(u.profile_image) profile_image
+        FROM propieties p
+        LEFT JOIN users u ON p.user_id = u.id
+        LEFT JOIN currency c ON p.currency_id = c.id
+        where p.deleted_at is null
+        and p.visible = 1
+        and p.id = "'.$id.'"
+        GROUP BY p.id;
+   ');
+
+   $aPropieties_comodidades=DB::select('SELECT pc.*,(c.name) comodidades_name
+    FROM propieties_comodidades pc
+   LEFT JOIN comodidades c ON pc.comidades_id = c.id
+   where pc.deleted_at is null
+   and pc.propietie_id = "'.$id.'"
+   GROUP BY pc.id;
+    ');
+
+    $aPropieties_caracteristicas_generales=DB::select('SELECT pcg.*,(cg.name) caracteristicas_generales_name
+    FROM propieties_caracteristicas_generales pcg
+    LEFT JOIN caracteristicas_generales cg ON pcg.caracteristicas_generales_id = cg.id
+    where pcg.deleted_at is null
+    and pcg.propietie_id = "'.$id.'"
+    GROUP BY pcg.id;
+    ');
+
+    $aPropieties_ambientes=DB::select('SELECT pa.*,(a.name) ambientes_name
+    FROM propieties_ambientes pa
+    LEFT JOIN ambientes a ON pa.ambientes_id = a.id
+    where pa.deleted_at is null
+    and pa.propietie_id = "'.$id.'"
+    GROUP BY pa.id;
+     ');
+
+     $aPropieties_services=DB::select('SELECT ps.*,(s.name) service_name
+    FROM propieties_services ps
+    LEFT JOIN services s ON ps.services_id = s.id
+    where ps.deleted_at is null
+    and ps.propietie_id = "'.$id.'"
+    GROUP BY ps.id;
+     ');
+
+     $aPropieteie_user=DB::select('SELECT user_id from propieties where id = "'.$id.'"');
+     
+  
+        return view('frontend/propietie.edit',compact('aProp','aPropieties_comodidades','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services'));
+        
+   
+   
+        
+    }
+
 }
