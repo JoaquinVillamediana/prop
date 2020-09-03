@@ -31,23 +31,37 @@
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                           
                             <div class="col-lg-4 order-lg-1 text-center">
-                                <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar" style="margin-top:15px;">
-                                <h6 class="mt-2">Agregar una foto</h6>
+                            @if(!empty($aImages))
+                            @foreach($aImages as $image)
+                                <img src="/images/publish/{{$image->image}}" class="mx-auto img-fluid img-circle d-block" alt="Suba una imagen" style="margin-top:15px;">
+                             @endforeach
+                            @endif
+                                <form method="POST" action="{{ route('upload_propietie_picture') }}" role="form" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <input type="hidden" name="propietie_id" id="propietie_id" value="{{empty($propietie_id) ? '' : $propietie_id}}">
                                 <label class="custom-file">
-                                <input type="file" id="file" class="custom-file-input">
+                                <input type="file" id="image" name="image" class="custom-file-input">
                                 <span class="custom-file-control"><i class="fas fa-plus"></i>Elegir una foto</span>
                                 </label>
+                                </br>
+                                </br>
+                                <button class="btn btn-primary mt-5" type="submit">Subir foto</button>
+                                </form>
                             </div>
+                          
+
                         </div>
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                           <div class="col-lg-4 order-lg-1 text-center">
                               <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar" style="margin-top:15px;">
                               <h6 class="mt-2">Agregar una video</h6>
                               <label class="custom-file">
-                              <input type="file" id="file" class="custom-file-input">
+                              <input type="file" id="video" name="video"class="custom-file-input">
                               <span class="custom-file-control"><i class="fas fa-plus"></i>Elegir una video</span>
                               </label>
                           </div>
+                      
+
                         </div>
                         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                           <div class="col-lg-4 order-lg-1 text-center">
@@ -180,9 +194,10 @@
 
                   <!-- FIN DE DATOS VISIBLES OPCIONALES -->
 
+</br>
 
-                      <button type="button" class="btn btn-link mt-7">Cargar archivos y seguir</button>
-                      <a class="btn btn-primary" href="{{ route('publish_personal_free3') }}" role="button">Continuar sin guardar</a>
+                      <button type="button" class="btn btn-link mt-7">PUBLICAR</button>
+                    
 
               </div>
           </div> 

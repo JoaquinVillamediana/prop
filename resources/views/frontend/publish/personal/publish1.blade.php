@@ -234,8 +234,7 @@
                                 <!-- fin de la superficie -->
                                   
                                 </div>
-                                <!-- <button type="button" class="btn btn-primary mt-5 mb-5">Continuar</button>
-                                <a class="btn btn-primary" href="{{ route('publish_personal_free4') }}" role="button">Continuar sin guardar</a> -->
+                             
 
                               </div> 
 
@@ -252,7 +251,7 @@
                       <hr>
                       <hr>
 
-                      <button class="btn btn-primary mt-5" type="submit">Publicar</button>
+                      <button class="btn btn-primary mt-5" type="submit">Guardar y seguir</button>
                  <!--  -->
                       </form>
                       <!--  -->

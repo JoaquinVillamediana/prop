@@ -138,8 +138,9 @@ return view('frontend/publish.profesional',compact('aPlans'));
         'bedrooms' => $bedrooms,'bathrooms' => $bathroooms,'garages' => $garages,'toilettes' => $toilettes,'years' => $years,'size' => $size);
         PropietiesModel::insert($data);
         
-         $propietie_id = DB::select('SELECT max(id) from propieties where user_id =  "'.$user.'"');
-
+        //  $propietie_id = DB::select('SELECT max(id) from propieties where user_id =  "'.$user.'"');
+         $propietie_id = PropietiesModel::max('id');
+         
          return redirect()->route('publish_personal_free2', $propietie_id);
         // return view('frontend/publish.pago');
 
@@ -147,8 +148,8 @@ return view('frontend/publish.profesional',compact('aPlans'));
 
          public function publish_login2($propietie_id) {
 
-        $aImages = ImageModel::select('images.*','propietie.name as propietie_name')
-        ->leftjoin('propietie','propietie.id','=','images.propietie_id')
+        $aImages = ImageModel::select('images.*','propieties.name as propietie_name')
+        ->leftjoin('propieties','propieties.id','=','images.propietie_id')
         ->where('propietie_id','=',$propietie_id)
         ->get();
 
@@ -157,141 +158,111 @@ return view('frontend/publish.profesional',compact('aPlans'));
          $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
          ->get();
 
- 
+         $aCurrency = DB::select('SELECT *
+         FROM currency
+         where deleted_at is null
+        ');
+
+        $aAmbientes = DB::select('SELECT *
+        FROM ambientes
+        where deleted_at is null
+        ');
+
+        $aCaracteristocasg = DB::select('SELECT *
+        FROM caracteristicas_generales
+        where deleted_at is null
+        ');
+
+        $aServicios = DB::select('SELECT *
+        FROM services
+        where deleted_at is null
+        ');
+
+        $aComodidades = DB::select('SELECT *
+        FROM comodidades
+        where deleted_at is null
+        ');
 
 
-         return view('frontend/publish/personal.publish2',compact('aPropietie_type'));
+         return view('frontend/publish/personal.publish2',compact('aPropietie_type','aComodidades','aServicios','aCaracteristocasg','aAmbientes','aCurrency'))->with('propietie_id',$propietie_id);
      }
 
-            public function store2(){
+    public function store2(Request $request)
+    {
 
-
-                // // if(!empty($request['image']))
-        // // {
-        // //     $aValidations = array(
-        // //         'image' => 'required|max:10240|mimes:jpeg,png,jpg,gif,mp4'
-        // //     );               
-        // // }
-        // // else
-        // // {
-        // //     $aValidations = array(
-        // //         'video' => 'required|max:10240|mimes:jpeg,png,jpg,gif,mp4'
-        // //     ); 
-        // // }
+        if(!empty($request['image']))
+        {
+            $aValidations = array(
+                'image' => 'required|max:10240|mimes:jpeg,png,jpg,gif,mp4'
+            );               
+        }
+        else
+        {
+            $aValidations = array(
+                'video' => 'required|max:10240|mimes:jpeg,png,jpg,gif,mp4'
+            ); 
+        }
 
         
 
-        // // $this->validate($request , $aValidations);
+        $this->validate($request , $aValidations);
 
-        // if (!empty($request['image'] || !empty($request['video']) )) {
+        if (!empty($request['image'] || !empty($request['video']) )) {
             
-        //     if(!empty($request['image']))
-        //     {
-        //     $image = $request['image'];   
-        //     $type = 0;             
-        //     }
-        //     else
-        //     {
-        //         $image = $request['video'];  
-        //         $type = 1;
-        //     }
-            
-        //     $fileName = $image->getClientOriginalName();
-        //     $storeImageName = uniqid(rand(0, 1000), true) . "-" . $fileName;
-        //     $fileExtension = $image->getClientOriginalExtension();
-        //     $realPath = $image->getRealPath();
-        //     $fileSize = $image->getSize();
-        //     $fileMimeType = $image->getMimeType();
-            
-
-        //     $destinationPath = '/images/publish';
-        //     $image->move($destinationPath, $storeImageName);
-
-        //     $dataxd=array('image' => $storeImageName,'propietie_id' => $propietie_id,'type' => $type,'main_image' => 1);
-        //     ImageModel::insert($dataxd);
-            //  $image_id = ImageModel::max('id');
-            //  $aImages = ImageModel::where('product_id','=',$request['product_id'])
-            // ->get();
-
-            //  foreach($aImages as $image)
-            // {
-            //      if($image->id != $image_id)
-            //     {
-            //        if($image->main_image == 1)
-            //         {
-            //              $image->main_image = 0;
-            //              $image->save();
-            //          }
-            //      }
-
-            //  }
-            
-        //  }
+            if(!empty($request['image']))
+            {
+            $image = $request['image'];   
+            $type = 0;             
             }
+            else
+            {
+                $image = $request['video'];  
+                $type = 1;
+            }
+            
+            $fileName = $image->getClientOriginalName();
+            $storeImageName = uniqid(rand(0, 1000), true) . "-" . $fileName;
+            $fileExtension = $image->getClientOriginalExtension();
+            $realPath = $image->getRealPath();
+            $fileSize = $image->getSize();
+            $fileMimeType = $image->getMimeType();
+            
+            $propietie_id = $request['propietie_id'];
+            $destinationPath = 'images/publish';
+            $image->move($destinationPath, $storeImageName);
+
+            $dataxd=array('image' => $storeImageName,'propietie_id' => $propietie_id,'type' => $type,'main_image' => 1);
+            ImageModel::insert($dataxd);
+             $image_id = ImageModel::max('id');
+             $aImages = ImageModel::where('propietie_id','=',$request['propietie_id'])
+            ->get();
+
+             foreach($aImages as $image)
+            {
+                 if($image->id != $image_id)
+                {
+                   if($image->main_image == 1)
+                    {
+                         $image->main_image = 0;
+                         $image->save();
+                     }
+                 }
+
+             }
+
+             
+        return redirect()->back()->with('propietie_id' , $propietie_id);
+            
+        }
+    }
 
 
-    // public function publish_login3() {
-
-    //     $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
-    //     ->get();
-    //     $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
-    //     ->get();
-
-    //     $aCurrency = DB::select('SELECT *
-    //      FROM currency
-    //      where deleted_at is null
-    //     ');
-
-
-    //     return view('frontend/publish/personal.publish3',compact('aPropietie_type','aCurrency'));
-    // }
-
-
-    // public function publish_login4() {
-
-    //     $aAmbientes = DB::select('SELECT *
-    //     FROM ambientes
-    //     where deleted_at is null
-    //    ');
-
-    //     $aCaracteristocasg = DB::select('SELECT *
-    //     FROM caracteristicas_generales
-    //     where deleted_at is null
-    //    ');
-
-    //     $aServicios = DB::select('SELECT *
-    //     FROM services
-    //     where deleted_at is null
-    //     ');
-
-    //     $aComodidades = DB::select('SELECT *
-    //     FROM comodidades
-    //     where deleted_at is null
-    //     ');
-
-
-    //     $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
-    //     ->get();
-    //     $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
-    //     ->get();
-
-    //     return view('frontend/publish/personal.publish4',compact('aPropietie_type','aAmbientes','aCaracteristocasg','aServicios','aComodidades'));
-    // }
-
-    // public function propietie_type() {
-
-    //     $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
-    //     ->get();
-    //     $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
-    //     ->get();
-
-    //     return view('frontend/publish.publicationtype',compact('aOperationType'));
-    // }
+   
 
 
 
 
-// 
+
 
 
 
