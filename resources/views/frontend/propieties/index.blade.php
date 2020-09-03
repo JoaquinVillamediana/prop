@@ -3,13 +3,41 @@
 @include('frontend/layouts.header')
 
 @section('content')
-
+<link rel="stylesheet" href="css/admin/users.css">
 <div class="container">
     <h1 style="text-align: center;">
     Mis anuncios
     </h1>
     
 
+    <div class="row">
+<!--  -->
+    <div class="card text-white bg-danger mb-5" style="max-width: 18rem;">
+  <div class="card-header">Mis publicaciones</div>
+  <div class="card-body">
+    <h5 class="card-title">Danger card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<!--  -->
+<div class="card text-white bg-danger mb-5 ml-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Danger card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<!--  -->
+<div class="card text-white bg-danger mb-5 ml-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Danger card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<!--  -->
+
+    </div>
     @if(!empty($aPropieties))
     @foreach($aPropieties as $optype)
     

@@ -21,13 +21,20 @@ class PropietiesController extends Controller {
         
         $user=Auth::user()->id;
 
-        $aPropieties=DB::select('SELECT *
+        $aPropieties=DB::select('SELECT *, SUM(id) as countprop
         FROM propieties
         where deleted_at is null
         and visible = 1
         and user_id = "'.$user.'"
-    
    ');
+
+   $aPropieties=DB::select('SELECT *, count(propieties) as countprop
+   FROM propieties
+   where deleted_at is null
+   and visible = 1
+   and user_id = "'.$user.'"
+');
+
 
    return view('frontend/propieties.index',compact('aPropieties'));
         // return view('frontend/propieties.index');

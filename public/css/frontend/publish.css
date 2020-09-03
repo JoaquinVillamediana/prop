@@ -174,8 +174,103 @@ footer {
     }
     .option {
         max-width: 80%;
+        margin-top: 50px;
     }
     .section-election .option .col-text .link-name {
         font-size: 24px;
     }
+    h1{
+        display: none;
+    }
+
+    .section-election .option {
+     padding: 10px;
+     margin-top: 30px;
+     border-right: 15px;
+    }
+
+    .section-election .option .type-image-particular {
+       display: none;
+    }
+    
+    .section-election .option .type-image-business {
+        display: none;
+     }
+
+     .section-election .option .col-md-4.col-4.pr-0{
+         max-width: 15px;
+     }
+
+
+     .section-election .option .btn-business {
+        font-size: 30px;
+        height: 100%;
+        width: 100%;
+        background-color: var(--main-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        cursor: pointer;
+        color: #fff;
+    }
+    
+    .section-election .option .btn-particular {
+        font-size: 30px;
+        height: 100%;
+        width: 100%;
+        background-color: var(--main-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        cursor: pointer;
+        color: #fff;
+    }
+
+    #team .card {
+        border-radius: 0;
+        box-shadow: 5px 5px 15px var(--main-color);
+        width: 80%;
+        transition: all 0.3s ease-in;
+        -webkit-transition: all 0.3s ease-in;
+        -moz-transition: all 0.3s ease-in;
+    }
+    
+    #team .card:hover {
+        background: var(--main-color);
+        color: #fff;
+        
+        border-radius: 5px;
+        border: none;
+        box-shadow: 5px 5px 10px #9E9E9E;
+    }
+
+    .section-election .option {
+        max-width: 600px;
+        max-height: 80%;
+    }
+
+    
+.section-election {
+    display: flex;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.section-election .option .col-text {
+    padding: 15px 15px;
+    text-align: left;
+    border-top: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    border-left: 2px solid var(--main-color);
+    border-right:2px solid var(--main-color) ;
+    color: #000000;
+    background: rgba(255, 255, 255, .5);
+    /* background: linear-gradient(90deg, rgba(255,255,255,1) 52%, rgba(147,3,46,1) 100%);; */
+}
 }
