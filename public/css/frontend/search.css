@@ -1,7 +1,7 @@
 body {
     font-family: 'Nunito', sans-serif;
-    background: rgb(255, 255, 255);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(207, 207, 207, 1) 100%);
+    background: rgb(236, 236, 236);
+    background: linear-gradient(180deg, rgba(236, 236, 236, 1) 0%, rgba(187, 187, 187, 1) 100%);
 }
 
 h4 {

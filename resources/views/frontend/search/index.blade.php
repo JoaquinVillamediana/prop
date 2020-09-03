@@ -32,8 +32,10 @@ if(empty($oSearch))
               class="ml-1  fas fa-angle-down"></i></span></a>
         <div class="order-options">
           <a class="order-option" data-order="none" href="">Default</a>
-          <a class="order-option" data-order="ASC" href="">Menor Precio</a>
-          <a class="order-option" data-order="DESC" href="">Mayor Precio</a>
+          <a class="order-option" data-type="price" data-order="ASC" href="">Menor Precio</a>
+          <a class="order-option" data-type="price" data-order="DESC" href="">Mayor Precio</a>
+          <a class="order-option" data-type="size" data-order="ASC" href="">Menor Tamaño</a>
+          <a class="order-option" data-type="size" data-order="DESC" href="">Mayor Tamaño</a>
         </div>
       </div>
       <div class="props" id="props">
