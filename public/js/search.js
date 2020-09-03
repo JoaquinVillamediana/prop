@@ -180,6 +180,7 @@ $(document).on('click', '.order-option', function() {
     oSearch.propietie_type_id = $("input[name='prop_type']:checked").val();
     oSearch.operation_type_id = $("input[name='optype']:checked").val();
     oSearch.order = $(this).data('order');
+    oSearch.order_type = $(this).data('type');
     oSearch.currency = $('#currency').val();
     $('.order-selected').html($(this).html() + '<i id="order-arrow"class="ml-1 fas fa-angle-down"></i>');
     ajaxRequest("GET", '../getFilterProperties', oSearch, "updateProps");
