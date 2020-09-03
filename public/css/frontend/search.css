@@ -288,6 +288,28 @@ ul ul a {
     padding: 5px;
 }
 
+.actual-selection h3 {
+    width: fit-content;
+    margin-bottom: 0 !important;
+    display: inline-block;
+}
+
+.actual-selection .filters-delete {
+    cursor: pointer;
+}
+
+.actual-selection i {
+    color: #DA3928;
+    font-size: 1.5rem;
+}
+
+.actual-selection {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 @media screen and (max-width: 991px) {
     .col-list h4.site {
         text-align: center;
