@@ -248,9 +248,10 @@ return view('frontend/publish.profesional',compact('aPlans'));
                      }
                  }
 
-             }
+            }
 
-             
+            
+            
         return redirect()->back()->with('propietie_id' , $propietie_id);
             
         }
