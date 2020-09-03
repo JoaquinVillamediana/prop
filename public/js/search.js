@@ -131,6 +131,14 @@ function updateProps(data) {
 
     oCurrency = aCurrencies.find(element => element.id == oSearch.currency);
     $('.currency-symbol').html(oCurrency.symbol);
+    $(function() {
+        /* initiate plugin */
+        $("div.pagination-holder").jPages({
+            containerID: "props",
+            pause: 0,
+            minHeight: false
+        });
+    });
 
 }
 

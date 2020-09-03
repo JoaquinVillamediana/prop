@@ -15,7 +15,13 @@ if(empty($oSearch))
 <!-- Our Custom CSS -->
 <link rel="stylesheet" href="/css/frontend/search.css">
 <link rel="stylesheet" href="/css/frontend/propieties2.css">
-
+<script>
+  /* when document is ready */
+  
+  </script>
+  <style type="text/css">
+  
+  </style>
 <!------ Include the above in your HEAD tag ---------->
 <div class="row w-100 main-container">
   <div class="col-lg-6 col-xl-3 col-12">
@@ -41,6 +47,8 @@ if(empty($oSearch))
       <div class="props" id="props">
         
       </div>
+      <div class="pagination-holder">
+      </div>
     </div>
   </div>
 </div>
@@ -61,5 +69,6 @@ if(empty($oSearch))
 <script src="/js/functions.js"></script>
 <script src="/js/search.js"></script>
 <script src="/js/ajax_request.js"></script>
+<script src="/vendor/jPages.min.js"></script>
 @include('frontend/layouts.footer')
 @endsection
