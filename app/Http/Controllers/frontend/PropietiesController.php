@@ -21,22 +21,31 @@ class PropietiesController extends Controller {
         
         $user=Auth::user()->id;
 
-        $aPropieties=DB::select('SELECT *, SUM(id) as countprop
+        $aPropieties=DB::select('SELECT *
         FROM propieties
         where deleted_at is null
         and visible = 1
         and user_id = "'.$user.'"
-   ');
+        ');
 
-   $aPropieties=DB::select('SELECT *, count(propieties) as countprop
-   FROM propieties
-   where deleted_at is null
-   and visible = 1
-   and user_id = "'.$user.'"
-');
+        $aDatos=DB::select('SELECT u.*,COUNT(m.id) count_contactados
+        FROM users u
+        LEFT JOIN messages m ON (u.id = m.user_from_id) 
+        where u.deleted_at is null
+        and u.id = "'.$user.'"
+        GROUP BY u.id
+         ');
 
-
-   return view('frontend/propieties.index',compact('aPropieties'));
+         $aDatosProp=DB::select('SELECT u.*,COUNT(p.id) countprop
+        FROM users u
+        LEFT JOIN propieties p ON (u.id = p.user_id) 
+        where u.deleted_at is null
+        and u.id = "'.$user.'"
+        and p.visible = 1
+        GROUP BY u.id
+         ');
+        
+   return view('frontend/propieties.index',compact('aPropieties','aDatos','aDatosProp'));
         // return view('frontend/propieties.index');
     }
 

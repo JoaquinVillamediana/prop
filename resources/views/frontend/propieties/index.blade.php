@@ -4,10 +4,10 @@
 
 @section('content')
 <link rel="stylesheet" href="css/admin/users.css">
-<div class="container">
-    <h1 style="text-align: center;">
+<div class="container" style="text-align: center;">
+    <h2>
     Mis anuncios
-    </h1>
+    </h2>
     
 
     <div class="row">
@@ -15,24 +15,32 @@
     <div class="card text-white bg-danger mb-5" style="max-width: 18rem;">
   <div class="card-header">Mis publicaciones</div>
   <div class="card-body">
-    <h5 class="card-title">Danger card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">@if(!empty($aDatosProp)) @foreach($aDatosProp as $datos) {{$datos->countprop}} @endforeach @endif</h5>
+    <p class="card-text">  <a href="">Ver propiedades</a> </p>
   </div>
 </div>
 <!--  -->
 <div class="card text-white bg-danger mb-5 ml-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
+  <div class="card-header">Contactados</div>
   <div class="card-body">
-    <h5 class="card-title">Danger card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">@if(!empty($aDatos)) @foreach($aDatos as $datos) {{$datos->count_contactados}} @endforeach @endif</h5>
+    <p class="card-text"> <a href="{{ route('messages') }}"> Ver contactados</a> </p>
   </div>
 </div>
 <!--  -->
 <div class="card text-white bg-danger mb-5 ml-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
+  <div class="card-header">Mis visitas</div>
   <div class="card-body">
-    <h5 class="card-title">Danger card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Numero de visitas</h5>
+    <p class="card-text"> Funcion a agregar</p>
+  </div>
+</div>
+<!--  -->
+<div class="card text-white bg-danger mb-5 ml-3" style="max-width: 18rem;">
+  <div class="card-header">Mi perfil</div>
+  <div class="card-body">
+    <h5 class="card-title"> {{ Auth::user()->last_name}}, {{ Auth::user()->name}} </h5>
+    <p class="card-text"> <a href="">Ver perfil</a></p>
   </div>
 </div>
 <!--  -->
