@@ -310,6 +310,63 @@ ul ul a {
     justify-content: space-between;
 }
 
+.pagination-holder {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.pagination-holder a {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--main-color);
+    cursor: pointer;
+    margin: 0 5px;
+    color: #ffffff !important;
+}
+
+.pagination-holder a:hover {
+    background-color: var(--main-light-color);
+    color: #fff;
+}
+
+.pagination-holder a.jp-previous {
+    margin-right: 15px;
+}
+
+.pagination-holder a.jp-next {
+    margin-left: 15px;
+}
+
+.pagination-holder a.jp-current,
+a.jp-current:hover {
+    border: 1px solid var(--main-color);
+    font-weight: bold;
+    color: var(--main-color) !important;
+}
+
+.pagination-holder a.jp-disabled,
+a.jp-disabled:hover {
+    color: #bbb;
+    border: 1px solid var(--main-color);
+    font-weight: bold;
+    color: var(--main-color) !important;
+}
+
+.pagination-holder a.jp-current,
+a.jp-current:hover,
+.pagination-holder a.jp-disabled,
+a.jp-disabled:hover {
+    cursor: default;
+    background: none;
+}
+
+.pagination-holder span {
+    margin: 0 5px;
+}
+
 @media screen and (max-width: 991px) {
     .col-list h4.site {
         text-align: center;
