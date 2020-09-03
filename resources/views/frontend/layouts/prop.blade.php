@@ -32,6 +32,10 @@
 
     
       @endforeach
+      <div class="pag col-12">
+        {{ $aPropieties->links() }}
+      </div>
+
     </div>
     @endif
 <script>$(function () {

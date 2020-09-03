@@ -321,15 +321,16 @@ ul ul a {
     border-radius: 3px;
     width: 10px;
     height: 10px;
-    background-color: var(--main-color);
+    background-color: transparent;
     cursor: pointer;
     margin: 0 5px;
-    color: #ffffff !important;
+    color: var(--main-color) !important;
+    border: 1px solid var(--main-color);
 }
 
 .pagination-holder a:hover {
-    background-color: var(--main-light-color);
-    color: #fff;
+    background-color: var(--main-color);
+    color: #fff !important;
 }
 
 .pagination-holder a.jp-previous {
@@ -342,9 +343,10 @@ ul ul a {
 
 .pagination-holder a.jp-current,
 a.jp-current:hover {
+    background-color: var(--main-color) !important;
     border: 1px solid var(--main-color);
     font-weight: bold;
-    color: var(--main-color) !important;
+    color: #ffffff !important;
 }
 
 .pagination-holder a.jp-disabled,
