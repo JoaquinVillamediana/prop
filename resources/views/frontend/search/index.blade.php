@@ -2,7 +2,12 @@
 
 @include('frontend/layouts.header')
 
-
+<?php
+if(empty($oSearch))
+{
+  $oSearch = new \App\Classes\SearchClass;
+}
+?>
 
 @section('content')
 @include('frontend/layouts.ourJs')
@@ -10,25 +15,6 @@
 <!-- Our Custom CSS -->
 <link rel="stylesheet" href="/css/frontend/search.css">
 <link rel="stylesheet" href="/css/frontend/propieties2.css">
-
-<?php
-if(empty($default_type))
-{
-  $default_type = null;
-  
-}
-if(empty($default_property))
-{
-  $default_property = null;
-}
-
-if(empty($default_locality))
-{
-  $default_locality = null;
-
-}
-
-?>
 
 <!------ Include the above in your HEAD tag ---------->
 <div class="row w-100 main-container">
@@ -51,6 +37,7 @@ if(empty($default_locality))
         </div>
       </div>
       <div class="props" id="props">
+        
       </div>
     </div>
   </div>
@@ -59,9 +46,11 @@ if(empty($default_locality))
 
 <script>
   const localities = {!! json_encode($aLocalities); !!};
-  const default_type = {!! json_encode($default_type) !!}
-  const default_property = {!! json_encode($default_property) !!}
-  const default_locality = {!! json_encode($default_locality) !!}
+  const default_type = {!! json_encode($oSearch->operationType) !!}
+  const default_property = {!! json_encode($oSearch->buildingType) !!}
+  const default_locality = {!! json_encode($oSearch->locality) !!}
+  const default_currency = {!! json_encode($oSearch->currency) !!}
+  const aCurrencies = {!! json_encode($aCurrencies) !!}
 </script>
 
 

@@ -129,11 +129,17 @@
 
       <li class="active">
         <p class="sidebar-subtitle">Precio</p>
-        <p class="sidebar-indicator">Desde: $<span id="price-min">0</span></p>
+        <label for="">Moneda</label>
+        <select name="currency" id="currency" class="currency_select">
+          @foreach ($aCurrencies as $currency)
+              <option value="{{$currency->id}}">{{$currency->name}}</option>
+          @endforeach
+        </select>
+        <p class="sidebar-indicator">Desde: <span class="currency-symbol mr-1">$</span><span id="price-min">0</span></p>
         <div class="slidecontainer">
           <input step="1000" type="range" min="0" max="10000000" value="0" class="slider" id="slider-price-min">
         </div>
-        <p class="sidebar-indicator">Hasta: $<span id="price-max">{{ number_format(10000000, 0, ',', '.')  }}</span></p>
+        <p class="sidebar-indicator">Hasta: <span class="currency-symbol mr-1">$</span><span id="price-max">{{ number_format(10000000, 0, ',', '.')  }}</span></p>
         <div class="slidecontainer">
           <input step="1000" type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-price-max">
         </div>
@@ -143,11 +149,11 @@
           <p class="sidebar-subtitle">Expensas</p>
           <p class="sidebar-indicator">Desde: $<span id="expenses-min">0</span></p>
           <div class="slidecontainer">
-            <input step="1000" type="range" min="0" max="10000000" value="0" class="slider" id="slider-expenses-min">
+            <input step="100" type="range" min="0" max="100000" value="0" class="slider" id="slider-expenses-min">
           </div>
-          <p class="sidebar-indicator">Hasta: $<span id="expenses-max">{{number_format(10000000, 0, ',', '.')  }}</span></p>
+          <p class="sidebar-indicator">Hasta: $<span id="expenses-max">{{number_format(100000, 0, ',', '.')  }}</span></p>
           <div class="slidecontainer">
-            <input step="1000" type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-expenses-max">
+            <input step="100" type="range" min="0" max="100000" value="100000" class="slider" id="slider-expenses-max">
           </div>
         </li>
 

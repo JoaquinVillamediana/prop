@@ -42,7 +42,7 @@ $(document).ready(() => {
     oSearch.min_price = $('#slider-price-min').val();
     oSearch.max_expenses = $('#slider-expenses-max').val();
     oSearch.min_expenses = $('#slider-expenses-min').val();
-
+    oSearch.currency = $('#currency').val();
 
 
     if (default_type != null) {
@@ -113,6 +113,7 @@ $(document).on('click', '.btn-search', function() {
 
     oSearch.propietie_type_id = $("input[name='prop_type']:checked").val();
     oSearch.operation_type_id = $("input[name='optype']:checked").val();
+    oSearch.currency = $('#currency').val();
 
     ajaxRequest("GET", '../getFilterProperties', oSearch, "updateProps");
 });
@@ -122,11 +123,14 @@ function updateProps(data) {
     setSelectedTags();
     if (data.length > 0) {
         data.forEach(element => {
-            $('#props').append('<div class="card" id="card-prop"><div class="row "><div class="col-md-4"><div id="carouselExampleControls" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="/images/index/home1.jpg" class="d-block w-100"></div><div class="carousel-item"><img src="/images/index/home1.jpg" class="d-block w-100"></div><div class="carousel-item"><img src="/images/index/home1.jpg" class="d-block w-100"></div></div><a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div><div class="col-md-8"><a href="http://192.168.0.200:8080/propietie/' + element.id + '"><div class="card-block "><h3 class="card-title mt-2"> ' + element.name + ' </h3><p class="card-text"> ' + element.description + ' </p><div class="row row-caracs"><h3> USD' + formatNumber.new(element.price) + '</h3><span id="rooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="3 Ambientes">' + element.rooms + '<i class="fas fa-home"></i></span><span id="bathrooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="1 Baño">1<i class="fas fa-toilet"></i></span><span id="bedrooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="1 Dormitorio">2<i class="fas fa-bed"></i></span><a href="" id="btncontacto"class="btn btn-danger ml-auto mr-4 mb-4">Contactar</a></div></div></a></div></div></div>');
+            $('#props').append('<div class="card" id="card-prop"><div class="row "><div class="col-xl-4 col-12"><div id="carouselPropControls-' + element.id + '" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="/images/index/home1.jpg" class="d-block w-100"></div><div class="carousel-item"><img src="/images/index/home1.jpg" class="d-block w-100"></div><div class="carousel-item"><img src="/images/index/home1.jpg" class="d-block w-100"></div></div><a class="carousel-control-prev" href="#carouselPropControls-' + element.id + '" role="button"data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselPropControls-' + element.id + '"role="button" data-slide="next"><span class="carousel-control-next-icon"aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div><div class="col-xl-8 col-12"><a href="http://192.168.0.200:8080/propietie/' + element.id + '"><div class="card-block "><h3 class="card-title mt-2 "> ' + element.name + ' </h3><h3 class="price"><span class="currency"><span class="currency-symbol">$</span></span> ' + formatNumber.new(element.price) + '</h3><p class="card-text description">' + element.description + '</p><p class="characteristics"><span id="rooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="' + element.rooms + ' Ambientes"><i class="fas fa-home"></i>Cuartos <span class="quantity">' + element.rooms + '</span></span><span id="bathrooms" class="characteristic" data-toggle="tooltipdata-placement="top"title="' + element.bathrooms + ' Baño"><i class="fas fa-toilet"></i>Baños <span class="quantity">' + element.bathrooms + '</span></span><span id="bedrooms" class="characteristic" data-toggle="tooltipdata-placement="top"title="' + element.bedrooms + ' Dormitorio"><i class="fas fa-bed"></i>Dormitorios <span class="quantity">' + element.bedrooms + '</span></span></p><a href="http://192.168.0.200:8080/propietie/' + element.id + '" id="btncontacto" class="btn btn-contact d-block">Ver más</a></div></a></div></div></div>')
         });
     } else {
         $('#props').append('<div class="row not-found"><h2>Lo sentimos! No encontramos propiedades compatibles con tu busqueda</h2><div class="not-found-lottie"><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://assets4.lottiefiles.com/packages/lf20_g8sNgp.json" background="transparent"speed="1" style="width: 200px; height: 200px;" autoplay></lottie-player></div></div>');
     }
+
+    oCurrency = aCurrencies.find(element => element.id == oSearch.currency);
+    $('.currency-symbol').html(oCurrency.symbol);
 
 }
 
@@ -176,6 +180,7 @@ $(document).on('click', '.order-option', function() {
     oSearch.propietie_type_id = $("input[name='prop_type']:checked").val();
     oSearch.operation_type_id = $("input[name='optype']:checked").val();
     oSearch.order = $(this).data('order');
+    oSearch.currency = $('#currency').val();
     $('.order-selected').html($(this).html() + '<i id="order-arrow"class="ml-1 fas fa-angle-down"></i>');
     ajaxRequest("GET", '../getFilterProperties', oSearch, "updateProps");
 });

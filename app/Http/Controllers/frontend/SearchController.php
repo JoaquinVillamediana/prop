@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Models\PropietiesModel;
+
 use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
 use App\User;
 use Illuminate\Http\Request;
 use App\Models\LocalitiesModel;
+use App\Models\CurrencyModel;
 use App\Http\Controllers\Controller;
 use DB;
 
@@ -16,11 +18,6 @@ class SearchController extends Controller
 
     public function index(Request $request)
     {
-        $default_locality = $request['locality'];
-
-        $default_type  =  $request['type'];
-        $default_property =  $request['building'];
-
         $aPropietie_type = Propietie_typeModel::where('propietie_type.visible', '=', '1')
             ->get();
 
@@ -29,8 +26,15 @@ class SearchController extends Controller
 
         $aLocalities = LocalitiesModel::get();
 
+        $aCurrencies = CurrencyModel::get();
 
-        return view('frontend/search.index', compact('aLocalities', 'aOperationType', 'aPropietie_type', 'default_type','default_property','default_locality'));
+        $oSearch = new  \App\Classes\SearchClass;
+        $oSearch->operationType = $request['type'];
+        $oSearch->buildingType = $request['building'];
+        $oSearch->locality = $request['locality'];
+        $oSearch->currency = $request['currency'];
+
+        return view('frontend/search.index', compact('aLocalities', 'aOperationType', 'aPropietie_type','aCurrencies', 'oSearch'));
     }
 
 
@@ -53,7 +57,12 @@ class SearchController extends Controller
         public function index_compra(){
       
             $ubicacion="TODAS LAS PROPIEDADES DIPONIBLES PARA COMPRAR";
-            $default_type = 1;
+            
+            $oSearch = new  \App\Classes\SearchClass;
+            $oSearch->operationType = 1;
+
+            $aCurrencies = CurrencyModel::get();
+
             $aLocalities = LocalitiesModel::get();
 
             $aPropietie_type = Propietie_typeModel::where('propietie_type.visible', '=', '1')
@@ -62,13 +71,18 @@ class SearchController extends Controller
              $aOperationType = Operation_typeModel::where('operation_type.visible', '=', '1')
             ->get();
 
-            return view('frontend/search.index',compact('default_type','aLocalities','aOperationType', 'aPropietie_type'));
+            return view('frontend/search.index',compact('oSearch','aLocalities','aOperationType', 'aPropietie_type','aCurrencies'));
         }
 
         public function index_alquiler(){
       
             $ubicacion="TODAS LAS PROPIEDADES DIPONIBLES PARA COMPRAR";
-            $default_type = 2;
+
+            $oSearch = new  \App\Classes\SearchClass;
+            $oSearch->operationType = 2;
+
+            $aCurrencies = CurrencyModel::get();
+
             $aLocalities = LocalitiesModel::get();
 
             $aPropietie_type = Propietie_typeModel::where('propietie_type.visible', '=', '1')
@@ -77,7 +91,7 @@ class SearchController extends Controller
              $aOperationType = Operation_typeModel::where('operation_type.visible', '=', '1')
             ->get();
 
-            return view('frontend/search.index',compact('default_type','aLocalities','aOperationType', 'aPropietie_type'));
+            return view('frontend/search.index',compact('oSearch','aLocalities','aOperationType', 'aPropietie_type','aCurrencies'));
             }
 
 
@@ -92,6 +106,7 @@ class SearchController extends Controller
         and price < "'.$request['max_price'].'"
         and operation_type_id = "'.$request['operation_type_id'].'"
         and propietie_type_id = "'.$request['propietie_type_id'].'"
+        and currency_id = "'.$request['currency'].'"
         ';
         
         if(!empty($request['rooms']))

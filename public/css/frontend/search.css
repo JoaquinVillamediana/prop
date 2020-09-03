@@ -283,6 +283,11 @@ ul ul a {
     color: var(--main-color);
 }
 
+.currency_select {
+    width: 100%;
+    padding: 5px;
+}
+
 @media screen and (max-width: 991px) {
     .col-list h4.site {
         text-align: center;
