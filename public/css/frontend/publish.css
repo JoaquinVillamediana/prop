@@ -87,12 +87,26 @@ footer {
     .row-option.business {
         flex-direction: column-reverse;
     }
+    .row-option .col-image {
+        height: 150px;
+    }
     .row-option .col-image img {
+        height: 100%;
+        max-height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+    .row-option.business .col-image {
+        height: 150px;
+    }
+    .row-option.business .col-image img {
+        height: 100%;
         max-height: 200px;
         width: 100%;
         object-fit: cover;
     }
     .row-option {
+        height: fit-content;
         margin: auto;
         max-width: 47%;
     }
@@ -129,6 +143,7 @@ footer {
         margin-top: 0 !important;
     }
     .row-option .col-text {
+        max-height: 350px;
         min-height: 310px;
     }
 }
