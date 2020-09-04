@@ -35,7 +35,7 @@
           <a href="https://wbosoftware.com/" style="text-decoration: none;"> Conocé más sobre W.B.O. Software </a>
           </div>
           <div class="col-12 col-lg">
-          <a class="media-link" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+          <a class="media-link" href="https://www.facebook.com/Tupr%C3%B3ximaprop-100986391747322"><i class="fab fa-facebook-f"></i></a>
                         <a class="media-link" href="https://twitter.com/"><i
                             class="fab fa-twitter"></i></a>
                         <a class="media-link" href="https://www.instagram.com/tuproximaprop/"><i
