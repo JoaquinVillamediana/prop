@@ -102,8 +102,10 @@ class SearchController extends Controller
         FROM propieties
         where deleted_at is null
         and visible = 1
-        and price > "'.$request['min_price'].'"
-        and price < "'.$request['max_price'].'"
+        and price >= "'.$request['min_price'].'"
+        and price <= "'.$request['max_price'].'"
+        and expensas >= "'.$request['min_expenses'].'"
+        and expensas <= "'.$request['max_expenses'].'"
         and operation_type_id = "'.$request['operation_type_id'].'"
         and propietie_type_id = "'.$request['propietie_type_id'].'"
         and currency_id = "'.$request['currency'].'"
@@ -133,11 +135,7 @@ class SearchController extends Controller
             
             $aPropieties = array_slice($aPropieties,$offset, intval($request['pageSize']));
         }
-        // return json_encode($aPropieties,$propNumber);
-        // return Response::json(array(
-        //     'aPropieties' => $aPropieties,
-        //     'propNumber' => $propNumber,
-        // ));
+
         return response()->json(['aPropieties' => $aPropieties, 'propNumber' => $propNumber]);
 
     }

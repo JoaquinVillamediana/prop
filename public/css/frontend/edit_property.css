@@ -1,0 +1,40 @@
+h4 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--main-color);
+    padding-bottom: 10px;
+}
+
+.form-check {
+    min-height: 50px;
+}
+
+.no-min-height {
+    min-height: 0 !important;
+}
+
+.btn-cancel {
+    background-color: #dddddd;
+    color: #000000;
+}
+
+.btn-update:hover {
+    background-color: var(--main-light-color);
+}
+
+.btn-cancel:hover {
+    background-color: #aaaaaa;
+    color: #000000;
+}
+
+.btn-update {
+    background-color: var(--main-color);
+    color: #ffffff;
+}
+
+.currency-select {
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #ced4da;
+    background-color: transparent;
+}
