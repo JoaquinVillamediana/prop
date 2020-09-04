@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PropietiesModel;
 use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
+use App\Models\CurrencyModel;
 use App\Models\LocalitiesModel;
 use DB;
 use Auth;
@@ -106,13 +107,7 @@ class HomeController extends Controller
         GROUP BY p.id;
    ');
 
-   $aPropieties_comodidades=DB::select('SELECT pc.*,(c.name) comodidades_name
-    FROM propieties_comodidades pc
-   LEFT JOIN comodidades c ON pc.comidades_id = c.id
-   where pc.deleted_at is null
-   and pc.propietie_id = "'.$id.'"
-   GROUP BY pc.id;
-    ');
+   
 
     $aPropieties_caracteristicas_generales=DB::select('SELECT pcg.*,(cg.name) caracteristicas_generales_name
     FROM propieties_caracteristicas_generales pcg
@@ -122,26 +117,32 @@ class HomeController extends Controller
     GROUP BY pcg.id;
     ');
 
-    $aPropieties_ambientes=DB::select('SELECT pa.*,(a.name) ambientes_name
-    FROM propieties_ambientes pa
-    LEFT JOIN ambientes a ON pa.ambientes_id = a.id
-    where pa.deleted_at is null
-    and pa.propietie_id = "'.$id.'"
-    GROUP BY pa.id;
+    $aPropieties_ambientes=DB::select('SELECT ambientes.*,propieties_ambientes.id as ambient_checked
+    FROM propiedades.ambientes
+    LEFT JOIN propieties_ambientes ON ( ambientes.id = propieties_ambientes.ambientes_id and  propieties_ambientes.propietie_id = "'.$id.'" )
+    where ambientes.deleted_at is null
+    and propieties_ambientes.deleted_at is null;
      ');
 
-     $aPropieties_services=DB::select('SELECT ps.*,(s.name) service_name
-    FROM propieties_services ps
-    LEFT JOIN services s ON ps.services_id = s.id
-    where ps.deleted_at is null
-    and ps.propietie_id = "'.$id.'"
-    GROUP BY ps.id;
-     ');
+    $aPropieties_services=DB::select('SELECT services.*,propieties_services.id as service_checked
+    FROM propiedades.services
+    LEFT JOIN propieties_services ON ( services.id = propieties_services.services_id and  propieties_services.propietie_id = "'.$id.'" )
+    where services.deleted_at is null
+    and propieties_services.deleted_at is null
+    ;');
+
+    $aPropieties_luxuries=DB::select('SELECT comodidades.*,propieties_comodidades.id as luxury_checked
+    FROM propiedades.comodidades
+    LEFT JOIN propieties_comodidades ON ( comodidades.id = propieties_comodidades.comodidades_id and  propieties_comodidades.propietie_id = "'.$id.'" )
+    where comodidades.deleted_at is null
+    and propieties_comodidades.deleted_at is null
+    ;');
 
      $aPropieteie_user=DB::select('SELECT user_id from propieties where id = "'.$id.'"');
      
+     $aCurrencies = CurrencyModel::get();
   
-        return view('frontend/propietie.edit',compact('aProp','aPropieties_comodidades','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services'));
+        return view('frontend/propietie.edit',compact('aProp','aPropieties_luxuries','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services','aCurrencies'));
         
    
    
