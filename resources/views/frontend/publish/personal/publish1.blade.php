@@ -114,7 +114,7 @@
                                           @if(!empty($aCurrency))
                                             @foreach($aCurrency as $moneda)
                                           
-                                             <p>{{$moneda->name}}</p> <input type="checkbox" id="currency_id" name="currency_id">
+                                             <p>{{$moneda->name}}</p> <input type="checkbox" value="{{$moneda->id}}" id="currency_id" name="currency_id">
                                
                                               @endforeach   
                                           @endif
