@@ -1,6 +1,6 @@
 var oSearch = new Object();
 var aLocalities;
-
+oSearch.pageSize = 10;
 
 var slider_price_min = document.getElementById("slider-price-min");
 var price_min = document.getElementById("price-min");
@@ -62,6 +62,8 @@ $(document).ready(() => {
     oSearch.propietie_type_id = $("input[name='prop_type']:checked").val();
     oSearch.operation_type_id = $("input[name='optype']:checked").val();
 
+    oSearch.pageNumber = 1;
+    $('#pagination-holder').bootpag({ page: 1 });
     ajaxRequest("GET", '../getFilterProperties', oSearch, "updateProps");
 });
 
@@ -115,14 +117,22 @@ $(document).on('click', '.btn-search', function() {
     oSearch.operation_type_id = $("input[name='optype']:checked").val();
     oSearch.currency = $('#currency').val();
 
+    oSearch.pageNumber = 1;
+    $('#pagination-holder').bootpag({ page: 1 });
     ajaxRequest("GET", '../getFilterProperties', oSearch, "updateProps");
 });
 
 function updateProps(data) {
+
+    let totalPages = (Math.trunc(data.propNumber / 10) + 1);
+    $('#pagination-holder').bootpag({ total: totalPages });
+
+
+
     $('#props').empty();
     setSelectedTags();
-    if (data.length > 0) {
-        data.forEach(element => {
+    if (data.aPropieties.length > 0) {
+        data.aPropieties.forEach(element => {
             $('#props').append('<div class="card" id="card-prop"><div class="row "><div class="col-xl-6 col-12"><div id="carouselPropControls-' + element.id + '" class="carousel slide" data-ride="carousel"><div class="carousel-inner"><div class="carousel-item active"><img src="/images/index/home1.jpg" class="d-block w-100"></div><div class="carousel-item"><img src="/images/index/home1.jpg" class="d-block w-100"></div><div class="carousel-item"><img src="/images/index/home1.jpg" class="d-block w-100"></div></div><a class="carousel-control-prev" href="#carouselPropControls-' + element.id + '" role="button"data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselPropControls-' + element.id + '"role="button" data-slide="next"><span class="carousel-control-next-icon"aria-hidden="true"></span><span class="sr-only">Next</span></a></div></div><div class="col-xl-6 col-12"><a href="http://192.168.0.200:8080/propietie/' + element.id + '"><div class="card-block "><h3 class="card-title mt-2 "> ' + element.name + ' </h3><h3 class="price"><span class="currency"><span class="currency-symbol">$</span></span> ' + formatNumber.new(element.price) + '</h3><p class="card-text description">' + element.description + '</p><p class="characteristics"><span id="rooms" class="characteristic" data-toggle="tooltip" data-placement="top"title="' + element.rooms + ' Ambientes"><i class="fas fa-home"></i>Cuartos <span class="quantity">' + element.rooms + '</span></span><span id="bathrooms" class="characteristic" data-toggle="tooltipdata-placement="top"title="' + element.bathrooms + ' Baño"><i class="fas fa-toilet"></i>Baños <span class="quantity">' + element.bathrooms + '</span></span><span id="bedrooms" class="characteristic" data-toggle="tooltipdata-placement="top"title="' + element.bedrooms + ' Dormitorio"><i class="fas fa-bed"></i>Dormitorios <span class="quantity">' + element.bedrooms + '</span></span> <span id="size" class="characteristic" data-toggle="tooltipdata-placement="top"title="' + element.size + ' m2"><i class="fas fa-ruler-combined"></i>Tamaño <span class="quantity">' + element.size + 'm<sup>2</sup></span></span></p><a href="http://192.168.0.200:8080/propietie/' + element.id + '" id="btncontacto" class="btn btn-contact d-block">Ver más</a></div></a></div></div></div>')
         });
     } else {
@@ -131,14 +141,7 @@ function updateProps(data) {
 
     oCurrency = aCurrencies.find(element => element.id == oSearch.currency);
     $('.currency-symbol').html(oCurrency.symbol);
-    $(function() {
-        /* initiate plugin */
-        $("div.pagination-holder").jPages({
-            containerID: "props",
-            pause: 0,
-            minHeight: false
-        });
-    });
+
 
 }
 
@@ -191,6 +194,9 @@ $(document).on('click', '.order-option', function() {
     oSearch.order_type = $(this).data('type');
     oSearch.currency = $('#currency').val();
     $('.order-selected').html($(this).html() + '<i id="order-arrow"class="ml-1 fas fa-angle-down"></i>');
+
+    oSearch.pageNumber = 1;
+    $('#pagination-holder').bootpag({ page: 1 });
     ajaxRequest("GET", '../getFilterProperties', oSearch, "updateProps");
 });
 
@@ -234,5 +240,17 @@ function deleteFilters() {
     oSearch.propietie_type_id = $("input[name='prop_type']:checked").val();
     oSearch.operation_type_id = $("input[name='optype']:checked").val();
 
+    oSearch.pageNumber = 1;
+    $('#pagination-holder').bootpag({ page: 1 });
     ajaxRequest("GET", '../getFilterProperties', oSearch, "updateProps");
 }
+
+$('#pagination-holder').bootpag({
+    total: 1, // total pages
+    page: 1, // default page
+    maxVisible: 5, // visible pagination
+    leaps: true // next/prev leaps through maxVisible
+}).on("page", function(event, num) {
+    oSearch.pageNumber = num;
+    ajaxRequest("GET", '../getFilterProperties', oSearch, "updateProps");
+});

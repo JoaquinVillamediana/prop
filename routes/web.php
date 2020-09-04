@@ -29,13 +29,11 @@ Route::get('logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('user_profile', 'frontend\ProfileController@index')->name('user_profile');
-Route::post('user_profile_edit', 'frontend\ProfileController@edit')->name('user_profile_edit');
-Route::post('user_profilepicture_edit', 'frontend\ProfileController@edit_profile_photo')->name('user_profilepicture_edit');
+
 
 
 Route::get('user_profile_publications/{user_id}', 'frontend\ProfileController@user_perfil_publicaciones')->name('user_profile_publications');
-Route::get('mis_propiedades', 'frontend\PropietiesController@index')->name('user_propieties');
+
 
 Route::get('search', 'frontend\SearchController@index')->name('search');
 Route::get('/search/compra', 'frontend\SearchController@index_compra')->name('search_compra');
@@ -60,7 +58,14 @@ Route::get('send_user_mail/{user_id}', 'frontend\ContactController@users_mail')-
 Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 
 
+Route::middleware(['auth'])->group(function () {
 
+    Route::get('mis_propiedades', 'frontend\PropietiesController@index')->name('user_propieties');
+    Route::get('user_profile', 'frontend\ProfileController@index')->name('user_profile');
+    Route::post('user_profile_edit', 'frontend\ProfileController@edit')->name('user_profile_edit');
+    Route::post('user_profilepicture_edit', 'frontend\ProfileController@edit_profile_photo')->name('user_profilepicture_edit');
+    
+});
 
 // condiciones del footer
 Route::get('tycdu', 'frontend\CondicionesController@terminos_y_condiciones_de_uso')->name('tycdu');

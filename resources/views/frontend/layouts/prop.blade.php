@@ -19,8 +19,8 @@
           </div>
 
           <div class="card-body">
-            <h5 class="card-title mb-0"> {{$prop->name}}</h5>
-
+            <h5 class="card-title mb-1"> {{$prop->name}}</h5>
+            <h5 class="card-title mb-1"><b>{{$prop->symbol}}</b> {{$prop->price}}</h5>
             <p class="card-text">{{$prop->description}}.</p>
             <a href="{{ route('propietie',$prop->id) }}" class="btn btn-moreinfo">Más información</a>
           </div>

@@ -311,6 +311,8 @@ ul ul a {
 }
 
 .pagination-holder {
+    display: flex;
+    justify-content: center;
     text-align: center;
     margin: 15px 0;
 }
@@ -328,45 +330,20 @@ ul ul a {
     border: 1px solid var(--main-color);
 }
 
-.pagination-holder a:hover {
+.pagination-holder .active>a {
     background-color: var(--main-color);
     color: #fff !important;
 }
 
-.pagination-holder a.jp-previous {
-    margin-right: 15px;
-}
-
-.pagination-holder a.jp-next {
-    margin-left: 15px;
-}
-
-.pagination-holder a.jp-current,
-a.jp-current:hover {
-    background-color: var(--main-color) !important;
-    border: 1px solid var(--main-color);
-    font-weight: bold;
-    color: #ffffff !important;
-}
-
-.pagination-holder a.jp-disabled,
-a.jp-disabled:hover {
-    color: #bbb;
-    border: 1px solid var(--main-color);
-    font-weight: bold;
+.pagination-holder .disabled>a:hover {
+    background-color: transparent;
     color: var(--main-color) !important;
+    border: 1px solid var(--main-color);
 }
 
-.pagination-holder a.jp-current,
-a.jp-current:hover,
-.pagination-holder a.jp-disabled,
-a.jp-disabled:hover {
-    cursor: default;
-    background: none;
-}
-
-.pagination-holder span {
-    margin: 0 5px;
+.pagination-holder a:hover {
+    background-color: var(--main-color);
+    color: #fff !important;
 }
 
 @media screen and (max-width: 991px) {

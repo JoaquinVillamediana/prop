@@ -47,8 +47,7 @@ if(empty($oSearch))
       <div class="props" id="props">
         
       </div>
-      <div class="pagination-holder">
-      </div>
+      <p id="pagination-holder" class="pagination-holder"></p>
     </div>
   </div>
 </div>
@@ -65,10 +64,10 @@ if(empty($oSearch))
 
 
 
-
+<script src="/vendor/jquery.bootpag.min.js"></script>
 <script src="/js/functions.js"></script>
 <script src="/js/search.js"></script>
 <script src="/js/ajax_request.js"></script>
-<script src="/vendor/jPages.min.js"></script>
+
 @include('frontend/layouts.footer')
 @endsection
