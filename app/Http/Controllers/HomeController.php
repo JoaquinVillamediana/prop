@@ -30,7 +30,9 @@ class HomeController extends Controller
     public function index()
     {
         $aLocalities = LocalitiesModel::get();
-        $aPropieties = PropietiesModel::paginate(9);;
+        $aPropieties = PropietiesModel::select('propieties.*','currency.symbol')
+        ->leftjoin('currency','currency.id','=','propieties.currency_id')
+        ->paginate(9);
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
         $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')

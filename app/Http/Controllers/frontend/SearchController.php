@@ -126,7 +126,21 @@ class SearchController extends Controller
             $query = $query.' ORDER BY '.$request['order_type'].' '.$request['order'].'';
         }
         $aPropieties = DB::select($query);
+        $propNumber = count($aPropieties);
+        if(!empty($request['pageNumber']) && !empty($request['pageSize']))
+        {
+            $offset = (intval($request['pageNumber']) - 1) * intval($request['pageSize']); 
+            
+            $aPropieties = array_slice($aPropieties,$offset, intval($request['pageSize']));
+        }
+        // return json_encode($aPropieties,$propNumber);
+        // return Response::json(array(
+        //     'aPropieties' => $aPropieties,
+        //     'propNumber' => $propNumber,
+        // ));
+        return response()->json(['aPropieties' => $aPropieties, 'propNumber' => $propNumber]);
 
-        return json_encode($aPropieties);
     }
+
+
 }
