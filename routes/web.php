@@ -35,12 +35,16 @@ Route::post('user_profilepicture_edit', 'frontend\ProfileController@edit_profile
 
 
 Route::get('user_profile_publications/{user_id}', 'frontend\ProfileController@user_perfil_publicaciones')->name('user_profile_publications');
-Route::get('user_propieties', 'frontend\PropietiesController@index')->name('user_propieties');
+Route::get('mis_propiedades', 'frontend\PropietiesController@index')->name('user_propieties');
 
 Route::get('search', 'frontend\SearchController@index')->name('search');
 Route::get('/search/compra', 'frontend\SearchController@index_compra')->name('search_compra');
 Route::get('/search/alquiler', 'frontend\SearchController@index_alquiler')->name('search_alquiler');
 Route::get('search_avanzado', 'frontend\SearchController@index_avanzado')->name('search_avanzado');
+
+// Route::get('mis_propiedades','frontend\')
+
+
 // messages
 Route::get('messages', 'frontend\MessageController@index')->name('messages');
 // 
