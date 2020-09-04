@@ -132,7 +132,7 @@
               data-toggle="tooltip" data-placement="top" title="{{ $prop->size}} m2"><i
                 class="fas fa-ruler-combined"></i>Tamaño <span class="quantity">{{ $prop->size}}m<sup>2</sup></span></span></p><a href="http://192.168.0.200:8080/propietie/{{ $prop->id }}"
             id="btncontacto" class="btn btn-contact d-block">Ver más</a>
-            <a href="http://192.168.0.200:8080/propietie/{{ $prop->id }}"
+            <a href="{{ route('edit_propietie',$prop->id) }}"
               id="btncontacto" class="btn btn-contact d-block">Editar</a>
         </div>
       </a></div>

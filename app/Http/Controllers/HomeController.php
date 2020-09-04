@@ -148,4 +148,43 @@ class HomeController extends Controller
         
     }
 
+    public function update(Request $request, $id) {
+        
+        $aValidations = array(
+            
+            'name' => 'required|max:60',
+        
+           
+        );
+
+     
+
+        $this->validate($request, $aValidations);
+
+        $oPropietie = PropietiesModel::find($id);
+          
+        $request['name'] = ucwords($request['name']);
+       
+
+        $oPropietie->name = $request['name'];
+
+        $oPropietie->description = $request['description'];
+        $oPropietie->introduccion = $request['introduccion'];
+        $oPropietie->price = $request['price'];
+        $oPropietie->rooms = $request['rooms'];
+        $oPropietie->expensas = $request['expensas'];
+        $oPropietie->beedrooms = $request['beedrooms'];
+        $oPropietie->bathrooms = $request['bathrooms'];
+        $oPropietie->size = $request['size'];
+        $oPropietie->direction = $request['direction'];
+        $oPropietie->garages = $request['garages'];
+        $oPropietie->toilettes = $request['toilettes'];
+        $oPropietie->years = $request['years'];
+        
+        $oPropietie->save();
+
+        return redirect()->back();
+    }
+
+
 }

@@ -27,12 +27,12 @@
 
 <div class="col-12 faq">
     <h2 class="faqs-head"><a onclick="displayText(1)" href="">. ¿Cómo publicar una propiedad?<span id="sign-1" class="float-right">+</span></a> </h2>
-    <p id="1" style="display: none;">Para publicar tu propiedad se requiere contratar algúno de los planes disponibles en la seccion de <a href="{{ route('publish') }}">planes</a>. Allí encontraras todas las opciones para publicarla, tanto para profesional como para propietario. Es necesario haber iniciado sesión para poder acceder a la opcion de compra de cualquier plan. Teniendo en cuenta esto, si el comprador no posee una cuenta deberá registrarse primero.</br></br> Si se presenta algún inconveniente <a href="{{ route('contact') }}">contactarnos</a> estamos disponibles para consultas las 24hs.</p>
+    <p id="1" style="display: none;">Para publicar tu propiedad se requiere contratar alguno de los planes disponibles en la sección de <a href="{{ route('publish') }}">planes</a>. Allí encontrarás todas las opciones para publicarla, tanto para profesional como para propietario. Es necesario haber iniciado sesión para acceder a la opción de compra de cualquier plan. Teniendo en cuenta esto, si el comprador no posee una cuenta deberá registrarse primero.</br></br> Si se presenta algún inconveniente no dude en <a href="{{ route('contact') }}">contactarnos</a>, estamos disponibles para consultas las 24hs.</p>
   </div>
 
   <div class="col-12 faq">
     <h2 class="faqs-head"><a onclick="displayText(2)" href="">. ¿Cómo puedo buscar una propiedad con los filtros que quiero?<span id="sign-2" class="float-right"><b>+</b></span></a> </h2>
-    <p id="2" style="display: none;">Para poder buscar una propiedad se necesita ingresar una localidad en el buscador, el tipo de operación que busca y el tipo de propiedad. Si no existen preferencias a la hora de comenzar la busqueda puede oprimir directamente el botón de busqueda avanzada y te mostraremos nuestras propiedades destacadas. </br></br> Si se presenta algún inconveniente <a href="{{ route('contact') }}">contactarnos</a> estamos disponibles para consultas las 24hs.</p>
+    <p id="2" style="display: none;">Para poder buscar una propiedad se necesita ingresar una localidad en el buscador, el tipo de operación que busca y el tipo de propiedad. Si no existen preferencias a la hora de comenzar la busqueda puede oprimir directamente el botón de busqueda avanzada y te mostraremos nuestras propiedades destacadas.</br></br> Si se presenta algún inconveniente no dude en <a href="{{ route('contact') }}">contactarnos</a>, estamos disponibles para consultas las 24hs.</p>
   </div>
 
   <div class="col-12 faq">

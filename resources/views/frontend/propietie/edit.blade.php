@@ -17,7 +17,7 @@
       <div class="col-md-7 col-12">
       
           <!-- Características  -->
-      
+          <form method="POST" action="{{ route('update_propietie', $prop->id) }}" role="form" enctype="multipart/form-data">
             <div class="input-group mb-3">
               <label for="name">Título</label>
               <input id="name" name="name" type="text" class="form-control ml-4" aria-label="Text input with dropdown button" placeholder="{{ $prop->name }}"> 
@@ -164,6 +164,134 @@
             <!--  fin de comodidades-->
 
         {{-- </div> --}}
+
+    <!-- Precio -->
+
+    <div class="container mt-5">
+                                  <h3>Precio(*)</h3>
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                      
+                                          @if(!empty($aCurrency))
+                                            @foreach($aCurrency as $moneda)
+                                          
+                                             <p>{{$moneda->name}}</p> <input type="checkbox" id="currency_id" name="currency_id">
+                               
+                                              @endforeach   
+                                          @endif
+                                       
+                                          <input type="number" id="price" name="price" class="form-control" aria-label="Text input with dropdown button">
+                                      </div>
+                                    </div>
+                                </div>
+
+                                <!--FIN DE PRECIO EN SI  -->
+                                <div class="container">
+                                  <p>Agregar Expensas </p>
+                                    <div class="input-group" style="width: 50%;">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>                  
+                                        </div>
+                                        <input type="number" id="expensas"name="expensas" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" >
+                                    </div>
+                                </div>
+
+                            <!-- fin de sector de precios con la opcion de expensas -->
+
+                              <!--  Opciones de compra -->
+                                <div class="container" style="margin-top:10px;">
+                                  <p> Apto crédito</p> <input type="checkbox">
+                                  <p> Apto Financiación</p> <input type="checkbox">
+                                </div>
+                              <!-- FIN DE Opciones de compra -->
+
+                                <!-- CANTIDAD DE CADA COSA -->
+                                <div class="container">
+                                <h3>Espacios</h3>
+                              
+                                <!-- CANTIDAD DE AMBIENTES -->
+                                <div class="input-group" style="width: 50%;" >
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">Ambientes</span>
+                                  </div>
+                                    <input type="Number" id="rooms" name="rooms" aria-label="1" class="form-control">
+                                  
+                                </div>
+                                <!-- FIN DE AMBIENTES -->
+
+                                            <!-- CANTIDAD DE DORMITORIOS -->
+                                            <div class="input-group" style="width: 50%;">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">Dormitorios</span>
+                                  </div>
+                                    <input type="Number" id="bedrooms" name="bedrooms" aria-label="1" class="form-control">
+                                  
+                                </div>
+                                <!-- FIN DE dormitorios -->
+
+                                            <!-- CANTIDAD DE baños -->
+                                            <div class="input-group"style="width: 50%;">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">Baños</span>
+                                  </div>
+                                    <input type="Number" id="bathroooms" name="bathroooms" aria-label="1" class="form-control">
+                                  
+                                </div>
+                                <!-- FIN DE baños -->
+
+                                            <!-- CANTIDAD DE Cocheras -->
+                                            <div class="input-group" style="width: 50%;">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">Cocheras</span>
+                                  </div>
+                                    <input type="Number" id="garages" name="garages" aria-label="1" class="form-control">
+                                  
+                                </div>
+                                <!-- FIN DE Cocheras -->
+
+                                            <!-- CANTIDAD DE Toilettes -->
+                                            <div class="input-group" style="width: 50%;">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">Toilettes</span>
+                                  </div>
+                                    <input type="Number" id="toilettes" name="toilettes" aria-label="1" class="form-control">
+                                  
+                                </div>
+                                <!-- FIN DE Toilettes -->
+
+                                </div>
+
+                                <!-- FIN DE CANTIDAD DE CADA COSA -->
+
+
+                                <!-- Antiguedad -->
+
+
+                                <div class="container mt-5">
+                                <h3>Antiguedad (*)</h3>
+                                <p> A estrenar</p> <input type="checkbox" value="0" id="years" name="years">
+                                <p> Años</p> <input type="checkbox" value="1" id="years" name="years"> <!-- Agregar cantidad de años --> 
+                                
+                                </div>
+
+                                <!-- fin de antiguedad -->
+
+                                <!-- Superficie -->
+                                <div class="container mt-5">
+                                <h3>¿Cuál es la superficie? (*)</h3>
+                                <div class="row">
+                                  <div class="col">
+                                    <input type="text" class="form-control" placeholder="Counstruida">
+                                  </div>
+                                  <div class="col">
+                                    <input type="text" class="form-control" id="size" name="size"placeholder="Total (*)">
+                                  </div>
+                                </div>
+                                </div>
+                                <!-- fin de la superficie -->
+                                <button type="submit"> Editar</button>
+                                </div>
+                               
       </div>
       <!-- FIN DE COLUMNA DE CARACTERÍSTICAS Y DE FOTOS -->
 
@@ -174,6 +302,7 @@
 
       @endforeach
       @endif
+      </form>
     </div>
 
 
