@@ -55,3 +55,8 @@ a:focus {
 #propiedades .container {
     text-align: left;
 }
+
+#card-prop {
+    margin: auto !important;
+    margin-bottom: 40px !important;
+}

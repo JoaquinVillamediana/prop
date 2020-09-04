@@ -121,7 +121,7 @@
     <div class="col-xl-6 col-12"><a href="http://192.168.0.200:8080/propietie/{{ $prop->id }}">
         <div class="card-block ">
           <h3 class="card-title mt-2 "> {{ $prop->name }} </h3>
-          <h3 class="price"><span class="currency"><span class="currency-symbol">$</span></span> {{ $prop->price}}</h3>
+          <h3 class="price"><span class="currency"><span class="currency-symbol">{{ $prop->symbol }}</span></span> {{ $prop->price}}</h3>
           <p class="card-text description">{{ $prop->description}}</p>
           <p class="characteristics"><span id="rooms" class="characteristic" data-toggle="tooltip" data-placement="top"
               title="{{ $prop->rooms}} Ambientes"><i class="fas fa-home"></i>Cuartos <span class="quantity">{{ $prop->rooms}}</span></span><span id="bathrooms" class="characteristic"
@@ -132,6 +132,8 @@
               data-toggle="tooltip" data-placement="top" title="{{ $prop->size}} m2"><i
                 class="fas fa-ruler-combined"></i>Tamaño <span class="quantity">{{ $prop->size}}m<sup>2</sup></span></span></p><a href="http://192.168.0.200:8080/propietie/{{ $prop->id }}"
             id="btncontacto" class="btn btn-contact d-block">Ver más</a>
+            <a href="http://192.168.0.200:8080/propietie/{{ $prop->id }}"
+              id="btncontacto" class="btn btn-contact d-block">Editar</a>
         </div>
       </a></div>
   </div>
