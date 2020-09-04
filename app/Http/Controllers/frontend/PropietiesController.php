@@ -21,11 +21,13 @@ class PropietiesController extends Controller {
         
         $user=Auth::user()->id;
 
-        $aPropieties=DB::select('SELECT *
+        $aPropieties=DB::select('SELECT propieties.* , currency.symbol as symbol
         FROM propieties
-        where deleted_at is null
-        and visible = 1
-        and user_id = "'.$user.'"
+        LEFT JOIN currency ON currency.id = propieties.currency_id
+        where propieties.deleted_at is null
+        and propieties.visible = 1
+        and currency.deleted_at is null
+        and propieties.user_id = "'.$user.'"
         ');
 
         $aDatos=DB::select('SELECT u.*,COUNT(m.id) count_contactados
