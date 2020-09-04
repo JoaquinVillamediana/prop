@@ -191,10 +191,8 @@
                     <!-- <button type="button" class="btn btn-primary mt-5 mb-3">Siguiente</button> -->
                       </div> 
 
-
                   <!-- FIN DE DATOS VISIBLES OPCIONALES -->
-
-</br>
+                      </br>
 
                       <button type="button" class="btn btn-link mt-7">PUBLICAR</button>
                     
