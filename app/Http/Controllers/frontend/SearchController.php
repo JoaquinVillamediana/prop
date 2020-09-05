@@ -129,8 +129,9 @@ class SearchController extends Controller
         }
         $aPropieties = DB::select($query);
         $propNumber = count($aPropieties);
-        if(!empty($request['pageNumber']) && !empty($request['pageSize']))
+        if(!empty($request['pageNumber']))
         {
+            $request['pageSize'] = 10;
             $offset = (intval($request['pageNumber']) - 1) * intval($request['pageSize']); 
             
             $aPropieties = array_slice($aPropieties,$offset, intval($request['pageSize']));

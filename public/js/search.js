@@ -215,8 +215,8 @@ function deleteFilters() {
 
     $('#prop_type2').prop('checked', true);
 
-    $('#location').empty();
-    $('#locality').empty();
+    $('#location').val("");
+    $('#locality').val("");
     $('.options').hide();
 
     $("#currency").val("1");
