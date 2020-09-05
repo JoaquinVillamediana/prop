@@ -60,12 +60,12 @@ return view('frontend/publish.profesional',compact('aPlans'));
         $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
         ->get();
 
-        $aCurrency = DB::select('SELECT *
+        $aCurrencies = DB::select('SELECT *
          FROM currency
          where deleted_at is null
         ');
 
-        $aAmbientes = DB::select('SELECT *
+        $aPropieties_ambientes = DB::select('SELECT *
         FROM ambientes
         where deleted_at is null
         ');
@@ -75,12 +75,12 @@ return view('frontend/publish.profesional',compact('aPlans'));
         where deleted_at is null
         ');
 
-        $aServicios = DB::select('SELECT *
+        $aPropieties_services = DB::select('SELECT *
         FROM services
         where deleted_at is null
         ');
 
-        $aComodidades = DB::select('SELECT *
+        $aPropieties_luxuries = DB::select('SELECT *
         FROM comodidades
         where deleted_at is null
         ');
@@ -90,7 +90,7 @@ return view('frontend/publish.profesional',compact('aPlans'));
         $aLocalities = LocalitiesModel::get();
 
 
-        return view('frontend/publish/personal.publish1',compact('aPropietie_type','aLocalities','aOperationType','aCurrency','aAmbientes','aCaracteristocasg','aServicios','aComodidades'));
+        return view('frontend/publish/personal.publish1',compact('aPropietie_type','aLocalities','aOperationType','aCurrencies','aPropieties_ambientes','aCaracteristocasg','aPropieties_services','aPropieties_luxuries'));
     }
 
     public function store1(Request $request){

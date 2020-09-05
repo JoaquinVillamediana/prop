@@ -29,11 +29,13 @@ Route::get('logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
+Route::get('user_profile', 'frontend\ProfileController@index')->name('user_profile');
+Route::post('user_profile_edit', 'frontend\ProfileController@edit')->name('user_profile_edit');
+Route::post('user_profilepicture_edit', 'frontend\ProfileController@edit_profile_photo')->name('user_profilepicture_edit');
 
 
 Route::get('user_profile_publications/{user_id}', 'frontend\ProfileController@user_perfil_publicaciones')->name('user_profile_publications');
-
+Route::get('mis_propiedades', 'frontend\PropietiesController@index')->name('user_propieties');
 
 Route::get('search', 'frontend\SearchController@index')->name('search');
 Route::get('/search/compra', 'frontend\SearchController@index_compra')->name('search_compra');
@@ -57,7 +59,6 @@ Route::get('send_user_mail/{user_id}', 'frontend\ContactController@users_mail')-
 
 Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 
-
 Route::middleware(['auth'])->group(function () {
 
     Route::get('mis_propiedades', 'frontend\PropietiesController@index')->name('user_propieties');
@@ -69,13 +70,13 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // condiciones del footer
-Route::get('tycdu', 'frontend\CondicionesController@terminos_y_condiciones_de_uso')->name('tycdu');
-Route::get('tycdc', 'frontend\CondicionesController@terminos_y_condiciones_de_contratacion')->name('tycdc');
-Route::get('pdp', 'frontend\CondicionesController@politica_de_privacidad')->name('pdp');
-Route::get('pdgdc', 'frontend\CondicionesController@politica_de_gestion_de_calidad')->name('pdgdc');
-Route::get('ayuda', 'frontend\FrecuentesController@ayuda')->name('ayuda');
+Route::get('terminos_y_condiciones_de_uso', 'frontend\CondicionesController@terminos_y_condiciones_de_uso')->name('terminos_y_condiciones_de_uso');
+Route::get('terminos_y_condiciones_de_contrato', 'frontend\CondicionesController@terminos_y_condiciones_de_contratacion')->name('terminos_y_condiciones_de_contrato');
+Route::get('politica_de_privacidad', 'frontend\CondicionesController@politica_de_privacidad')->name('politica_de_privacidad');
+Route::get('politica_de_gestion_de_calidad', 'frontend\CondicionesController@politica_de_gestion_de_calidad')->name('politica_de_gestion_de_calidad');
+Route::get('help', 'frontend\FrecuentesController@ayuda')->name('help');
 Route::get('publish_questions', 'frontend\FrecuentesController@publish_questions')->name('publish_questions');
-Route::get('frecuentes', 'frontend\FrecuentesController@index')->name('frecuentes');
+Route::get('frecuent_questions', 'frontend\FrecuentesController@index')->name('frecuent_questions');
 // fin de footer
 
 
@@ -131,28 +132,46 @@ Route::get('propieties_type_store', 'admin\Propieties_typeController@store')->na
 
 Route::get('propieties_create', 'admin\PropietiesController@create')->name('propieties_create');
 
+// RUTAS DE PLANES
+
+Route::get('plans', 'admin\PlansController@index')->name('plans');
+Route::get('plans_create', 'admin\PlansController@create')->name('plans_create');
+Route::get('plans_store', 'admin\PlansController@store')->name('plans_store');
+Route::get('plans_edit/{id}', 'admin\PlansController@edit')->name('plans_edit');
+Route::get('plans_update', 'admin\PlansController@update')->name('plans_update');
+// FIN DE RUTAS DE PLANES
+
+
 // RUTAS DE AMBIENTES
 Route::get('ambientes', 'admin\AmbientesController@index')->name('ambientes');
 Route::get('ambientes_create', 'admin\AmbientesController@create')->name('ambientes_create');
 Route::get('ambientes_store', 'admin\AmbientesController@store')->name('ambientes_store');
+Route::get('ambientes_edit/{id}', 'admin\AmbientesController@edit')->name('ambientes_edit');
+Route::get('ambientes_update', 'admin\AmbientesController@update')->name('ambientes_update');
 // FIN DE RUTAS DE AMBIENTES
 
 // RUTAS DE CARACTERISTICAS GENERALES
 Route::get('caracteristicas_gen', 'admin\CargenController@index')->name('caracteristicas_gen');
 Route::get('caracteristicas_gen_create', 'admin\CargenController@create')->name('caracteristicas_gen_create');
 Route::get('caracteristicas_gen_store', 'admin\CargenController@store')->name('caracteristicas_gen_store');
+Route::get('caracteristicas_gen_edit/{id}', 'admin\CargenController@edit')->name('caracteristicas_gen_edit');
+Route::get('caracteristicas_gen_update', 'admin\CargenController@update')->name('caracteristicas_gen_update');
 // FIN DE RUTAS DE CARACTERISTICAS GENERALES
 
 // Rutas de servicios
 Route::get('servicios', 'admin\ServiciosController@index')->name('servicios');
 Route::get('servicios_create', 'admin\ServiciosController@create')->name('servicios_create');
 Route::get('servicios_store', 'admin\ServiciosController@store')->name('servicios_store');
+Route::get('servicios_edit/{id}', 'admin\ServiciosController@edit')->name('servicios_edit');
+Route::get('servicios_update', 'admin\ServiciosController@update')->name('servicios_update');
 // Fin de rutas de servicios
 
 // Rutas moneda
 Route::get('moneda', 'admin\MonedaController@index')->name('moneda');
 Route::get('moneda_create', 'admin\MonedaController@create')->name('moneda_create');
 Route::get('moneda_store', 'admin\MonedaController@store')->name('moneda_store');
+Route::get('moneda_edit/{id}', 'admin\MonedaController@edit')->name('moneda_edit');
+Route::get('moneda_update', 'admin\MonedaController@update')->name('moneda_update');
 //  Fin de rutas moneda
 
 //fin de rutas de admin

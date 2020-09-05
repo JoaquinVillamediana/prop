@@ -27,7 +27,7 @@
                         <div class="card">               
                             <div class="card-body" >                            
                                 <h3>PREGUNTAS FRECUENTES</h3>      
-                                <a class="btn btn-outline-warning" href="{{ route('frecuentes') }}" role="button">Elegir</a>
+                                <a class="btn btn-outline-warning" href="{{ route('frecuent_questions') }}" role="button">Elegir</a>
                             </div>
 
                         </div>
@@ -52,7 +52,7 @@
                         <div class="card">               
                             <div class="card-body" >                            
                                 <h3>TERMINOS Y CONDICIONES DE USO</h3>      
-                                <a class="btn btn-outline-warning" href="{{ route('tycdu') }}" role="button">Elegir</a>
+                                <a class="btn btn-outline-warning" href="{{ route('terminos_y_condiciones_de_uso') }}" role="button">Elegir</a>
                             </div>
 
                         </div>
@@ -65,7 +65,7 @@
                         <div class="card">               
                             <div class="card-body" >                            
                                 <h3>TÉRMINOS Y CONDICIONES DE CONTRATO</h3>      
-                                <a class="btn btn-outline-warning" href="{{ route('tycdc') }}" role="button">Elegir</a>
+                                <a class="btn btn-outline-warning" href="{{ route('terminos_y_condiciones_de_contrato') }}" role="button">Elegir</a>
                             </div>
 
                         </div>
@@ -76,7 +76,7 @@
                         <div class="card">               
                             <div class="card-body" >                            
                                 <h3>POLÍTICA DE PRIVACIDAD</h3>      
-                                <a class="btn btn-outline-warning" href="{{ route('pdp') }}" role="button">Elegir</a>
+                                <a class="btn btn-outline-warning" href="{{ route('politica_de_privacidad') }}" role="button">Elegir</a>
                             </div>
 
                         </div>
@@ -87,7 +87,7 @@
                         <div class="card">               
                             <div class="card-body" >                            
                                 <h3>POLÍTICA DE GESTIÓN DE CALIDAD</h3>      
-                                <a class="btn btn-outline-warning" href="{{ route('pdgdc') }}" role="button">Elegir</a>
+                                <a class="btn btn-outline-warning" href="{{ route('politica_de_gestion_de_calidad') }}" role="button">Elegir</a>
                             </div>
 
                         </div>

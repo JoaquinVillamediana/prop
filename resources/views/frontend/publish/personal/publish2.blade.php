@@ -104,8 +104,8 @@
                             <a class="dropdown-item">
                               <!-- Default unchecked -->
                               <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="checkbox_servicios" name="checkbox_servicios" value="{{$servicios->id}}">
-                                <label class="custom-control-label" for="checkbox_servicios">{{$servicios->name}}</label>
+                                <input type="checkbox" class="custom-control-input" name="servicios[]" value="{{$servicios->id}}">
+                                <label class="custom-control-label" for="servicios[]">{{$servicios->name}}</label>
                               </div>
                             </a>
                           @endforeach
@@ -130,8 +130,8 @@
                           <a class="dropdown-item">
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="checkbox_cargen" name ="checkbox_cargen" value="{{$car->name}}">
-                              <label class="custom-control-label" for="checkbox_cargen">{{$car->name}}</label>
+                              <input type="checkbox" class="custom-control-input" name ="car[]" value="{{$car->id}}">
+                              <label class="custom-control-label" for="car[]">{{$car->name}}</label>
                             </div>
                           </a>
                         @endforeach
@@ -154,8 +154,8 @@
                           <a class="dropdown-item">
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="checkbox_ambientes" name="checkbox_ambientes" value="{{$amb->id}}">
-                              <label class="custom-control-label" for="checkbox_ambientes">{{$amb->name}}</label>
+                              <input type="checkbox" class="custom-control-input" name="amb[]" value="{{$amb->id}}">
+                              <label class="custom-control-label" for="amb[]">{{$amb->name}}</label>
                             </div>
                           </a>
                         @endforeach
@@ -178,8 +178,8 @@
                           <a class="dropdown-item">
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="checkbox_comodidades" name="checkbox_comodidades" value="{{$com->name}}">
-                              <label class="custom-control-label" for="checkbox_comodidades">{{$com->name}}</label>
+                              <input type="checkbox" class="custom-control-input"  name="com[]" value="{{$com->id}}">
+                              <label class="custom-control-label" for="com[] ">{{$com->name}}</label>
                             </div>
                           </a>
                         @endforeach
@@ -191,10 +191,8 @@
                     <!-- <button type="button" class="btn btn-primary mt-5 mb-3">Siguiente</button> -->
                       </div> 
 
-
                   <!-- FIN DE DATOS VISIBLES OPCIONALES -->
-
-</br>
+                      </br>
 
                       <button type="button" class="btn btn-link mt-7">PUBLICAR</button>
                     

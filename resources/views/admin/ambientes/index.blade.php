@@ -40,9 +40,9 @@
                                 <td>{{ $op_type->name }}</td>
                              
                                        
-                                
+                               
                                 <td>{{ $op_type->created_at }}</td>
-                                <td><a class="btn btn-primary btn-circle" href=""><i class="fa fa-list"></i></a></td>
+                                <td><a class="btn btn-primary btn-circle" href="{{ route('ambientes_edit',$op_type->id) }}"><i class="fa fa-list"></i></a></td>
                                 <td>
                                     <form id="deleteForm_{{$op_type->id}}" action="" method="post">
                                         {{csrf_field()}}
