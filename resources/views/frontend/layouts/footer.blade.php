@@ -13,7 +13,7 @@
               </div>
 
               <div class="row">
-              <a href="{{ route('ayuda') }}"> Ayuda </a>
+              <a href="{{ route('help') }}"> Ayuda </a>
               </div>
               <div class="row">
               <a href="{{ route('publish_questions') }}"> Publicidad </a>
@@ -26,7 +26,7 @@
               <a href="{{ route('contact') }}"> Contactanos </a>
           </div>
           <div class="col-12 col-lg">
-          <a href="{{ route('frecuentes') }}"> Preguntas frecuentes </a>
+          <a href="{{ route('frecuent_questions') }}"> Preguntas frecuentes </a>
          
          
           </div>
@@ -46,7 +46,7 @@
           </div>
       </div>
          </br>
-      <a href="{{ route('tycdu') }}" >Términos y Condiciones de Uso - </a><a href="{{ route('tycdc') }}">Términos y Condiciones de Contratación - </a><a href="{{ route('pdp') }}">Política de privacidad - </a><a href="{{ route('pdgdc') }}">Política de Gestión de Calidad</a>
+      <a href="{{ route('terminos_y_condiciones_de_uso') }}" >Términos y Condiciones de Uso - </a><a href="{{ route('terminos_y_condiciones_de_contrato') }}">Términos y Condiciones de Contratación - </a><a href="{{ route('politica_de_privacidad') }}">Política de privacidad - </a><a href="{{ route('politica_de_gestion_de_calidad') }}">Política de Gestión de Calidad</a>
   </div>
 </footer>
 

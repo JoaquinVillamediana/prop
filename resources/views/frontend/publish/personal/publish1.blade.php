@@ -1,277 +1,325 @@
 @extends('frontend/layouts.app')
+
 @include('frontend/layouts.header')
+
 @section('content')
-    <!-- Bootstrap CSS -->
-      <!-- <link rel="stylesheet" href="css/frontend/publish1.css">  -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">  -->
 
-    
+
+<link rel="stylesheet" href="/css/frontend/edit_property.css">
+<div class="mt-5 pb-5 container-fluid">
+
  
-           <!-- <div class="container"> -->
-          <div class="container" id="container"> 
-      
-            <h2>¡Es un gusto tenerte con nosotros!</h2> 
-            <p>Empecemos por lo básico: Agregá el tipo de propiedad y su ubicación.</p> 
-         
-          
-        <!-- empieza Seleccion de datos -->
-            <div class="container">
-            <form method="POST" action="{{ route('store1') }}" enctype="multipart/form-data">
-            <!--  -->
-            {{ csrf_field() }}
-                  <div class="row">
-
-                    <!--  Dropdown tipo de propiedad-->
-                    @if(!empty($aOperationType))
-                      <p>Qué tipo de operación querés hacer?</p>
-                      <select name="operation" id="operation"  class="rounded" >
-                        @foreach($aOperationType as $optype)
-                          <option value="{{$optype->id}}">{{$optype->name}}</option>
-                        @endforeach
-                      </select>   
-                    @endif
-                  
-                  <!-- Fin de tipo de propiedad -->
-                  
-                  <!--  Dropdown tipo de propiedad-->
-                  @if(!empty($aPropietie_type))
-                      <p>Qué tipo de propiedad querés publicar?</p>
-                      <select name="building" id="building"  class="rounded" style="margin-left: 8xp; margin-right: 10xp;">
-                        @foreach($aPropietie_type as $optype)
-                          <option value="{{$optype->id}}">{{$optype->name}}</option>
-                        @endforeach
-                      </select>   
-                    @endif
-                    </div>
-                  <!-- Fin de tipo de propiedad -->
-                  <!-- Localidades -->
-       
-                      @if(!empty($aLocalities))
-                      </br>                  
-                      </br>
-                          <p>Ubicación(*)</p> 
-                    
-                          <input placeholder="Ubicacion:" type="text" name="text" id="location" autocomplete="off" style="width:50%;">
-                          <input type="hidden" name="locality" value="" id="locality">
-                          <div class="options">
-                          
-                          </div>
-                      @endif
-                      <!-- Fin de locaclidades -->
-                      </br>                  
-                      </br>
-                      <p>Ingresar dirección</p>
-                      <input type="text" id="direction" name="direction"placeholder="Dirección" style="width:50%;">
-
-                      <!--Fin de localidades  -->
-                      </br>
-
-                      <hr>
-                      <hr>
 
 
-                    <!-- INICIA DATOS VISIBLES DE LA PUBLICACION -->
+    <form method="POST" action="{{ route('store1') }}" enctype="multipart/form-data">
+    <div class="container">
+      <h1 class="text-center mb-2">Publicá tu propiedad</h1>
+      <h4 class="">Aspectos básicos</h4>
+      <div class="form-row">
+        <div class="form-group col-md-6 col-12">
+          <label for="">Titúlo</label>
+          <input id="name" name="name" type="text" maxlength="60" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" aria-label="Text input with dropdown button"
+            value="Titulo">
+            @if ($errors->has('name'))
+            <span id="" class="invalid-feedback" role="alert" style="display:block;">
+                <strong>Debe introducir un nombre válido (max. 60).</strong>
+            </span>
+            @endif
+        </div>
+        <div class="form-group col-md-6 col-12">
+          <label for="">Precio</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <select name="currency" class="currency-select" id="">
+                @foreach ($aCurrencies as $currency)
+                <option  value="{{$currency->id}}">
+                  {{ $currency->symbol }}</option>
+                @endforeach
+              </select>
+            </div>
+            <input type="number" name="price" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" value="Precio">
+            @if ($errors->has('price'))
+            <span id="" class="invalid-feedback" role="alert" style="display:block;">
+                <strong>Debe introducir un precio válido.</strong>
+            </span>
+            @endif
+          </div>
+        </div>
 
-                    
-                                    <!-- <div class="container"> -->
-                                    <div class="container" id="container"> 
-                                
-                                <h2>Ya casi esta todo listo!</h2> 
-                                <p>Contale a la gente como es tu propiedad</p> 
-                            
-                              
-                            <!-- empieza Seleccion de datos -->
-                                <div class="container mt-7">
-                            
-                                
-                                <!-- Titulo de la publicacion -->
-                                    <h4>Titulo(*)</h4>            
-                                    <input type="text" name="titulo" id="titulo" class="form-control" aria-label="Text input with checkbox" style="width: 50%;">
-                                <!-- Fin del titulo de la publicacion -->
+        <div class="form-group">
+          <label for="">Opciones de compra</label>
+          <div class="form-check no-min-height">
+            <input class="form-check-input" type="checkbox" value="" id="credit">
+            <label class="form-check-label" for="credit">
+              Apto crédito
+            </label>
+          </div>
 
-                                <!-- Pequeña introducción para poner en el inicio (fijarse si es totalmente necesario) -->
-                                
-                                <h4  style="margin-top:10px;">Introducción(*)</h4>  
-                                <textarea id="introduccion" name="introduccion" rows="4" cols="50">Te recomendamos escribir un minímo de 100 caracteres.</textarea>
+          <div class="form-check no-min-height">
+            <input class="form-check-input" type="checkbox" value="" id="financing">
+            <label class="form-check-label" for="financing">
+              Apto Financiación
+            </label>
+          </div>
+        </div>
 
-                                <!-- FIN DE LA Pequeña introducción para poner en el inicio (fijarse si es totalmente necesario) -->
-                                  
-                                  
-                                  <!-- DESCRIPCION DE LA PROPIEDAD  -->
+      </div>
+      <div class="form-group">
+        <label for="">Expensas</label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">AR$</span>
+          </div>
+          <input type="number" name="expenses" class="form-control {{ $errors->has('expenses') ? 'is-invalid' : '' }}" value="Expensas">
+          @if ($errors->has('expenses'))
+            <span id="" class="invalid-feedback" role="alert" style="display:block;">
+                <strong>Debe introducir un precio válido.</strong>
+            </span>
+            @endif
+        </div>
+      </div>
 
-                                  <h4  style="margin-top:10px;">Descripción(*)</h4>
-                                  <textarea id="descripcion" name="descripcion" rows="4" cols="50">Te recomendamos escribir un minímo de 100 caracteres.</textarea>
-                                  
-                                  <!-- FIN DE LA DESCRIPCION -->
+      <div class="form-row">
+        <div class="form-group col-md-6 col-12">
+          <label for="">Introducción</label>
+          <textarea id="introduction" class="form-control {{ $errors->has('introduction') ? 'is-invalid' : '' }}" name="introduction" rows="4" maxlength="60"
+            cols="50">Escribe una introducción.</textarea>
+            @if ($errors->has('introduction'))
+            <span id="" class="invalid-feedback" role="alert" style="display:block;">
+                <strong>Debe introducir una introducción válida (max. 60)</strong>
+            </span>
+            @endif
+        </div>
 
-                                <!-- Precio -->
+        <div class="form-group col-md-6 col-12">
+          <label for="">Descripción</label>
+          <textarea id="description" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" rows="4" maxlength="255"
+            cols="50">Escribe una introducción</textarea>
+            @if ($errors->has('description'))
+            <span id="" class="invalid-feedback" role="alert" style="display:block;">
+                <strong>Debe introducir una descripción válida (max. 255)</strong>
+            </span>
+            @endif
+        </div>
+      </div>
 
-                                <div class="container mt-5">
-                                  <h3>Precio(*)</h3>
-                                    <div class="input-group mb-3">
-                                      <div class="input-group-prepend">
-                                      
-                                          @if(!empty($aCurrency))
-                                            @foreach($aCurrency as $moneda)
-                                          
-                                             <p>{{$moneda->name}}</p> <input type="checkbox" value="{{$moneda->id}}" id="currency_id" name="currency_id">
-                               
-                                              @endforeach   
-                                          @endif
-                                       
-                                          <input type="number" id="price" name="price" class="form-control" aria-label="Text input with dropdown button">
-                                      </div>
-                                    </div>
-                                </div>
+      <h4 class="">Características generales</h4>
 
-                                <!--FIN DE PRECIO EN SI  -->
-                                <div class="container">
-                                  <p>Agregar Expensas </p>
-                                    <div class="input-group" style="width: 50%;">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">$</span>                  
-                                        </div>
-                                        <input type="number" id="expensas"name="expensas" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" >
-                                    </div>
-                                </div>
+      <div class="form-row pt-2">
+        <div class="form-group col-lg-3">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><span class="carac-desc"><i
+                    class="fas fa-couch mr-1"></i>Cuartos</span></span>
+            </div>
+            <input name="rooms" type="number" class="form-control {{ $errors->has('rooms') ? 'is-invalid' : '' }}" value="Núm. Cuartos">
+          </div>
+        </div>
 
-                            <!-- fin de sector de precios con la opcion de expensas -->
+        <div class="form-group col-lg-3 col-12">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><span class="carac-desc"><i
+                    class="fas fa-bed mr-1"></i>Habitaciones</span></span>
+            </div>
+            <input name="bedrooms" type="number" class="form-control {{ $errors->has('bedrooms') ? 'is-invalid' : '' }}" value="Núm. Habitacion">
+          </div>
+        </div>
 
-                              <!--  Opciones de compra -->
-                                <div class="container" style="margin-top:10px;">
-                                  <p> Apto crédito</p> <input type="checkbox">
-                                  <p> Apto Financiación</p> <input type="checkbox">
-                                </div>
-                              <!-- FIN DE Opciones de compra -->
+        <div class="form-group col-lg-3 col-12">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><span class="carac-desc"><i
+                    class="fas fa-bath mr-1"></i>Baños</span></span>
+            </div>
+            <input name="bathrooms" type="number" class="form-control {{ $errors->has('bathrooms') ? 'is-invalid' : '' }}" value="Núm. Baños">
+          </div>
+        </div>
 
-                                <!-- CANTIDAD DE CADA COSA -->
-                                <div class="container">
-                                <h3>Espacios</h3>
-                              
-                                <!-- CANTIDAD DE AMBIENTES -->
-                                <div class="input-group" style="width: 50%;" >
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text">Ambientes</span>
-                                  </div>
-                                    <input type="Number" id="rooms" name="rooms" aria-label="1" class="form-control">
-                                  
-                                </div>
-                                <!-- FIN DE AMBIENTES -->
+        <div class="form-group col-lg-3 col-12">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><span class="carac-desc"><i
+                    class="fas fa-ruler-combined"></i>Tamaño</span></span>
+            </div>
+            <input name="size" type="number" class="form-control {{ $errors->has('size') ? 'is-invalid' : '' }}" value="Tamaño">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon1">m<sup>2</sup></span>
 
-                                            <!-- CANTIDAD DE DORMITORIOS -->
-                                            <div class="input-group" style="width: 50%;">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text">Dormitorios</span>
-                                  </div>
-                                    <input type="Number" id="bedrooms" name="bedrooms" aria-label="1" class="form-control">
-                                  
-                                </div>
-                                <!-- FIN DE dormitorios -->
+            </div>
+          </div>
+        </div>
 
-                                            <!-- CANTIDAD DE baños -->
-                                            <div class="input-group"style="width: 50%;">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text">Baños</span>
-                                  </div>
-                                    <input type="Number" id="bathroooms" name="bathroooms" aria-label="1" class="form-control">
-                                  
-                                </div>
-                                <!-- FIN DE baños -->
+        <div class="form-group col-lg-3 col-12">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><span class="carac-desc"><i class="far fa-clock mr-1"></i>Antiguedad</span></span>
+            </div>
+            <input name="antiquity" type="number" class="form-control {{ $errors->has('antiquity') ? 'is-invalid' : '' }}" value="Antiguedad">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon1">Años</span>
 
-                                            <!-- CANTIDAD DE Cocheras -->
-                                            <div class="input-group" style="width: 50%;">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text">Cocheras</span>
-                                  </div>
-                                    <input type="Number" id="garages" name="garages" aria-label="1" class="form-control">
-                                  
-                                </div>
-                                <!-- FIN DE Cocheras -->
-
-                                            <!-- CANTIDAD DE Toilettes -->
-                                            <div class="input-group" style="width: 50%;">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text">Toilettes</span>
-                                  </div>
-                                    <input type="Number" id="toilettes" name="toilettes" aria-label="1" class="form-control">
-                                  
-                                </div>
-                                <!-- FIN DE Toilettes -->
-
-                                </div>
-
-                                <!-- FIN DE CANTIDAD DE CADA COSA -->
+            </div>
+          </div>
+        </div>
 
 
-                                <!-- Antiguedad -->
+      </div>
 
 
-                                <div class="container mt-5">
-                                <h3>Antiguedad (*)</h3>
-                                <p> A estrenar</p> <input type="checkbox" value="0" id="years" name="years">
-                                <p> Años</p> <input type="checkbox" value="1" id="years" name="years"> <!-- Agregar cantidad de años --> 
-                                
-                                </div>
 
-                                <!-- fin de antiguedad -->
+      <h4>Servicios</h4>
 
-                                <!-- Superficie -->
-                                <div class="container mt-5">
-                                <h3>¿Cuál es la superficie? (*)</h3>
-                                <div class="row">
-                                  <div class="col">
-                                    <input type="text" class="form-control" placeholder="Counstruida">
-                                  </div>
-                                  <div class="col">
-                                    <input type="text" class="form-control" id="size" name="size"placeholder="Total (*)">
-                                  </div>
-                                </div>
-                                </div>
-                                <!-- fin de la superficie -->
-                                  
-                                </div>
-                             
+      <div class="form-row">
+        @if(!empty($aPropieties_services))
+        @foreach ($aPropieties_services as $service)
+        <div class="form-group col-md-2 col-sm-4 col-6">
+          <div class="form-check">
+            <input class="form-check-input" {{ !empty($service->service_checked) ? 'checked' : '' }} type="checkbox"
+              value="{{ $service->id }}" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              {{ $service->name }}
+            </label>
+          </div>
+        </div>
+        @endforeach
+        @endif
+      </div>
 
-                              </div> 
+      <h4>Ambientes</h4>
+
+      <div class="form-row">
+        @if(!empty($aPropieties_ambientes))
+        @foreach ($aPropieties_ambientes as $ambient)
+        <div class="form-group col-md-2 col-sm-4 col-6">
+          <div class="form-check">
+            <input class="form-check-input" {{ !empty($ambient->ambient_checked) ? 'checked' : '' }} type="checkbox"
+              value="{{ $ambient->id }}" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              {{ $ambient->name }}
+            </label>
+          </div>
+        </div>
+        @endforeach
+        @endif
+      </div>
+
+      <h4>Comodidades</h4>
+
+      <div class="form-row">
+        @if(!empty($aPropieties_luxuries))
+        @foreach ($aPropieties_luxuries as $luxury)
+        <div class="form-group col-md-2 col-sm-4 col-6">
+          <div class="form-check">
+            <input class="form-check-input" {{ !empty($luxury->luxury_checked) ? 'checked' : '' }} type="checkbox"
+              value="{{ $luxury->id }}" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              {{ $luxury->name }}
+            </label>
+          </div>
+        </div>
+        @endforeach
+        @endif
+      </div>
 
 
 
 
-                    <!-- FIN DE DATOS VISIBLES DE LA PUBLICACION -->
+      <div class="buttons-container text-center">
+        <a href="" class="btn btn-cancel mr-1">Cancelar</a>
+        <button class="btn btn-update ml-1" type="submit">Crear</button>
+      </div>
+    </div>
+  </form>
 
 
-                      <hr>
-                      <hr>
-
-              
-                      <hr>
-                      <hr>
-
-                      <button class="btn btn-primary mt-5" type="submit">Guardar y seguir</button>
-                 <!--  -->
-                      </form>
-                      <!--  -->
-                     
+ 
+</div>
 
 
-              </div>
-          </div> 
+
+
+
+
+
 
 <script>
-  var localities = <?php  echo json_encode($aLocalities); ?>;
-  $('.options').hide();
-  var aLocalities = localities.map((element) => {
-    return element.nombre;
-  });
+  function changeMainImage(id,type){
+  if(type == 'image')
+  {
+    url = "/uploads/products/"+id;
+    $('.main-image').attr('src',url);
+    $('.main-video').attr('src','');
+    $('.main-video').css('display','none');
+    $('.main-image').css('display','block');
+  }
+  else
+  {
+    url = "/uploads/products/"+id;
+    $('.main-video').attr('src',url);
+    $('.main-image').attr('src','');
+    $('.main-video').css('display','block');
+    $('.main-image').css('display','none');
+  }
   
-  $('#location').on("input",() => {
-    displayLocalities($('#location'));
-    
-  });
+}
 
- 
+  
 </script>
-<script src="/js/functions.js"></script>
 
-  @include('frontend/layouts.footer')
-  @endsection
+
+
+<script type="text/javascript">
+  function setFavoriteProductResponse(data) {
+    
+      if(data.favorite > 0) {
+          $('#favBtnActive_'+data.productId).css('display', 'block');
+          $('#favBtn_'+data.productId).css('display', 'none');
+          
+      } 
+      else{
+        $('#favBtnActive_'+data.productId).css('display', 'none');
+        $('#favBtn_'+data.productId).css('display', 'block');
+      }
+  }
+  
+  function ajaxRequest(type, url, params, callBack) {
+
+      jQuery.support.cors = true;
+      params = JSON.stringify(params);
+
+      $.ajax({
+          type: type,
+          url: url,
+          data: params,
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+          beforeSend: function () {
+              //$('#ajaxLoader').show();
+          },
+          complete: function () {
+              //$('#ajaxLoader').hide();
+          },
+          success: function (data) {
+             //console.log("REQUEST [ " + type + " ] [ " + url + " ] SUCCESS");
+             //console.log(data);
+              window[callBack](data);
+          },
+          error: function (msg, url, line) {
+             //console.log('ERROR !!! msg = ' + msg + ', url = ' + url + ', line = ' + line);
+          }
+      });
+  }
+
+
+
+</script>
+<script src="/vendor/bootstrap-input-spinner.js"></script>
+<script>
+  $("input[type='number']").inputSpinner()
+</script>
+
+@include('frontend/layouts.footer')
+
+
+@endsection
