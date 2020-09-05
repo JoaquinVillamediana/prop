@@ -34,10 +34,10 @@ if(empty($oSearch))
     <div id="prop-container">
 
       <div class="order">
-        <a class="order-by" id="order-by" href="">Ordenar por: <span class="order-selected">Default <i id="order-arrow"
+        <a class="order-by" id="order-by" href="">Ordenar por: <span class="order-selected"> Relevantes<i id="order-arrow"
               class="ml-1  fas fa-angle-down"></i></span></a>
         <div class="order-options">
-          <a class="order-option" data-order="none" href="">Default</a>
+          <a class="order-option" data-order="none" href="">Relevantes</a>
           <a class="order-option" data-type="price" data-order="ASC" href="">Menor Precio</a>
           <a class="order-option" data-type="price" data-order="DESC" href="">Mayor Precio</a>
           <a class="order-option" data-type="size" data-order="ASC" href="">Menor Tamaño</a>

@@ -66,7 +66,7 @@ class HomeController extends Controller
 
    $aPropieties_comodidades=DB::select('SELECT pc.*,(c.name) comodidades_name
     FROM propieties_comodidades pc
-   LEFT JOIN comodidades c ON pc.comidades_id = c.id
+   LEFT JOIN comodidades c ON pc.comodidades_id = c.id
    where pc.deleted_at is null
    and pc.propietie_id = "'.$id.'"
    GROUP BY pc.id;

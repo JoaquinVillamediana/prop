@@ -208,7 +208,7 @@ La prestación del Servicio del Sitio Web tiene una duración indeterminada. Sin
 </br>
 12.1. ARGENTINA
 </br>
-12.1.1. W.B.O. Software significa Dridco S.A.U., CUIT 30-71024401-0, con domicilio en Maipú 942, piso 16, Ciudad Autónoma de Buenos Aires.
+12.1.1. W.B.O. Software significa W.B.O. Software S.A.S., CUIT COMPLETAR CUIT, con domicilio en Tandil 3239, Ciudad Autónoma de Buenos Aires.
 </br>
 12.1.2. El Sitio Web es www.tuproximaprop.com.
 </br>
