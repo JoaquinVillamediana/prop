@@ -14,19 +14,21 @@
 
 
   <form method="POST" action="{{ route('update_propietie', $prop->id) }}" role="form" enctype="multipart/form-data">
+    @csrf
     <div class="container">
       <h1 class="text-center mb-2">Edición de Propiedad</h1>
       <h4 class="">Aspectos básicos</h4>
       <div class="form-row">
         <div class="form-group col-md-6 col-12">
           <label for="">Titúlo</label>
-          <input id="name" name="name" type="text" maxlength="60" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" aria-label="Text input with dropdown button"
-            value="{{ $prop->name }}">
-            @if ($errors->has('name'))
-            <span id="" class="invalid-feedback" role="alert" style="display:block;">
-                <strong>Debe introducir un nombre válido (max. 60).</strong>
-            </span>
-            @endif
+          <input id="name" name="name" type="text" maxlength="60"
+            class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
+            aria-label="Text input with dropdown button" value="{{ $prop->name }}">
+          @if ($errors->has('name'))
+          <span id="" class="invalid-feedback" role="alert" style="display:block;">
+            <strong>Debe introducir un nombre válido (max. 60).</strong>
+          </span>
+          @endif
         </div>
         <div class="form-group col-md-6 col-12">
           <label for="">Precio</label>
@@ -39,10 +41,11 @@
                 @endforeach
               </select>
             </div>
-            <input type="number" name="price" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" value="{{ $prop->price }}">
+            <input type="number" name="price" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}"
+              value="{{ $prop->price }}">
             @if ($errors->has('price'))
             <span id="" class="invalid-feedback" role="alert" style="display:block;">
-                <strong>Debe introducir un precio válido.</strong>
+              <strong>Debe introducir un precio válido.</strong>
             </span>
             @endif
           </div>
@@ -72,37 +75,49 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">AR$</span>
           </div>
-          <input type="number" name="expenses" class="form-control {{ $errors->has('expenses') ? 'is-invalid' : '' }}" value="{{ $prop->expensas }}">
+          <input type="number" name="expenses" class="form-control {{ $errors->has('expenses') ? 'is-invalid' : '' }}"
+            value="{{ $prop->expensas }}">
           @if ($errors->has('expenses'))
-            <span id="" class="invalid-feedback" role="alert" style="display:block;">
-                <strong>Debe introducir un precio válido.</strong>
-            </span>
-            @endif
+          <span id="" class="invalid-feedback" role="alert" style="display:block;">
+            <strong>Debe introducir un precio válido.</strong>
+          </span>
+          @endif
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group col-md-6 col-12">
           <label for="">Introducción</label>
-          <textarea id="introduction" class="form-control {{ $errors->has('introduction') ? 'is-invalid' : '' }}" name="introduction" rows="4" maxlength="60"
-            cols="50">{{ $prop->description }}</textarea>
-            @if ($errors->has('introduction'))
-            <span id="" class="invalid-feedback" role="alert" style="display:block;">
-                <strong>Debe introducir una introducción válida (max. 60)</strong>
-            </span>
-            @endif
+          <textarea id="introduction" class="form-control {{ $errors->has('introduction') ? 'is-invalid' : '' }}"
+            name="introduction" rows="4" maxlength="60" cols="50">{{ $prop->introduccion }}</textarea>
+          @if ($errors->has('introduction'))
+          <span id="" class="invalid-feedback" role="alert" style="display:block;">
+            <strong>Debe introducir una introducción válida (max. 60)</strong>
+          </span>
+          @endif
         </div>
 
         <div class="form-group col-md-6 col-12">
           <label for="">Descripción</label>
-          <textarea id="description" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" rows="4" maxlength="255"
-            cols="50">{{ $prop->description }}</textarea>
-            @if ($errors->has('description'))
-            <span id="" class="invalid-feedback" role="alert" style="display:block;">
-                <strong>Debe introducir una descripción válida (max. 255)</strong>
-            </span>
-            @endif
+          <textarea id="description" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
+            name="description" rows="4" maxlength="255" cols="50">{{ $prop->description }}</textarea>
+          @if ($errors->has('description'))
+          <span id="" class="invalid-feedback" role="alert" style="display:block;">
+            <strong>Debe introducir una descripción válida (max. 255)</strong>
+          </span>
+          @endif
         </div>
+      </div>
+      <div class="form-group">
+        <label for="">Dirección aproximada</label>
+        <input type="text" id="address" class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}"
+          name="address" maxlength="100" value="{{ $prop->direction }}">
+        @if ($errors->has('address'))
+        <span id="" class="invalid-feedback" role="alert" style="display:block;">
+          <strong>Debe introducir una dirección válida (max. 100)</strong>
+        </span>
+        @endif
+
       </div>
 
       <h4 class="">Características generales</h4>
@@ -114,7 +129,8 @@
               <span class="input-group-text" id="basic-addon1"><span class="carac-desc"><i
                     class="fas fa-couch mr-1"></i>Cuartos</span></span>
             </div>
-            <input name="rooms" type="number" class="form-control {{ $errors->has('rooms') ? 'is-invalid' : '' }}" value="{{ $prop->rooms }}">
+            <input name="rooms" type="number" class="form-control {{ $errors->has('rooms') ? 'is-invalid' : '' }}"
+              value="{{ $prop->rooms }}">
           </div>
         </div>
 
@@ -124,7 +140,8 @@
               <span class="input-group-text" id="basic-addon1"><span class="carac-desc"><i
                     class="fas fa-bed mr-1"></i>Habitaciones</span></span>
             </div>
-            <input name="bedrooms" type="number" class="form-control {{ $errors->has('bedrooms') ? 'is-invalid' : '' }}" value="{{ $prop->bedrooms }}">
+            <input name="bedrooms" type="number" class="form-control {{ $errors->has('bedrooms') ? 'is-invalid' : '' }}"
+              value="{{ $prop->bedrooms }}">
           </div>
         </div>
 
@@ -134,7 +151,8 @@
               <span class="input-group-text" id="basic-addon1"><span class="carac-desc"><i
                     class="fas fa-bath mr-1"></i>Baños</span></span>
             </div>
-            <input name="bathrooms" type="number" class="form-control {{ $errors->has('bathrooms') ? 'is-invalid' : '' }}" value="{{ $prop->bathrooms }}">
+            <input name="bathrooms" type="number"
+              class="form-control {{ $errors->has('bathrooms') ? 'is-invalid' : '' }}" value="{{ $prop->bathrooms }}">
           </div>
         </div>
 
@@ -144,7 +162,8 @@
               <span class="input-group-text" id="basic-addon1"><span class="carac-desc"><i
                     class="fas fa-ruler-combined"></i>Tamaño</span></span>
             </div>
-            <input name="size" type="number" class="form-control {{ $errors->has('size') ? 'is-invalid' : '' }}" value="{{ $prop->size }}">
+            <input name="size" type="number" class="form-control {{ $errors->has('size') ? 'is-invalid' : '' }}"
+              value="{{ $prop->size }}">
             <div class="input-group-append">
               <span class="input-group-text" id="basic-addon1">m<sup>2</sup></span>
 
@@ -155,9 +174,11 @@
         <div class="form-group col-lg-3 col-12">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1"><span class="carac-desc"><i class="far fa-clock mr-1"></i>Antiguedad</span></span>
+              <span class="input-group-text" id="basic-addon1"><span class="carac-desc"><i
+                    class="far fa-clock mr-1"></i>Antiguedad</span></span>
             </div>
-            <input name="antiquity" type="number" class="form-control {{ $errors->has('antiquity') ? 'is-invalid' : '' }}" value="{{ $prop->size }}">
+            <input name="antiquity" type="number"
+              class="form-control {{ $errors->has('antiquity') ? 'is-invalid' : '' }}" value="{{ $prop->years }}">
             <div class="input-group-append">
               <span class="input-group-text" id="basic-addon1">Años</span>
 
@@ -177,9 +198,9 @@
         @foreach ($aPropieties_services as $service)
         <div class="form-group col-md-2 col-sm-4 col-6">
           <div class="form-check">
-            <input class="form-check-input" {{ !empty($service->service_checked) ? 'checked' : '' }} type="checkbox"
-              value="{{ $service->id }}" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
+            <input class="form-check-input" {{ !empty($service->service_checked) ? 'checked' : '' }}
+              name="service-{{$service->id}}" type="checkbox" value="{{ $service->id }}" id="service-{{$service->id}}">
+            <label class="form-check-label" for="service-{{$service->id}}">
               {{ $service->name }}
             </label>
           </div>
@@ -195,9 +216,9 @@
         @foreach ($aPropieties_ambientes as $ambient)
         <div class="form-group col-md-2 col-sm-4 col-6">
           <div class="form-check">
-            <input class="form-check-input" {{ !empty($ambient->ambient_checked) ? 'checked' : '' }} type="checkbox"
-              value="{{ $ambient->id }}" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
+            <input class="form-check-input" {{ !empty($ambient->ambient_checked) ? 'checked' : '' }}
+              name="ambient-{{$ambient->id}}" type="checkbox" value="{{ $ambient->id }}" id="ambient-{{$ambient->id}}">
+            <label class="form-check-label" for="ambient-{{$ambient->id}}">
               {{ $ambient->name }}
             </label>
           </div>
@@ -213,9 +234,9 @@
         @foreach ($aPropieties_luxuries as $luxury)
         <div class="form-group col-md-2 col-sm-4 col-6">
           <div class="form-check">
-            <input class="form-check-input" {{ !empty($luxury->luxury_checked) ? 'checked' : '' }} type="checkbox"
-              value="{{ $luxury->id }}" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
+            <input class="form-check-input" {{ !empty($luxury->luxury_checked) ? 'checked' : '' }}
+              name="luxury-{{$luxury->id}}" type="checkbox" value="{{ $luxury->id }}" id="luxury-{{$luxury->id}}">
+            <label class="form-check-label" for="luxury-{{$luxury->id}}">
               {{ $luxury->name }}
             </label>
           </div>
@@ -228,8 +249,8 @@
 
 
       <div class="buttons-container text-center">
-        <a href="" class="btn btn-cancel mr-1">Cancelar</a>
-        <button class="btn btn-update ml-1">Aplicar</button>
+        <a href="{{ route('user_propieties') }}" class="btn btn-cancel mr-1">Cancelar</a>
+        <button type="submit" class="btn btn-update ml-1">Aplicar</button>
       </div>
     </div>
   </form>

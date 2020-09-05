@@ -7,6 +7,14 @@ use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
 use App\Models\CurrencyModel;
 use App\Models\LocalitiesModel;
+//Cmabiar de controlador
+use App\Models\LuxuriesModel;
+use App\Models\ServicesModel;
+use App\Models\AmbientsModel;
+use App\Models\PropertiesLuxuriesModel;
+use App\Models\PropertiesAmbientsModel;
+use App\Models\PropertiesServicesModel;
+//
 use DB;
 use Auth;
 use Illuminate\Http\Request;
@@ -151,40 +159,93 @@ class HomeController extends Controller
 
     public function update(Request $request, $id) {
         
+
         $aValidations = array(
-            
             'name' => 'required|max:60',
-        
-           
+            'currency' => 'required|numeric',
+            'price' => 'required|numeric|max:10000000',
+            'expenses' => 'required|numeric|max:100000',
+            'introduction' => 'required|max:60',
+            'description' => 'required|max:255',
+            'address' => 'required|max:100',
+            'rooms' => 'required|numeric|max:10',
+            'bedrooms' => 'required|numeric|max:10',
+            'bathrooms' => 'required|numeric|max:10',
+            'size' => 'required|numeric|max:60',
+            'antiquity' => 'required|numeric|max:6'
         );
 
-     
 
         $this->validate($request, $aValidations);
 
-        $oPropietie = PropietiesModel::find($id);
+        $oProperties = PropietiesModel::where('id',$id)->first();
           
         $request['name'] = ucwords($request['name']);
-       
 
-        $oPropietie->name = $request['name'];
+        $oProperties->name = $request['name'];
+        $oProperties->currency_id = $request['currency'];
+        $oProperties->price = $request['price'];
+        $oProperties->expensas = $request['expenses'];
+        $oProperties->introduccion = $request['introduction'];
+        $oProperties->description = $request['description'];
+        $oProperties->rooms = $request['rooms'];
+        $oProperties->bedrooms = $request['bedrooms'];
+        $oProperties->bathrooms = $request['bathrooms'];
+        $oProperties->size = $request['size'];
+        $oProperties->direction = $request['address'];
+        // $oPropietie->garages = $request['garages'];
+        // $oPropietie->toilettes = $request['toilettes'];
+        $oProperties->years = $request['antiquity'];
 
-        $oPropietie->description = $request['description'];
-        $oPropietie->introduccion = $request['introduccion'];
-        $oPropietie->price = $request['price'];
-        $oPropietie->rooms = $request['rooms'];
-        $oPropietie->expensas = $request['expensas'];
-        $oPropietie->beedrooms = $request['beedrooms'];
-        $oPropietie->bathrooms = $request['bathrooms'];
-        $oPropietie->size = $request['size'];
-        $oPropietie->direction = $request['direction'];
-        $oPropietie->garages = $request['garages'];
-        $oPropietie->toilettes = $request['toilettes'];
-        $oPropietie->years = $request['years'];
+        $oProperties->save();
+
+        PropertiesAmbientsModel::where('propietie_id',$id)->forceDelete();
+        PropertiesLuxuriesModel::where('propietie_id',$id)->forceDelete();
+        PropertiesServicesModel::where('propietie_id',$id)->forceDelete();
+
+        $aProperties_ambients = AmbientsModel::get();
+        $aProperties_services = ServicesModel::get();
+        $aProperties_luxuries = LuxuriesModel::get();
+
+        foreach($aProperties_ambients as $ambient)
+        {   
+            $request_name = 'ambient-'.$ambient->id;
+            if(!empty($request[$request_name]))
+            {
+                $PropAmbient = new PropertiesAmbientsModel;
+                $PropAmbient->propietie_id = $id;
+                $PropAmbient->ambientes_id = $ambient->id;
+                $PropAmbient->save();
+            }
+        }
+
+        foreach($aProperties_services as $services)
+        {   
+            $request_name = 'service-'.$services->id;
+            if(!empty($request[$request_name]))
+            {
+                $PropService = new PropertiesServicesModel;
+                $PropService->propietie_id = $id;
+                $PropService->services_id = $services->id;
+                $PropService->save();
+            }
+        }
+
+        foreach($aProperties_luxuries as $luxury)
+        {   
+            $request_name = 'luxury-'.$luxury->id;
+            if(!empty($request[$request_name]))
+            {
+                $PropLuxury = new PropertiesLuxuriesModel;
+                $PropLuxury->propietie_id = $id;
+                $PropLuxury->comodidades_id = $luxury->id;
+                $PropLuxury->save();
+            }
+        }
         
-        $oPropietie->save();
+        
 
-        return redirect()->back();
+        return redirect()->route('user_propieties');
     }
 
 
