@@ -5,20 +5,20 @@ use App\Models\PropietiesModel;
 use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
 use App\Models\LocalitiesModel;
-use App\Models\ServiciosModel;
+use App\Models\ServicesModel;
 use App\Models\PlansModel;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 
-class ServiciosController extends Controller {
+class ServicesController extends Controller {
 
     public function index() {
 
         //  $aProp = PropietiesModel::get();
         
-         $aServicios = ServiciosModel::get();
+         $aServicios = ServicesModel::get();
 
          return view('admin/servicios.index',compact('aServicios'));
     }
@@ -41,7 +41,7 @@ class ServiciosController extends Controller {
         $request['name'] = ucwords($request['name']);
        
 
-        ServiciosModel::create($request->all());
+        ServicesModel::create($request->all());
 
         return redirect()->route('servicios.index')->with('success', 'Registro actualizado satisfactoriamente');
     }

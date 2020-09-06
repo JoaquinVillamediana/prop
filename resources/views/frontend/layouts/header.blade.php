@@ -35,7 +35,6 @@
     <a class="dropdown-item" href="{{ route('user_profile') }}">Perfil</a>
     <a class="dropdown-item" href="{{ route('user_profile') }}">Favoritos</a>
     <a class="dropdown-item" href="{{ route('mis_propiedades.index') }}">Mis publicaciones</a>
-    <a class="dropdown-item" href="{{ route('messages') }}">Contactados</a>
     <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
   </div>
 </div>

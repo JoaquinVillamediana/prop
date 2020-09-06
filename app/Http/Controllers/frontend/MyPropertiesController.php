@@ -121,8 +121,17 @@ class MyPropertiesController extends Controller {
       $aCurrencies = CurrencyModel::get();
   
     
-    
-      return view('frontend/myproperties.edit',compact('aProp','aPropieties_luxuries','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services','aCurrencies'));
+
+      if(Auth::user()->id == $aPropieteie_user)
+      {
+        return view('frontend/myproperties.edit',compact('aProp','aPropieties_luxuries','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services','aCurrencies'));
+
+      }
+      else
+      {
+        return redirect()->route('home');
+      }
+     
     }
 
     public function update(Request $request, $id) {

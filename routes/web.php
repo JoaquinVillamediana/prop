@@ -51,7 +51,7 @@ Route::get('messages', 'frontend\MessageController@index')->name('messages');
 
 // 
 Route::post('send_mail', 'frontend\ContactController@mail')->name('send_mail');
-Route::get('send_user_mail/{user_id}', 'frontend\ContactController@users_mail')->name('send_user_mail');
+Route::post('send_user_mail/{user_id}', 'frontend\ContactController@users_mail')->name('send_user_mail');
 // 
 
  Route::get('edit_propietie/{id}', 'HomeController@edit_propietie')->name('edit_propietie');
@@ -88,16 +88,18 @@ Route::get('frecuent_questions', 'frontend\FrecuentesController@index')->name('f
 // pagar piblicacion o pulblicare sin  login
 Route::get('pago/{id}', 'frontend\PublishController@pago')->name('pago'); 
 
-// cobro 
-Route::get('cobro', 'frontend\PublishController@cobro')->name('cobro');
 
-Route::post('upload_propietie_picture', 'frontend\PublishController@store2')->name('upload_propietie_picture');
+
 Route::get('publish_publicationtype/{id}', 'frontend\PublishController@propietie_type')->name('publish_publicationtype');
 
-Route::get('publish_personal_free/{id}', 'frontend\PublishController@publish_login1')->name('publish_personal_free');
-Route::post('store1', 'frontend\PublishController@store1')->name('store1');
 
-Route::get('publish_personal_free2/{propietie_id}', 'frontend\PublishController@publish_login2')->name('publish_personal_free2');
+
+Route::get('publish_propertie_plan/{id}', 'frontend\PublishController@publish_propertie')->name('publish_propertie_plan');
+
+Route::post('store_dates', 'frontend\PublishController@store_dates')->name('store_dates');
+Route::get('publish_files/{propietie_id}', 'frontend\PublishController@publish_files')->name('publish_files');
+Route::post('upload_propietie_picture', 'frontend\PublishController@store_files')->name('upload_propietie_picture');
+
 
 Route::get('publish', 'frontend\PublishController@index')->name('publish');
 Route::get('publish/profesional', 'frontend\PublishController@profesional')->name('profesional');
@@ -144,11 +146,11 @@ Route::get('plans_update', 'admin\PlansController@update')->name('plans_update')
 
 
 // RUTAS DE AMBIENTES
-Route::get('ambientes', 'admin\AmbientesController@index')->name('ambientes');
-Route::get('ambientes_create', 'admin\AmbientesController@create')->name('ambientes_create');
-Route::get('ambientes_store', 'admin\AmbientesController@store')->name('ambientes_store');
-Route::get('ambientes_edit/{id}', 'admin\AmbientesController@edit')->name('ambientes_edit');
-Route::get('ambientes_update', 'admin\AmbientesController@update')->name('ambientes_update');
+Route::get('ambients', 'admin\AmbientsController@index')->name('ambients');
+Route::get('ambients_create', 'admin\AmbientsController@create')->name('ambients_create');
+Route::get('ambients_store', 'admin\AmbientsController@store')->name('ambients_store');
+Route::get('ambients_edit/{id}', 'admin\AmbientsController@edit')->name('ambients_edit');
+Route::get('ambients_update', 'admin\AmbientsController@update')->name('ambients_update');
 // FIN DE RUTAS DE AMBIENTES
 
 // RUTAS DE CARACTERISTICAS GENERALES
@@ -160,11 +162,11 @@ Route::get('caracteristicas_gen_update', 'admin\CargenController@update')->name(
 // FIN DE RUTAS DE CARACTERISTICAS GENERALES
 
 // Rutas de servicios
-Route::get('servicios', 'admin\ServiciosController@index')->name('servicios');
-Route::get('servicios_create', 'admin\ServiciosController@create')->name('servicios_create');
-Route::get('servicios_store', 'admin\ServiciosController@store')->name('servicios_store');
-Route::get('servicios_edit/{id}', 'admin\ServiciosController@edit')->name('servicios_edit');
-Route::get('servicios_update', 'admin\ServiciosController@update')->name('servicios_update');
+Route::get('services', 'admin\ServicesController@index')->name('services');
+Route::get('services_create', 'admin\ServicesController@create')->name('services_create');
+Route::get('services_store', 'admin\ServicesController@store')->name('services_store');
+Route::get('services_edit/{id}', 'admin\ServicesController@edit')->name('services_edit');
+Route::get('services_update', 'admin\ServicesController@update')->name('services_update');
 // Fin de rutas de servicios
 
 // Rutas moneda

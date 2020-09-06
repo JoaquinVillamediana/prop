@@ -160,7 +160,7 @@
                     <a href="{{ route('propieties') }}"><i class="fas fa-building"></i> Propiedades</a>
                 </div>
                 <div class="container">
-                    <a href="{{ route('ambientes') }}"><i class="fas fa-building"></i> Ambientes</a>
+                    <a href="{{ route('ambients') }}"><i class="fas fa-building"></i> Ambientes</a>
                 </div>
                 <div class="container">
                     <a href="{{ route('caracteristicas_gen') }}"><i class="fas fa-building"></i> Características generales</a>
@@ -170,7 +170,7 @@
                 </div>
                 
                 <div class="container">
-                    <a href="{{ route('servicios') }}"><i class="fas fa-building"></i> Servicios</a>
+                    <a href="{{ route('services') }}"><i class="fas fa-building"></i> Servicios</a>
                 </div>
                 
                 <div class="container">

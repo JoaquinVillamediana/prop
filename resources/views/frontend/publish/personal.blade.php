@@ -62,7 +62,7 @@
                         <a class="btn btn-outline-prop" href="{{ route('pago',$planes->id) }}" role="button">Elegir</a>
                         @else
                         <!-- <a href="{{ route('publish_publicationtype',$planes->id) }}"> -->
-                        <a class="btn btn-outline-prop" href="{{ route('publish_personal_free',$planes->id) }}" role="button">Elegir</a>
+                        <a class="btn btn-outline-prop" href="{{ route('publish_propertie_plan',$planes->id) }}" role="button">Elegir</a>
                         @endif
 
 

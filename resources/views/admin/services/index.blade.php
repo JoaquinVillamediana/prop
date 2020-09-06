@@ -7,15 +7,15 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Tipos de operaciones</a>
+                <a href="#">Tipos de servicios</a>
             </li>
-            <li class="breadcrumb-item active">Lista de tipos de operaciones</li>       
+            <li class="breadcrumb-item active">Lista de tipos de servicios</li>       
         </ol>
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> Tipos de operaciones
-                <a class="btn btn-outline-primary ml-4" href="{{ route('servicios_create') }}" role="button">Crear</a>
+                <i class="fa fa-table"></i> Tipos de servicios
+                <a class="btn btn-outline-primary ml-4" href="{{ route('services_create') }}" role="button">Crear</a>
             </div>         
             <div class="card-body">
                 <div class="table-responsive">

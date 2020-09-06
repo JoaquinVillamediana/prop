@@ -10,7 +10,7 @@ class RuserController extends Controller {
 
     public function index() {
 
-        //  return view('frontend/login.index',compact('aCategories','aSubCategories'));
+     
         return view('frontend/register.index');
     }
 

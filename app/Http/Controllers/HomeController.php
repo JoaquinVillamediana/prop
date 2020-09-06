@@ -8,6 +8,7 @@ use App\Models\Propietie_typeModel;
 use App\Models\CurrencyModel;
 use App\Models\LocalitiesModel;
 //Cmabiar de controlador
+use App\Models\FavoritesModel;
 use App\Models\LuxuriesModel;
 use App\Models\ServicesModel;
 use App\Models\AmbientsModel;
@@ -38,6 +39,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+
+        
         $aLocalities = LocalitiesModel::get();
         $aPropieties = PropietiesModel::select('propieties.*','currency.symbol')
         ->leftjoin('currency','currency.id','=','propieties.currency_id')
@@ -47,6 +51,8 @@ class HomeController extends Controller
         $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
         ->get();
             
+    
+
         return view('frontend/home.index',compact('aPropieties','aOperationType','aPropietie_type','aLocalities'));
         
     }

@@ -22,7 +22,7 @@
             <div class="input-group mb-3">
             
              
-                <form action="{{ route('operation_type_store') }}">
+                <form action="{{ route('services_update') }}">
                 <div class="row">
                 <h3>Nombre</h3>
                 <input id="name" name="name" type="text" class="form-control ml-4" aria-label="Text input with dropdown button"> 

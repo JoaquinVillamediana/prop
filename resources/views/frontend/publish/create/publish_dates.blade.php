@@ -11,7 +11,7 @@
  
 
 
-    <form method="POST" action="{{ route('store1') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('store_dates') }}" enctype="multipart/form-data">
     <div class="container">
       <h1 class="text-center mb-2">Publicá tu propiedad</h1>
       <h4 class="">Aspectos básicos</h4>

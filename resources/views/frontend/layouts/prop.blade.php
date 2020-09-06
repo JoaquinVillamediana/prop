@@ -18,6 +18,7 @@
             
           </div>
 
+          
           <div class="card-body">
             <h5 class="card-title mb-1"> {{$prop->name}}</h5>
             <h5 class="card-title mb-1"><b>{{$prop->symbol}}</b> {{$prop->price}}</h5>

@@ -6,19 +6,19 @@ use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
 use App\Models\LocalitiesModel;
 use App\Models\PlansModel;
-use App\Models\AmbientesModel;
+use App\Models\AmbientsModel;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 
-class AmbientesController extends Controller {
+class AmbientsController extends Controller {
 
     public function index() {
 
         //  $aProp = PropietiesModel::get();
         
-         $aAmbientes = AmbientesModel::get();
+         $aAmbientes = AmbientsModel::get();
 
          return view('admin/ambientes.index',compact('aAmbientes'));
     }
@@ -39,7 +39,7 @@ class AmbientesController extends Controller {
 
         $request['name'] = ucwords($request['name']);
        
-        AmbientesModel::create($request->all());
+        AmbientsModel::create($request->all());
 
         return redirect()->route('ambientes.index')->with('success', 'Registro actualizado satisfactoriamente');
     }
@@ -49,7 +49,7 @@ class AmbientesController extends Controller {
     }
 
     public function edit($id) {
-        $oAmbientes = AmbientesModel::find($id);
+        $oAmbientes = AmbientsModel::find($id);
         return view('admin/ambientes.edit', compact('oAmbientes'));
     }
 
@@ -67,7 +67,7 @@ class AmbientesController extends Controller {
 
         $request['name'] = ucwords($request['name']);
 
-        $oUser = AmbientesModel::find($id);
+        $oUser = AmbientsModel::find($id);
 
           
         $request['name'] = ucwords($request['name']);

@@ -53,7 +53,7 @@ return view('frontend/publish.profesional',compact('aPlans'));
     }
 
     // publicar
-    public function publish_login1() {
+    public function publish_propertie() {
 
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
@@ -90,10 +90,10 @@ return view('frontend/publish.profesional',compact('aPlans'));
         $aLocalities = LocalitiesModel::get();
 
 
-        return view('frontend/publish/personal.publish1',compact('aPropietie_type','aLocalities','aOperationType','aCurrencies','aPropieties_ambientes','aCaracteristocasg','aPropieties_services','aPropieties_luxuries'));
+        return view('frontend/publish/create.publish_dates',compact('aPropietie_type','aLocalities','aOperationType','aCurrencies','aPropieties_ambientes','aCaracteristocasg','aPropieties_services','aPropieties_luxuries'));
     }
 
-    public function store1(Request $request){
+    public function store_dates(Request $request){
 
          $user= Auth::user()->id;
 
@@ -141,12 +141,12 @@ return view('frontend/publish.profesional',compact('aPlans'));
         //  $propietie_id = DB::select('SELECT max(id) from propieties where user_id =  "'.$user.'"');
          $propietie_id = PropietiesModel::max('id');
          
-         return redirect()->route('publish_personal_free2', $propietie_id);
+         return redirect()->route('publish_files', $propietie_id);
         // return view('frontend/publish.pago');
 
     }
 
-         public function publish_login2($propietie_id) {
+         public function publish_files($propietie_id) {
 
         $aImages = ImageModel::select('images.*','propieties.name as propietie_name')
         ->leftjoin('propieties','propieties.id','=','images.propietie_id')
@@ -184,10 +184,10 @@ return view('frontend/publish.profesional',compact('aPlans'));
         ');
 
 
-         return view('frontend/publish/personal.publish2',compact('aPropietie_type','aComodidades','aServicios','aCaracteristocasg','aAmbientes','aCurrency'))->with('propietie_id',$propietie_id);
+         return view('frontend/publish/create.publish_files',compact('aPropietie_type','aComodidades','aServicios','aCaracteristocasg','aAmbientes','aCurrency'))->with('propietie_id',$propietie_id);
      }
 
-    public function store2(Request $request)
+    public function store_files(Request $request)
     {
 
         if(!empty($request['image']))

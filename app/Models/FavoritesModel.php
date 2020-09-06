@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FavoritosModel extends Model
+class FavoritesModel extends Model
 {
     use SoftDeletes;
     protected $table = 'favoritos';
     
     protected $fillable = [
         'user_id',
-        'product_id',
+        'propertie_id',
         'status'
         
         
