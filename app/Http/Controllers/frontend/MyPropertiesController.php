@@ -41,6 +41,7 @@ class MyPropertiesController extends Controller {
       $pastMonthViews = 0;
       foreach($aPropieties as $Property)
       {
+        $aViews['Property-'.$Property->id] = views($Property)->count();
         $totalViews += views($Property)->count();
         $past24Views += views($Property)->period(Period::pastDays(1))->count();
         $past48Views += views($Property)->period(Period::pastDays(2))->count();
