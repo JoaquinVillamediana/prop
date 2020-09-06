@@ -15,6 +15,7 @@
 
   <form method="POST" action="{{ route('mis_propiedades.update', $prop->id) }}" role="form" enctype="multipart/form-data">
     @csrf
+    <input name="_method" type="hidden" value="PATCH">
     <div class="container">
       <h1 class="text-center mb-2">Edición de Propiedad</h1>
       <h4 class="">Aspectos básicos</h4>
@@ -238,6 +239,24 @@
               name="luxury-{{$luxury->id}}" type="checkbox" value="{{ $luxury->id }}" id="luxury-{{$luxury->id}}">
             <label class="form-check-label" for="luxury-{{$luxury->id}}">
               {{ $luxury->name }}
+            </label>
+          </div>
+        </div>
+        @endforeach
+        @endif
+      </div>
+
+      <h4>Características generales</h4>
+
+      <div class="form-row">
+        @if(!empty($aPropieties_general_characteristics))
+        @foreach ($aPropieties_general_characteristics as $characteristic)
+        <div class="form-group col-md-2 col-sm-4 col-6">
+          <div class="form-check">
+            <input class="form-check-input" {{ !empty($characteristic->characteristic_checked) ? 'checked' : '' }}
+              name="characteristic-{{$characteristic->id}}" type="checkbox" value="{{ $characteristic->id }}" id="characteristic-{{$characteristic->id}}">
+            <label class="form-check-label" for="characteristic-{{$characteristic->id}}">
+              {{ $characteristic->name }}
             </label>
           </div>
         </div>
