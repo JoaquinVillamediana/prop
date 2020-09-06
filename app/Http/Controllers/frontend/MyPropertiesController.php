@@ -247,6 +247,11 @@ class MyPropertiesController extends Controller {
     //
 }
 
+  public function edit_photos($id)
+  {
+    
+  }
+
   
 
 }

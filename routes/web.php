@@ -62,6 +62,7 @@ Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 Route::middleware(['auth'])->group(function () {
 
     Route::resource('mis_propiedades', 'frontend\MyPropertiesController');
+    Route::get('mis_propiedades/{id}/edit_fotos', 'frontend\MyPropertiesController@edit_photos');
 
     // Route::post('update_propietie/{id}', 'HomeController@update')->name('update_propietie');
     Route::get('user_profile', 'frontend\ProfileController@index')->name('user_profile');

@@ -9,7 +9,7 @@
 <div class="mt-5 pb-5 container-fluid">
 
   @if(!empty($oProp))
-  
+
 
   <div class="container">
     <div class="row">
@@ -18,7 +18,8 @@
       <div class="col-md-7 col-12">
         <div class="name-responsive">
           <h5 class="product-title">{{ $oProp->name }}</h5>
-          <p class="product-price" style="color:#000;">{{ $oProp->symbol }} {{ number_format($oProp->price, 0, ',', '.')  }} </p>
+          <p class="product-price" style="color:#000;">{{ $oProp->symbol }}
+            {{ number_format($oProp->price, 0, ',', '.')  }} </p>
         </div>
         <!-- carrousel -->
         <div class="col-12 mt-2 mb-4 div-main-image col-images">
@@ -47,100 +48,120 @@
 
         {{-- <div class="container"> --}}
 
-          <!-- Fin de carrousel  -->
-          <!-- Características  -->
-          <div class="characteristcs-div" style="border: 1px solid #ccc!important;">
-            <div class="container">
-              <h4>Caracteristicas</h4>
-              <ul class="characteristcs">
-                <li class="carac-item"><span class="carac-desc"><i
-                      class="fas fa-couch"></i>Cuartos</span>{{ $oProp->rooms }} </li>
-                <li class="carac-item"><span class="carac-desc"><i
-                      class="fas fa-bed"></i>Habitaciones</span>{{ $oProp->bedrooms }}</li>
-                <li class="carac-item"><span class="carac-desc"><i
-                      class="fas fa-bath"></i>Baños</span>{{ $oProp->bathrooms }}</li>
-                <li class="carac-item"><span class="carac-desc"><i
-                      class="fas fa-ruler-combined"></i>Tamaño</span>{{ $oProp->size }}m<sup>2</sup></li>
-              </ul>
-            </div>
+        <!-- Fin de carrousel  -->
+        <!-- Características  -->
+        <div class="characteristcs-div" style="border: 1px solid #ccc!important;">
+          <div class="container">
+            <h4>Caracteristicas</h4>
+            <ul class="characteristcs">
+              <li class="carac-item"><span class="carac-desc"><i
+                    class="fas fa-couch"></i>Cuartos</span>{{ $oProp->rooms }} </li>
+              <li class="carac-item"><span class="carac-desc"><i
+                    class="fas fa-bed"></i>Habitaciones</span>{{ $oProp->bedrooms }}</li>
+              <li class="carac-item"><span class="carac-desc"><i
+                    class="fas fa-bath"></i>Baños</span>{{ $oProp->bathrooms }}</li>
+              <li class="carac-item"><span class="carac-desc"><i
+                    class="fas fa-ruler-combined"></i>Tamaño</span>{{ $oProp->size }}m<sup>2</sup></li>
+              <li class="carac-item"><span class="carac-desc"><i
+                    class="fas fa-clock"></i>Antigüedad</span>{{ $oProp->years }} años</li>
+            </ul>
           </div>
+        </div>
 
-          <div class="card bg-light mb-3 mt-2"
-            style="  font-weight: bold;    border: 1px solid #ccc!important;">
-            <div class="card-body">
-              <h5 class="card-title">Descripción</h5>
-              <p class="card-text">{{ $oProp->description }}</p>
-            </div>
+        <div class="card bg-light mb-3 mt-2" style="  font-weight: bold;    border: 1px solid #ccc!important;">
+          <div class="card-body">
+            <h5 class="card-title">Descripción</h5>
+            <p class="card-text">{{ $oProp->description }}</p>
           </div>
+        </div>
 
-          <!-- Fin de características  -->
-          
-          <!-- Caracteristicas generales  -->
+        <!-- Fin de características  -->
 
-          @if(!empty($aPropieties_caracteristicas_generales))
-          <div class="characteristcs-div" style="border: 1px solid #ccc!important;">
-            <div class="container">
-              <h4>Caracteristicas Generales</h4>
-              <ul class="characteristcs">
-               @foreach($aPropieties_caracteristicas_generales as $cg)
-                <li class="carac-item"><span class="carac-desc">
-                <i class="fas fa-angle-right"></i></span>{{ $cg->caracteristicas_generales_name }} 
-                </li>
-               @endforeach
-              </ul>
+        <!-- Caracteristicas generales  -->
+
+        @if(!empty($aPropieties_caracteristicas_generales))
+        <div class="characteristcs-div special" style="border: 1px solid #ccc!important;">
+          <div class="container">
+            <h4>Caracteristicas Generales</h4>
+            <div class="row">
+              @foreach($aPropieties_caracteristicas_generales as $cg)
+              <div class="col-6 col-md-4">
+                <span class="carac-desc">
+                  <i class="fas fa-angle-right mr-1"></i></span>{{ $cg->caracteristicas_generales_name }}
+              </div>
+
+
+              @endforeach
             </div>
+
           </div>
-          @endif
-            <!-- fin de caracteristicas generales  -->
+        </div>
+        @endif
+        <!-- fin de caracteristicas generales  -->
 
 
-            <!-- servicios -->
-            @if(!empty($aPropieties_services))
-            <div class="characteristcs-div" style="border: 1px solid #ccc!important; margin-top: 8px;">
-                        <div class="container">
-                          <h4>Servicios</h4>
-                          <ul class="characteristcs">
-                          @foreach($aPropieties_services as $servicios)
-                            <li class="carac-item"><span class="carac-desc">
-                            <i class="fas fa-angle-right"></i></span>{{ $servicios->service_name }} </li>
-                          @endforeach
-                          </ul>
-                        </div>
-                      </div>
-                @endif
-            <!--  fin de serivicios-->
+        <!-- servicios -->
+        @if(!empty($aPropieties_services))
+        <div class="characteristcs-div special" style="border: 1px solid #ccc!important; margin-top: 8px;">
+          <div class="container">
+            <h4>Servicios</h4>
+            <div class="row">
+              @foreach($aPropieties_services as $servicios)
+              <div class="col-6 col-md-4">
+                <span class="carac-desc">
+                  <i class="fas fa-angle-right mr-1"></i></span>{{ $servicios->service_name }}
+              </div>
 
-            <!--  ambientes-->
-            @if(!empty($aPropieties_ambientes))
-            <div class="characteristcs-div" style="border: 1px solid #ccc!important; margin-top: 8px;">
-                        <div class="container">
-                          <h4>Ambientes</h4>
-                          <ul class="characteristcs">
-                           @foreach($aPropieties_ambientes as $ambientes)
-                            <li class="carac-item"><span class="carac-desc">
-                            <i class="fas fa-angle-right"></i></span>{{ $ambientes->ambientes_name }} </li>
-                           @endforeach
-                          </ul>
-                        </div>
-                      </div>
-              @endif
-            <!--   fin de ambientes-->
+              @endforeach
+            </div>
 
-            <!--   comodidades-->
-            @if(!empty($aPropieties_comodidades))
-            <div class="characteristcs-div" style="border: 1px solid #ccc!important; margin-top: 8px;">
-                        <div class="container">
-                          <h4>Comodidades</h4>
-                          <ul class="characteristcs">
-                          @foreach($aPropieties_comodidades as $comodidades)
-                            <li class="carac-item"><span class="carac-desc"><i class="fas fa-angle-right"></i></span>{{ $comodidades->comodidades_name }} </li>
-                           @endforeach
-                          </ul>
-                        </div>
-                      </div>
+          </div>
+        </div>
+        @endif
+        <!--  fin de serivicios-->
 
-              @endif
-            <!--  fin de comodidades-->
+        <!--  ambientes-->
+        @if(!empty($aPropieties_ambientes))
+        <div class="characteristcs-div special" style="border: 1px solid #ccc!important; margin-top: 8px;">
+          <div class="container">
+            <h4>Ambientes</h4>
+            <div class="row">
+              @foreach($aPropieties_ambientes as $ambientes)
+              <div class="col-6 col-md-4">
+                <span class="carac-desc">
+                  <i class="fas fa-angle-right mr-1"></i></span>{{ $ambientes->ambientes_name }}
+              </div>
+              
+              @endforeach
+            </div>
+
+
+          </div>
+        </div>
+        @endif
+        <!--   fin de ambientes-->
+
+        <!--   comodidades-->
+        @if(!empty($aPropieties_comodidades))
+        <div class="characteristcs-div special " style="border: 1px solid #ccc!important; margin-top: 8px;">
+          <div class="container">
+            <h4>Comodidades</h4>
+            <div class="row">
+              @foreach($aPropieties_comodidades as $comodidades)
+              <div class="col-6 col-md-4">
+                <span class="carac-desc"><i
+                    class="fas fa-angle-right mr-1"></i></span>{{ $comodidades->comodidades_name }}
+              </div>
+              
+              @endforeach
+            </div>
+
+
+          </div>
+        </div>
+
+        @endif
+        <!--  fin de comodidades-->
 
         {{-- </div> --}}
       </div>
@@ -154,31 +175,30 @@
             <p class="product-price" style="color:#000;">U$D {{ number_format($oProp->price, 0, ',', '.')  }} </p>
           </div>
         </div>
-        <p>{{ $oProp->description }}</p>
+        <p>{{ $oProp->introduccion }}</p>
         <!-- FORMULARIO DE CONTACTO -->
         <section id="contacto">
           <div class="container">
             <form id="formulario" action="{{route('send_user_mail',$oProp->user_id)}}">
               <div class="row">
-                
-                  <div class="col-lg-6 col-12">
-                    <div class="form-group">
-                      <label for="email">Dirección de email</label>
-                      <input type="email" class="form-control" id="email" placeholder="name@example.com">
-                    </div>
+
+                <div class="col-lg-6 col-12">
+                  <div class="form-group">
+                    <label for="email">Dirección de email</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
                   </div>
-                  <div class="col-lg-6 col-12">
-                    <div class="form-group">
-                      <label for="name">Nombre</label>
-                      <input type="text" class="form-control" id="name" placeholder="Nombre y apellido">
-                    </div>
-                  
+                </div>
+                <div class="col-lg-6 col-12">
+                  <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" placeholder="Nombre y apellido">
+                  </div>
+
                 </div>
               </div>
               <div class="form-group">
                 <label for="number">Teléfono</label>
-                <input type="number" class="form-control" id="number" name="number"
-                  placeholder="Número de teléfono">
+                <input type="number" class="form-control" id="number" name="number" placeholder="Número de teléfono">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Mensaje</label>
@@ -194,10 +214,10 @@
                     <button class="btn btn-prop" type="submit"><i class="fas fa-phone"></i> Llamar</button>
                   </div>
                 </div>
-                
+
               </div>
             </form>
-            
+
           </div>
         </section>
         <!-- FIN DE FORMULARIO DE CONTACTO -->
@@ -207,7 +227,8 @@
           <div class="card w-70">
             <div class="card-body">
               <h5 class="card-title">{{ $oProp->user_name }}</h5>
-              <img src="/images/profile_pictures_users/{{ $oProp->profile_image }}" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+              <img src="/images/profile_pictures_users/{{ $oProp->profile_image }}"
+                class="mx-auto img-fluid img-circle d-block" alt="avatar">
               <p class="card-text">@if($oProp->user_type == 2) <i class="fas fa-user"></i> {{"dueño directo"}} | <i
                   class="fas fa-phone"></i> {{ $oProp->user_phone }} @else <i class="fas fa-user-tie"></i>
                 {{"Profesional"}} | <i class="fas fa-phone"></i> @if(!empty($data_user->phone))
@@ -218,11 +239,6 @@
         </section>
         <!-- findatos de anunciante -->
 
-        <!-- mapa -->
-
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2321.87546304566!2d-58.42185837762528!3d-34.61357291806038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca5947f1d6ad%3A0x7897cc83741b3272!2sCasa%20Salesiana%20P%C3%ADo%20IX!5e0!3m2!1ses-419!2sar!4v1598654542348!5m2!1ses-419!2sar" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-
-        <!-- fin mapa -->
       </div>
 
 

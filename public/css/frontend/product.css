@@ -186,8 +186,16 @@
     padding-top: 10px;
 }
 
+.characteristcs-div.special {
+    padding: 10px;
+}
+
 .name-responsive {
     display: none;
+}
+
+footer {
+    margin-top: 40px;
 }
 
 @media screen and (max-width: 768px) {
