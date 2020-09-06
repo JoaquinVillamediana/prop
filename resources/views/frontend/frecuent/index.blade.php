@@ -27,22 +27,22 @@
 
 <div class="col-12 faq">
     <h2 class="faqs-head"><a onclick="displayText(1)" href="">. ¿Cómo publicar una propiedad?<span id="sign-1" class="float-right">+</span></a> </h2>
-    <p id="1" style="display: none;">Para publicar tu propiedad se requiere contratar alguno de los planes disponibles en la sección de <a href="{{ route('publish') }}">planes</a>. Allí encontrarás todas las opciones para publicarla, tanto para profesional como para propietario. Es necesario haber iniciado sesión para acceder a la opción de compra de cualquier plan. Teniendo en cuenta esto, si el comprador no posee una cuenta deberá registrarse primero.</br></br> Si se presenta algún inconveniente no dude en <a href="{{ route('contact') }}">contactarnos</a>, estamos disponibles para consultas las 24hs.</p>
+    <p id="1" style="display: none;">Para publicar una propiedad se requiere contratar alguna de las opciones disponibles en la sección de <a href="{{ route('publish') }}">planes</a>. Allí se encuentran todas las posibilidades para publicarla, tanto para profesional como para propietario. Es necesario haber iniciado sesión para acceder a la opción de compra de cualquier plan. Teniendo en cuenta esto, si el comprador no posee una cuenta deberá registrarse primero.</br></br> Si se presenta algún inconveniente, no dude en <a href="{{ route('contact') }}">contactarnos</a>, estamos disponibles para responder sus consultas durante las 24hs.</p>
   </div>
 
   <div class="col-12 faq">
     <h2 class="faqs-head"><a onclick="displayText(2)" href="">. ¿Cómo puedo buscar una propiedad con los filtros que quiero?<span id="sign-2" class="float-right"><b>+</b></span></a> </h2>
-    <p id="2" style="display: none;">Para poder buscar una propiedad se necesita ingresar una localidad en el buscador, el tipo de operación que busca y el tipo de propiedad. Si no existen preferencias a la hora de comenzar la busqueda puede oprimir directamente el botón de busqueda avanzada y te mostraremos nuestras propiedades destacadas.</br></br> Si se presenta algún inconveniente no dude en <a href="{{ route('contact') }}">contactarnos</a>, estamos disponibles para consultas las 24hs.</p>
+    <p id="2" style="display: none;">Para buscar una propiedad se necesita ingresar en el buscador: una localidad, la operación que desea realizar (compra o venta) y el tipo de propiedad (por ejemplo: casa o departamento). Si no existen preferencias a la hora de comenzar la búsqueda sugerimos oprimir directamente el botón de "búsqueda avanzada" y accaderá a la visualización de nuestras propiedades destacadas.</br></br> Si se presenta algún inconveniente, no dude en <a href="{{ route('contact') }}">contactarnos</a>, estamos disponibles para responder sus consultas durante las 24hs.</p>
   </div>
 
   <div class="col-12 faq">
     <h2 class="faqs-head"><a onclick="displayText(3)" href="">. ¿Qué opciones de pago existen?<span id="sign-3" class="float-right"><b>+</b></span></a> </h2>
-    <p id="3" style="display: none;"> A la hora de pagar el usuario puede elegir entre realizar la transacción por Mercado Pago, Terjeta de Débito o crédito, Efectivo(Pago Fácil, Rapipago y kioscos) o transferencia por Red Link. </br></br> Si se presenta algún inconveniente <a href="{{ route('contact') }}">contactarnos</a> estamos disponibles para consultas las 24hs.</p>
+    <p id="3" style="display: none;"> El usuario puede elegir entre realizar la transacción por Mercado Pago, Terjeta de Débito o crédito, Efectivo(Pago Fácil, Rapipago y kioscos) o transferencia por Red Link. </br></br> Si se presenta algún inconveniente, no dude en <a href="{{ route('contact') }}">contactarnos</a>, estamos disponibles para responder sus consultas durante las 24hs.</p>
   </div>
 
   <div class="col-12 faq">
     <h2 class="faqs-head"><a onclick="displayText(4)" href="">. ¿Cómo recupero la contraseña si me la olvidé?<span id="sign-4" class="float-right"><b>+</b></span></a> </h2>
-    <p id="4" style="display: none;">Al estar por iniciar sesión, se ecuentra un botón que indica que mediante ese pueden recuperar la contraseña, luego de ingresar el mail. </br></br> Si se presenta algún inconveniente <a href="{{ route('contact') }}">contactarnos</a> estamos disponibles para consultas las 24hs.</p>
+    <p id="4" style="display: none;">Al iniciar sesión, se ecuentra un botón que indica cómo recuperar la contraseña, luego de ingresar el mail del usuario. </br></br> Si se presenta algún inconveniente, no dude en <a href="{{ route('contact') }}">contactarnos</a>, estamos disponibles para responder sus consultas durante las 24hs.</p>
   </div>
 
   <!-- <div class="col-12 faq">

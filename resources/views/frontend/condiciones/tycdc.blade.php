@@ -196,7 +196,7 @@ El Solicitante se compromete a indemnizar y eximir a W.B.O. Software, sus accion
 </br>
 17.1 ARGENTINA
 
-W.B.O. Software significa Dridco S.A.U., CUIT 30-71024401-0, con domicilio en Maipú 942, piso 16, Ciudad Autónoma de Buenos Aires.
+W.B.O. Software significa WBO Software S.A.S., CUIT COMPLETARCUIT, con domicilio en Tandil 3239, Ciudad Autónoma de Buenos Aires.
 
 El Sitio Web es www.tuproximaprop.com.
 
@@ -208,7 +208,7 @@ Interés moratorio: una vez y media la tasa del Banco de la Nación Argentina pa
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-Estas Condiciones Generales de Contratación fue actualizada por última vez el 21 de febrero de 2018.
+Estas Condiciones Generales de Contratación fue actualizada por última vez el 5 de septiembre de 2020.
  
  </p>
 </div>
