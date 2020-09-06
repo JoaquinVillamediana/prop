@@ -13,7 +13,7 @@
 
 
 
-  <form method="POST" action="{{ route('update_propietie', $prop->id) }}" role="form" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('mis_propiedades.update', $prop->id) }}" role="form" enctype="multipart/form-data">
     @csrf
     <div class="container">
       <h1 class="text-center mb-2">Edición de Propiedad</h1>
@@ -249,7 +249,7 @@
 
 
       <div class="buttons-container text-center">
-        <a href="{{ route('user_propieties') }}" class="btn btn-cancel mr-1">Cancelar</a>
+        <a href="{{ route('mis_propiedades.index') }}" class="btn btn-cancel mr-1">Cancelar</a>
         <button type="submit" class="btn btn-update ml-1">Aplicar</button>
       </div>
     </div>

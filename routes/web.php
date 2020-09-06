@@ -35,7 +35,7 @@ Route::post('user_profilepicture_edit', 'frontend\ProfileController@edit_profile
 
 
 Route::get('user_profile_publications/{user_id}', 'frontend\ProfileController@user_perfil_publicaciones')->name('user_profile_publications');
-Route::get('mis_propiedades', 'frontend\PropietiesController@index')->name('user_propieties');
+
 
 Route::get('search', 'frontend\SearchController@index')->name('search');
 Route::get('/search/compra', 'frontend\SearchController@index_compra')->name('search_compra');
@@ -61,8 +61,9 @@ Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('mis_propiedades', 'frontend\PropietiesController@index')->name('user_propieties');
-    Route::post('update_propietie/{id}', 'HomeController@update')->name('update_propietie');
+    Route::resource('mis_propiedades', 'frontend\MyPropertiesController');
+
+    // Route::post('update_propietie/{id}', 'HomeController@update')->name('update_propietie');
     Route::get('user_profile', 'frontend\ProfileController@index')->name('user_profile');
     Route::post('user_profile_edit', 'frontend\ProfileController@edit')->name('user_profile_edit');
     Route::post('user_profilepicture_edit', 'frontend\ProfileController@edit_profile_photo')->name('user_profilepicture_edit');

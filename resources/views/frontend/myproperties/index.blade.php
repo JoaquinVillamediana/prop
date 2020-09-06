@@ -62,6 +62,10 @@
 
   </div>
 
+  <div class="graphs">
+    
+  </div>
+
 
   <section id="propiedades">
     <h2>Mis porpiedades publicadas</h2>

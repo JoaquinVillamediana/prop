@@ -13,11 +13,10 @@ use DB;
 use Auth;
 use Hash;
 
-class PropietiesController extends Controller {
+class PropertiesController extends Controller {
 
     public function index() {
 
-        // $aUsers = User::get();
         
         $user=Auth::user()->id;
 
@@ -35,15 +34,6 @@ class PropietiesController extends Controller {
         {
             $totalViews += views($Property)->count();
         }
-
-        // $aPropieties=DB::select('SELECT propieties.* , currency.symbol as symbol
-        // FROM propieties
-        // LEFT JOIN currency ON currency.id = propieties.currency_id
-        // where propieties.deleted_at is null
-        // and propieties.visible = 1
-        // and currency.deleted_at is null
-        // and propieties.user_id = "'.$user.'"
-        // ');
 
         $aDatos=DB::select('SELECT u.*,COUNT(m.id) count_contactados
         FROM users u
@@ -63,7 +53,7 @@ class PropietiesController extends Controller {
          ');
         
    return view('frontend/propieties.index',compact('aPropieties','aDatos','aDatosProp','totalViews'));
-        // return view('frontend/propieties.index');
+
     }
 
   
