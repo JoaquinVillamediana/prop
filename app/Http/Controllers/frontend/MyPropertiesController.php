@@ -11,9 +11,11 @@ use App\Http\Controllers\Controller;
 use App\Models\LuxuriesModel;
 use App\Models\ServicesModel;
 use App\Models\AmbientsModel;
+use App\Models\GeneralCharacteristicsModel;
 use App\Models\PropertiesLuxuriesModel;
 use App\Models\PropertiesAmbientsModel;
 use App\Models\PropertiesServicesModel;
+use App\Models\PropertiesGeneralCharacteristicsModel;
 use App\Models\CurrencyModel;
 use CyrildeWit\EloquentViewable\Support\Period;
 use DB; 
@@ -25,13 +27,12 @@ class MyPropertiesController extends Controller {
     public function index() {
 
         
-      $user=Auth::user()->id;
+      $user = Auth::user()->id;
 
       $aPropieties = PropietiesModel::select('propieties.*','currency.symbol')
       ->leftjoin('currency','propieties.currency_id','currency.id')
       ->where('propieties.visible','=','1')
       ->where('propieties.user_id',$user)
-      ->whereNull('currency.deleted_at')
       ->get();
 
       $aViews = array();
@@ -87,12 +88,11 @@ class MyPropertiesController extends Controller {
       GROUP BY p.id
       ;');
 
-      $aPropieties_caracteristicas_generales=DB::select('SELECT pcg.*,(cg.name) caracteristicas_generales_name
-      FROM propieties_caracteristicas_generales pcg
-      LEFT JOIN caracteristicas_generales cg ON pcg.caracteristicas_generales_id = cg.id
-      where pcg.deleted_at is null
-      and pcg.propietie_id = "'.$id.'"
-      GROUP BY pcg.id
+      $aPropieties_general_characteristics=DB::select('SELECT caracteristicas_generales.*,propieties_caracteristicas_generales.id as characteristic_checked
+      FROM propiedades.caracteristicas_generales
+      LEFT JOIN propieties_caracteristicas_generales ON ( caracteristicas_generales.id = propieties_caracteristicas_generales.caracteristicas_generales_id and  propieties_caracteristicas_generales.propietie_id = "'.$id.'" )
+      where caracteristicas_generales.deleted_at is null
+      and propieties_caracteristicas_generales.deleted_at is null
       ;');
 
       $aPropieties_ambientes=DB::select('SELECT ambientes.*,propieties_ambientes.id as ambient_checked
@@ -116,15 +116,14 @@ class MyPropertiesController extends Controller {
       and propieties_comodidades.deleted_at is null
       ;');
 
-      $aPropieteie_user=DB::select('SELECT user_id from propieties where id = "'.$id.'"');
+
+      
      
       $aCurrencies = CurrencyModel::get();
-  
-    
 
-      if(Auth::user()->id == $aPropieteie_user)
+      if(!empty($aProp)  &&  Auth::user()->id == $aProp[0]->user_id)
       {
-        return view('frontend/myproperties.edit',compact('aProp','aPropieties_luxuries','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services','aCurrencies'));
+        return view('frontend/myproperties.edit',compact('aProp','aPropieties_luxuries','aPropieties_general_characteristics','aPropieties_ambientes','aPropieties_services','aCurrencies'));
 
       }
       else
@@ -177,10 +176,13 @@ class MyPropertiesController extends Controller {
       PropertiesAmbientsModel::where('propietie_id',$id)->forceDelete();
       PropertiesLuxuriesModel::where('propietie_id',$id)->forceDelete();
       PropertiesServicesModel::where('propietie_id',$id)->forceDelete();
+      PropertiesGeneralCharacteristicsModel::where('propietie_id',$id)->forceDelete();
+      
 
       $aProperties_ambients = AmbientsModel::get();
       $aProperties_services = ServicesModel::get();
       $aProperties_luxuries = LuxuriesModel::get();
+      $aProperties_general_characteristics = GeneralCharacteristicsModel::get();
 
       foreach($aProperties_ambients as $ambient)
       {   
@@ -217,11 +219,27 @@ class MyPropertiesController extends Controller {
               $PropLuxury->save();
           }
       }
+
+      foreach($aProperties_general_characteristics as $characteristic)
+      {   
+          $request_name = 'characteristic-'.$characteristic->id;
+          if(!empty($request[$request_name]))
+          {
+              $PropCharacteristic = new PropertiesGeneralCharacteristicsModel;
+              $PropCharacteristic->propietie_id = $id;
+              $PropCharacteristic->caracteristicas_generales_id = $characteristic->id;
+              $PropCharacteristic->save();
+          }
+      }
       
       
 
       return redirect()->route('mis_propiedades.index');
   }
+
+  public function show($id) {
+    //
+}
 
   
 
