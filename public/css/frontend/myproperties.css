@@ -55,3 +55,12 @@ a:focus {
     margin: auto !important;
     margin-bottom: 40px !important;
 }
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#viewsPerPeriod {
+    margin-top: 40px;
+}

@@ -38,3 +38,36 @@ h4 {
     border: 1px solid #ced4da;
     background-color: transparent;
 }
+
+.edit-location {
+    position: relative;
+}
+
+.edit-location .options {
+    padding: 5px 0;
+    border: 2px solid var(--main-color);
+    border-top: none;
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    z-index: 100;
+    background-color: #ffffff;
+}
+
+.edit-location .options .option {
+    padding: 0 5px;
+    display: block;
+    text-decoration: none;
+    font-size: 15px !important;
+    color: #000000;
+}
+
+.edit-location .options .option:hover {
+    background-color: #eeeeee;
+    color: #000000;
+}
+
+.edit-location #location {
+    width: 100%;
+    padding: 5px;
+}

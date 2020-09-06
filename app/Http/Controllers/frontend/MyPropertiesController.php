@@ -15,6 +15,7 @@ use App\Models\GeneralCharacteristicsModel;
 use App\Models\PropertiesLuxuriesModel;
 use App\Models\PropertiesAmbientsModel;
 use App\Models\PropertiesServicesModel;
+use App\Models\LocalitiesModel;
 use App\Models\PropertiesGeneralCharacteristicsModel;
 use App\Models\CurrencyModel;
 use CyrildeWit\EloquentViewable\Support\Period;
@@ -78,15 +79,18 @@ class MyPropertiesController extends Controller {
     public function edit($id)
     {
 
-      $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id,(u.type) user_type,(u.phone) user_phone,(c.name) currency_name,(u.profile_image) profile_image
+      $aLocalities = LocalitiesModel::get();
+
+      $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id,(u.type) user_type,(u.phone) user_phone,(c.name) currency_name,(u.profile_image) profile_image,(l.nombre) locality_name 
       FROM propieties p
       LEFT JOIN users u ON p.user_id = u.id
       LEFT JOIN currency c ON p.currency_id = c.id
+      LEFT JOIN localidades l ON  CAST(p.location_id AS UNSIGNED) = CAST(l.id AS UNSIGNED)
       where p.deleted_at is null
       and p.visible = 1
       and p.id = "'.$id.'"
-      GROUP BY p.id
       ;');
+
 
       $aPropieties_general_characteristics=DB::select('SELECT caracteristicas_generales.*,propieties_caracteristicas_generales.id as characteristic_checked
       FROM propiedades.caracteristicas_generales
@@ -123,7 +127,7 @@ class MyPropertiesController extends Controller {
 
       if(!empty($aProp)  &&  Auth::user()->id == $aProp[0]->user_id)
       {
-        return view('frontend/myproperties.edit',compact('aProp','aPropieties_luxuries','aPropieties_general_characteristics','aPropieties_ambientes','aPropieties_services','aCurrencies'));
+        return view('frontend/myproperties.edit',compact('aLocalities','aProp','aPropieties_luxuries','aPropieties_general_characteristics','aPropieties_ambientes','aPropieties_services','aCurrencies'));
 
       }
       else
@@ -149,7 +153,8 @@ class MyPropertiesController extends Controller {
           'bedrooms' => 'required|numeric|max:10',
           'bathrooms' => 'required|numeric|max:10',
           'size' => 'required|numeric|max:60',
-          'antiquity' => 'required|numeric|max:6'
+          'antiquity' => 'required|numeric|max:6',
+          'locality' => 'required|numeric'
       );
 
 
@@ -171,6 +176,7 @@ class MyPropertiesController extends Controller {
       $oProperties->size = $request['size'];
       $oProperties->direction = $request['address'];
       $oProperties->years = $request['antiquity'];
+      $oProperties->location_id = $request['locality'];
 
       $oProperties->save();
 
@@ -241,6 +247,11 @@ class MyPropertiesController extends Controller {
   public function show($id) {
     //
 }
+
+  public function edit_photos($id)
+  {
+    
+  }
 
   
 
