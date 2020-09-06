@@ -12,7 +12,6 @@
   @foreach($aProp as $prop)
 
 
-
   <form method="POST" action="{{ route('mis_propiedades.update', $prop->id) }}" role="form" enctype="multipart/form-data">
     @csrf
     <input name="_method" type="hidden" value="PATCH">
@@ -116,6 +115,20 @@
         @if ($errors->has('address'))
         <span id="" class="invalid-feedback" role="alert" style="display:block;">
           <strong>Debe introducir una dirección válida (max. 100)</strong>
+        </span>
+        @endif
+
+      </div>
+      <div class="form-group edit-location">
+        <label for="">Localidad</label>
+        <input type="text" id="location" class="form-control {{ $errors->has('locality') ? 'is-invalid' : '' }}"
+          name="" maxlength="100" value="{{ $prop->locality_name }}"> 
+          <div class="options">
+          </div>
+          <input type="hidden" name="locality" id="locality" value="{{ $prop->location_id}}">
+        @if ($errors->has('locality'))
+        <span id="" class="invalid-feedback" role="alert" style="display:block;">
+          <strong>Debe introducir una localidad válida (max. 100)</strong>
         </span>
         @endif
 
@@ -278,89 +291,9 @@
   @endforeach
   @endif
 </div>
-
-
-
-
-
-
-
-
-<script>
-  function changeMainImage(id,type){
-  if(type == 'image')
-  {
-    url = "/uploads/products/"+id;
-    $('.main-image').attr('src',url);
-    $('.main-video').attr('src','');
-    $('.main-video').css('display','none');
-    $('.main-image').css('display','block');
-  }
-  else
-  {
-    url = "/uploads/products/"+id;
-    $('.main-video').attr('src',url);
-    $('.main-image').attr('src','');
-    $('.main-video').css('display','block');
-    $('.main-image').css('display','none');
-  }
-  
-}
-
-  
-</script>
-
-
-
-<script type="text/javascript">
-  function setFavoriteProductResponse(data) {
-    
-      if(data.favorite > 0) {
-          $('#favBtnActive_'+data.productId).css('display', 'block');
-          $('#favBtn_'+data.productId).css('display', 'none');
-          
-      } 
-      else{
-        $('#favBtnActive_'+data.productId).css('display', 'none');
-        $('#favBtn_'+data.productId).css('display', 'block');
-      }
-  }
-  
-  function ajaxRequest(type, url, params, callBack) {
-
-      jQuery.support.cors = true;
-      params = JSON.stringify(params);
-
-      $.ajax({
-          type: type,
-          url: url,
-          data: params,
-          contentType: "application/json; charset=utf-8",
-          dataType: "json",
-          beforeSend: function () {
-              //$('#ajaxLoader').show();
-          },
-          complete: function () {
-              //$('#ajaxLoader').hide();
-          },
-          success: function (data) {
-             //console.log("REQUEST [ " + type + " ] [ " + url + " ] SUCCESS");
-             //console.log(data);
-              window[callBack](data);
-          },
-          error: function (msg, url, line) {
-             //console.log('ERROR !!! msg = ' + msg + ', url = ' + url + ', line = ' + line);
-          }
-      });
-  }
-
-
-
-</script>
-<script src="/vendor/bootstrap-input-spinner.js"></script>
-<script>
-  $("input[type='number']").inputSpinner()
-</script>
+<script> const localities = {!! json_encode($aLocalities); !!}; </script>
+<script src="/js/functions.js"></script>
+<script src="/js/myproperties/edit.js"></script>
 
 @include('frontend/layouts.footer')
 

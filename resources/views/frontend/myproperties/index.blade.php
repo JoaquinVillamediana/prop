@@ -146,9 +146,13 @@
     animationEnabled: true,
     theme: "light2", // "light1", "light2", "dark1", "dark2"
     title: {
+      fontWeight: "lighter",
+      fontFamily: "Nunito",
       text: "Visitas a tus propiedades"
     },
     axisY: {
+      fontWeight: "lighter",
+      fontFamily: "Nunito",
       title: "Numero de visitas"
     },
     data: [{
