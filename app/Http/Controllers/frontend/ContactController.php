@@ -5,6 +5,8 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\MessageBag;
+use App\Models\MessagesModel;
+
 use DB;
 use Hash;
 use Auth;
@@ -44,7 +46,7 @@ class ContactController extends Controller {
     public function users_mail(Request $request, $user_id){
         
         $user_mail= DB::select('SELECT email from users where id = "'.$user_id.'"');
-
+       
         $name =  $request['name'];
         // $lname =  $request['lname'];
         
@@ -61,7 +63,19 @@ class ContactController extends Controller {
 
         mail($user_mail, $subject, $content, $mailheader) or die("Error!");
 
-        return view('frontend/home.index');
+        if(!empty(Auth::user()->id))
+        {
+            $user = Auth::user()->id;
+        }
+        else
+        {
+            $user = 0;
+        }
+
+        $dataxd=array('user_from_id' => $user,'user_to_id' => $user_id,'message' => $content);
+        MessagesModel::insert($dataxd);
+       
+        return redirect()->route('/home');
     }
 
 

@@ -10,7 +10,7 @@ if(empty($oSearch))
 ?>
 
 @section('content')
-@include('frontend/layouts.ourJs')
+
 
 <!-- Our Custom CSS -->
 <link rel="stylesheet" href="/css/frontend/search.css">

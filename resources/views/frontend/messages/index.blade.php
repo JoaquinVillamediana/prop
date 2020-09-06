@@ -38,7 +38,7 @@
             
             <div class="chat_list active_chat">
               <div class="chat_people">
-                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="chat_img"> <img src="/images/profile_pictures_users/{{ $chats->user_image}}" alt="sunil"> </div>
                 <div class="chat_ib">
                   <h5>{{ $chats->nombre_usuario}} <span class="chat_date">{{ $chats->created_at}}</span></h5>
                   <p>{{ $chats->message}}</p>
@@ -64,7 +64,7 @@
           @if($mensjaes->user_from_id != Auth::user()->id)
          <!-- los mensjaes que me llegan -->
          <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+              <div class="incoming_msg_img"> <img src="/images/profile_pictures_users/{{ $mensjaes->user_image}}" alt="sunil"> </div>
               <div class="received_msg">
                 <div class="received_withd_msg">
                   <p>{{ $mensjaes->message}}</p>

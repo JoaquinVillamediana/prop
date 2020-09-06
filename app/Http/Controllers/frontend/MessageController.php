@@ -17,7 +17,7 @@ class MessageController extends Controller {
     public function index() {
      
         $id= Auth::user()->id;
-        $aChats=DB::select('SELECT m.*,(u.name) as nombre_usuario
+        $aChats=DB::select('SELECT m.*,(u.name) as nombre_usuario,(u.profile_image) as user_image
         FROM messages m
         LEFT JOIN users u  ON (m.user_from_id = u.id )
         where m.deleted_at is null
