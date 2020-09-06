@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
-class PropietiesModel extends Model implements Viewable
+class PropertiesModel extends Model implements Viewable
 {
     use InteractsWithViews;
     use SoftDeletes;
-    protected $table = 'propieties';
+    protected $table = 'properties';
     
     protected $fillable = [
         'name',

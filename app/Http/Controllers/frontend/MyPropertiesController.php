@@ -2,7 +2,7 @@
 
 
 namespace App\Http\Controllers\frontend;
-use App\Models\PropietiesModel;
+use App\Models\PropertiesModel;
 use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
 use App\User;
@@ -30,10 +30,10 @@ class MyPropertiesController extends Controller {
         
       $user = Auth::user()->id;
 
-      $aPropieties = PropietiesModel::select('propieties.*','currency.symbol')
-      ->leftjoin('currency','propieties.currency_id','currency.id')
-      ->where('propieties.visible','=','1')
-      ->where('propieties.user_id',$user)
+      $aProperties = PropertiesModel::select('properties.*','currency.symbol')
+      ->leftjoin('currency','properties.currency_id','currency.id')
+      ->where('properties.visible','=','1')
+      ->where('properties.user_id',$user)
       ->get();
 
       $aViews = array();
@@ -41,7 +41,7 @@ class MyPropertiesController extends Controller {
       $past24Views = 0;
       $past48Views = 0;
       $pastMonthViews = 0;
-      foreach($aPropieties as $Property)
+      foreach($aProperties as $Property)
       {
         $aViews['Property-'.$Property->id] = views($Property)->count();
         $totalViews += views($Property)->count();
@@ -65,14 +65,14 @@ class MyPropertiesController extends Controller {
 
        $aDatosProp=DB::select('SELECT u.*,COUNT(p.id) countprop
       FROM users u
-      LEFT JOIN propieties p ON (u.id = p.user_id) 
+      LEFT JOIN properties p ON (u.id = p.user_id) 
       where u.deleted_at is null
       and u.id = "'.$user.'"
       and p.visible = 1
       GROUP BY u.id
        ');
         
-      return view('frontend/myproperties.index',compact('aPropieties','aDatos','aDatosProp','aViews'));
+      return view('frontend/myproperties.index',compact('aProperties','aDatos','aDatosProp','aViews'));
 
     }
 
@@ -82,7 +82,7 @@ class MyPropertiesController extends Controller {
       $aLocalities = LocalitiesModel::get();
 
       $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id,(u.type) user_type,(u.phone) user_phone,(c.name) currency_name,(u.profile_image) profile_image,(l.nombre) locality_name 
-      FROM propieties p
+      FROM properties p
       LEFT JOIN users u ON p.user_id = u.id
       LEFT JOIN currency c ON p.currency_id = c.id
       LEFT JOIN localidades l ON  CAST(p.location_id AS UNSIGNED) = CAST(l.id AS UNSIGNED)
@@ -92,32 +92,32 @@ class MyPropertiesController extends Controller {
       ;');
 
 
-      $aPropieties_general_characteristics=DB::select('SELECT caracteristicas_generales.*,propieties_caracteristicas_generales.id as characteristic_checked
-      FROM propiedades.caracteristicas_generales
-      LEFT JOIN propieties_caracteristicas_generales ON ( caracteristicas_generales.id = propieties_caracteristicas_generales.caracteristicas_generales_id and  propieties_caracteristicas_generales.propietie_id = "'.$id.'" )
-      where caracteristicas_generales.deleted_at is null
-      and propieties_caracteristicas_generales.deleted_at is null
+      $aProperties_general_characteristics=DB::select('SELECT general_characteristics.*,properties_general_characteristics.id as characteristic_checked
+      FROM propiedades.general_characteristics
+      LEFT JOIN properties_general_characteristics ON ( general_characteristics.id = properties_general_characteristics.general_characteristics_id and  properties_general_characteristics.properties_id = "'.$id.'" )
+      where general_characteristics.deleted_at is null
+      and properties_general_characteristics.deleted_at is null
       ;');
 
-      $aPropieties_ambientes=DB::select('SELECT ambientes.*,propieties_ambientes.id as ambient_checked
+      $aProperties_ambients=DB::select('SELECT ambientes.*,properties_ambients.id as ambient_checked
       FROM propiedades.ambientes
-      LEFT JOIN propieties_ambientes ON ( ambientes.id = propieties_ambientes.ambientes_id and  propieties_ambientes.propietie_id = "'.$id.'" )
+      LEFT JOIN properties_ambients ON ( ambientes.id = properties_ambients.ambientes_id and  properties_ambients.properties_id = "'.$id.'" )
       where ambientes.deleted_at is null
-      and propieties_ambientes.deleted_at is null
+      and properties_ambients.deleted_at is null
       ;');
 
-      $aPropieties_services=DB::select('SELECT services.*,propieties_services.id as service_checked
+      $aProperties_services=DB::select('SELECT services.*,properties_services.id as service_checked
       FROM propiedades.services
-      LEFT JOIN propieties_services ON ( services.id = propieties_services.services_id and  propieties_services.propietie_id = "'.$id.'" )
+      LEFT JOIN properties_services ON ( services.id = properties_services.services_id and  properties_services.properties_id = "'.$id.'" )
       where services.deleted_at is null
-      and propieties_services.deleted_at is null
+      and properties_services.deleted_at is null
       ;');
 
-      $aPropieties_luxuries=DB::select('SELECT comodidades.*,propieties_comodidades.id as luxury_checked
-      FROM propiedades.comodidades
-      LEFT JOIN propieties_comodidades ON ( comodidades.id = propieties_comodidades.comodidades_id and  propieties_comodidades.propietie_id = "'.$id.'" )
-      where comodidades.deleted_at is null
-      and propieties_comodidades.deleted_at is null
+      $aProperties_luxuries=DB::select('SELECT luxuries.*,properties_luxuries.id as luxury_checked
+      FROM propiedades.luxuries
+      LEFT JOIN properties_luxuries ON ( luxuries.id = properties_luxuries.luxuries_id and  properties_luxuries.properties_id = "'.$id.'" )
+      where luxuries.deleted_at is null
+      and properties_luxuries.deleted_at is null
       ;');
 
 
@@ -127,12 +127,12 @@ class MyPropertiesController extends Controller {
 
       if(!empty($aProp)  &&  Auth::user()->id == $aProp[0]->user_id)
       {
-        return view('frontend/myproperties.edit',compact('aLocalities','aProp','aPropieties_luxuries','aPropieties_general_characteristics','aPropieties_ambientes','aPropieties_services','aCurrencies'));
+        return view('frontend/myproperties.edit',compact('aLocalities','aProp','aProperties_luxuries','aProperties_general_characteristics','aProperties_ambients','aProperties_services','aCurrencies'));
 
       }
       else
       {
-        return view('frontend/myproperties.edit',compact('aProp','aPropieties_luxuries','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services','aCurrencies'));
+        return view('frontend/myproperties.edit',compact('aProp','aProperties_luxuries','aProperties_general_characteristics','aProperties_ambients','aProperties_services','aCurrencies'));
 
       }
      
@@ -160,7 +160,7 @@ class MyPropertiesController extends Controller {
 
       $this->validate($request, $aValidations);
 
-      $oProperties = PropietiesModel::where('id',$id)->first();
+      $oProperties = PropertiesModel::where('id',$id)->first();
         
       $request['name'] = ucwords($request['name']);
 
@@ -180,10 +180,10 @@ class MyPropertiesController extends Controller {
 
       $oProperties->save();
 
-      PropertiesAmbientsModel::where('propietie_id',$id)->forceDelete();
-      PropertiesLuxuriesModel::where('propietie_id',$id)->forceDelete();
-      PropertiesServicesModel::where('propietie_id',$id)->forceDelete();
-      PropertiesGeneralCharacteristicsModel::where('propietie_id',$id)->forceDelete();
+      PropertiesAmbientsModel::where('properties_id',$id)->forceDelete();
+      PropertiesLuxuriesModel::where('properties_id',$id)->forceDelete();
+      PropertiesServicesModel::where('properties_id',$id)->forceDelete();
+      PropertiesGeneralCharacteristicsModel::where('properties_id',$id)->forceDelete();
       
 
       $aProperties_ambients = AmbientsModel::get();
@@ -197,7 +197,7 @@ class MyPropertiesController extends Controller {
           if(!empty($request[$request_name]))
           {
               $PropAmbient = new PropertiesAmbientsModel;
-              $PropAmbient->propietie_id = $id;
+              $PropAmbient->properties_id = $id;
               $PropAmbient->ambientes_id = $ambient->id;
               $PropAmbient->save();
           }
@@ -209,7 +209,7 @@ class MyPropertiesController extends Controller {
           if(!empty($request[$request_name]))
           {
               $PropService = new PropertiesServicesModel;
-              $PropService->propietie_id = $id;
+              $PropService->properties_id = $id;
               $PropService->services_id = $services->id;
               $PropService->save();
           }
@@ -221,8 +221,8 @@ class MyPropertiesController extends Controller {
           if(!empty($request[$request_name]))
           {
               $PropLuxury = new PropertiesLuxuriesModel;
-              $PropLuxury->propietie_id = $id;
-              $PropLuxury->comodidades_id = $luxury->id;
+              $PropLuxury->properties_id = $id;
+              $PropLuxury->luxuries_id = $luxury->id;
               $PropLuxury->save();
           }
       }
@@ -233,8 +233,8 @@ class MyPropertiesController extends Controller {
           if(!empty($request[$request_name]))
           {
               $PropCharacteristic = new PropertiesGeneralCharacteristicsModel;
-              $PropCharacteristic->propietie_id = $id;
-              $PropCharacteristic->caracteristicas_generales_id = $characteristic->id;
+              $PropCharacteristic->properties_id = $id;
+              $PropCharacteristic->general_characteristics_id = $characteristic->id;
               $PropCharacteristic->save();
           }
       }

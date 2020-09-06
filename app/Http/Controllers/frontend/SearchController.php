@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Models\PropietiesModel;
+use App\Models\PropertiesModel;
 
 use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
@@ -18,7 +18,7 @@ class SearchController extends Controller
 
     public function index(Request $request)
     {
-        $aPropietie_type = Propietie_typeModel::where('propietie_type.visible', '=', '1')
+        $aPropietie_type = Propietie_typeModel::where('properties_type.visible', '=', '1')
             ->get();
 
         $aOperationType = Operation_typeModel::where('operation_type.visible', '=', '1')
@@ -43,14 +43,14 @@ class SearchController extends Controller
       
         $ubicacion="TODAS LAS PROPIEDADES DIPONIBLES";
 
-    $aPropieties=DB::select('SELECT *
-    FROM propieties
+    $aProperties=DB::select('SELECT *
+    FROM properties
     where deleted_at is null
     and visible = 1
     
      ');
 
-     return view('frontend/search.index',compact('aPropieties','ubicacion'));
+     return view('frontend/search.index',compact('aProperties','ubicacion'));
     }
 
 
@@ -99,7 +99,7 @@ class SearchController extends Controller
     {
         $aRequest = $request->all();
         $query = 'SELECT *
-        FROM propieties
+        FROM properties
         where deleted_at is null
         and visible = 1
         and price >= "'.$request['min_price'].'"
@@ -127,17 +127,17 @@ class SearchController extends Controller
         {
             $query = $query.' ORDER BY '.$request['order_type'].' '.$request['order'].'';
         }
-        $aPropieties = DB::select($query);
-        $propNumber = count($aPropieties);
+        $aProperties = DB::select($query);
+        $propNumber = count($aProperties);
         if(!empty($request['pageNumber']))
         {
             $request['pageSize'] = 10;
             $offset = (intval($request['pageNumber']) - 1) * intval($request['pageSize']); 
             
-            $aPropieties = array_slice($aPropieties,$offset, intval($request['pageSize']));
+            $aProperties = array_slice($aProperties,$offset, intval($request['pageSize']));
         }
 
-        return response()->json(['aPropieties' => $aPropieties, 'propNumber' => $propNumber]);
+        return response()->json(['aProperties' => $aProperties, 'propNumber' => $propNumber]);
 
     }
 

@@ -1,6 +1,6 @@
-@if(!empty($aPropieties))
+@if(!empty($aProperties))
 <div class="row">
-  @foreach ($aPropieties as $prop)
+  @foreach ($aProperties as $prop)
       <div class="col-md-4 mb-4 propertie">
       {{-- <a href="{{ route('propietie') }}"> --}}
         <div class="card">
@@ -34,7 +34,7 @@
     
       @endforeach
       <div class="pag col-12">
-        {{ $aPropieties->links() }}
+        {{ $aProperties->links() }}
       </div>
 
     </div>

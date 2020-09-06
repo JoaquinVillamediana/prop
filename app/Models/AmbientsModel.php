@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class AmbientsModel extends Model
 {
     use SoftDeletes;
-    protected $table = 'ambientes';
+    protected $table = 'ambients';
     
     protected $fillable = [
         'id',

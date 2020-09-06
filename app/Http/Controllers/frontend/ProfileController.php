@@ -2,7 +2,7 @@
 
 
 namespace App\Http\Controllers\frontend;
-use App\Models\PropietiesModel;
+use App\Models\PropertiesModel;
 use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
 use App\User;
@@ -28,7 +28,7 @@ class ProfileController extends Controller {
       
         $aUser = DB::select('SELECT u.*,COUNT(p.id) AS countprop
         FROM users u
-        LEFT JOIN propieties p
+        LEFT JOIN properties p
         ON p.user_id = u.id
         where u.deleted_at is null
         and p.deleted_at is null
@@ -36,9 +36,9 @@ class ProfileController extends Controller {
         GROUP BY u.id
          ');
 
-         $aPropieties=DB::select('SELECT * FROM propieties where deleted_at is null and id user_id = "'.$user_id.'"');
+         $aProperties=DB::select('SELECT * FROM properties where deleted_at is null and id user_id = "'.$user_id.'"');
 
-         return view('frontend/profile_userx.index',compact('aUser','aPropieties'));
+         return view('frontend/profile_userx.index',compact('aUser','aProperties'));
     }
 
     public function personal() {

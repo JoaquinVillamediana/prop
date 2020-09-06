@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PropietiesModel;
+use App\Models\PropertiesModel;
 use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
 use App\Models\CurrencyModel;
@@ -43,69 +43,69 @@ class HomeController extends Controller
 
         
         $aLocalities = LocalitiesModel::get();
-        $aPropieties = PropietiesModel::select('propieties.*','currency.symbol')
-        ->leftjoin('currency','currency.id','=','propieties.currency_id')
+        $aProperties = PropertiesModel::select('properties.*','currency.symbol')
+        ->leftjoin('currency','currency.id','=','properties.currency_id')
         ->paginate(9);
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
-        $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
+        $aPropietie_type = Propietie_typeModel::where('properties_type.visible' ,'=', '1')
         ->get();
             
     
 
-        return view('frontend/home.index',compact('aPropieties','aOperationType','aPropietie_type','aLocalities'));
+        return view('frontend/home.index',compact('aProperties','aOperationType','aPropietie_type','aLocalities'));
         
     }
 
     public function propietie($id)
     {
 
-        $oProp = PropietiesModel::select('propieties.*','users.name as user_name','users.id as user_id','users.type as user_type','users.phone as user_phone','currency.symbol','users.profile_image as profile_image')
-        ->leftjoin('users','propieties.user_id','users.id')
-        ->leftjoin('currency','propieties.currency_id','currency.id')
-        ->whereNull('propieties.deleted_at')
-        ->where('propieties.visible','=','1')
-        ->where('propieties.id',$id)
-        ->groupBy('propieties.id')
+        $oProp = PropertiesModel::select('properties.*','users.name as user_name','users.id as user_id','users.type as user_type','users.phone as user_phone','currency.symbol','users.profile_image as profile_image')
+        ->leftjoin('users','properties.user_id','users.id')
+        ->leftjoin('currency','properties.currency_id','currency.id')
+        ->whereNull('properties.deleted_at')
+        ->where('properties.visible','=','1')
+        ->where('properties.id',$id)
+        ->groupBy('properties.id')
         ->first();
 
         views($oProp)->record();
 
 
-   $aPropieties_comodidades=DB::select('SELECT pc.*,(c.name) comodidades_name
-    FROM propieties_comodidades pc
-   LEFT JOIN comodidades c ON pc.comodidades_id = c.id
+   $aProperties_luxuries=DB::select('SELECT pc.*,(c.name) comodidades_name
+    FROM properties_luxuries pc
+   LEFT JOIN luxuries c ON pc.luxuries_id = c.id
    where pc.deleted_at is null
-   and pc.propietie_id = "'.$id.'"
+   and pc.properties_id = "'.$id.'"
    GROUP BY pc.id;
     ');
 
-    $aPropieties_caracteristicas_generales=DB::select('SELECT pcg.*,(cg.name) caracteristicas_generales_name
-    FROM propieties_caracteristicas_generales pcg
-    LEFT JOIN caracteristicas_generales cg ON pcg.caracteristicas_generales_id = cg.id
+    $aProperties_general_characteristics=DB::select('SELECT pcg.*,(cg.name) caracteristicas_generales_name
+    FROM properties_general_characteristics pcg
+    LEFT JOIN general_characteristics cg ON pcg.general_characteristics_id = cg.id
     where pcg.deleted_at is null
-    and pcg.propietie_id = "'.$id.'"
+    and pcg.properties_id = "'.$id.'"
     GROUP BY pcg.id;
     ');
 
-    $aPropieties_ambientes=DB::select('SELECT pa.*,(a.name) ambientes_name
-    FROM propieties_ambientes pa
-    LEFT JOIN ambientes a ON pa.ambientes_id = a.id
+    $aProperties_ambients=DB::select('SELECT pa.*,(a.name) ambientes_name
+    FROM properties_ambients pa
+    LEFT JOIN ambients a ON pa.ambients_id = a.id
     where pa.deleted_at is null
-    and pa.propietie_id = "'.$id.'"
+    and pa.properties_id = "'.$id.'"
     GROUP BY pa.id;
      ');
 
-     $aPropieties_services=DB::select('SELECT ps.*,(s.name) service_name
-    FROM propieties_services ps
+     $aProperties_services=DB::select('SELECT ps.*,(s.name) service_name
+    FROM properties_services ps
     LEFT JOIN services s ON ps.services_id = s.id
     where ps.deleted_at is null
-    and ps.propietie_id = "'.$id.'"
+    and ps.properties_id = "'.$id.'"
     GROUP BY ps.id;
      ');
      
 
-        return view('frontend/propietie.index',compact('oProp','aPropieties_comodidades','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services'));
+        return view('frontend/propietie.index',compact('oProp','aProperties_luxuries','aProperties_general_characteristics','aProperties_ambients','aProperties_services'));
         
     }
 

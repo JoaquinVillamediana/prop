@@ -2,7 +2,7 @@
 
 
 namespace App\Http\Controllers\frontend;
-use App\Models\PropietiesModel;
+use App\Models\PropertiesModel;
 use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
 use App\User;
@@ -21,16 +21,16 @@ class PropertiesController extends Controller {
         $user=Auth::user()->id;
 
 
-        $aPropieties = PropietiesModel::select('propieties.*','currency.symbol')
-        ->leftjoin('currency','propieties.currency_id','currency.id')
-        ->where('propieties.visible','=','1')
-        ->where('propieties.user_id',$user)
+        $aProperties = PropertiesModel::select('properties.*','currency.symbol')
+        ->leftjoin('currency','properties.currency_id','currency.id')
+        ->where('properties.visible','=','1')
+        ->where('properties.user_id',$user)
         ->whereNull('currency.deleted_at')
         ->get();
 
         $totalViews = 0;
 
-        foreach($aPropieties as $Property)
+        foreach($aProperties as $Property)
         {
             $totalViews += views($Property)->count();
         }
@@ -45,14 +45,14 @@ class PropertiesController extends Controller {
 
          $aDatosProp=DB::select('SELECT u.*,COUNT(p.id) countprop
         FROM users u
-        LEFT JOIN propieties p ON (u.id = p.user_id) 
+        LEFT JOIN properties p ON (u.id = p.user_id) 
         where u.deleted_at is null
         and u.id = "'.$user.'"
         and p.visible = 1
         GROUP BY u.id
          ');
         
-   return view('frontend/propieties.index',compact('aPropieties','aDatos','aDatosProp','totalViews'));
+   return view('frontend/properties.index',compact('aProperties','aDatos','aDatosProp','totalViews'));
 
     }
 

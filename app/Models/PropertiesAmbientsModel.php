@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PropertiesAmbientsModel extends Model
 {
     use SoftDeletes;
-    protected $table = 'propieties_ambientes';
+    protected $table = 'properties_ambients';
     
     protected $fillable = [
         'id',
-        'propietie_id',
-        'ambientes_id'
+        'properties_id',
+        'ambients_id'
         
         
         

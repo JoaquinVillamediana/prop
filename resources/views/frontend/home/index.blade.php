@@ -105,7 +105,7 @@
 
 
 
-@if(!empty($aPropieties))
+@if(!empty($aProperties))
 
 
 <!-- props -->

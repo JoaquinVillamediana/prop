@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PropertiesGeneralCharacteristicsModel extends Model
 {
     use SoftDeletes;
-    protected $table = 'propieties_caracteristicas_generales';
+    protected $table = 'properties_general_characteristics';
     
     protected $fillable = [
         'id',
-        'propietie_id',
-        'caracteristicas_generales_id'
+        'properties_id',
+        'general_characteristics_id'
         
         
         
