@@ -15,6 +15,7 @@ use App\Models\PropertiesLuxuriesModel;
 use App\Models\PropertiesAmbientsModel;
 use App\Models\PropertiesServicesModel;
 use App\Models\CurrencyModel;
+use CyrildeWit\EloquentViewable\Support\Period;
 use DB; 
 use Auth;
 
@@ -33,12 +34,23 @@ class MyPropertiesController extends Controller {
       ->whereNull('currency.deleted_at')
       ->get();
 
+      $aViews = array();
       $totalViews = 0;
-
+      $past24Views = 0;
+      $past48Views = 0;
+      $pastMonthViews = 0;
       foreach($aPropieties as $Property)
       {
         $totalViews += views($Property)->count();
+        $past24Views += views($Property)->period(Period::pastDays(1))->count();
+        $past48Views += views($Property)->period(Period::pastDays(2))->count();
+        $pastMonthViews += views($Property)->period(Period::pastMonths(1))->count();
       }
+
+      $aViews['totalViews'] = $totalViews;
+      $aViews['past24Views'] = $past24Views;
+      $aViews['past48Views'] = $past48Views;
+      $aViews['pastMonthViews'] = $pastMonthViews;
 
       $aDatos=DB::select('SELECT u.*,COUNT(m.id) count_contactados
       FROM users u
@@ -57,7 +69,7 @@ class MyPropertiesController extends Controller {
       GROUP BY u.id
        ');
         
-      return view('frontend/myproperties.index',compact('aPropieties','aDatos','aDatosProp','totalViews'));
+      return view('frontend/myproperties.index',compact('aPropieties','aDatos','aDatosProp','aViews'));
 
     }
 

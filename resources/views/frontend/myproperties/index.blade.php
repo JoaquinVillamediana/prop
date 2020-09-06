@@ -6,6 +6,17 @@
 <link rel="stylesheet" href="css/frontend/myproperties.css">
 <link rel="stylesheet" href="css/frontend/propieties2.css">
 <div class="container" style="text-align: center;">
+
+<?php
+  $dataPoints = array(
+	array("label"=> "Ultimas 24 Horas", "y"=> $aViews['past24Views']),
+  array("label"=> "Ultimas 48 Horas", "y"=> $aViews['past48Views']),
+  array("label"=> "Ultimo Mes", "y"=> $aViews['pastMonthViews']),
+  array("label"=> "Totales", "y"=> $aViews['totalViews'])
+);
+  ?>
+
+  
   <h2>
     Panel de control
   </h2>
@@ -44,7 +55,7 @@
       <div class="card-header">Mis visitas</div>
       <div class="card-body">
         <h5 class="card-title">Numero de visitas</h5>
-        <p class="card-text">{{ $totalViews }}</p>
+        <p class="card-text">{{ $aViews['totalViews'] }}</p>
       </div>
     </div>
     <!--  -->
@@ -63,7 +74,7 @@
   </div>
 
   <div class="graphs">
-    
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
   </div>
 
 
@@ -114,8 +125,28 @@
 @endif
 </section>
 </div>
-
-
+<script>
+  window.onload = function () {
+   
+  var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2", // "light1", "light2", "dark1", "dark2"
+    title: {
+      text: "Visitas a tus propiedades"
+    },
+    axisY: {
+      title: "Numero de visitas"
+    },
+    data: [{
+      type: "column",
+      dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+    }]
+  });
+  chart.render();
+   
+  }
+  </script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 @include('frontend/layouts.footer')
 
 
