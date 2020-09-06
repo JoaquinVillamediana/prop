@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
-class PropietiesModel extends Model
+class PropietiesModel extends Model implements Viewable
 {
+    use InteractsWithViews;
     use SoftDeletes;
     protected $table = 'propieties';
     

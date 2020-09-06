@@ -44,7 +44,7 @@
       <div class="card-header">Mis visitas</div>
       <div class="card-body">
         <h5 class="card-title">Numero de visitas</h5>
-        <p class="card-text"> Funcion a agregar</p>
+        <p class="card-text">{{ $totalViews }}</p>
       </div>
     </div>
     <!--  -->

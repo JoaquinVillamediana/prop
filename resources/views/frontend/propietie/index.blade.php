@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="/css/frontend/product.css">
 <div class="mt-5 pb-5 container-fluid">
 
-  @if(!empty($aProp))
-  @foreach($aProp as $prop)
+  @if(!empty($oProp))
+  
 
   <div class="container">
     <div class="row">
@@ -17,8 +17,8 @@
 
       <div class="col-md-7 col-12">
         <div class="name-responsive">
-          <h5 class="product-title">{{ $prop->name }}</h5>
-          <p class="product-price" style="color:#000;">{{ $prop->currency_name }} {{ number_format($prop->price, 0, ',', '.')  }} </p>
+          <h5 class="product-title">{{ $oProp->name }}</h5>
+          <p class="product-price" style="color:#000;">{{ $oProp->symbol }} {{ number_format($oProp->price, 0, ',', '.')  }} </p>
         </div>
         <!-- carrousel -->
         <div class="col-12 mt-2 mb-4 div-main-image col-images">
@@ -54,13 +54,13 @@
               <h4>Caracteristicas</h4>
               <ul class="characteristcs">
                 <li class="carac-item"><span class="carac-desc"><i
-                      class="fas fa-couch"></i>Cuartos</span>{{ $prop->rooms }} </li>
+                      class="fas fa-couch"></i>Cuartos</span>{{ $oProp->rooms }} </li>
                 <li class="carac-item"><span class="carac-desc"><i
-                      class="fas fa-bed"></i>Habitaciones</span>{{ $prop->bedrooms }}</li>
+                      class="fas fa-bed"></i>Habitaciones</span>{{ $oProp->bedrooms }}</li>
                 <li class="carac-item"><span class="carac-desc"><i
-                      class="fas fa-bath"></i>Baños</span>{{ $prop->bathrooms }}</li>
+                      class="fas fa-bath"></i>Baños</span>{{ $oProp->bathrooms }}</li>
                 <li class="carac-item"><span class="carac-desc"><i
-                      class="fas fa-ruler-combined"></i>Tamaño</span>{{ $prop->rooms }}m<sup>2</sup></li>
+                      class="fas fa-ruler-combined"></i>Tamaño</span>{{ $oProp->size }}m<sup>2</sup></li>
               </ul>
             </div>
           </div>
@@ -69,7 +69,7 @@
             style="  font-weight: bold;    border: 1px solid #ccc!important;">
             <div class="card-body">
               <h5 class="card-title">Descripción</h5>
-              <p class="card-text">{{ $prop->description }}</p>
+              <p class="card-text">{{ $oProp->description }}</p>
             </div>
           </div>
 
@@ -150,15 +150,15 @@
       <div class="col-md-5 col-12">
         <div class="row">
           <div class="container name-default">
-            <h5 class="product-title">{{ $prop->name }}</h5>
-            <p class="product-price" style="color:#000;">U$D {{ number_format($prop->price, 0, ',', '.')  }} </p>
+            <h5 class="product-title">{{ $oProp->name }}</h5>
+            <p class="product-price" style="color:#000;">U$D {{ number_format($oProp->price, 0, ',', '.')  }} </p>
           </div>
         </div>
-        <p>{{ $prop->description }}</p>
+        <p>{{ $oProp->description }}</p>
         <!-- FORMULARIO DE CONTACTO -->
         <section id="contacto">
           <div class="container">
-            <form id="formulario" action="{{route('send_user_mail',$prop->user_id)}}">
+            <form id="formulario" action="{{route('send_user_mail',$oProp->user_id)}}">
               <div class="row">
                 
                   <div class="col-lg-6 col-12">
@@ -206,13 +206,13 @@
           <h2>Datos del anunciante</h2>
           <div class="card w-70">
             <div class="card-body">
-              <h5 class="card-title">{{ $prop->user_name }}</h5>
-              <img src="/images/profile_pictures_users/{{ $prop->profile_image }}" class="mx-auto img-fluid img-circle d-block" alt="avatar">
-              <p class="card-text">@if($prop->user_type == 2) <i class="fas fa-user"></i> {{"dueño directo"}} | <i
-                  class="fas fa-phone"></i> {{ $prop->user_phone }} @else <i class="fas fa-user-tie"></i>
+              <h5 class="card-title">{{ $oProp->user_name }}</h5>
+              <img src="/images/profile_pictures_users/{{ $oProp->profile_image }}" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+              <p class="card-text">@if($oProp->user_type == 2) <i class="fas fa-user"></i> {{"dueño directo"}} | <i
+                  class="fas fa-phone"></i> {{ $oProp->user_phone }} @else <i class="fas fa-user-tie"></i>
                 {{"Profesional"}} | <i class="fas fa-phone"></i> @if(!empty($data_user->phone))
-                {{ $prop->user_phone }} @else {{"El usuario no cargo su número de teléfono."}}@endif @endif</p>
-              <a href="{{ route('user_profile_publications',$prop->user_id) }}" class="btn btn-prop">Ver perfil</a>
+                {{ $oProp->user_phone }} @else {{"El usuario no cargo su número de teléfono."}}@endif @endif</p>
+              <a href="{{ route('user_profile_publications',$oProp->user_id) }}" class="btn btn-prop">Ver perfil</a>
             </div>
           </div>
         </section>
@@ -227,7 +227,6 @@
 
 
 
-      @endforeach
       @endif
     </div>
 

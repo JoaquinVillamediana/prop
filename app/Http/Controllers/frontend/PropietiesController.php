@@ -21,14 +21,29 @@ class PropietiesController extends Controller {
         
         $user=Auth::user()->id;
 
-        $aPropieties=DB::select('SELECT propieties.* , currency.symbol as symbol
-        FROM propieties
-        LEFT JOIN currency ON currency.id = propieties.currency_id
-        where propieties.deleted_at is null
-        and propieties.visible = 1
-        and currency.deleted_at is null
-        and propieties.user_id = "'.$user.'"
-        ');
+
+        $aPropieties = PropietiesModel::select('propieties.*','currency.symbol')
+        ->leftjoin('currency','propieties.currency_id','currency.id')
+        ->where('propieties.visible','=','1')
+        ->where('propieties.user_id',$user)
+        ->whereNull('currency.deleted_at')
+        ->get();
+
+        $totalViews = 0;
+
+        foreach($aPropieties as $Property)
+        {
+            $totalViews += views($Property)->count();
+        }
+
+        // $aPropieties=DB::select('SELECT propieties.* , currency.symbol as symbol
+        // FROM propieties
+        // LEFT JOIN currency ON currency.id = propieties.currency_id
+        // where propieties.deleted_at is null
+        // and propieties.visible = 1
+        // and currency.deleted_at is null
+        // and propieties.user_id = "'.$user.'"
+        // ');
 
         $aDatos=DB::select('SELECT u.*,COUNT(m.id) count_contactados
         FROM users u
@@ -47,7 +62,7 @@ class PropietiesController extends Controller {
         GROUP BY u.id
          ');
         
-   return view('frontend/propieties.index',compact('aPropieties','aDatos','aDatosProp'));
+   return view('frontend/propieties.index',compact('aPropieties','aDatos','aDatosProp','totalViews'));
         // return view('frontend/propieties.index');
     }
 

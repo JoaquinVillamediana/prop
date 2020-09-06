@@ -175,6 +175,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //Views count
+
+        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
+
+
     ],
 
     /*

@@ -54,19 +54,21 @@ class HomeController extends Controller
     public function propietie($id)
     {
 
-        $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id,(u.type) user_type,(u.phone) user_phone,(c.name) currency_name,(u.profile_image) profile_image
-        FROM propieties p
-        LEFT JOIN users u ON p.user_id = u.id
-        LEFT JOIN currency c ON p.currency_id = c.id
-        where p.deleted_at is null
-        and p.visible = 1
-        and p.id = "'.$id.'"
-        GROUP BY p.id;
-   ');
+        $oProp = PropietiesModel::select('propieties.*','users.name as user_name','users.id as user_id','users.type as user_type','users.phone as user_phone','currency.symbol','users.profile_image as profile_image')
+        ->leftjoin('users','propieties.user_id','users.id')
+        ->leftjoin('currency','propieties.currency_id','currency.id')
+        ->whereNull('propieties.deleted_at')
+        ->where('propieties.visible','=','1')
+        ->where('propieties.id',$id)
+        ->groupBy('propieties.id')
+        ->first();
+
+        views($oProp)->record();
+
 
    $aPropieties_comodidades=DB::select('SELECT pc.*,(c.name) comodidades_name
     FROM propieties_comodidades pc
-   LEFT JOIN comodidades c ON pc.comidades_id = c.id
+   LEFT JOIN comodidades c ON pc.comodidades_id = c.id
    where pc.deleted_at is null
    and pc.propietie_id = "'.$id.'"
    GROUP BY pc.id;
@@ -97,7 +99,7 @@ class HomeController extends Controller
      ');
      
 
-        return view('frontend/propietie.index',compact('aProp','aPropieties_comodidades','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services'));
+        return view('frontend/propietie.index',compact('oProp','aPropieties_comodidades','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services'));
         
     }
 
