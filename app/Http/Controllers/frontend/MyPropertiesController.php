@@ -122,14 +122,15 @@ class MyPropertiesController extends Controller {
   
     
 
-      if(Auth::user()->id == $aPropieteie_user)
+      if(Auth::user()->id != $aPropieteie_user)
       {
-        return view('frontend/myproperties.edit',compact('aProp','aPropieties_luxuries','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services','aCurrencies'));
-
+        return redirect()->route('home');
+        
       }
       else
       {
-        return redirect()->route('home');
+        return view('frontend/myproperties.edit',compact('aProp','aPropieties_luxuries','aPropieties_caracteristicas_generales','aPropieties_ambientes','aPropieties_services','aCurrencies'));
+
       }
      
     }
