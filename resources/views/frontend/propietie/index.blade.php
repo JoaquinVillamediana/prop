@@ -25,15 +25,17 @@
         <div class="col-12 mt-2 mb-4 div-main-image col-images">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
+              @foreach($aImage as $images)
+              @if($images == $images[0])
               <div class="carousel-item active">
-                <img src="/images/index/home1.jpg" class="d-block w-100" alt="...">
+                <img src="/images/publish/{{$images->image}}" class="d-block w-100" alt="...">
               </div>
+              @else
               <div class="carousel-item">
-                <img src="/images/index/home1.jpg" class="d-block w-100" alt="...">
+                <img src="/images/publish/{{$images->image}}" class="d-block w-100" alt="...">
               </div>
-              <div class="carousel-item">
-                <img src="/images/index/home1.jpg" class="d-block w-100" alt="...">
-              </div>
+              @endif
+              @endforeach
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
