@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PropertiesModel;
 use App\Models\Operation_typeModel;
-use App\Models\Propietie_typeModel;
+use App\Models\Properties_typeModel;
 use App\Models\CurrencyModel;
 use App\Models\LocalitiesModel;
 //Cmabiar de controlador
@@ -48,7 +48,7 @@ class HomeController extends Controller
         ->paginate(9);
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
-        $aPropietie_type = Propietie_typeModel::where('properties_type.visible' ,'=', '1')
+        $aPropietie_type = Properties_typeModel::where('properties_type.visible' ,'=', '1')
         ->get();
             
     

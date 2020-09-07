@@ -5,7 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Models\PropertiesModel;
 
 use App\Models\Operation_typeModel;
-use App\Models\Propietie_typeModel;
+use App\Models\Properties_typeModel;
 use App\User;
 use Illuminate\Http\Request;
 use App\Models\LocalitiesModel;
@@ -18,7 +18,7 @@ class SearchController extends Controller
 
     public function index(Request $request)
     {
-        $aPropietie_type = Propietie_typeModel::where('properties_type.visible', '=', '1')
+        $aPropietie_type = Properties_typeModel::where('properties_type.visible', '=', '1')
             ->get();
 
         $aOperationType = Operation_typeModel::where('operation_type.visible', '=', '1')
@@ -65,7 +65,7 @@ class SearchController extends Controller
 
             $aLocalities = LocalitiesModel::get();
 
-            $aPropietie_type = Propietie_typeModel::where('propietie_type.visible', '=', '1')
+            $aPropietie_type = Properties_typeModel::where('properties_type.visible', '=', '1')
             ->get();
 
              $aOperationType = Operation_typeModel::where('operation_type.visible', '=', '1')
@@ -85,7 +85,7 @@ class SearchController extends Controller
 
             $aLocalities = LocalitiesModel::get();
 
-            $aPropietie_type = Propietie_typeModel::where('propietie_type.visible', '=', '1')
+            $aPropietie_type = Properties_typeModel::where('properties_type.visible', '=', '1')
             ->get();
 
              $aOperationType = Operation_typeModel::where('operation_type.visible', '=', '1')
@@ -104,8 +104,8 @@ class SearchController extends Controller
         and visible = 1
         and price >= "'.$request['min_price'].'"
         and price <= "'.$request['max_price'].'"
-        and expensas >= "'.$request['min_expenses'].'"
-        and expensas <= "'.$request['max_expenses'].'"
+        and expenses >= "'.$request['min_expenses'].'"
+        and expenses <= "'.$request['max_expenses'].'"
         and operation_type_id = "'.$request['operation_type_id'].'"
         and propietie_type_id = "'.$request['propietie_type_id'].'"
         and currency_id = "'.$request['currency'].'"

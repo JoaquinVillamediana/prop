@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Propietie_typeModel extends Model
+class Properties_typeModel extends Model
 {
     use SoftDeletes;
     protected $table = 'properties_type';
