@@ -81,9 +81,9 @@
   <section id="propiedades">
     <h2>Mis porpiedades publicadas</h2>
 
-    @if(!empty($aPropieties))
+    @if(!empty($aProperties))
     <div class="container">
-      @foreach($aPropieties as $prop)
+      @foreach($aProperties as $prop)
 
       <div class="card" id="card-prop">
         <div class="row ">

@@ -105,6 +105,31 @@
             @endif
         </div>
       </div>
+      <div class="form-group">
+        <label for="">Dirección aproximada</label>
+        <input type="text" id="address" class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}"
+          name="address" maxlength="100" value="Direccion">
+        @if ($errors->has('address'))
+        <span id="" class="invalid-feedback" role="alert" style="display:block;">
+          <strong>Debe introducir una dirección válida (max. 100)</strong>
+        </span>
+        @endif
+
+      </div>
+      <div class="form-group edit-location">
+        <label for="">Localidad</label>
+        <input type="text" id="location" class="form-control {{ $errors->has('locality') ? 'is-invalid' : '' }}"
+          name="" maxlength="100" value="Localidad"> 
+          <div class="options">
+          </div>
+          <input type="hidden" name="locality" id="locality" value="" >
+        @if ($errors->has('locality'))
+        <span id="" class="invalid-feedback" role="alert" style="display:block;">
+          <strong>Debe introducir una localidad válida (max. 100)</strong>
+        </span>
+        @endif
+
+      </div>
 
       <h4 class="">Características generales</h4>
 
@@ -285,6 +310,10 @@ $('#introduction').keyup(function() {
   $('#chars1').text(length);
 });
 </script>
+
+<script> const localities = {!! json_encode($aLocalities); !!}; </script>
+<script src="/js/functions.js"></script>
+<script src="/js/myproperties/edit.js"></script>
 
 @include('frontend/layouts.footer')
 

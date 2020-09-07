@@ -99,10 +99,10 @@ class MyPropertiesController extends Controller {
       and properties_general_characteristics.deleted_at is null
       ;');
 
-      $aProperties_ambients=DB::select('SELECT ambientes.*,properties_ambients.id as ambient_checked
-      FROM propiedades.ambientes
-      LEFT JOIN properties_ambients ON ( ambientes.id = properties_ambients.ambientes_id and  properties_ambients.properties_id = "'.$id.'" )
-      where ambientes.deleted_at is null
+      $aProperties_ambients=DB::select('SELECT ambients.*,properties_ambients.id as ambient_checked
+      FROM propiedades.ambients
+      LEFT JOIN properties_ambients ON ( ambients.id = properties_ambients.ambients_id and  properties_ambients.properties_id = "'.$id.'" )
+      where ambients.deleted_at is null
       and properties_ambients.deleted_at is null
       ;');
 
@@ -167,8 +167,8 @@ class MyPropertiesController extends Controller {
       $oProperties->name = $request['name'];
       $oProperties->currency_id = $request['currency'];
       $oProperties->price = $request['price'];
-      $oProperties->expensas = $request['expenses'];
-      $oProperties->introduccion = $request['introduction'];
+      $oProperties->expenses = $request['expenses'];
+      $oProperties->introduction = $request['introduction'];
       $oProperties->description = $request['description'];
       $oProperties->rooms = $request['rooms'];
       $oProperties->bedrooms = $request['bedrooms'];
@@ -198,7 +198,7 @@ class MyPropertiesController extends Controller {
           {
               $PropAmbient = new PropertiesAmbientsModel;
               $PropAmbient->properties_id = $id;
-              $PropAmbient->ambientes_id = $ambient->id;
+              $PropAmbient->ambients_id = $ambient->id;
               $PropAmbient->save();
           }
       }

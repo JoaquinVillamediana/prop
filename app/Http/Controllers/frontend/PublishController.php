@@ -116,6 +116,7 @@ class PublishController extends Controller {
             'bathrooms' => 'required|numeric|max:10',
             'size' => 'required|numeric|max:60',
             'antiquity' => 'required|numeric|max:6',
+            
           
             
             

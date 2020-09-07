@@ -76,7 +76,7 @@
             <span class="input-group-text" id="basic-addon1">AR$</span>
           </div>
           <input type="number" name="expenses" class="form-control {{ $errors->has('expenses') ? 'is-invalid' : '' }}"
-            value="{{ $prop->expensas }}">
+            value="{{ $prop->expenses }}">
           @if ($errors->has('expenses'))
           <span id="" class="invalid-feedback" role="alert" style="display:block;">
             <strong>Debe introducir un precio válido.</strong>
@@ -89,7 +89,7 @@
         <div class="form-group col-md-6 col-12">
           <label for="">Introducción</label>
           <textarea id="introduction" class="form-control {{ $errors->has('introduction') ? 'is-invalid' : '' }}"
-            name="introduction" rows="4" maxlength="60" cols="50">{{ $prop->introduccion }}</textarea>
+            name="introduction" rows="4" maxlength="60" cols="50">{{ $prop->introduction }}</textarea>
           @if ($errors->has('introduction'))
           <span id="" class="invalid-feedback" role="alert" style="display:block;">
             <strong>Debe introducir una introducción válida (max. 60)</strong>
