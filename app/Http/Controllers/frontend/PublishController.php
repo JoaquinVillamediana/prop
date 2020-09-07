@@ -6,15 +6,19 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
-use App\Models\PropietiesModel;
+use App\Models\PropertiesModel;
 use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
 use App\Models\PlansModel;
-use App\Models\LocalitiesModel;
 use App\Models\ImageModel;
-use App\Models\AmbientesModel;
-use App\Models\CargenModel;
-use App\Models\ServiciosModel;
+use App\Models\LocalitiesModel;
+use App\Models\LuxuriesModel;
+use App\Models\ServicesModel;
+use App\Models\AmbientsModel;
+use App\Models\GeneralCharacteristicsModel;
+use App\Models\PropertiesLuxuriesModel;
+use App\Models\PropertiesAmbientsModel;
+use App\Models\PropertiesServicesModel;
 
 
 class PublishController extends Controller {
@@ -32,11 +36,12 @@ class PublishController extends Controller {
         where deleted_at is null
         and visible = 1
         and user_type = 2
-   ');
+        ');
 
-return view('frontend/publish.personal',compact('aPlans'));
-        // return view('frontend/publish.personal');
+        return view('frontend/publish.personal',compact('aPlans'));
+            
     }
+    
     public function profesional() {
 
         
@@ -45,11 +50,10 @@ return view('frontend/publish.personal',compact('aPlans'));
         where deleted_at is null
         and visible = 1
         and user_type = 3
-   ');
+        ');
 
-return view('frontend/publish.profesional',compact('aPlans'));
+        return view('frontend/publish.profesional',compact('aPlans'));
 
-        // return view('frontend/publish.profesional');
     }
 
     // publicar
@@ -57,7 +61,7 @@ return view('frontend/publish.profesional',compact('aPlans'));
 
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
-        $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
+        $aPropietie_type = Propietie_typeModel::where('properties_type.visible' ,'=', '1')
         ->get();
 
         $aCurrencies = DB::select('SELECT *
@@ -66,12 +70,12 @@ return view('frontend/publish.profesional',compact('aPlans'));
         ');
 
         $aPropieties_ambientes = DB::select('SELECT *
-        FROM ambientes
+        FROM ambients
         where deleted_at is null
         ');
 
         $aCaracteristocasg = DB::select('SELECT *
-        FROM caracteristicas_generales
+        FROM general_characteristics
         where deleted_at is null
         ');
 
@@ -81,7 +85,7 @@ return view('frontend/publish.profesional',compact('aPlans'));
         ');
 
         $aPropieties_luxuries = DB::select('SELECT *
-        FROM comodidades
+        FROM luxuries
         where deleted_at is null
         ');
 
@@ -100,7 +104,18 @@ return view('frontend/publish.profesional',compact('aPlans'));
         $aValidations = array(
             
            
-            'direction' => 'required|max:200',
+            'name' => 'required|max:60',
+            'currency' => 'required|numeric',
+            'price' => 'required|numeric|max:10000000',
+            'expenses' => 'required|numeric|max:100000',
+            'introduction' => 'required|max:60',
+            'description' => 'required|max:255',
+            'address' => 'required|max:100',
+            'rooms' => 'required|numeric|max:10',
+            'bedrooms' => 'required|numeric|max:10',
+            'bathrooms' => 'required|numeric|max:10',
+            'size' => 'required|numeric|max:60',
+            'antiquity' => 'required|numeric|max:6',
           
             
             
@@ -108,83 +123,57 @@ return view('frontend/publish.profesional',compact('aPlans'));
 
         $this->validate($request, $aValidations);
          
-        $direction =  $request['direction'];
-        $operation_type_id =  $request['operation'];
-        $propietie_type_id =  $request['building'];
-        // $location_id =  $request['locality'];
-        $location_id = '66140050000';
-        $name =  $request['titulo'];
-        $introduccion =  $request['introduccion'];
-        $descripcion =  $request['descripcion'];
-        $currency_id =  $request['currency_id'];
-        $price =  $request['price'];
 
-        if(!empty($request['expensas'])){
-            $expensas =  $request['expensas'];
-        }else{
+        $request['name'] = ucwords($request['name']);
+        $name = $request['name'];
+        $currency_id = $request['currency'];
+        $price = $request['price'];
+      
+        $introduccion = $request['introduction'];
+        $description = $request['description'];
+        $rooms = $request['rooms'];
+        $bedrooms = $request['bedrooms'];
+        $bathrooms = $request['bathrooms'];
+        $size = $request['size'];
+        $direction = $request['address'];
+        $years = $request['antiquity'];
+        $operation_type_id = 1;
+        $propietie_type_id = 1;
+        $location_id = 2042010001;
+        $direction ="Tandil 3239";
+
+        if(!empty($request['expenses'])){
+            $expensas =  $request['expenses'];
+        }
+        else{
             $expensas = 0;
         }
         
-        $rooms =  $request['rooms'];
-        $bedrooms =  $request['bedrooms'];
-        $bathroooms =  $request['bathroooms'];
-        $garages =  $request['garages'];
-        $toilettes =  $request['toilettes'];
-        $years =  $request['years'];
-        $size =  $request['size'];
-
-        $data=array('operation_type_id' => $operation_type_id,'propietie_type_id' => $propietie_type_id,'location_id' => $location_id,'user_id' => $user,'direction' => $direction,
-        'name' => $name,'introduccion' => $introduccion,'description' => $descripcion,'currency_id' => $currency_id,'price' => $price,'expensas' => $expensas,'rooms' => $rooms,
-        'bedrooms' => $bedrooms,'bathrooms' => $bathroooms,'garages' => $garages,'toilettes' => $toilettes,'years' => $years,'size' => $size);
-        PropietiesModel::insert($data);
         
-        //  $propietie_id = DB::select('SELECT max(id) from propieties where user_id =  "'.$user.'"');
-         $propietie_id = PropietiesModel::max('id');
+        $data = array('operation_type_id' => $operation_type_id,'propietie_type_id' => $propietie_type_id,'location_id' => $location_id,'user_id' => $user,'direction' => $direction,
+        'name' => $name,'introduction' => $introduccion,'description' => $description,'currency_id' => $currency_id,'price' => $price,'expenses' => $expensas,'rooms' => $rooms,
+        'bedrooms' => $bedrooms,'bathrooms' => $bathrooms,'years' => $years,'size' => $size);
+
+        PropertiesModel::insert($data);
+        
+      
+         $propietie_id = PropertiesModel::max('id');
          
          return redirect()->route('publish_files', $propietie_id);
-        // return view('frontend/publish.pago');
+     
 
     }
 
          public function publish_files($propietie_id) {
 
-        $aImages = ImageModel::select('images.*','propieties.name as propietie_name')
-        ->leftjoin('propieties','propieties.id','=','images.propietie_id')
+        $aImages = ImageModel::select('images.*','properties.name as propietie_name')
+        ->leftjoin('properties','properties.id','=','images.propietie_id')
         ->where('propietie_id','=',$propietie_id)
         ->get();
 
-         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
-         ->get();
-         $aPropietie_type = Propietie_typeModel::where('propietie_type.visible' ,'=', '1')
-         ->get();
-
-         $aCurrency = DB::select('SELECT *
-         FROM currency
-         where deleted_at is null
-        ');
-
-        $aAmbientes = DB::select('SELECT *
-        FROM ambientes
-        where deleted_at is null
-        ');
-
-        $aCaracteristocasg = DB::select('SELECT *
-        FROM caracteristicas_generales
-        where deleted_at is null
-        ');
-
-        $aServicios = DB::select('SELECT *
-        FROM services
-        where deleted_at is null
-        ');
-
-        $aComodidades = DB::select('SELECT *
-        FROM comodidades
-        where deleted_at is null
-        ');
 
 
-         return view('frontend/publish/create.publish_files',compact('aPropietie_type','aComodidades','aServicios','aCaracteristocasg','aAmbientes','aCurrency'))->with('propietie_id',$propietie_id);
+         return view('frontend/publish/create.publish_files',compact('aImages'))->with('propietie_id',$propietie_id);
      }
 
     public function store_files(Request $request)
@@ -280,6 +269,33 @@ return view('frontend/publish.profesional',compact('aPlans'));
 
         return view('frontend/publish.pago',compact('aPlans'));
     }
+
+    public function setMainImage(Request $request ){
+        $aReturn = array();
+        $oImage = ImageModel::find($request['image_id']);
+        $aImages = ImageModel::where('product_id','=',$oImage->product_id)
+        ->get();
+
+        foreach($aImages as $image)
+        {
+            if($image->id == $oImage->id)
+            {
+                $oImage->main_image = 1;
+                $oImage->save();;
+            }
+            else{
+                if($image->main_image == 1)
+                {
+                    $image->main_image = 0;
+                    $image->save();
+                }
+            }
+        }
+        $aReturn['image_id'] = $request['image_id'];
+
+        echo json_encode($aReturn);
+    }
+
 
     
 

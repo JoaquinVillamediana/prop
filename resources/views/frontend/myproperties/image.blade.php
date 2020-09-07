@@ -1,6 +1,4 @@
-@extends('frontend/layouts.app')
-
-@include('frontend/layouts.header')
+@extends('layouts.app')
 
 @section('content')
 
@@ -9,7 +7,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="{{ route('home') }}">Imagen</a>
+                <a href="{{ route('products.index') }}">Imagen</a>
             </li>
             <li class="breadcrumb-item active">Nueva imagen</li>       
         </ol>
@@ -32,7 +30,7 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Producto</th> 
+                                <th>Propiedad</th> 
                                 <th>Tipo</th>                               
                                 <th>Imagen</th>  
                                 <th>Imagen Principal</th>
@@ -88,7 +86,7 @@
         </div>
         <div class="row mt-5">
             <div class="col  offset-md-10">
-        <a href="{{route('home')}}" class=" btn btn-primary">Finalizar<i class="fas ml-1 fa-angle-right"></i></a>
+        <a href="{{route('products.index')}}" class=" btn btn-primary">Finalizar<i class="fas ml-1 fa-angle-right"></i></a>
     </div>
     </div>
     </div>
@@ -199,7 +197,5 @@ $('#video').change(function() {
     </script>
 
 <script src="/assets/js/admin/user/datatables.js" crossorigin="anonymous"></script>
-@include('frontend/layouts.footer')
-
 
 @endsection

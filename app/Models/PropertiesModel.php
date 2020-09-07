@@ -16,11 +16,20 @@ class PropertiesModel extends Model implements Viewable
     protected $fillable = [
         'name',
         'description',
+        'introduction',
         'user_id',
+        'direction',
         'operation_type_id',
         'propietie_type_id',
         'price',
         'rooms',
+        'bedrooms',
+        'bathrooms',
+        'expenses',
+        'size',
+        'years',
+        'location_id',
+        'currency_id',
         'visible_at',
         'visible'
         

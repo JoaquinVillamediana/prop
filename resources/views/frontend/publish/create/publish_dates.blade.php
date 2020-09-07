@@ -11,7 +11,8 @@
  
 
 
-    <form method="POST" action="{{ route('store_dates') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('store_dates') }}" role="form" enctype="multipart/form-data">
+    {{ csrf_field() }}
     <div class="container">
       <h1 class="text-center mb-2">Publicá tu propiedad</h1>
       <h4 class="">Aspectos básicos</h4>
@@ -168,66 +169,12 @@
 
 
 
-      <h4>Servicios</h4>
-
-      <div class="form-row">
-        @if(!empty($aPropieties_services))
-        @foreach ($aPropieties_services as $service)
-        <div class="form-group col-md-2 col-sm-4 col-6">
-          <div class="form-check">
-            <input class="form-check-input" {{ !empty($service->service_checked) ? 'checked' : '' }} type="checkbox"
-              value="{{ $service->id }}" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              {{ $service->name }}
-            </label>
-          </div>
-        </div>
-        @endforeach
-        @endif
-      </div>
-
-      <h4>Ambientes</h4>
-
-      <div class="form-row">
-        @if(!empty($aPropieties_ambientes))
-        @foreach ($aPropieties_ambientes as $ambient)
-        <div class="form-group col-md-2 col-sm-4 col-6">
-          <div class="form-check">
-            <input class="form-check-input" {{ !empty($ambient->ambient_checked) ? 'checked' : '' }} type="checkbox"
-              value="{{ $ambient->id }}" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              {{ $ambient->name }}
-            </label>
-          </div>
-        </div>
-        @endforeach
-        @endif
-      </div>
-
-      <h4>Comodidades</h4>
-
-      <div class="form-row">
-        @if(!empty($aPropieties_luxuries))
-        @foreach ($aPropieties_luxuries as $luxury)
-        <div class="form-group col-md-2 col-sm-4 col-6">
-          <div class="form-check">
-            <input class="form-check-input" {{ !empty($luxury->luxury_checked) ? 'checked' : '' }} type="checkbox"
-              value="{{ $luxury->id }}" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              {{ $luxury->name }}
-            </label>
-          </div>
-        </div>
-        @endforeach
-        @endif
-      </div>
-
 
 
 
       <div class="buttons-container text-center">
         <a href="" class="btn btn-cancel mr-1">Cancelar</a>
-        <button class="btn btn-update ml-1" type="submit">Crear</button>
+        <button class="btn btn-update ml-1" type="submit">Publicar</button>
       </div>
     </div>
   </form>
