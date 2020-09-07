@@ -222,11 +222,11 @@ function deleteFilters() {
     $("#currency").val("1");
 
     $('#slider-price-min').val('0');
-    $('#slider-price-max').val('10000000');
+    $('#slider-price-max').val('3000000');
     $('#slider-expenses-max').val('100000');
     $('#slider-expenses-min').val('0');
 
-    price_max.innerHTML = formatNumber.new('10000000');
+    price_max.innerHTML = formatNumber.new('3000000');
     price_min.innerHTML = formatNumber.new('0');
     expenses_max.innerHTML = formatNumber.new('100000');
     expenses_min.innerHTML = formatNumber.new('0');

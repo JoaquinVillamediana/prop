@@ -4,7 +4,7 @@
 namespace App\Http\Controllers\frontend;
 use App\Models\PropertiesModel;
 use App\Models\Operation_typeModel;
-use App\Models\Propietie_typeModel;
+use App\Models\Properties_typeModel;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

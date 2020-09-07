@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\Models\PropertiesModel;
 use App\Models\Operation_typeModel;
-use App\Models\Propietie_typeModel;
+use App\Models\Properties_typeModel;
 use App\Models\PlansModel;
 use App\Models\ImageModel;
 use App\Models\LocalitiesModel;
@@ -61,7 +61,7 @@ class PublishController extends Controller {
 
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
-        $aPropietie_type = Propietie_typeModel::where('properties_type.visible' ,'=', '1')
+        $aPropietie_type = Properties_typeModel::where('properties_type.visible' ,'=', '1')
         ->get();
 
         $aCurrencies = DB::select('SELECT *
@@ -244,12 +244,17 @@ class PublishController extends Controller {
         return redirect()->back()->with('propietie_id' , $propietie_id);
             
         }
+     
     }
 
 
    
 
-
+    public function deleteImage($id)
+    {
+        ImageModel::find($id)->delete();
+        return redirect()->back();
+    }
 
 
 

@@ -153,7 +153,7 @@
                     <form method="POST" action="{{ route('upload_propietie_picture') }}" role="form" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <input name="_method" type="hidden" >
-                    <input type="hidden" name="product_id" id="product_id" value="{{empty($product_id) ? '' : $product_id}}">
+                    <input type="hidden" name="propietie_id" id="propietie_id" value="{{empty($propietie_id) ? '' : $propietie_id}}">
                     <input type="file" class="form-control {{ $errors->has('image') ? ' is-invalid' : '' }}" name="image" id="image">
                     @if ($errors->has('image'))
                             <span id="image_error_lrv" class="invalid-feedback" role="alert" style="display:block;">

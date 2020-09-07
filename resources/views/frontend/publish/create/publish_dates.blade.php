@@ -84,7 +84,8 @@
         <div class="form-group col-md-6 col-12">
           <label for="">Introducción</label>
           <textarea id="introduction" class="form-control {{ $errors->has('introduction') ? 'is-invalid' : '' }}" name="introduction" rows="4" maxlength="60"
-            cols="50">Escribe una introducción.</textarea>
+            cols="50" placeholder="Escribe una introducción."></textarea>
+            <span id="chars1">60</span>
             @if ($errors->has('introduction'))
             <span id="" class="invalid-feedback" role="alert" style="display:block;">
                 <strong>Debe introducir una introducción válida (max. 60)</strong>
@@ -95,7 +96,8 @@
         <div class="form-group col-md-6 col-12">
           <label for="">Descripción</label>
           <textarea id="description" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" rows="4" maxlength="255"
-            cols="50">Escribe una introducción</textarea>
+            cols="50" placeholder="Escribe una descripción."></textarea>
+            <span id="chars">255</span>
             @if ($errors->has('description'))
             <span id="" class="invalid-feedback" role="alert" style="display:block;">
                 <strong>Debe introducir una descripción válida (max. 255)</strong>
@@ -264,6 +266,24 @@
 <script src="/vendor/bootstrap-input-spinner.js"></script>
 <script>
   $("input[type='number']").inputSpinner()
+</script>
+
+<script>
+var maxLength = 255;
+$('#description').keyup(function() {
+  var length = $(this).val().length;
+  var length = maxLength-length;
+  $('#chars').text(length);
+});
+</script>
+
+<script>
+var maxLength1 = 60;
+$('#introduction').keyup(function() {
+  var length = $(this).val().length;
+  var length = maxLength1-length;
+  $('#chars1').text(length);
+});
 </script>
 
 @include('frontend/layouts.footer')

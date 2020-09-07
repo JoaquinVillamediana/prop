@@ -139,11 +139,11 @@
         </select>
         <p class="sidebar-indicator">Desde: <span class="currency-symbol mr-1">$</span><span id="price-min">0</span></p>
         <div class="slidecontainer">
-          <input step="1000" type="range" min="0" max="10000000" value="0" class="slider" id="slider-price-min">
+          <input step="1000" type="range" min="0" max="1000000" value="0" class="slider" id="slider-price-min">
         </div>
-        <p class="sidebar-indicator">Hasta: <span class="currency-symbol mr-1">$</span><span id="price-max">{{ number_format(10000000, 0, ',', '.')  }}</span></p>
+        <p class="sidebar-indicator">Hasta: <span class="currency-symbol mr-1">$</span><span id="price-max">{{ number_format(3000000, 0, ',', '.')  }}</span></p>
         <div class="slidecontainer">
-          <input step="1000" type="range" min="0" max="10000000" value="10000000" class="slider" id="slider-price-max">
+          <input step="1000" type="range" min="0" max="3000000" value="3000000" class="slider" id="slider-price-max">
         </div>
       </li>
       <!--  -->
