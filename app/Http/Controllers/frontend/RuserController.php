@@ -17,7 +17,7 @@ class RuserController extends Controller {
     public function store(Request $request) {
 
         $aValidations = array(
-            'type' => 'required',
+          
             'phone' => 'required|max:25',
             'name' => 'required|max:60',
             'last_name' => 'required|max:60',
