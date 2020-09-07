@@ -140,7 +140,7 @@ class PublishController extends Controller {
         $years = $request['antiquity'];
         $operation_type_id = 1;
         $propietie_type_id = 1;
-        $location_id = 2042010001;
+        $location_id = $request['locality'];;
         $direction ="Tandil 3239";
 
         if(!empty($request['expenses'])){
