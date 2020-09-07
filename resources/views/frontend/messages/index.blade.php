@@ -13,13 +13,13 @@
 
 
 <div class="container">
-<h3 class=" text-center">Mensajes</h3>
+
 <div class="messaging">
       <div class="inbox_msg">
         <div class="inbox_people">
           <div class="headind_srch">
             <div class="recent_heading">
-              <h4>Chat recientes</h4>
+              <h4>Contactados recientemente</h4>
             </div>
             <div class="srch_bar">
               <div class="stylish-input-group">
@@ -94,8 +94,8 @@
            <!-- fin de espacio para mensjaes -->
           <div class="type_msg">
             <div class="input_msg_write">
-              <input type="text" class="write_msg" placeholder="Escribe un mensaje.." />
-              <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+              <input type="text" class="write_msg" placeholder="Para comunicarte con el usuario es necesario realizarlo por otro medio" />
+              <!-- <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button> -->
             </div>
           </div>
         </div>

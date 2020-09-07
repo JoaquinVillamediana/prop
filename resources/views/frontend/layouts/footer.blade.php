@@ -47,6 +47,7 @@
       </div>
          </br>
       <a href="{{ route('terminos_y_condiciones_de_uso') }}" >Términos y Condiciones de Uso - </a><a href="{{ route('terminos_y_condiciones_de_contrato') }}">Términos y Condiciones de Contratación - </a><a href="{{ route('politica_de_privacidad') }}">Política de privacidad - </a><a href="{{ route('politica_de_gestion_de_calidad') }}">Política de Gestión de Calidad</a>
+      <p class="logo-text">W.B.O. Software - © 2020. Todos los derechos reservados</p>
   </div>
 </footer>
 
