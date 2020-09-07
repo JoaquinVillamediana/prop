@@ -137,6 +137,7 @@ class SearchController extends Controller
             $aProperties = array_slice($aProperties,$offset, intval($request['pageSize']));
         }
 
+
         return response()->json(['aProperties' => $aProperties, 'propNumber' => $propNumber]);
 
     }

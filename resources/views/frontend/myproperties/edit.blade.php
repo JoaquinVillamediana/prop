@@ -208,8 +208,8 @@
       <h4>Servicios</h4>
 
       <div class="form-row">
-        @if(!empty($aPropieties_services))
-        @foreach ($aPropieties_services as $service)
+        @if(!empty($aProperties_services))
+        @foreach ($aProperties_services as $service)
         <div class="form-group col-md-2 col-sm-4 col-6">
           <div class="form-check">
             <input class="form-check-input" {{ !empty($service->service_checked) ? 'checked' : '' }}
@@ -226,8 +226,8 @@
       <h4>Ambientes</h4>
 
       <div class="form-row">
-        @if(!empty($aPropieties_ambientes))
-        @foreach ($aPropieties_ambientes as $ambient)
+        @if(!empty($aProperties_ambients))
+        @foreach ($aProperties_ambients as $ambient)
         <div class="form-group col-md-2 col-sm-4 col-6">
           <div class="form-check">
             <input class="form-check-input" {{ !empty($ambient->ambient_checked) ? 'checked' : '' }}
@@ -244,8 +244,8 @@
       <h4>Comodidades</h4>
 
       <div class="form-row">
-        @if(!empty($aPropieties_luxuries))
-        @foreach ($aPropieties_luxuries as $luxury)
+        @if(!empty($aProperties_luxuries))
+        @foreach ($aProperties_luxuries as $luxury)
         <div class="form-group col-md-2 col-sm-4 col-6">
           <div class="form-check">
             <input class="form-check-input" {{ !empty($luxury->luxury_checked) ? 'checked' : '' }}
@@ -262,8 +262,8 @@
       <h4>Características generales</h4>
 
       <div class="form-row">
-        @if(!empty($aPropieties_general_characteristics))
-        @foreach ($aPropieties_general_characteristics as $characteristic)
+        @if(!empty($aProperties_general_characteristics))
+        @foreach ($aProperties_general_characteristics as $characteristic)
         <div class="form-group col-md-2 col-sm-4 col-6">
           <div class="form-check">
             <input class="form-check-input" {{ !empty($characteristic->characteristic_checked) ? 'checked' : '' }}

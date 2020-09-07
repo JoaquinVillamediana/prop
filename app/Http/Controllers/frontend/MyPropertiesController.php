@@ -99,6 +99,8 @@ class MyPropertiesController extends Controller {
       and properties_general_characteristics.deleted_at is null
       ;');
 
+      
+
       $aProperties_ambients=DB::select('SELECT ambients.*,properties_ambients.id as ambient_checked
       FROM propiedades.ambients
       LEFT JOIN properties_ambients ON ( ambients.id = properties_ambients.ambients_id and  properties_ambients.properties_id = "'.$id.'" )
