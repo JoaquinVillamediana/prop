@@ -10,6 +10,7 @@ use App\Models\LocalitiesModel;
 //Cmabiar de controlador
 use App\Models\FavoritesModel;
 use App\Models\LuxuriesModel;
+use App\Models\ImageModel;
 use App\Models\ServicesModel;
 use App\Models\AmbientsModel;
 use App\Models\PropertiesLuxuriesModel;
@@ -72,6 +73,11 @@ class HomeController extends Controller
         views($oProp)->record();
 
 
+      
+        $aImage = ImageModel::where('images.propietie_id', '=', $id)
+        ->get();
+
+
    $aProperties_luxuries=DB::select('SELECT pc.*,(c.name) comodidades_name
     FROM properties_luxuries pc
    LEFT JOIN luxuries c ON pc.luxuries_id = c.id
@@ -105,7 +111,7 @@ class HomeController extends Controller
      ');
      
 
-        return view('frontend/propietie.index',compact('oProp','aProperties_luxuries','aProperties_general_characteristics','aProperties_ambients','aProperties_services'));
+        return view('frontend/propietie.index',compact('oProp','aProperties_luxuries','aProperties_general_characteristics','aProperties_ambients','aProperties_services','aImage'));
         
     }
 

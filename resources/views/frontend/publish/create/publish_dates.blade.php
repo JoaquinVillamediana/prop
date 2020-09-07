@@ -16,6 +16,34 @@
     <div class="container">
       <h1 class="text-center mb-2">Publicá tu propiedad</h1>
       <h4 class="">Aspectos básicos</h4>
+      
+      <!--  -->
+      <div class="form-row">
+        <div class="form-group col-md-6 col-12">
+          <label for="">Tipo de operación</label>
+          <div class="input-group-prepend">
+              <select name="operation_type" class="currency-select" id="">
+                @foreach ($aOperationType as $currency)
+                <option  value="{{$currency->id}}">
+                  {{ $currency->name }}</option>
+                @endforeach
+              </select>
+            </div>
+         
+        </div>
+        <div class="form-group col-md-6 col-12">
+          <label for="">Tipo de propiedad</label>
+          <div class="input-group-prepend">
+              <select name="propietie_type" class="currency-select" id="">
+                @foreach ($aPropietie_type as $currency)
+                <option  value="{{$currency->id}}">
+                  {{ $currency->name }}</option>
+                @endforeach
+              </select>
+            </div>
+        </div>
+        </div>
+      <!--  -->
       <div class="form-row">
         <div class="form-group col-md-6 col-12">
           <label for="">Titúlo</label>
@@ -46,6 +74,7 @@
             @endif
           </div>
         </div>
+
 
         <div class="form-group">
           <label for="">Opciones de compra</label>
@@ -130,6 +159,7 @@
         @endif
 
       </div>
+      
 
       <h4 class="">Características generales</h4>
 
@@ -195,7 +225,77 @@
       </div>
 
 
+      <h4>Servicios</h4>
 
+      <div class="form-row">
+        @if(!empty($aPropieties_services))
+        @foreach ($aPropieties_services as $service)
+        <div class="form-group col-md-2 col-sm-4 col-6">
+          <div class="form-check">
+            <input class="form-check-input" {{ !empty($service->service_checked) ? 'checked' : '' }}
+              name="service-{{$service->id}}" type="checkbox" value="{{ $service->id }}" id="service-{{$service->id}}">
+            <label class="form-check-label" for="service-{{$service->id}}">
+              {{ $service->name }}
+            </label>
+          </div>
+        </div>
+        @endforeach
+        @endif
+      </div>
+
+      <h4>Ambientes</h4>
+
+      <div class="form-row">
+        @if(!empty($aPropieties_ambientes))
+        @foreach ($aPropieties_ambientes as $ambient)
+        <div class="form-group col-md-2 col-sm-4 col-6">
+          <div class="form-check">
+            <input class="form-check-input" {{ !empty($ambient->ambient_checked) ? 'checked' : '' }}
+              name="ambient-{{$ambient->id}}" type="checkbox" value="{{ $ambient->id }}" id="ambient-{{$ambient->id}}">
+            <label class="form-check-label" for="ambient-{{$ambient->id}}">
+              {{ $ambient->name }}
+            </label>
+          </div>
+        </div>
+        @endforeach
+        @endif
+      </div>
+
+      <h4>Comodidades</h4>
+
+      <div class="form-row">
+        @if(!empty($aPropieties_luxuries))
+        @foreach ($aPropieties_luxuries as $luxury)
+        <div class="form-group col-md-2 col-sm-4 col-6">
+          <div class="form-check">
+            <input class="form-check-input" {{ !empty($luxury->luxury_checked) ? 'checked' : '' }}
+              name="luxury-{{$luxury->id}}" type="checkbox" value="{{ $luxury->id }}" id="luxury-{{$luxury->id}}">
+            <label class="form-check-label" for="luxury-{{$luxury->id}}">
+              {{ $luxury->name }}
+            </label>
+          </div>
+        </div>
+        @endforeach
+        @endif
+      </div>
+
+      <h4>Características generales</h4>
+
+      <div class="form-row">
+        @if(!empty($aPropieties_general_characteristics))
+        @foreach ($aPropieties_general_characteristics as $characteristic)
+        <div class="form-group col-md-2 col-sm-4 col-6">
+          <div class="form-check">
+            <input class="form-check-input" {{ !empty($characteristic->characteristic_checked) ? 'checked' : '' }}
+              name="characteristic-{{$characteristic->id}}" type="checkbox" value="{{ $characteristic->id }}" id="characteristic-{{$characteristic->id}}">
+            <label class="form-check-label" for="characteristic-{{$characteristic->id}}">
+              {{ $characteristic->name }}
+            </label>
+          </div>
+        </div>
+        @endforeach
+        @endif
+      </div>
 
 
 
