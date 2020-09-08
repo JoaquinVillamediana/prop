@@ -151,11 +151,11 @@ class MyPropertiesController extends Controller {
           'introduction' => 'required|max:60',
           'description' => 'required|max:255',
           'address' => 'required|max:100',
-          'rooms' => 'required|numeric|max:10',
-          'bedrooms' => 'required|numeric|max:10',
-          'bathrooms' => 'required|numeric|max:10',
-          'size' => 'required|numeric|max:60',
-          'antiquity' => 'required|numeric|max:6',
+          'rooms' => 'required|numeric|max:30',
+          'bedrooms' => 'required|numeric|max:20',
+          'bathrooms' => 'required|numeric|max:20',
+          'size' => 'required|numeric|max:2000000',
+          'antiquity' => 'required|numeric|max:100',
           'locality' => 'required|numeric'
       );
 
