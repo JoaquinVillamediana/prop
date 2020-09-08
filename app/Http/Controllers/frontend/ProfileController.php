@@ -36,7 +36,7 @@ class ProfileController extends Controller {
         GROUP BY u.id
          ');
 
-         $aProperties=DB::select('SELECT * FROM properties where deleted_at is null and id user_id = "'.$user_id.'"');
+         $aProperties=DB::select('SELECT * FROM properties where deleted_at is null and user_id = "'.$user_id.'"');
 
          return view('frontend/profile_userx.index',compact('aUser','aProperties'));
     }

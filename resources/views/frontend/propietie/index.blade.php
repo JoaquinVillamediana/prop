@@ -81,12 +81,12 @@
 
         <!-- Caracteristicas generales  -->
 
-        @if(!empty($aPropieties_caracteristicas_generales))
+        @if(!empty($aProperties_general_characteristics))
         <div class="characteristcs-div special" style="border: 1px solid #ccc!important;">
           <div class="container">
             <h4>Caracteristicas Generales</h4>
             <div class="row">
-              @foreach($aPropieties_caracteristicas_generales as $cg)
+              @foreach($aProperties_general_characteristics as $cg)
               <div class="col-6 col-md-4">
                 <span class="carac-desc">
                   <i class="fas fa-angle-right mr-1"></i></span>{{ $cg->caracteristicas_generales_name }}
@@ -103,12 +103,12 @@
 
 
         <!-- servicios -->
-        @if(!empty($aPropieties_services))
+        @if(!empty($aProperties_services))
         <div class="characteristcs-div special" style="border: 1px solid #ccc!important; margin-top: 8px;">
           <div class="container">
             <h4>Servicios</h4>
             <div class="row">
-              @foreach($aPropieties_services as $servicios)
+              @foreach($aProperties_services as $servicios)
               <div class="col-6 col-md-4">
                 <span class="carac-desc">
                   <i class="fas fa-angle-right mr-1"></i></span>{{ $servicios->service_name }}
@@ -123,12 +123,12 @@
         <!--  fin de serivicios-->
 
         <!--  ambientes-->
-        @if(!empty($aPropieties_ambientes))
+        @if(!empty($aProperties_ambients))
         <div class="characteristcs-div special" style="border: 1px solid #ccc!important; margin-top: 8px;">
           <div class="container">
             <h4>Ambientes</h4>
             <div class="row">
-              @foreach($aPropieties_ambientes as $ambientes)
+              @foreach($aProperties_ambients as $ambientes)
               <div class="col-6 col-md-4">
                 <span class="carac-desc">
                   <i class="fas fa-angle-right mr-1"></i></span>{{ $ambientes->ambientes_name }}
@@ -144,12 +144,12 @@
         <!--   fin de ambientes-->
 
         <!--   comodidades-->
-        @if(!empty($aPropieties_comodidades))
+        @if(!empty($aProperties_luxuries))
         <div class="characteristcs-div special " style="border: 1px solid #ccc!important; margin-top: 8px;">
           <div class="container">
             <h4>Comodidades</h4>
             <div class="row">
-              @foreach($aPropieties_comodidades as $comodidades)
+              @foreach($aProperties_luxuries as $comodidades)
               <div class="col-6 col-md-4">
                 <span class="carac-desc"><i
                     class="fas fa-angle-right mr-1"></i></span>{{ $comodidades->comodidades_name }}

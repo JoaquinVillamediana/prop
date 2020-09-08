@@ -80,7 +80,7 @@
 
 
 <!-- carrousel  -->
-@if(!empty($aPropieties))
+@if(!empty($aProperties))
 <section id="props" class="mt-4">
 
   <div class="container">
@@ -99,9 +99,9 @@
     </div>
 
     
-    @if(!empty($aPropieties))
+    @if(!empty($aProperties))
 <div class="row">
-  @foreach ($aPropieties as $prop)
+  @foreach ($aProperties as $prop)
   @if($prop->user_id ==  $data_user->id)
       <div class="col-md-4 mb-4 propertie">
       {{-- <a href="{{ route('propietie') }}"> --}}
