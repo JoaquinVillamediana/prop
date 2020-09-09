@@ -28,7 +28,7 @@
        <li class="nav-item">
        <div class="dropdown">
   <a class="nav-link text-platzi" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  <i class="far fa-smile"></i> {{ Auth::user()->name}}
+    <i class="far fa-user"></i> {{ Auth::user()->name}}
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
