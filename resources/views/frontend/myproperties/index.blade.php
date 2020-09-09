@@ -127,7 +127,7 @@
                   class="btn btn-contact d-block">Ver más</a>
                 <a href="{{ route('mis_propiedades.edit',$prop->id) }}" id="btncontacto"
                   class="btn btn-contact d-inline-block">Editar información</a> <a
-                  href="{{ route('mis_propiedades.edit',$prop->id) }}" id="btncontacto"
+                  href="{{ route('my_properties_edit_photos',$prop->id) }}" id="btncontacto"
                   class="btn btn-contact d-inline-block">Editar fotos</a>
               </div>
             </a></div>

@@ -8,6 +8,7 @@ use App\Models\Properties_typeModel;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ImageModel;
 use App\Models\LuxuriesModel;
 use App\Models\ServicesModel;
 use App\Models\AmbientsModel;
@@ -251,8 +252,10 @@ class MyPropertiesController extends Controller {
 }
 
   public function edit_photos($id)
-  {
-    
+  { 
+    $property_id = $id;
+    $aImages = ImageModel::where('propietie_id',$id)->get();
+    return view('frontend/myproperties.image',compact('aImages','property_id'));
   }
 
   

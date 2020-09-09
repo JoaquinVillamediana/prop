@@ -1,0 +1,12 @@
+.load-button {
+    margin-bottom: 40px;
+}
+
+.content-wrapper {
+    min-height: 85vh;
+}
+
+.btn-prop {
+    background-color: var(--main-color);
+    color: #ffffff !important;
+}

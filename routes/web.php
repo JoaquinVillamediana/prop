@@ -62,7 +62,7 @@ Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
 Route::middleware(['auth'])->group(function () {
 
     Route::resource('mis_propiedades', 'frontend\MyPropertiesController');
-    Route::get('mis_propiedades/{id}/edit_fotos', 'frontend\MyPropertiesController@edit_photos');
+    Route::get('mis_propiedades/{id}/edit_fotos', 'frontend\MyPropertiesController@edit_photos')->name('my_properties_edit_photos');
 
     // Route::post('update_propietie/{id}', 'HomeController@update')->name('update_propietie');
     Route::get('user_profile', 'frontend\ProfileController@index')->name('user_profile');
@@ -98,7 +98,7 @@ Route::get('publish_publicationtype/{id}', 'frontend\PublishController@propietie
 Route::get('publish_propertie_plan/{id}', 'frontend\PublishController@publish_propertie')->name('publish_propertie_plan');
 Route::post('store_dates', 'frontend\PublishController@store_dates')->name('store_dates');
 Route::get('publish_files/{propietie_id}', 'frontend\PublishController@publish_files')->name('publish_files');
-Route::post('upload_propietie_picture', 'frontend\PublishController@store_files')->name('upload_propietie_picture');
+Route::post('upload_property_picture', 'frontend\PublishController@store_files')->name('upload_property_picture');
 Route::post('setMainImage', 'frontend\PublishController@setMainImage')->name('setMainImage');
 Route::delete('deleteImage/{id}', 'frontend\PublishController@deleteImage')->name('deleteImage');
 
