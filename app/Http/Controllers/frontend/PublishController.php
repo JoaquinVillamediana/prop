@@ -141,8 +141,8 @@ class PublishController extends Controller {
         $years = $request['antiquity'];
         $operation_type_id = $request['operation_type'];
         $propietie_type_id = $request['propietie_type'];
-        $location_id = $request['locality'];;
-        $direction ="Tandil 3239";
+        $location_id = $request['locality'];
+        $direction =$request['address'];
 
         if(!empty($request['expenses'])){
             $expensas =  $request['expenses'];
