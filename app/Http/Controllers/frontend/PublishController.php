@@ -304,7 +304,7 @@ class PublishController extends Controller {
 
             
             
-        return redirect()->route('my_properties_edit_photos',$propietie_id);
+        return redirect()->route('publish_files',$propietie_id);
             
         }
      
