@@ -341,7 +341,7 @@ class PublishController extends Controller {
     public function setMainImage(Request $request ){
         $aReturn = array();
         $oImage = ImageModel::find($request['image_id']);
-        $aImages = ImageModel::where('product_id','=',$oImage->product_id)
+        $aImages = ImageModel::where('propietie_id','=',$oImage->propietie_id)
         ->get();
 
         foreach($aImages as $image)

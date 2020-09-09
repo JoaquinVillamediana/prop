@@ -99,7 +99,6 @@ Route::get('publish_propertie_plan/{id}', 'frontend\PublishController@publish_pr
 Route::post('store_dates', 'frontend\PublishController@store_dates')->name('store_dates');
 Route::get('publish_files/{propietie_id}', 'frontend\PublishController@publish_files')->name('publish_files');
 Route::post('upload_property_picture', 'frontend\PublishController@store_files')->name('upload_property_picture');
-Route::post('setMainImage', 'frontend\PublishController@setMainImage')->name('setMainImage');
 Route::delete('deleteImage/{id}', 'frontend\PublishController@deleteImage')->name('deleteImage');
 
 Route::get('publish', 'frontend\PublishController@index')->name('publish');
@@ -188,4 +187,8 @@ Route::resource('reset', 'frontend\NewPasswordController');
 Route::resource('register', 'frontend\RegisterController');
 
 
+//AJAX
+
+
+Route::post('setMainImage', 'frontend\PublishController@setMainImage')->name('setMainImage');
 Route::get('getFilterProperties','frontend\SearchController@getFilterProperties')->name('getFilterProperties');

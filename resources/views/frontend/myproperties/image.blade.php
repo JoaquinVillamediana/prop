@@ -11,14 +11,7 @@
         <!-- Example DataTables Card-->
 
 
-        <div class="table-responsive load-button">
 
-
-            <a class="btn btn-light" href="{{ route('mis_propiedades.index') }}">Cancelar</a>
-
-
-
-        </div>
         
         <div class="table-responsive">
 
@@ -40,7 +33,7 @@
                     @foreach($aImages as $image)
                     <tr>
                         <td>{{ $image->id }}</td>
-                        <td>{{$image->product_name}}</td>
+                        <td>{{$image->prop_name}}</td>
                         @if ($image->type==0)
                         <td>Imagen</td>
                         @else
@@ -95,18 +88,16 @@
                     </tr>
                 </tbody>
             </table>
-
+        
+           
 
         </div>
-        
+        <a href="{{ route('mis_propiedades.index') }}" class="text-center btn btn-prop">Aceptar</a>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
 
-    <!-- Scroll to Top Button-->
-    {{-- <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fa fa-angle-up"></i>
-    </a> --}}
+
 
     @include('layouts.modals')
 

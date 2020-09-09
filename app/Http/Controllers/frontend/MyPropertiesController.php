@@ -254,7 +254,10 @@ class MyPropertiesController extends Controller {
   public function edit_photos($id)
   { 
     $property_id = $id;
-    $aImages = ImageModel::where('propietie_id',$id)->get();
+    $aImages = ImageModel::select('images.*','properties.name as prop_name')
+    ->leftjoin('properties','images.propietie_id','properties.id')
+    ->where('propietie_id',$id)
+    ->get();
     return view('frontend/myproperties.image',compact('aImages','property_id'));
   }
 
