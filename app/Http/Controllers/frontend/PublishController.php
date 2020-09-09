@@ -245,13 +245,13 @@ class PublishController extends Controller {
         if(!empty($request['image']))
         {
             $aValidations = array(
-                'image' => 'required|max:10240|mimes:jpeg,png,jpg,gif,mp4'
+                'image' => 'required|max:10240|mimes:jpeg,png,jpg,gif'
             );               
         }
         else
         {
             $aValidations = array(
-                'video' => 'required|max:10240|mimes:jpeg,png,jpg,gif,mp4'
+                'video' => 'required|max:10240|mimes:jpeg,png,jpg,gif'
             ); 
         }
 
@@ -304,7 +304,7 @@ class PublishController extends Controller {
 
             
             
-        return redirect()->back()->with('propietie_id' , $propietie_id);
+        return redirect()->route('my_properties_edit_photos',$prop->id);
             
         }
      
