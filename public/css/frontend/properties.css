@@ -12,6 +12,12 @@
     background-color: transparent !important;
 }
 
+.card-img-top {
+    max-height: 210px;
+    width: 100%;
+    object-fit: cover;
+}
+
 .row-caracs .characteristic {
     margin-right: 5px;
     color: var(--main-color);

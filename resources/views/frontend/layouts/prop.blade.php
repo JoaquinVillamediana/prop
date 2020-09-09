@@ -5,7 +5,7 @@
       {{-- <a href="{{ route('propietie') }}"> --}}
         <div class="card">
           <div class="image">
-            <img src="/images/publish/products/{{$prop->image}}" class="card-img-top" alt="No se encontro la imagen">
+            <img src="/images/publish/{{$prop->image}}" class="card-img-top" alt="No se encontro la imagen">
 
             <div class="row row-caracs">
 
