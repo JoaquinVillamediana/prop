@@ -6,7 +6,7 @@
 
 
 <link rel="stylesheet" href="/css/frontend/product.css">
-<div class="mt-5 pb-5 container-fluid">
+<div class="mt-5  container-fluid">
 
   @if(!empty($oProp))
 
@@ -26,13 +26,17 @@
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               @foreach($aImage as $images)
-              @if($images == $images[0])
+              @if($images == $aImage[0])
               <div class="carousel-item active">
+                <a href="#" onclick="openImageModal('/images/publish/{{$images->image}}')">
                 <img src="/images/publish/{{$images->image}}" class="d-block w-100" alt="...">
+                </a>
               </div>
               @else
               <div class="carousel-item">
+                <a href="#" onclick="openImageModal('/images/publish/{{$images->image}}')">
                 <img src="/images/publish/{{$images->image}}" class="d-block w-100" alt="...">
+                </a>
               </div>
               @endif
               @endforeach
@@ -262,6 +266,17 @@
 
 
   <script>
+    function openImageModal(src)
+    {   
+      event.preventDefault();
+      $('#ViewImageModal #bigImage').attr('src',src);
+      $('#ViewImageModal').modal('show');
+    }
+
+
+
+
+
     function changeMainImage(id,type){
   if(type == 'image')
   {
@@ -339,5 +354,6 @@
 
   @include('frontend/layouts.footer')
 
+  @include('frontend/layouts.modals')
 
   @endsection

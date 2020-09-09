@@ -57,7 +57,7 @@ Route::post('send_user_mail/{user_id}', 'frontend\ContactController@users_mail')
  Route::get('edit_propietie/{id}', 'HomeController@edit_propietie')->name('edit_propietie');
  
 
-Route::get('propietie/{id}', 'HomeController@propietie')->name('propietie');
+Route::get('propietie/{id}', 'frontend\PropertiesController@show')->name('propietie');
 
 Route::middleware(['auth'])->group(function () {
 

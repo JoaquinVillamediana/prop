@@ -216,4 +216,20 @@
 </div>
 
 
+<div class="modal fade" id="ViewImageModal" tabindex="-1" role="xl" aria-labelledby="ViewImageModalLabel" aria-hidden="true">
+    <div class="modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body"><img id="bigImage" src="" alt=""></div>
+           
+        </div>
+    </div>
+</div>
+
+
 

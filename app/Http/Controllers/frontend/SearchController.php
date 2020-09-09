@@ -125,8 +125,12 @@ class SearchController extends Controller
         }
         if(($request['order'] == 'ASC' || $request['order'] == 'DESC') && (($request['order_type'] == 'price' || $request['order_type'] == 'size')))
         {
-            $query = $query.' ORDER BY '.$request['order_type'].' '.$request['order'].'';
+            $query = $query.' ORDER BY '.$request['order_type'].' '.$request['order'].' , priority DESC';
         }
+        else {
+            $query = $query.' ORDER BY priority DESC';
+        }
+
         $aProperties = DB::select($query);
         $propNumber = count($aProperties);
         if(!empty($request['pageNumber']))
@@ -137,8 +141,31 @@ class SearchController extends Controller
             $aProperties = array_slice($aProperties,$offset, intval($request['pageSize']));
         }
 
+        if($propNumber > 0)
+        {
+            $query = 'SELECT * from images WHERE deleted_at is null and (';
+        foreach ($aProperties as $prop)
+        {
+            if($prop == $aProperties[0])
+            {
+                $query = $query.' propietie_id = "'.$prop->id.'"';
+            }
+            else{
+                
+            }
+            $query = $query.'or propietie_id = "'.$prop->id.'"';
+        }
+        $query = $query.');';
+  
+        $aPropImages= DB::select($query);
+        }
+        else{
+            $aPropImages = null;
+        }
+        
 
-        return response()->json(['aProperties' => $aProperties, 'propNumber' => $propNumber]);
+
+        return response()->json(['aProperties' => $aProperties, 'propNumber' => $propNumber,'aPropImages' => $aPropImages ]);
 
     }
 

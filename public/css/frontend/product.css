@@ -198,6 +198,23 @@ footer {
     margin-top: 40px;
 }
 
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}
+
+#ViewImageModal #bigImage {
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 1200px;
+        margin: 1.75rem auto;
+        width: 90%;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .name-responsive {
         display: block;
