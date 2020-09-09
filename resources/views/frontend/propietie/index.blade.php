@@ -6,7 +6,7 @@
 
 
 <link rel="stylesheet" href="/css/frontend/product.css">
-<div class="mt-5 pb-5 container-fluid">
+<div class="mt-5  container-fluid">
 
   @if(!empty($oProp))
 
@@ -26,7 +26,7 @@
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               @foreach($aImage as $images)
-              @if($images == $images[0])
+              @if($images == $aImage[0])
               <div class="carousel-item active">
                 <img src="/images/publish/{{$images->image}}" class="d-block w-100" alt="...">
               </div>

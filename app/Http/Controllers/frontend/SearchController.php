@@ -125,8 +125,12 @@ class SearchController extends Controller
         }
         if(($request['order'] == 'ASC' || $request['order'] == 'DESC') && (($request['order_type'] == 'price' || $request['order_type'] == 'size')))
         {
-            $query = $query.' ORDER BY '.$request['order_type'].' '.$request['order'].'';
+            $query = $query.' ORDER BY '.$request['order_type'].' '.$request['order'].' , priority DESC';
         }
+        else {
+            $query = $query.' ORDER BY priority DESC';
+        }
+
         $aProperties = DB::select($query);
         $propNumber = count($aProperties);
         if(!empty($request['pageNumber']))
