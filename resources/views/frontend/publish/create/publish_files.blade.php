@@ -56,9 +56,9 @@
                              
                                
                                 @if ($image->type==0)
-                                <td><img src="/uploads/products/{{$image->image}}" style="width:100px;margin:0 auto;" alt=""></td>
+                                <td><img src="/images/publish/products/{{$image->image}}" style="width:100px;margin:0 auto;" alt=""></td>
                                 @else
-                                <td><video style="width: 100px;margin:0 auto;" src="/uploads/products/{{$image->image}}" >
+                                <td><video style="width: 100px;margin:0 auto;" src="/images/publish/products/{{$image->image}}" >
                                     Your browser does not support HTML5 video.
                                 </video></td>
                                 @endif
