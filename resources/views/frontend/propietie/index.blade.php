@@ -70,6 +70,10 @@
                     class="fas fa-ruler-combined"></i>Tamaño</span>{{ $oProp->size }}m<sup>2</sup></li>
               <li class="carac-item"><span class="carac-desc"><i
                     class="fas fa-clock"></i>Antigüedad</span>{{ $oProp->years }} años</li>
+                    @if (!empty($oProp->locality_name))
+                    <li class="carac-item"><span class="carac-desc"><i class="fas fa-map-marked-alt"></i>Ubicación</span>{{ ucwords(strtolower($oProp->locality_name)) }}@if($oProp->town_name), {{ucwords(strtolower($oProp->town_name))}} @endif @if(!empty($oProp->province_name)), {{ucwords(strtolower($oProp->province_name))}} @endif</li>    
+                    @endif
+                    
             </ul>
           </div>
         </div>

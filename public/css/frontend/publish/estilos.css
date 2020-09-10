@@ -35,6 +35,10 @@ h3 {
     font-weight: 500;
 }
 
+#team {
+    padding: 40px 0;
+}
+
 #team .card {
     border-radius: 0;
     box-shadow: 5px 5px 15px rgba(200, 200, 200, .6);
@@ -70,4 +74,18 @@ h3 {
 .plan-header {
     border-bottom: 1px solid rgba(200, 200, 200, .6);
     margin-bottom: 30px;
+}
+
+.body-overlay {
+    position: absolute;
+    height: calc( 100vh - 60px);
+    top: 60px;
+    width: 100%;
+    z-index: -1;
+    filter: opacity(0.5) blur(2px);
+    background-position: center;
+}
+
+footer {
+    display: none;
 }

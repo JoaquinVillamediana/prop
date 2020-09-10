@@ -23,18 +23,20 @@ class PropertiesController extends Controller {
     public function show($id)
     {
 
-        $oProp = PropertiesModel::select('properties.*','users.name as user_name','users.id as user_id','users.type as user_type','users.phone as user_phone','currency.symbol','users.profile_image as profile_image')
+        $oProp = PropertiesModel::select('properties.*','localidades.nombre as locality_name','localidades.municipio_nombre as town_name','localidades.provincia_nombre as province_name','users.name as user_name','users.id as user_id','users.type as user_type','users.phone as user_phone','currency.symbol','users.profile_image as profile_image')
+        ->leftjoin('localidades','properties.location_id','=','localidades.id')
+        // ->leftjoin(DB::raw('select localidades.nombre,localidades.municipio_nombre,localidades.provincia_nombre from localidades where CAST(properties.location_id AS UNSIGNED) = CAST(localidades.id AS UNSIGNED)'))
         ->leftjoin('users','properties.user_id','users.id')
         ->leftjoin('currency','properties.currency_id','currency.id')
         ->whereNull('properties.deleted_at')
         ->where('properties.visible','=','1')
         ->where('properties.id',$id)
-        ->groupBy('properties.id')
+        // ->groupBy('properties.id')
         ->first();
 
         views($oProp)->record();
 
-
+       
       
         $aImage = ImageModel::where('propietie_id', '=', $id)
         ->get();

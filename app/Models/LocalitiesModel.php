@@ -11,11 +11,16 @@ class LocalitiesModel extends Model
     protected $table = 'localidades';
     
     protected $fillable = [
+        'id',
         'nombre',
         'provincia_nombre',
         'provincia_id',
         'municipio_nombre'
         
+    ];
+    
+    protected $casts = [
+        'id'  =>  'string'
     ];
 
 

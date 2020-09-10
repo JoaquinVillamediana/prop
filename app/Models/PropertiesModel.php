@@ -37,6 +37,11 @@ class PropertiesModel extends Model implements Viewable
         
     ];
 
+
+    protected $casts = [
+        'location_id'  =>  'string'
+    ];
+
     protected $dates = ['deleted_at'];
 
 }
