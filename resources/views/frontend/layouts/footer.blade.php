@@ -15,7 +15,7 @@
             </div>
             <div class="col-md-4 col-12 col-option">
                 <h5>Ayuda</h5>
-                <a class="link" href="mailto:contacto@tuproximaprop.com">contacto@tuproximaprop.com</a>
+                <!-- <a class="link" href="mailto:contacto@tuproximaprop.com">contacto@tuproximaprop.com</a> -->
                 <a class="d-block link" href="{{ route('terminos_y_condiciones_de_uso') }}">Términos y Condiciones de Uso</a>
                 <a class="d-block link" href="{{ route('terminos_y_condiciones_de_contrato') }}">Términos y Condiciones de Contratación</a>
                 <a class="d-block link" href="{{ route('politica_de_privacidad') }}">Política de privacidad</a>
@@ -49,6 +49,15 @@
                         <a class="media-link" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
+
+                    <div class="col-4 col-media-links mt-4">
+                        <div class="media-circle">
+                        <a class="media-link" data-toggle="modal"  href="#contactModal" ><i class="fa fa-envelope" aria-hidden="true"></i></a>
+
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
             {{-- <div class="col-12 col-lg">
@@ -88,7 +97,7 @@
                 <a class="media-link" href="https://www.instagram.com/tuproximaprop/"><i
                         class="fab fa-instagram"></i></a>
                 <a class="media-link" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-
+             
 
             </div> --}}
         </div>
@@ -97,7 +106,9 @@
             href="{{ route('terminos_y_condiciones_de_contrato') }}">Términos y Condiciones de Contratación - </a><a
             href="{{ route('politica_de_privacidad') }}">Política de privacidad - </a><a
             href="{{ route('politica_de_gestion_de_calidad') }}">Política de Gestión de Calidad</a> --}}
-        <p class="logo-text">W.B.O. Software - © 2020. Todos los derechos reservados</p>
+            <div class="row">
+        <p class="logo-text">W.B.O. Software - © 2020. Todos los derechos reservados </p>  <p> - Conocé sobre otros de los productos y servicios de <a href="https://wbosoftware.com/">W.B.O. Software</a> </p> 
+        </div>
     </div>
 </footer>
 

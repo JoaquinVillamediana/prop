@@ -12,10 +12,12 @@
     <form action="{{ route('search') }}">
       <div class="row row-overlay">
         <div class="col-12 mt-4">
-          <h1>Bienvenido a TuProximaProp</h1>
+          <div class="row">
+          <h1>Encontrá <b>tu proxima propiedad</b> en 3 CLICKS</h1>  
+          </div>
         </div>
         <div class="col-12 text">
-          <p> Publica tu propiedad en 5 minutos y consigue que nuestros mas de 500.000 usuarios la vean.
+          <p>Comprá, alquilá o vendé inmuebles en Argentina
           </p>
         </div>
 
