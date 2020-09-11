@@ -32,7 +32,15 @@ class SearchController extends Controller
         $oSearch->operationType = $request['type'];
         $oSearch->buildingType = $request['building'];
         $oSearch->locality = $request['locality'];
-        $oSearch->currency = $request['currency'];
+        if($oSearch->operationType == '1')
+        {
+            $oSearch->currency = 1;
+        }
+        if($oSearch->operationType == '2')
+        {
+            $oSearch->currency = 2;
+        }
+        
 
         return view('frontend/search.index', compact('aLocalities', 'aOperationType', 'aPropietie_type','aCurrencies', 'oSearch'));
     }
