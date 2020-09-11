@@ -7,25 +7,28 @@
             <div class="col-md-2 col-12 col-option">
                 <img class="logo" src="/images/Logo_reducido_png.png" alt="TuProximaProp">
             </div>
-            <div class="col-md-2 col-12 col-option">
+            <div class="col-md-3 col-12 col-option">
                 <h5>Opciones</h5>
                 <a class="d-block link" href="{{ route('publish') }}"> Vender </a>
                 <a class="d-block link" href="{{ route('publish') }}"> Alquilar </a>
+                <a class="d-block link" href="{{ route('frecuent_questions') }}"> Preguntas frecuentes </a>
             </div>
-            <div class="col-md-3 col-12 col-option">
+            <div class="col-md-4 col-12 col-option">
                 <h5>Ayuda</h5>
-                
+                <a class="link" href="mailto:contacto@tuproximaprop.com">contacto@tuproximaprop.com</a>
                 <a class="d-block link" href="{{ route('terminos_y_condiciones_de_uso') }}">Términos y Condiciones de Uso</a>
                 <a class="d-block link" href="{{ route('terminos_y_condiciones_de_contrato') }}">Términos y Condiciones de Contratación</a>
                 <a class="d-block link" href="{{ route('politica_de_privacidad') }}">Política de privacidad</a>
                 <a class="d-block link" href="{{ route('politica_de_gestion_de_calidad') }}">Política de Gestión de Calidad</a>
+                
             </div>
-            <div class="col-md-2 col-12 col-option">
+            {{-- <div class="col-md-2 col-12 col-option">
                 <h5>Contacto</h5>
                 <a class="link" href="{{ route('contact') }}"> Contactanos </a>
+                <a class="link" href="mailto:contacto@tuproximaprop.com">contacto@tuproximaprop.com</a>
                 <a class="d-block link" href="{{ route('frecuent_questions') }}"> Preguntas frecuentes </a>
                 <a href="https://wbosoftware.com/" class="link">W.B.O. Software </a>
-            </div>
+            </div> --}}
             <div class="col-md-3 col-12 col-option">
                 <h5>Redes Sociales</h5>
                 <div class="row">
