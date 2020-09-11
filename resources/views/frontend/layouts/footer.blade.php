@@ -53,7 +53,7 @@
                     <div class="col-4 col-media-links mt-4">
                         <div class="media-circle">
                         <!-- <a class="media-link" data-toggle="modal"  href="#contactModal" ><i class="fa fa-envelope" aria-hidden="true"></i></a> -->
-  <a class="link" href="mailto:contacto@tuproximaprop.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+  <a class="media-link" href="mailto:contacto@tuproximaprop.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
                         </div>
                     </div>
 
@@ -121,7 +121,10 @@
             href="{{ route('politica_de_privacidad') }}">Política de privacidad - </a><a
             href="{{ route('politica_de_gestion_de_calidad') }}">Política de Gestión de Calidad</a> --}}
             <div class="row">
-        <p class="logo-text">W.B.O. Software - © 2020. Todos los derechos reservados </p>  <p> - Conocé sobre otros de los productos y servicios de <a href="https://wbosoftware.com/">W.B.O. Software</a> </p> 
+                <div class="col-12 col-end">
+                    <p class="logo-text">W.B.O. Software - © 2020. Todos los derechos reservados </p>  <p class="owner"> HECHO POR <a href="https://wbosoftware.com/">W.B.O. Software</a> </p> 
+                </div>
+        
         </div>
     </div>
 </footer>

@@ -46,6 +46,16 @@
     text-decoration: underline !important;
 }
 
+.col-end {
+    display: flex;
+    justify-content: space-between;
+}
+
+#footer .owner {
+    font-weight: bold;
+    float: right;
+}
+
 @media screen and (max-width:767px) {
     #footer .logo {
         width: 45%;
