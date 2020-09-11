@@ -2,7 +2,7 @@
 @include('frontend/layouts.header')
 @section('content')
 <?php 
-MercadoPago\SDK::setAccessToken('TEST-1532561834263359-083119-38234f00b3b2c49854f957f11e71411b-339019119');
+MercadoPago\SDK::setAccessToken('APP_USR-1532561834263359-083119-186977ebfbb7fc0a40e9677191ec4969-339019119');
 
 ?>
     <!-- Bootstrap CSS -->
@@ -39,7 +39,7 @@ $ {{ $planes->price }} + imp *</h6>
 
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
-$item->title = 'Mi producto';
+$item->title =  $planes->name ;
 $item->quantity = 1;
 $item->unit_price =  $planes->price ;
 $preference->items = array($item);

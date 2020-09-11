@@ -15,7 +15,7 @@
             </div>
             <div class="col-md-4 col-12 col-option">
                 <h5>Ayuda</h5>
-                <!-- <a class="link" href="mailto:contacto@tuproximaprop.com">contacto@tuproximaprop.com</a> -->
+                <!-- <a class="link" href="mailto:contacto@tuproximaprop.com">contacto@tuproximaprop.com</a>  -->
                 <a class="d-block link" href="{{ route('terminos_y_condiciones_de_uso') }}">Términos y Condiciones de Uso</a>
                 <a class="d-block link" href="{{ route('terminos_y_condiciones_de_contrato') }}">Términos y Condiciones de Contratación</a>
                 <a class="d-block link" href="{{ route('politica_de_privacidad') }}">Política de privacidad</a>
@@ -52,11 +52,25 @@
 
                     <div class="col-4 col-media-links mt-4">
                         <div class="media-circle">
-                        <a class="media-link" data-toggle="modal"  href="#contactModal" ><i class="fa fa-envelope" aria-hidden="true"></i></a>
-
+                        <!-- <a class="media-link" data-toggle="modal"  href="#contactModal" ><i class="fa fa-envelope" aria-hidden="true"></i></a> -->
+  <a class="link" href="mailto:contacto@tuproximaprop.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
                         </div>
                     </div>
 
+                    <div class="col-4 col-media-links mt-4">
+                        <div class="media-circle">
+                        <a class="media-link" href="https://www.youtube.com/channel/UC8rNKrqBxJqL9izOOMxBJtw"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-4 col-media-links mt-4">
+                        <div class="media-circle">
+                        <a class="media-link" href="https://www.linkedin.com/company/tuproximaprop"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                    
 
                 </div>
             </div>
