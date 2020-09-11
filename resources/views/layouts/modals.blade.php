@@ -216,6 +216,49 @@
 </div>
 
 
+<!-- contact Modal-->
+<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Enviar correo a contacto@tuproximaprop.com</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group mt-3">
+                    <form method="POST" action="{{ route('send_mail') }}" role="form" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <label for="fname">Nombre y apellido</label></br>
+                    <input type="text" id="name" name="name" placeholder="Ej: Carlos Perez">
+                    </br>
+                    <label for="lname">Email</label></br>
+                    <input type="text" id="email" name="email" placeholder="Ej: nombre@mail.com">
+                    </br>
+                  
+                    <label for="lname">Asunto</label></br>
+                    <input type="text" id="subject" name="subject" placeholder="Ej: Consulta">
+                    </br>
+                   
+                    <label for="subject">Mensaje</label></br>
+                    <textarea id="message" name="message" placeholder="Me gustaría consultar sobre.." style="height:200px"></textarea>
+                    </br>
+                               
+              
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-primary" type="submit">Enviar</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="modal fade" id="ViewImageModal" tabindex="-1" role="xl" aria-labelledby="ViewImageModalLabel" aria-hidden="true">
     <div class="modal-xl" role="document">
         <div class="modal-content">
