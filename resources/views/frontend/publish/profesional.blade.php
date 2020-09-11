@@ -4,9 +4,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/frontend/publish/estilos.css">
   <body>
-
+    <style>
+        .body-overlay{
+    background-image: url('/images/business.jpg');
+        }
+    </style>
+    <div class="body-overlay">
+        
+    </div>
     <section id="team">
-        <div class="container my-3 py-5 text-center">
+        <div class="container  py-5 text-center">
                 <div class="row mb-5">
                     <div class="col">
                         <h1>Opciones para publicar</h1>

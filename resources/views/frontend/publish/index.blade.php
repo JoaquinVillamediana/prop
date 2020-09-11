@@ -35,7 +35,7 @@
             
             <div class="col-md-2 col-12 col-arrow">
                 <div class="arrow-container">
-                    <a href="{{ route('personal') }}" class="btn btn-particular" href=""><i class="fas fa-chevron-left"></i></a>
+                    <a href="{{ route('profesional') }}" class="btn btn-particular" href=""><i class="fas fa-chevron-left"></i></a>
                 </div>
             </div>
             <div class="col-md-7 col-12 col-text">
