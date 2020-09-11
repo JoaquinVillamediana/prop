@@ -42,6 +42,10 @@
     width: 100%;
 }
 
+#footer .link:hover {
+    text-decoration: underline !important;
+}
+
 @media screen and (max-width:767px) {
     #footer .logo {
         width: 45%;

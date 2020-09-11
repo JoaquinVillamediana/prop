@@ -23,7 +23,7 @@ if(empty($oSearch))
   
   </style>
 <!------ Include the above in your HEAD tag ---------->
-<div class="row w-100 main-container">
+<div class="row w-100 mb-5 main-container">
   <div class="col-lg-6 col-xl-3 col-12">
     @include('frontend/layouts.slide')
   </div>

@@ -60,7 +60,7 @@ class SearchController extends Controller
             
             $oSearch = new  \App\Classes\SearchClass;
             $oSearch->operationType = 1;
-
+            $oSearch->currency = 1;
             $aCurrencies = CurrencyModel::get();
 
             $aLocalities = LocalitiesModel::get();
