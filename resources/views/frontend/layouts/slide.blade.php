@@ -134,7 +134,7 @@
         <label for="">Moneda</label>
         <select name="currency" id="currency" class="currency_select">
           @foreach ($aCurrencies as $currency)
-              <option id="currency-{{$currency->id}}" {{ $currency->symbol == 'U$D' ? 'checked' : '' }} value="{{$currency->id}}">{{$currency->name}}</option>
+              <option id="currency-{{$currency->id}}" {{ empty($oSearch->currency) &&   $currency->id == 1 ? 'selected' : '' }} {{ !empty($oSearch->currency) && $oSearch->currency == $currency->id ? 'selected' : '' }} value="{{$currency->id}}">{{$currency->name}}</option>
           @endforeach
         </select>
         <p class="sidebar-indicator">Desde: <span class="currency-symbol mr-1">$</span><span id="price-min">0</span></p>
