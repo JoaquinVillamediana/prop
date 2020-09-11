@@ -189,7 +189,8 @@
         <!-- FORMULARIO DE CONTACTO -->
         <section id="contacto">
           <div class="container">
-            <form id="formulario" action="{{route('send_user_mail',$oProp->user_id)}}">
+            <form id="formulario" method="POST" action="{{route('send_user_mail',$oProp->user_id)}}">
+              @csrf
               <div class="row">
 
                 <div class="col-lg-6 col-12">

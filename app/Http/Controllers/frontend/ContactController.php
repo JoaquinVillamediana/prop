@@ -34,7 +34,7 @@ class ContactController extends Controller {
         $message =  $request['message'];
 
         $content="From: $name \n Email: $email \n Message: $message";
-        $recipient = "brizuelaortizg@gmail.com";
+        $recipient = "joacovillamediana@gmail.com";
         $mailheader = "From: $email \r\n";
 
         mail($recipient, $subject, $content, $mailheader) or die("Error!");
@@ -58,7 +58,7 @@ class ContactController extends Controller {
         $message =  $request['message'];
 
         $content="From: $name \n Email: $email \n Message: $message \n Num. Cel.: $number ";
-        // $recipient = "brizuelaortizg@gmail.com";
+        // $recipient = "joacovillamediana@gmail.com";
         $mailheader = "From: $email \r\n";
 
         mail($user_mail, $subject, $content, $mailheader) or die("Error!");
