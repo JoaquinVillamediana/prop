@@ -20,7 +20,7 @@
   <h2>
     Panel de control
   </h2>
-
+<a href="{{ route('my_plans') }}"> Mis contrataciones</a>
 
   <div class="functions ">
     <!--  -->

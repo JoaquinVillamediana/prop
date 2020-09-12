@@ -18,9 +18,9 @@
             <div class="col-md-7 col-12 col-text">
                 <div class="container">
                     <h5 class="link-name">Particular</h5>
-                <p class="link-description"><i class="fas fa-home mr-2"></i>Dueño directo</p>
+                <p class="link-description"><i class="fas fa-home mr-2"></i>Dueño directo.</p>
                 <p class="link-description"><i class="fas fa-mail-bulk mr-2"></i>Podes mirar los mensajes de los interesados.</p>
-                <p class="link-description"><i class="fas fa-angle-double-up mr-2"></i>Posiciona tu publicacion con nuestros planes.</p>
+                <p class="link-description"><i class="fas fa-angle-double-up mr-2"></i>Posicioná tu publicación con nuestros planes.</p>
                 </div>
                 
             </div>
@@ -41,9 +41,9 @@
             <div class="col-md-7 col-12 col-text">
                 <div class="container">
                     <h5 class="link-name">Profesional</h5>
-                            <p class="link-description"><i class="fas fa-user-tie mr-2"></i> Inmobiliaria, corredor o constructora</p>
+                            <p class="link-description"><i class="fas fa-user-tie mr-2"></i> Inmobiliaria, corredor o constructora.</p>
                             <p class="link-description"><i class="fas fa-mail-bulk mr-2"></i>Podes mirar los mensajes de los interesados.</p>
-                            <p class="link-description"><i class="fas fa-angle-double-up mr-2"></i>Posiciona tu publicacion con nuestros planes.</p>
+                            <p class="link-description"><i class="fas fa-angle-double-up mr-2"></i>Posicioná tu publicación con nuestros planes.</p>
                 </div>
                 
             </div>

@@ -19,6 +19,7 @@ use App\Models\PropertiesServicesModel;
 use App\Models\LocalitiesModel;
 use App\Models\PropertiesGeneralCharacteristicsModel;
 use App\Models\CurrencyModel;
+use App\Models\UserPlansActivesModel;
 use CyrildeWit\EloquentViewable\Support\Period;
 use DB; 
 use Auth;
@@ -261,6 +262,14 @@ class MyPropertiesController extends Controller {
     return view('frontend/myproperties.image',compact('aImages','property_id'));
   }
 
-  
+  public function user_plans()
+  {
+    $user = Auth::user()->id;
+    $aPlans=UserPlansActivesModel::select('user_plans_actives.*','publish_plans.name as plans_name','publish_plans.num_add as add_cuantity','publish_plans.price as plans_price')
+    ->leftjoin('publish_plans','user_plans_actives.plan_id','publish_plans.id')
+    ->where('user_id',$user)
+    ->get();
+    return view('frontend/myproperties.active_plans',compact('aPlans'));
+  }
 
 }
