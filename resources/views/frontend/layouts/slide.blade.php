@@ -105,11 +105,11 @@
       <!-- Inicio de cantidad de ambientes -->
       <p class="sidebar-subtitle"> Ambientes </p>
       <li>
-        <button type="button" id="cantidad_ambientes_1" data-rooms="1" class="rooms btn btn-prop">1+</button>
-        <button type="button" id="cantidad_ambientes_2" data-rooms="2" class="rooms btn btn-prop">2+</button>
-        <button type="button" id="cantidad_ambientes_3" data-rooms="3" class="rooms btn btn-prop">3+</button>
-        <button type="button" id="cantidad_ambientes_4" data-rooms="4" class="rooms btn btn-prop">4+</button>
-        <button type="button" id="cantidad_ambientes_5" data-rooms="5" class="rooms btn btn-prop">5+</button>
+        <button type="button" id="cantidad_ambientes_1" data-rooms="1" class="rooms btn btn-prop">1</button>
+        <button type="button" id="cantidad_ambientes_2" data-rooms="2" class="rooms btn btn-prop">2</button>
+        <button type="button" id="cantidad_ambientes_3" data-rooms="3" class="rooms btn btn-prop">3</button>
+        <button type="button" id="cantidad_ambientes_4" data-rooms="4" class="rooms btn btn-prop">4</button>
+        <button type="button" id="cantidad_ambientes_5" data-rooms="5" class="rooms btn btn-prop">5</button>
       </li>
       
 
@@ -119,11 +119,11 @@
       <p class="sidebar-subtitle"> Dormitorios </p>
       <li>
 
-        <button type="button" data-bedrooms="1" class="bedrooms btn btn-prop">1+</button>
-        <button type="button" data-bedrooms="2" class="bedrooms btn btn-prop">2+</button>
-        <button type="button" data-bedrooms="3" class="bedrooms btn btn-prop">3+</button>
-        <button type="button" data-bedrooms="4" class="bedrooms btn btn-prop">4+</button>
-        <button type="button" data-bedrooms="5" class="bedrooms btn btn-prop">5+</button>
+        <button type="button" data-bedrooms="1" class="bedrooms btn btn-prop">1</button>
+        <button type="button" data-bedrooms="2" class="bedrooms btn btn-prop">2</button>
+        <button type="button" data-bedrooms="3" class="bedrooms btn btn-prop">3</button>
+        <button type="button" data-bedrooms="4" class="bedrooms btn btn-prop">4</button>
+        <button type="button" data-bedrooms="5" class="bedrooms btn btn-prop">5</button>
 
       </li>
       <!-- FIn de cantidad de Dormitorios -->

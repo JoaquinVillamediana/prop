@@ -122,7 +122,7 @@
             href="{{ route('politica_de_gestion_de_calidad') }}">Política de Gestión de Calidad</a> --}}
             <div class="row">
                 <div class="col-12 col-end">
-                    <p class="logo-text">W.B.O. Software - © 2020. Todos los derechos reservados </p>  <p class="owner"> HECHO POR <a href="https://wbosoftware.com/">W.B.O. Software</a> </p> 
+                    <p class="logo-text">W.B.O. Software - © 2020. Todos los derechos reservados </p>  <p class="owner"> PRODUCED BY  <a href="https://wbosoftware.com/">W.B.O. Software</a> </p> 
                 </div>
         
         </div>

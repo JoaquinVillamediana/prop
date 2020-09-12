@@ -11,14 +11,14 @@
 
     <form action="{{ route('search') }}">
       <div class="row row-overlay">
-        <div class="col-12 mt-4">
+        <div class="col-12 mt-5">
           <div class="row">
-          <h1>Encontrá <b>tu proxima propiedad</b> en 3 CLICKS</h1>  
+          <h1>Encontrá <b>tu próxima propiedad</b> y <b>viví</b> tu sueño</h1>  
           </div>
         </div>
         <div class="col-12 text">
-          <p>Comprá, alquilá o vendé inmuebles en Argentina
-          </p>
+          <h4>Comprá, alquilá o vendé inmuebles en Argentina
+          </h4>
         </div>
 
 
@@ -98,7 +98,7 @@
 <section class="section-publish">
   <div class="container">
     <h2>
-      OFERTA <span><a href=""> 6 MESES SIN INTERÉS</a></span>
+    <img src="images/index/oferta2.png" class="d-block w-100" alt=" img 1">
     </h2>
   </div>
 </section>

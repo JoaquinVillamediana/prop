@@ -61,15 +61,15 @@
             <h4>Caracteristicas</h4>
             <ul class="characteristcs">
               <li class="carac-item"><span class="carac-desc"><i
-                    class="fas fa-couch"></i>Cuartos</span>{{ $oProp->rooms }} </li>
+                    class="fas fa-couch"></i>Ambientes</span>{{ $oProp->rooms }} </li>
               <li class="carac-item"><span class="carac-desc"><i
-                    class="fas fa-bed"></i>Habitaciones</span>{{ $oProp->bedrooms }}</li>
+                    class="fas fa-bed"></i>Dormitorios</span>{{ $oProp->bedrooms }}</li>
               <li class="carac-item"><span class="carac-desc"><i
                     class="fas fa-bath"></i>Baños</span>{{ $oProp->bathrooms }}</li>
               <li class="carac-item"><span class="carac-desc"><i
                     class="fas fa-ruler-combined"></i>Tamaño</span>{{ $oProp->size }}m<sup>2</sup></li>
               <li class="carac-item"><span class="carac-desc"><i
-                    class="fas fa-clock"></i>Antigüedad</span>{{ $oProp->years }} años</li>
+                    class="fas fa-clock"></i>Antigüedad</span> @if($oProp->years == 0) A estrenar @else {{ $oProp->years }} años @endif</li>
                     @if (!empty($oProp->locality_name))
                     <li class="carac-item"><span class="carac-desc"><i class="fas fa-map-marked-alt"></i>Ubicación</span>{{ ucwords(strtolower($oProp->locality_name)) }}@if($oProp->town_name), {{ucwords(strtolower($oProp->town_name))}} @endif @if(!empty($oProp->province_name)), {{ucwords(strtolower($oProp->province_name))}} @endif</li>    
                     @endif
@@ -182,10 +182,10 @@
         <div class="row">
           <div class="container name-default">
             <h5 class="product-title">{{ $oProp->name }}</h5>
-            <p class="product-price" style="color:#000;">U$D {{ number_format($oProp->price, 0, ',', '.')  }} </p>
+            <p class="product-price" style="color:#000;">{{ $oProp->symbol }} {{ number_format($oProp->price, 0, ',', '.')  }} </p>
           </div>
         </div>
-        <p>{{ $oProp->introduccion }}</p>
+        <p>{{ $oProp->introduction }}</p>
         <!-- FORMULARIO DE CONTACTO -->
         <section id="contacto">
           <div class="container">
@@ -237,7 +237,7 @@
           <h2>Datos del anunciante</h2>
           <div class="card w-70">
             <div class="card-body">
-              <h5 class="card-title">{{ $oProp->user_name }}</h5>
+              <h5 class="card-title"> @if($oProp->user_type == 1) {{ $oProp->user_name }} {{ $oProp->last_name }} @else {{ $oProp->user_name }} @endif</h5>
               <img src="/images/profile_pictures_users/{{ $oProp->profile_image }}"
                 class="mx-auto img-fluid img-circle d-block" alt="avatar">
               <p class="card-text">@if($oProp->user_type == 2) <i class="fas fa-user"></i> {{"dueño directo"}} | <i
