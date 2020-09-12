@@ -79,11 +79,11 @@
        <img src="images/index/slider5.jpg" class="d-block w-100" alt=" img 1">
        </div>
        <div class="carousel-item">
-      <img src="images/index/slider5.jpg" class="d-block w-100" alt=" img 1">
+      <img src="images/index/living.jpg" class="d-block w-100" alt=" img 1">
       </div>
-      <div class="carousel-item">
+      {{-- <div class="carousel-item">
         <img src="images/index/slider5.jpg" class="d-block w-100" alt=" img 1">
-      </div>
+      </div> --}}
     </div> 
 
 
