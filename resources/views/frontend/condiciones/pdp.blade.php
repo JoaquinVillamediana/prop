@@ -65,9 +65,7 @@ La Información Personal que usted suministre será reputada y tratada como conf
 </br>
 7.2 A pesar de lo anterior, usted reconoce que los medios técnicos existentes que brindan seguridad no son inexpugnables y que aun cuando se adopten todos los recaudos razonables de seguridad es posible sufrir manipulaciones, destrucción y/o pérdida de información. De presentarse estos casos, W.B.O. Software procederá conforme las leyes de cada país en materia de privacidad y protección de datos lo requieran.
 </br>
-7.3 Los empleados de W.B.O. Software son entrenados para comprender y cumplir con estos principios en materia de protección de datos personales y seguridad de la información. Asimismo, los empleados de W.B.O. Software asumen estrictos compromisos de confidencialidad en cuanto a la Información Personal que procesan en el ejercicio de sus funciones.
-</br>
-7.4 Usted consiente, reconoce y acepta que su información personal sea almacenada en la jurisdicción de W.B.O. Software o que la misma pueda ser transferida, almacenada y tratada fuera de la República Argentina. La Información Personal recabada a través del Sitio Web sólo podrá ser transferida a nuestras filiales, entidades asociadas y proveedores de servicios en otros países para los fines anteriormente descritos. Dichos países pueden no tener la misma normativa de protección de datos que la que existe en Argentina. Cuando transfiramos su Información Personal a otros países, la protegeremos en la forma descrita en este documento y de acuerdo con la LPDP y su marco regulatorio.
+7.3 Usted consiente, reconoce y acepta que su información personal sea almacenada en la jurisdicción de W.B.O. Software o que la misma pueda ser transferida, almacenada y tratada fuera de la República Argentina. La Información Personal recabada a través del Sitio Web sólo podrá ser transferida a nuestras filiales, entidades asociadas y proveedores de servicios en otros países para los fines anteriormente descritos. Dichos países pueden no tener la misma normativa de protección de datos que la que existe en Argentina. Cuando transfiramos su Información Personal a otros países, la protegeremos en la forma descrita en este documento y de acuerdo con la LPDP y su marco regulatorio.
 </br>
 </br>
 8. MENORES DE EDAD.
@@ -78,14 +76,14 @@ La Información Personal que usted suministre será reputada y tratada como conf
 </br>
 </br>
 9. LINKS EXTERNOS.
-El Sitio Web puede contener links hacia y provenientes de otros sitios de Internet. W.B.O. Software no es responsable por las prácticas de privacidad ni el tratamiento de los datos personales de esos sitios. DRICO recomienda que consulten las prácticas de privacidad de dichos sitios de Internet antes de su utilización.
+El Sitio Web puede contener links hacia y provenientes de otros sitios de Internet. W.B.O. Software no es responsable por las prácticas de privacidad ni el tratamiento de los datos personales de esos sitios. W.B.O. Software recomienda que consulten las prácticas de privacidad de dichos sitios de Internet antes de su utilización.
 </br>
 </br>
 10. DERECHOS DEL USUARIO.
 </br>
 10.1 Si usted ha proporcionado Información Personal a través de los servicios disponibles en el Sitio Web, usted podrá acceder a la misma, revisar, modificar, eliminar y actualizar su Información Personal en el momento que lo desee.
 </br>
-10.2 Si usted desea acceder a su Información Personal o si tal Información Personales es incorrecta, desactualizada y/o suprimida, por favor tenga a bien enviar su solicitad por correo electrónico de acuerdo con las normas implementadas en su país tal como se detalla en la cláusula 12 con el asunto “Informar”, “Rectificar”, “Suprimir” y/o “Actualizar” y/o cualquier otro según corresponda, conjuntamente con el objeto de su requerimiento. Dicha solicitud deberá contener como mínimo la siguiente información:
+10.2 Si usted desea acceder a su Información Personal o si tal Información Personal es incorrecta, desactualizada y/o suprimida, por favor tenga a bien enviar su solicitad por correo electrónico de acuerdo con las normas implementadas en su país tal como se detalla en la cláusula 12 con el asunto “Informar”, “Rectificar”, “Suprimir” y/o “Actualizar” y/o cualquier otro según corresponda, conjuntamente con el objeto de su requerimiento. Dicha solicitud deberá contener como mínimo la siguiente información:
 
 nombre y domicilio, a efecto de dar respuesta a su solicitud en los plazos establecidos en la ley aplicable;
 copia de su documento de identidad, pasaporte o cualquier otro documento que acredite su identidad o acredite la personalidad de su representante legal, y en caso que la solicitud se realice a través del representante legal, acompañar el documento que acredita sus facultades como representante;
@@ -104,7 +102,7 @@ W.B.O. Software se reserva el derecho a modificar esta Política de Privacidad p
 </br>
 12. LOCALIZACIÓN PARA USUARIOS EN ARGENTINA.
 </br>
-12.1 W.B.O. Software significa Dridco S.A.U., con domicilio en Maipu 942, piso 16, Ciudad Autónoma de Buenos Aires. El Sitio Web es www.tuproximaprop.com. La presente Política de Privacidad se rige por la las leyes de la República Argentina.
+12.1 W.B.O. Software significa W.B.O. Software S.R.L., con domicilio en Tandil 3239, Ciudad Autónoma de Buenos Aires. El Sitio Web es www.tuproximaprop.com. La presente Política de Privacidad se rige por la las leyes de la República Argentina.
 </br>
 12.2 El derecho de acceso a los datos podrá ser ejercido en forma gratuita por el interesado en la medida que la correspondiente información sea solicitada en intervalos no inferiores a seis meses, salvo que se acredite un interés legítimo al efecto.
 </br>
@@ -112,9 +110,7 @@ W.B.O. Software se reserva el derecho a modificar esta Política de Privacidad p
 </br>
 12.4 La Información Personal recabada a través del Sitio Web puede ser transferida para los fines anteriormente descritos a nuestras filiales, entidades asociadas y proveedores de servicios, en otros países. Dichos países pueden no tener la misma normativa de protección de datos que la que existe en Argentina. Cuando transfiramos su Información Personal a otros países, la protegeremos en la forma descrita en este documento.
 </br>
-12.5 De conformidad con la Ley 25.326 y la Disposición 11/06 de la Agencia de Acceso a la Información Pública (ex Dirección Nacional de Protección de Datos Personales) hemos implementado salvaguardas que garantizan un nivel adecuado de protección de la Información Personal que se transfiere fuera de sus fronteras.
-</br>
-12.6 Se hace saber que la Agencia de Acceso a la Información Pública, Órgano de Control de la Ley Nº 25.326, tiene la atribución de atender las denuncias y reclamos que se interpongan con relación al incumplimiento de las normas sobre protección de datos personales.
+12.5 Se hace saber que la Agencia de Acceso a la Información Pública, Órgano de Control de la Ley Nº 25.326, tiene la atribución de atender las denuncias y reclamos que se interpongan con relación al incumplimiento de las normas sobre protección de datos personales.
 </br>
 </br>
 13. CONTACTO.

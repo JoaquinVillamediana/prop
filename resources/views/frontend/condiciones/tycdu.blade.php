@@ -159,8 +159,7 @@ El Usuario declara y acepta que el uso del Sitio Web sus Servicios y los conteni
 </br>
 5.7. W.B.O. Software excluye toda responsabilidad por los daños y perjuicios de toda naturaleza que pudieran deberse al accionar de terceros no autorizados respecto de los Datos Personales de los Usuarios, así como de los Servicios ofrecidos en el Sitio Web.
 </br>
-5.8. COVID-19: En la sección Inmobiliaria Seguras se encuentran identificadas las inmobiliarias que declararon a W.B.O. Software estar debidamente matriculadas, autorizadas para funcionar y cumplir con las normas de seguridad sanitarias dispuestas por las Autoridades de Control Gubernamentales y las sugeridas por el Colegio Unico de Corredores Inmobiliarios de la Ciudad de Buenos Aires, Cámara Inmobiliaria Argentina, Colegios de Martillero de jurisdicciones provinciales y entidades afines y relacionadas con la actividad inmobiliaria (las “Normas y Protocolos de Seguridad Sanitaria”). Por lo tanto, W.B.O. Software no verifica la debida adopción de las Normas y Protocolos de Seguridad Sanitaria ni garantiza el efectivo cumplimiento de las mismas, y en consecuencia, no será responsable por cualquier incumplimiento a las Normas y Protocolos de Seguridad Sanitaria dictadas por la pandemia COVID-19.  
-</br>
+
 </br>
 </br>
 6. VÍNCULOS A OTROS SITIOS.
@@ -193,7 +192,7 @@ Usted acepta mantener indemne a W.B.O. Software de y contra cualquier cargo, acc
 </br>
 10.1. W.B.O. Software se reserva el derecho a modificar total o parcialmente estas Condiciones Generales en cualquier momento. En caso de llevar a cabo alguna modificación, W.B.O. Software notificará al Usuario a la dirección de correo electrónico registrada para utilizar el Sitio Web y los Servicios. El Usuario acepta que la notificación por parte de W.B.O. Software a dicha dirección de correo electrónico tendrá plena validez como notificación suficiente, y renuncia a cualquier tipo de impugnación respecto de las notificaciones cursadas por W.B.O. Software a tal dirección de correo electrónico. Asimismo, si el Usuario persiste en la utilización de los Servicios y/o el Sitio Web, se considerará que ha aceptado implícitamente las nuevas Condiciones Generales.
 </br>
-10.2. En caso de declararse la nulidad de alguna de las cláusulas de estas Condiciones Generales, tal nulidad no afectará a la validez de las restantes, las cuales mantendrán su plena vigencia y efecto. 
+10.2. En caso de declararse la nulidad de alguna de las cláusulas de estas Condiciones Generales, tal nulidad no afectará la validez de las restantes, las cuales mantendrán su plena vigencia y efecto. 
 </br>
 10.3. Estas Condiciones Generales, junto con la Política de Privacidad [INSERTAR LINK A POLÍTICA DE PRIVACIDAD] constituyen la totalidad del acuerdo entre Usted y W.B.O. Software respecto del uso del Sitio Web.
 </br>
@@ -212,7 +211,7 @@ La prestación del Servicio del Sitio Web tiene una duración indeterminada. Sin
 </br>
 12.1.2. El Sitio Web es www.tuproximaprop.com.
 </br>
-12.1.3. Estas Condiciones Generales se rigen por la las leyes de la República Argentina. El Usuario se somete a la jurisdicción de los Tribunales Ordinarios de la Ciudad de Buenos Aires, con renuncia expresa a cualquier otro fuero y/o jurisdicción.
+12.1.3. Estas Condiciones Generales se rigen por las leyes de la República Argentina. El Usuario se somete a la jurisdicción de los Tribunales Ordinarios de la Ciudad de Buenos Aires, con renuncia expresa a cualquier otro fuero y/o jurisdicción.
 </br>
  </p>
 </div>
