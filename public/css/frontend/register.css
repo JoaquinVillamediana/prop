@@ -1,0 +1,92 @@
+.main-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: 70vh;
+}
+
+h1 {
+    text-align: center;
+}
+
+.user-type {
+    /* width: fit-content; */
+    list-style-type: none;
+    margin: 25px 0 0 0;
+    padding: 0;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.user-type li {
+    float: left;
+    margin: 0 5px 0 0;
+    max-width: 400px;
+    width: 40%;
+    height: 40px;
+    position: relative;
+}
+
+.user-type label,
+.user-type input {
+    text-align: center;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: auto;
+    margin-top: auto;
+    font-size: 24px;
+}
+
+.user-type input[type="radio"] {
+    opacity: 0.01;
+    z-index: 100;
+}
+
+.user-type input[type="radio"]:checked+label,
+.Checked+label {
+    background: var(--main-color);
+    color: #ffffff;
+}
+
+.user-type label {
+    padding: 5px;
+    border: 1px solid #CCC;
+    cursor: pointer;
+    z-index: 90;
+}
+
+.user-type label:hover {
+    background: #DDD;
+}
+
+#name_last_div {
+    display: none;
+}
+
+#dni_div {
+    display: none;
+}
+
+.btn-prop {
+    color: #ffffff;
+    background-color: var(--main-color);
+    margin-top: 20px !important;
+}
+
+.btn-prop:hover {
+    background-color: var(--main-light-color);
+}
+
+@media (orientation: portrait) {
+    .user-type label,
+    .user-type input {
+        font-size: 16px;
+    }
+}
