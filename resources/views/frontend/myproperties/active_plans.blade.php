@@ -42,12 +42,12 @@
                             @if(!empty($aPlans))
                             @foreach($aPlans as $user)
                             <tr>
-                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->pay_id_mp }}</td>
                                 <td>{{ $user->plans_name }}</td>
                                 <td>{{ $user->created_at }}</td>
                                 <td>{{ $user->plans_price }}</td>
-                                <td>{{ $user->add_cuantity }}</td>
-                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->add_quantity }}</td>
+                                <td>{{ $user->pay_id_mp }}</td>
                                 <td>{{ $user->id }}</td>
                                
                             </tr>   

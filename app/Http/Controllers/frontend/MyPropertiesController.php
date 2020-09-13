@@ -265,7 +265,7 @@ class MyPropertiesController extends Controller {
   public function user_plans()
   {
     $user = Auth::user()->id;
-    $aPlans=UserPlansActivesModel::select('user_plans_actives.*','publish_plans.name as plans_name','publish_plans.num_add as add_cuantity','publish_plans.price as plans_price')
+    $aPlans=UserPlansActivesModel::select('user_plans_actives.*','publish_plans.name as plans_name','publish_plans.price as plans_price')
     ->leftjoin('publish_plans','user_plans_actives.plan_id','publish_plans.id')
     ->where('user_id',$user)
     ->get();

@@ -13,6 +13,7 @@ class UserPlansActivesModel extends Model
     protected $fillable = [
         'id',
         'user_id',
+        'add_quantity',
         'plan_id'
         
         
