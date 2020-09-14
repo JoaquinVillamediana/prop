@@ -110,7 +110,7 @@ class PublishController extends Controller {
             'price' => 'required|numeric|max:10000000',
             'expenses' => 'required|numeric|max:100000',
             'introduction' => 'required|max:60',
-            'description' => 'required|max:255',
+            'description' => 'required|max:2000',
             'address' => 'required|max:100',
             'rooms' => 'required|numeric|max:30',
             'bedrooms' => 'required|numeric|max:20',

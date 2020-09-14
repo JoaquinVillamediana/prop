@@ -18,7 +18,7 @@
                     <div class="col">
                         <h1>Opciones para publicar</h1>
                         <div class="mt-3"> 
-                            Elegí una opción para poder encontrar los planes que mas te sirvan
+                            Elegí una opción para poder encontrar los planes que más te sirvan
                         </div>
                        
                     </div>
@@ -61,14 +61,14 @@
                                     </a>
                                 </div>
                              </div>
-                             <!-- <button type="button" class="btn btn-outline-warning">Elegir</button> -->
+                             
                             
                              @if (empty(Auth::user()->id))
-                        <!-- <a href="{{ route('pago',$planes->id) }}"> -->
-                        <a class="btn btn-outline-prop" href="{{ route('pago',$planes->id) }}" role="button">Elegir</a>
+                             <a class="btn btn-outline-prop" href="{{ route('login') }}" role="button">Elegir</a>
+                       
                         @else
-                        <!-- <a href="{{ route('publish_publicationtype',$planes->id) }}"> -->
-                        <a class="btn btn-outline-prop" href="{{ route('publish_propertie_plan',$planes->id) }}" role="button">Elegir</a>
+                        <a class="btn btn-outline-prop" href="{{ route('pago',$planes->id) }}" role="button">Elegir</a>
+                       
                         @endif
 
 
