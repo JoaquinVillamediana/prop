@@ -217,6 +217,11 @@ $(document).on('click', '.order-option', function() {
     ajaxRequest("GET", '../getFilterProperties', oSearch, "updateProps");
 });
 
+$(document).on('change', '#currency', function() {
+    let present_currency = aCurrencies.find(element => element.id == $(this).val());
+    $('span.currency-symbol').html(present_currency.symbol);
+});
+
 
 
 function deleteFilters() {
@@ -236,7 +241,7 @@ function deleteFilters() {
     $('#locality').val("");
     $('.options').hide();
 
-    $("#currency").val("1");
+    $("#currency").val("2");
 
     $('#slider-price-min').val('0');
     $('#slider-price-max').val('3000000');
