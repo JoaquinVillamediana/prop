@@ -115,9 +115,9 @@ Route::get('contact', 'frontend\ContactController@index')->name('contact');
 
 
 //
-Route::get('register_users', 'frontend\RuserController@index')->name('register_users');
-Route::post('store_register_users', 'frontend\RuserController@store')->name('store_register_users');
-Route::post('store_register_users_publish', 'frontend\RuserController@store_publish')->name('store_register_users_publish');
+Route::resource('register_users', 'frontend\RuserController');
+
+
 
 //rutas de admin
 Route::get('users', 'admin\UserController@index')->name('users');
