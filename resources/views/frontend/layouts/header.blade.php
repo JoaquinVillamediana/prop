@@ -11,7 +11,7 @@
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link important" href="{{ route('publish') }}">Publicar una propiedad</a>
+        <a class="nav-link important" href="{{ route('publish') }}" style="font-weight: bold;">Publicar una propiedad</a>
       </li>
        <li class="nav-item">
          <a class="nav-link " href="{{ route('search_compra') }}">Comprar</a>
