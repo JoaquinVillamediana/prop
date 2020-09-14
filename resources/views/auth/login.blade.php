@@ -52,7 +52,7 @@
                                         {{ __('¿Has olvidado los datos de la cuenta?') }}
                                     </a>
                                 @endif
-                                <a class="btn btn-link" href="{{ route('register_users') }}">
+                                <a class="btn btn-link" href="{{ route('register_users.index') }}">
                                         {{ __('¿No tenes cuenta? Registrate') }}
                                     </a>
                             </div>
