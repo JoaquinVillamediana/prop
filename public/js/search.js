@@ -44,6 +44,9 @@ $(document).ready(() => {
     oSearch.min_expenses = $('#slider-expenses-min').val();
     oSearch.currency = $('#currency').val();
 
+    let present_currency = aCurrencies.find(element => element.id == oSearch.currency);
+    ajustCurrency(present_currency);
+
 
     if (default_type != null) {
         $('#optype' + default_type).prop('checked', true);
@@ -217,9 +220,31 @@ $(document).on('click', '.order-option', function() {
     ajaxRequest("GET", '../getFilterProperties', oSearch, "updateProps");
 });
 
+function ajustCurrency(present_currency) {
+    $('span.currency-symbol').html(present_currency.symbol);
+    if (present_currency.id == 1) {
+        $('#slider-price-max').attr('max', 500000);
+        $('#slider-price-max').val(500000);
+        $('#price-max').html(formatNumber.new(500000));
+        $('#slider-price-min').attr('max', 500000);
+    }
+    if (present_currency.id == 2) {
+        $('#slider-price-max').attr('max', 3000000);
+        $('#slider-price-max').val(3000000);
+        $('#price-max').html(formatNumber.new(3000000));
+        $('#slider-price-min').attr('max', 3000000);
+    }
+
+
+    $('#slider-price-min').val(0);
+    $('#price-min').html(formatNumber.new(0));
+
+
+}
+
 $(document).on('change', '#currency', function() {
     let present_currency = aCurrencies.find(element => element.id == $(this).val());
-    $('span.currency-symbol').html(present_currency.symbol);
+    ajustCurrency(present_currency);
 });
 
 

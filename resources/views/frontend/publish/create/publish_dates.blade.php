@@ -124,12 +124,12 @@
 
         <div class="form-group col-md-6 col-12">
           <label for="">Descripción</label>
-          <textarea id="description" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" rows="4" maxlength="2000"
+          <textarea id="description" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" rows="4" maxlength="255"
             cols="50" placeholder="Escribe una descripción."></textarea>
-            <span id="chars">2000</span>
+            <span id="chars">255</span>
             @if ($errors->has('description'))
             <span id="" class="invalid-feedback" role="alert" style="display:block;">
-                <strong>Debe introducir una descripción válida (max. 2000)</strong>
+                <strong>Debe introducir una descripción válida (max. 255)</strong>
             </span>
             @endif
         </div>
@@ -394,7 +394,7 @@
 </script>
 
 <script>
-var maxLength = 2000;
+var maxLength = 255;
 $('#description').keyup(function() {
   var length = $(this).val().length;
   var length = maxLength-length;
