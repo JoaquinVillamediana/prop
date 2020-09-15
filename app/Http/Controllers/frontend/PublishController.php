@@ -320,6 +320,76 @@ class PublishController extends Controller {
     }
 
 
+    public function store_files2(Request $request)
+    {
+
+        if(!empty($request['image']))
+        {
+            $aValidations = array(
+                'image' => 'required|max:10240|mimes:jpeg,png,jpg,gif'
+            );               
+        }
+        else
+        {
+            $aValidations = array(
+                'video' => 'required|max:10240|mimes:jpeg,png,jpg,gif'
+            ); 
+        }
+
+        
+
+        $this->validate($request , $aValidations);
+
+        if (!empty($request['image'] || !empty($request['video']) )) {
+            
+            if(!empty($request['image']))
+            {
+            $image = $request['image'];   
+            $type = 0;             
+            }
+            else
+            {
+                $image = $request['video'];  
+                $type = 1;
+            }
+            
+            $fileName = $image->getClientOriginalName();
+            $storeImageName = uniqid(rand(0, 1000), true) . "-" . $fileName;
+            $fileExtension = $image->getClientOriginalExtension();
+            $realPath = $image->getRealPath();
+            $fileSize = $image->getSize();
+            $fileMimeType = $image->getMimeType();
+            
+            $propietie_id = $request['id'];
+            $destinationPath = 'images/publish';
+            $image->move($destinationPath, $storeImageName);
+
+            $dataxd=array('image' => $storeImageName,'propietie_id' => $propietie_id,'type' => $type,'main_image' => 1);
+            ImageModel::insert($dataxd);
+             $image_id = ImageModel::max('id');
+             $aImages = ImageModel::where('propietie_id','=',$request['propietie_id'])
+            ->get();
+
+             foreach($aImages as $image)
+            {
+                 if($image->id != $image_id)
+                {
+                   if($image->main_image == 1)
+                    {
+                         $image->main_image = 0;
+                         $image->save();
+                     }
+                 }
+
+            }
+
+            
+            
+        return redirect()->route('my_properties_edit_photos',$propietie_id);
+            
+        }
+     
+    }
 
 
 

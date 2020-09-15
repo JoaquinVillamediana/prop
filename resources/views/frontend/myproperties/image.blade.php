@@ -76,7 +76,7 @@
                     <tr>
                         <td>
                             <a class="m-auto btn btn-prop"  data-toggle="modal"
-                data-target="#imageModal"><i class="fas fa-plus mr-1"></i>Cargar Nueva
+                data-target="#imageModal2"><i class="fas fa-plus mr-1"></i>Cargar Nueva
                 Imagen</a>
                         </td>
                         <td></td>
