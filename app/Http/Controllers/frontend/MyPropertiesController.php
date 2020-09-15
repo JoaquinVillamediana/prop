@@ -32,8 +32,9 @@ class MyPropertiesController extends Controller {
         
       $user = Auth::user()->id;
 
-      $aProperties = PropertiesModel::select('properties.*','currency.symbol')
+      $aProperties = PropertiesModel::select('properties.*','currency.symbol','publish_plans.name as plan_name')
       ->leftjoin('currency','properties.currency_id','currency.id')
+      ->leftjoin('publish_plans','properties.plan_id','publish_plans.id')
       ->where('properties.visible','=','1')
       ->where('properties.user_id',$user)
       ->get();
@@ -73,8 +74,18 @@ class MyPropertiesController extends Controller {
       and p.visible = 1
       GROUP BY u.id
        ');
+
+       $aPublish=DB::select('SELECT upa.*,COUNT(p.id) countprop, pp.name as plan_name
+       FROM user_plans_actives upa
+       LEFT JOIN properties p ON (upa.id = p.plan_id) 
+       LEFT JOIN publish_plans pp ON (upa.plan_id = pp.id)
+       where upa.deleted_at is null
+       and upa.user_id = "'.$user.'"
+       and p.visible = 1
+       GROUP BY upa.id
+        ');
         
-      return view('frontend/myproperties.index',compact('aProperties','aDatos','aDatosProp','aViews'));
+      return view('frontend/myproperties.index',compact('aProperties','aDatos','aDatosProp','aViews','aPublish'));
 
     }
 

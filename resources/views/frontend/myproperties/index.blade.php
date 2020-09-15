@@ -78,6 +78,48 @@
   </div>
 
 
+  <section id="publicar">
+  <h2>Mis opciones para publicar</h2>
+
+  <table class="table table-bordered" id="dataTable_user" width="100%" cellspacing="0">                        
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>PLAN</th>
+                                <th>F. DE VENCIMIENTO</th> 
+                                <th>CANTIDAD DE ANUNCIOS</th>                                                            
+                                <th>PUBLICADOS</th>
+                                <th>DISPONIBLES</th>
+                                <th>AGREGAR PROPIEDAD</th>
+                           
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            @if(!empty($aPublish))
+                            @foreach($aPublish as $publi)
+                            <tr>
+                                <td>{{ $publi->id }}</td>
+                                <td>{{ $publi->plan_name }}</td>
+                                <td>{{ $publi->expiration_at }}</td>
+                                <td>{{ $publi->add_quantity }}</td>
+                                <td>{{ $publi->countprop }}</td>
+                                <td>{{ $publi->add_quantity-$publi->countprop }}</td>
+                                <td> @if(($publi->add_quantity-$publi->countprop) < 1 ) {{ "NO ESTA DISPONIBLE" }} @else 
+                                <a class="btn btn-outline-prop" href="{{ route('publish_propertie_plan',$publi->plan_id) }}" role="button"> +</a>
+                                @endif
+                                </td>
+                            </tr>   
+                            @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+
+
+
+  </section>
+
+
   <section id="propiedades">
     <h2>Mis porpiedades publicadas</h2>
 
@@ -102,7 +144,7 @@
           </div>
           <div class="col-xl-6 col-12"><a href="http://192.168.0.200:8080/propietie/{{ $prop->id }}">
               <div class="card-block ">
-                <h3 class="card-title mt-2 "> {{ $prop->name }} </h3>
+                <h3 class="card-title mt-2 "> {{ $prop->name }} </h3> <h3><i class="fab fa-adversal"></i> {{ $prop->plan_name }} </h3> 
                 <h3 class="price"><span class="currency"><span class="currency-symbol">{{ $prop->symbol }}</span></span>
                   {{ $prop->price}}</h3>
                 <p class="card-text description">{{ $prop->description}}</p>

@@ -70,7 +70,7 @@
                         @else
                       
                         <a class="btn btn-outline-prop" href="{{ route('pago',$planes->id) }}" role="button">Elegir</a>
-                        <a class="btn btn-outline-prop" href="{{ route('publish_propertie_plan',$planes->id) }}" role="button">Elegir sin pagar</a>
+                        
                         @endif
 
 
