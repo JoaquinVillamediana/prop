@@ -25,7 +25,14 @@ class ProfileController extends Controller {
 
     public function user_perfil_publicaciones($user_id) {
         
-      
+        $aProperties = PropertiesModel::select('properties.*','currency.symbol','images.image')
+        ->leftjoin('currency','currency.id','=','properties.currency_id')
+        ->leftjoin('images','images.propietie_id','=','properties.id')
+        ->where('images.main_image','=','1')
+        ->where('images.deleted_at','=',NULL)
+        ->paginate(9);
+        
+
         $aUser = DB::select('SELECT u.*,COUNT(p.id) AS countprop
         FROM users u
         LEFT JOIN properties p
@@ -36,7 +43,7 @@ class ProfileController extends Controller {
         GROUP BY u.id
          ');
 
-         $aProperties=DB::select('SELECT * FROM properties where deleted_at is null and user_id = "'.$user_id.'"');
+      
 
          return view('frontend/profile_userx.index',compact('aUser','aProperties'));
     }

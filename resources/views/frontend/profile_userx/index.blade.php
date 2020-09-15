@@ -8,11 +8,7 @@
 @foreach($aUser as $data_user)
 <div class="container-prueba mt-4 mb-2">
     <h1 style="text-align:center;">
-    {{ $data_user->name }} -     @if($data_user->type == 2)
-                            Particular 
-                            @else 
-                            Profesional
-                            @endif
+    {{ $data_user->name }}
     </h1>
     </br>
     
@@ -48,12 +44,7 @@
                             </p>
                         </div>
                         <div class="col-md-6">
-                            <h6>Etiquetas</h6>
-                            @if($data_user->type == 2)
-                            <a href="#" class="badge badge-dark badge-pill">Particular</a> 
-                            @else 
-                            <a href="#" class="badge badge-dark badge-pill">Profesional</a>
-                            @endif
+                         
                             
                             @if($data_user->countprop != 0)
                             <a href="#props" class="badge badge-dark badge-pill">{{ $data_user->countprop }} Publicaciones</a>
@@ -102,28 +93,28 @@
     @if(!empty($aProperties))
 <div class="row">
   @foreach ($aProperties as $prop)
-  @if($prop->user_id ==  $data_user->id)
       <div class="col-md-4 mb-4 propertie">
       {{-- <a href="{{ route('propietie') }}"> --}}
         <div class="card">
           <div class="image">
-            <img src="/images/index/home1.jpg" class="card-img-top" alt="...">
+            <img src="/images/publish/{{$prop->image}}" class="card-img-top" alt="No se encontro la imagen">
 
             <div class="row row-caracs">
 
-              <span class="characteristic" data-toggle="tooltip" data-placement="top" title="3 Ambientes">3<i class="fas fa-home"></i></span>
+              <span class="characteristic" data-toggle="tooltip" data-placement="top" title="{{$prop->rooms}} Ambientes">{{$prop->rooms}}<i class="fas fa-home"></i></span>
 
-              <span class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Baño">1<i class="fas fa-toilet"></i></span>
+              <span class="characteristic" data-toggle="tooltip" data-placement="top" title="{{$prop->bathrooms}} Baños">{{$prop->bathrooms}}<i class="fas fa-toilet"></i></span>
 
-              <span class="characteristic" data-toggle="tooltip" data-placement="top" title="1 Dormitorio">1<i class="fas fa-bed"></i></span>
+              <span class="characteristic" data-toggle="tooltip" data-placement="top" title="{{$prop->bedrooms}} Dormitorios">{{$prop->bedrooms}}<i class="fas fa-bed"></i></span>
             </div>
             
           </div>
 
+          
           <div class="card-body">
-            <h5 class="card-title mb-0"> {{$prop->name}}</h5>
-
-            <p class="card-text">{{$prop->description}}.</p>
+            <h5 class="card-title mb-1"> {{$prop->name}}</h5>
+            <h5 class="card-title mb-1"><b>{{$prop->symbol}}</b> {{ number_format($prop->price, 0, ',', '.')  }}</h5>
+            <p class="card-text">{{$prop->introduction}}.</p>
             <a href="{{ route('propietie',$prop->id) }}" class="btn btn-moreinfo">Más información</a>
           </div>
         </div>
@@ -131,16 +122,20 @@
       </div>
 
       
-@endif
+
     
       @endforeach
+      <div class="pag col-12">
+        {{ $aProperties->links() }}
+      </div>
+
     </div>
     @endif
 <script>$(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })</script>
     
-
+    <script src="/js/home.js"></script>
 
   </div>
 </section>

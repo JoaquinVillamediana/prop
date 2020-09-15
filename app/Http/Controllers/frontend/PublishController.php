@@ -110,7 +110,7 @@ class PublishController extends Controller {
             'price' => 'required|numeric|max:10000000',
             'expenses' => 'required|numeric|max:100000',
             'introduction' => 'required|max:60',
-            'description' => 'required|max:255',
+            'description' => 'required|max:2000',
             'address' => 'required|max:100',
             'rooms' => 'required|numeric|max:30',
             'bedrooms' => 'required|numeric|max:20',
@@ -130,7 +130,8 @@ class PublishController extends Controller {
         $name = $request['name'];
         $currency_id = $request['currency'];
         $price = $request['price'];
-      
+        $plan_id = $request['plan_id'];
+        
         $introduccion = $request['introduction'];
         $description = $request['description'];
         $rooms = $request['rooms'];
@@ -154,7 +155,7 @@ class PublishController extends Controller {
         
         $data = array('operation_type_id' => $operation_type_id,'propietie_type_id' => $propietie_type_id,'location_id' => $location_id,'user_id' => $user,'direction' => $direction,
         'name' => $name,'introduction' => $introduccion,'description' => $description,'currency_id' => $currency_id,'price' => $price,'expenses' => $expensas,'rooms' => $rooms,
-        'bedrooms' => $bedrooms,'bathrooms' => $bathrooms,'years' => $years,'size' => $size);
+        'bedrooms' => $bedrooms,'bathrooms' => $bathrooms,'years' => $years,'size' => $size,'plan_id' => $plan_id);
 
         PropertiesModel::insert($data);
         $propietie_id = PropertiesModel::max('id');

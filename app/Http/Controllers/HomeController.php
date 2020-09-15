@@ -48,6 +48,7 @@ class HomeController extends Controller
         ->leftjoin('currency','currency.id','=','properties.currency_id')
         ->leftjoin('images','images.propietie_id','=','properties.id')
         ->where('images.main_image','=','1')
+        ->where('images.deleted_at','=',NULL)
         ->paginate(9);
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();

@@ -16,7 +16,7 @@
     <div class="container">
       <h1 class="text-center mb-2">Publicá tu propiedad</h1>
       <h4 class="">Aspectos básicos</h4>
-      
+      <input type="hidden" name="plan_id" id="plan_id" value="{{empty($plan_id) ? '' : $plan_id}}">
       <!--  -->
       <div class="form-row">
         <div class="form-group col-md-6 col-12">
@@ -124,12 +124,12 @@
 
         <div class="form-group col-md-6 col-12">
           <label for="">Descripción</label>
-          <textarea id="description" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" rows="4" maxlength="255"
+          <textarea id="description" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" rows="4" maxlength="2000"
             cols="50" placeholder="Escribe una descripción."></textarea>
-            <span id="chars">255</span>
+            <span id="chars">2000</span>
             @if ($errors->has('description'))
             <span id="" class="invalid-feedback" role="alert" style="display:block;">
-                <strong>Debe introducir una descripción válida (max. 255)</strong>
+                <strong>Debe introducir una descripción válida (max. 2000)</strong>
             </span>
             @endif
         </div>
@@ -394,7 +394,7 @@
 </script>
 
 <script>
-var maxLength = 255;
+var maxLength = 2000;
 $('#description').keyup(function() {
   var length = $(this).val().length;
   var length = maxLength-length;
