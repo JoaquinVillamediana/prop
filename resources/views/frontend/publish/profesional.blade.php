@@ -65,7 +65,7 @@
                             
                              @if (empty(Auth::user()->id))
                         <!-- <a href="{{ route('pago',$planes->id) }}"> -->
-                        <a class="btn btn-outline-prop" href="{{ route('pago',$planes->id) }}" role="button">Elegir</a>
+                        <a class="btn btn-outline-prop" href="{{ route('login') }}" role="button">Elegir</a>
                         @else
                         <!-- <a href="{{ route('publish_publicationtype',$planes->id) }}"> -->
                         <a class="btn btn-outline-prop" href="{{ route('pago',$planes->id) }}" role="button">Elegir</a>
