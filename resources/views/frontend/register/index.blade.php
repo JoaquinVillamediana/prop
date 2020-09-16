@@ -29,7 +29,7 @@
         </div>
 
         <div class="form-group" id="company_name_div">
-            <label for="">Nombre de la compañia</label>
+            <label for="">Nombre de la compañia <span class="text-danger"><sup>(*)</sup></span></label>
             <input id="company_name" type="text" class="form-control @error('company_name') is-invalid @enderror" name="company_name"
                 value="{{ old('company_name') }}"  >
             @error('company_name')
@@ -42,7 +42,7 @@
 
         <div class="form-row" id="name_last_div">
             <div class="form-group col-md-6 col-12">
-                <label for="">Nombre</label>
+                <label for="">Nombre  <span class="text-danger"><sup>(*)</sup></span></label>
                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                     value="{{ old('name') }}"  >
                 @error('name')
@@ -52,7 +52,7 @@
                 @enderror
             </div>
             <div class="form-group col-md-6 col-12">
-                <label for="">Apellido</label>
+                <label for="">Apellido  <span class="text-danger"><sup>(*)</sup></span></label>
                 <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror"
                     name="last_name" value="{{ old('last_name') }}"  >
                 @error('last_name')
@@ -66,7 +66,7 @@
 
         <div class="form-row" id="email_phone_div">
             <div class="form-group col-md-6 col-12">
-                <label for="">Email</label>
+                <label for="">Email  <span class="text-danger"><sup>(*)</sup></span></label>
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror @error('duplicated_email_error') is-invalid @enderror" name="email"
                     value="{{ old('email') }}"  >
                 @error('email')
@@ -93,7 +93,7 @@
         </div>
 
         <div class="form-group" id="cuit_div">
-            <label for="">CUIT</label>
+            <label for="">CUIT  <span class="text-danger"><sup>(*)</sup></span></label>
             <input id="cuit" type="text" class="form-control @error('cuit') is-invalid @enderror" name="cuit"
                 value="{{ old('cuit') }}"   >
             @error('cuit')
@@ -104,7 +104,7 @@
         </div>
 
         <div class="form-group" id="dni_div">
-            <label for="">DNI / PASAPORTE</label>
+            <label for="">DNI / PASAPORTE  <span class="text-danger"><sup>(*)</sup></span></label>
             <input id="dni" type="text" class="form-control @error('dni') is-invalid @enderror" name="dni"
                 value="{{ old('dni') }}"   >
             @error('dni')
@@ -115,7 +115,7 @@
         </div>
 
         <div class="form-group" id="reason_div">
-            <label for="">Razón social</label>
+            <label for="">Razón social  <span class="text-danger"><sup>(*)</sup></span></label>
             <input id="social_reason" type="text" class="form-control @error('social_reason') is-invalid @enderror" name="social_reason"
                 value="{{ old('social_reason') }}"  >
             @error('social_reason')
@@ -127,7 +127,7 @@
 
         <div class="form-row">
             <div class="form-group col-md-6 col-12">
-                <label for="">Contraseña</label>
+                <label for="">Contraseña  <span class="text-danger"><sup>(*)</sup></span></label>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                     name="password" value="{{ old('password') }}"  >
                 @error('password')
@@ -137,7 +137,7 @@
                 @enderror
             </div>
             <div class="form-group col-md-6 col-12">
-                <label for="">Confirmar contraseña</label>
+                <label for="">Confirmar contraseña  <span class="text-danger"><sup>(*)</sup></span></label>
                 <input id="password_confirm" type="password"
                     class="form-control @error('password_confirm') is-invalid @enderror  @error('passwords_not_equal') is-invalid @enderror" name="password_confirm"
                     value="{{ old('password_confirm') }}"  >
@@ -154,6 +154,7 @@
             </div>
         </div>
         
+        <p class="text-danger">(*) Items obligatorios. Al introducir un teléfono aceptas que este sea publicado.</p>
         <button type="submit" class="d-block m-auto btn btn-prop">Crear cuenta</button>
     </form>
 

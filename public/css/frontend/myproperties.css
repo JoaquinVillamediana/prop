@@ -64,3 +64,8 @@ h2 {
 #viewsPerPeriod {
     margin-top: 40px;
 }
+
+p.plan {
+    color: #000000;
+    font-size: 14px;
+}

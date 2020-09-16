@@ -32,12 +32,14 @@ class MyPropertiesController extends Controller {
         
       $user = Auth::user()->id;
 
-      $aProperties = PropertiesModel::select('properties.*','currency.symbol','publish_plans.name as plan_name')
+      $aProperties = PropertiesModel::select('properties.*','currency.symbol','publish_plans.name as plan_name','publish_plans.color as plan_color')
       ->leftjoin('currency','properties.currency_id','currency.id')
       ->leftjoin('publish_plans','properties.plan_id','publish_plans.id')
       ->where('properties.visible','=','1')
       ->where('properties.user_id',$user)
       ->get();
+
+
 
       $aViews = array();
       $totalViews = 0;

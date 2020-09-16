@@ -144,7 +144,8 @@
           </div>
           <div class="col-xl-6 col-12"><a href="http://192.168.0.200:8080/propietie/{{ $prop->id }}">
               <div class="card-block ">
-                <h3 class="card-title mt-2 "> {{ $prop->name }} </h3> <h3><i class="fab fa-adversal"></i> {{ $prop->plan_name }} </h3> 
+                <h3 class="card-title mt-2 "> {{ $prop->name }} </h3>
+              <p class="plan"><i style="color: {{$prop->plan_color}}" class="fas fa-circle mr-1"></i>PLAN {{$prop->plan_name}}</p>
                 <h3 class="price"><span class="currency"><span class="currency-symbol">{{ $prop->symbol }}</span></span>
                   {{ $prop->price}}</h3>
                 <p class="card-text description">{{ $prop->description}}</p>
