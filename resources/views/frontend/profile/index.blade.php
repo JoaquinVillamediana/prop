@@ -3,9 +3,9 @@
 @include('frontend/layouts.header')
 
 @section('content')
-<link rel="stylesheet" href="css/admin/users.css">
+
 <div class="container-prueba mt-4 mb-2">
-    <h1>
+    <h1 class="text-center">
     Mi perfil
     </h1>
     

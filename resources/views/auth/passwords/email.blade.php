@@ -1,7 +1,9 @@
 @extends('frontend/layouts.app')
+@include('frontend/layouts.header')
 
 @section('content')
-<div class="container">
+<link rel="stylesheet" href="/css/frontend/reset.css">
+<div class="container main-container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
