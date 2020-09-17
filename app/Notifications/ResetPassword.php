@@ -17,9 +17,9 @@ class ResetPassword extends ResetPasswordNotification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($token)
     {
-        //
+        $this->token = $token;
     }
 
     /**
@@ -45,8 +45,8 @@ class ResetPassword extends ResetPasswordNotification
                     ->greeting('Hola!')
                     ->subject('Restauración de contraseña - TuProximaProp')
                     ->line('Le enviamos este correo electrónico porque solicitó un cambio de contraseña para su cuenta.')
-                    ->action('Restaura tu constraseña ', url('/'))
-                    ->line('Gracias por utilizar TuProximaProp!');
+                    ->action('Restaura tu constraseña ', route('password.reset', $this->token) )
+                    ->line('Gracias por utilizar TuProximaProp!')
                     ->salutation('Saludos, TuProximaProp');
     }
 
