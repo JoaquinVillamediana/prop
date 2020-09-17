@@ -7,3 +7,17 @@
 .main-container .row {
     width: 100%;
 }
+
+.main-container .row .card {
+    border-color: rgba(var(--main-color-rgb), .4);
+}
+
+.btn-prop {
+    color: #ffffff;
+    background-color: var(--main-color);
+}
+
+.btn-prop:hover {
+    color: #ffffff;
+    background-color: var(--main-light-color);
+}
