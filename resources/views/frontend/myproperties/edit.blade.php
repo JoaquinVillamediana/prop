@@ -12,7 +12,8 @@
   @foreach($aProp as $prop)
 
 
-  <form method="POST" action="{{ route('mis_propiedades.update', $prop->id) }}" role="form" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('mis_propiedades.update', $prop->id) }}" role="form"
+    enctype="multipart/form-data">
     @csrf
     <input name="_method" type="hidden" value="PATCH">
     <div class="container">
@@ -51,24 +52,66 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="">Opciones de compra</label>
-          <div class="form-check no-min-height">
-            <input class="form-check-input" type="checkbox" value="" id="credit">
-            <label class="form-check-label" for="credit">
-              Apto crédito
-            </label>
-          </div>
+        
 
-          <div class="form-check no-min-height">
-            <input class="form-check-input" type="checkbox" value="" id="financing">
-            <label class="form-check-label" for="financing">
-              Apto Financiación
-            </label>
-          </div>
-        </div>
+
+       
 
       </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6 col-12">
+          <label for="">Tipo de propiedad</label>
+          <select class="form-control {{ $errors->has('property_type') ? 'is-invalid' : '' }}" name="property_type"
+            id="property_type">
+            @foreach ($aProperties_type as $type)
+            <option {{ !empty($type->checked) ? 'selected' : '' }} value="{{$type->id}}">
+              {{$type->name}}
+            </option>
+            @endforeach
+          </select>
+          @if ($errors->has('property_type'))
+          <span id="" class="invalid-feedback" role="alert" style="display:block;">
+            <strong>Debe introducir un propiedad válida.</strong>
+          </span>
+          @endif
+        </div>
+        <div class="form-group col-md-6 col-12">
+          <label for="">Tipo de operación</label>
+          <select class="form-control {{ $errors->has('operation_type') ? 'is-invalid' : '' }}" name="operation_type"
+            id="operation_type">
+            @foreach ($aOperation_type as $type)
+            <option {{ !empty($type->checked) ? 'selected' : '' }} value="{{$type->id}}">
+              {{$type->name}}
+            </option>
+            @endforeach
+          </select>
+          @if ($errors->has('operation_type'))
+          <span id="" class="invalid-feedback" role="alert" style="display:block;">
+            <strong>Debe introducir un operación válida.</strong>
+          </span>
+          @endif
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="">Opciones de compra</label>
+        <div class="form-check no-min-height">
+          <input class="form-check-input" type="checkbox" value="" id="credit">
+          <label class="form-check-label" for="credit">
+            Apto crédito
+          </label>
+        </div>
+
+        <div class="form-check no-min-height">
+          <input class="form-check-input" type="checkbox" value="" id="financing">
+          <label class="form-check-label" for="financing">
+            Apto Financiación
+          </label>
+        </div>
+      </div>
+
+
       <div class="form-group">
         <label for="">Expensas</label>
         <div class="input-group mb-3">
@@ -121,11 +164,11 @@
       </div>
       <div class="form-group edit-location">
         <label for="">Localidad</label>
-        <input type="text" id="location" class="form-control {{ $errors->has('locality') ? 'is-invalid' : '' }}"
-          name="" maxlength="100" value="{{ $prop->locality_name }}"> 
-          <div class="options">
-          </div>
-          <input type="hidden" name="locality" id="locality" value="{{ $prop->location_id}}">
+        <input type="text" id="location" class="form-control {{ $errors->has('locality') ? 'is-invalid' : '' }}" name=""
+          maxlength="100" value="{{ $prop->locality_name }}">
+        <div class="options">
+        </div>
+        <input type="hidden" name="locality" id="locality" value="{{ $prop->location_id}}">
         @if ($errors->has('locality'))
         <span id="" class="invalid-feedback" role="alert" style="display:block;">
           <strong>Debe introducir una localidad válida (max. 100)</strong>
@@ -267,7 +310,8 @@
         <div class="form-group col-md-2 col-sm-4 col-6">
           <div class="form-check">
             <input class="form-check-input" {{ !empty($characteristic->characteristic_checked) ? 'checked' : '' }}
-              name="characteristic-{{$characteristic->id}}" type="checkbox" value="{{ $characteristic->id }}" id="characteristic-{{$characteristic->id}}">
+              name="characteristic-{{$characteristic->id}}" type="checkbox" value="{{ $characteristic->id }}"
+              id="characteristic-{{$characteristic->id}}">
             <label class="form-check-label" for="characteristic-{{$characteristic->id}}">
               {{ $characteristic->name }}
             </label>
@@ -291,7 +335,9 @@
   @endforeach
   @endif
 </div>
-<script> const localities = {!! json_encode($aLocalities); !!}; </script>
+<script>
+  const localities = {!! json_encode($aLocalities); !!}; 
+</script>
 <script src="/js/functions.js"></script>
 <script src="/js/myproperties/edit.js"></script>
 
