@@ -111,6 +111,20 @@
                                 </td>
                             </tr>   
                             @endforeach
+                            @else 
+                            <tr>
+                              <td>
+                                No tienes planes contratados.
+                              </td>
+                              <td>
+
+                              </td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
                             @endif
                         </tbody>
                     </table>
@@ -121,9 +135,10 @@
 
 
   <section id="propiedades">
-    <h2>Mis porpiedades publicadas</h2>
+    
 
-    @if(!empty($aProperties))
+    @if(!empty($aProperties) && !empty($aProperties[0]->id))
+    <h2>Mis propiedades publicadas</h2>
     <div class="container">
       @foreach($aProperties as $prop)
 
