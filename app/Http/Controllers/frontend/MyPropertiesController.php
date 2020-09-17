@@ -96,7 +96,7 @@ class MyPropertiesController extends Controller {
 
       $aLocalities = LocalitiesModel::get();
 
-      $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id,(u.type) user_type,(u.phone) user_phone,(c.name) currency_name,(u.profile_image) profile_image,(l.nombre) locality_name 
+      $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id,(u.user_type) user_type,(u.phone) user_phone,(c.name) currency_name,(u.profile_image) profile_image,(l.nombre) locality_name 
       FROM properties p
       LEFT JOIN users u ON p.user_id = u.id
       LEFT JOIN currency c ON p.currency_id = c.id
@@ -137,14 +137,29 @@ class MyPropertiesController extends Controller {
       and properties_luxuries.deleted_at is null
       ;');
 
+      $aProperties_type = Properties_typeModel::select('properties_type.*','properties.propietie_type_id as checked')
+      ->leftjoin('properties',function($join) use ($id)
+      {
+        $join->on('properties_type.id','=','properties.propietie_type_id');
+        $join->on('properties.id',DB::raw($id));
+      })
+      ->get();
 
-      
+
+      $aOperation_type = Operation_typeModel::select('operation_type.*','properties.operation_type_id as checked')
+      ->leftjoin('properties',function($join) use ($id)
+      {
+        $join->on('operation_type.id','=','properties.operation_type_id');
+        $join->on('properties.id',DB::raw($id));
+      })
+      ->get();
+
      
       $aCurrencies = CurrencyModel::get();
 
       if(!empty($aProp)  &&  Auth::user()->id == $aProp[0]->user_id)
       {
-        return view('frontend/myproperties.edit',compact('aLocalities','aProp','aProperties_luxuries','aProperties_general_characteristics','aProperties_ambients','aProperties_services','aCurrencies'));
+        return view('frontend/myproperties.edit',compact('aOperation_type','aProperties_type','aLocalities','aProp','aProperties_luxuries','aProperties_general_characteristics','aProperties_ambients','aProperties_services','aCurrencies'));
 
       }
       else
@@ -171,7 +186,9 @@ class MyPropertiesController extends Controller {
           'bathrooms' => 'required|numeric|max:20',
           'size' => 'required|numeric|max:2000000',
           'antiquity' => 'required|numeric|max:100',
-          'locality' => 'required|numeric'
+          'locality' => 'required|numeric',
+          'property_type' => 'required|numeric',
+          'operation_type' => 'required|numeric',
       );
 
 
@@ -194,6 +211,8 @@ class MyPropertiesController extends Controller {
       $oProperties->direction = $request['address'];
       $oProperties->years = $request['antiquity'];
       $oProperties->location_id = $request['locality'];
+      $oProperties->operation_type_id = $request['operation_type'];
+      $oProperties->propietie_type_id = $request['property_type'];
 
       $oProperties->save();
 
