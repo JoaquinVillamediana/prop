@@ -65,7 +65,7 @@ class MyPropertiesController extends Controller {
       LEFT JOIN messages m ON (u.id = m.user_from_id) 
       where u.deleted_at is null
       and u.id = "'.$user.'"
-      GROUP BY u.id
+     
        ');
 
        $aDatosProp=DB::select('SELECT u.*,COUNT(p.id) countprop
