@@ -2,7 +2,7 @@
 @include('frontend/layouts.header')
 @section('content')
 <?php 
-MercadoPago\SDK::setAccessToken('APP_USR-1532561834263359-083119-186977ebfbb7fc0a40e9677191ec4969-339019119');
+MercadoPago\SDK::setAccessToken('TEST-1409795886297499-091817-d907db205d0e546b55e80ee286fa237c-648138539');
 
 ?>
 
@@ -22,6 +22,12 @@ $item->title =  $plan->name ;
 $item->quantity = 1;
 $item->unit_price =  $plan->price ;
 $preference->items = array($item);
+$preference->back_urls = array(
+    "success" => "http://192.168.0.200:8080/mis_propiedades",
+    "failure" => "http://192.168.0.200:8080/mis_propiedades",
+    "pending" => "http://192.168.0.200:8080/mis_propiedades"
+);
+$preference->auto_return = "approved";
 $preference->save();
   ?>
   <h2 class="text-center mt-4">PLAN <span style="color:{{$plan->color}}">{{$plan->name}}</span> </h2>
@@ -37,9 +43,19 @@ $preference->save();
   </div>
   <hr class="mt-5 mb-t5">
   <div class="price">
-    <h3 class="align-middle mr-1">Precio total por mes: ${{$plan->price}}</h3><script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+    <h3 class="align-middle mr-1">Precio total por mes: ${{$plan->price}}</h3>
+    
+    {{-- <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
     data-preference-id="{{ $preference->id}}">
+  </script> --}}
+
+<form action="{{ route('pago_completado') }}" method="POST">
+  @csrf
+  <script
+   src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+   data-preference-id="<?php echo $preference->id; ?>">
   </script>
+</form>
   </div>
 
 

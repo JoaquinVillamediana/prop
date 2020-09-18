@@ -311,6 +311,10 @@ class PublishController extends Controller {
      
     }
 
+    public function pago_completado(){
+        die;
+    }
+
 
    
 
