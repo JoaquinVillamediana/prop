@@ -1,15 +1,32 @@
-#descripcion{
-  margin-top: 30px;
-  margin-left: 80px;
-  margin-right: 30px;
-  margin-bottom: 450px;
-  width: 1000px;
+div.content {
+    min-height: 70vh;
+    display: flex;
+    /* align-items: center; */
 }
 
-#pago{
-  margin-top: 30px;
-  margin-left: 80px;
-  margin-right: 30px;
-  margin-bottom: 200px;
-;
+.main-container h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.main-container .descriptions {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.main-container .descriptions ul {
+    padding-left: 0;
+}
+
+.main-container .descriptions ul li {
+    list-style: none;
+}
+
+.main-container .price {
+    width: fit-content;
+    margin: auto;
+}
+
+.main-container .price h3 {
+    display: inline;
 }
