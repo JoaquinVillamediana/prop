@@ -239,7 +239,7 @@
             <div class="card-body">
               <h5 class="card-title"> @if($oProp->user_type == 1) {{ $oProp->user_name }} {{ $oProp->last_name }} @else {{ $oProp->user_name }} @endif</h5>
               <img src="/images/profile_pictures_users/{{ $oProp->profile_image }}"
-                class="mx-auto img-fluid img-circle d-block" alt="avatar">
+                class="mx-auto img-fluid img-circle d-block" alt="avatar" width="50" height="60">
               <p class="card-text">@if($oProp->user_type == 2) <i class="fas fa-user"></i> {{"dueño directo"}} | <i
                   class="fas fa-phone"></i> {{ $oProp->user_phone }} @else <i class="fas fa-user-tie"></i>
                 {{"Profesional"}} | <i class="fas fa-phone"></i> @if(!empty($data_user->phone))
