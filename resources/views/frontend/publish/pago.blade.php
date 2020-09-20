@@ -51,15 +51,11 @@ $preference->save();
     data-preference-id="{{ $preference->id}}">
   </script> --}}
 
-<form action="{{ route('pago_completado') }}" method="POST">
-  @csrf
-  <script
-   src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-   data-preference-id="<?php echo $preference->id; ?>">
-  </script>
-</form>
+
   </div>
 
+
+  <a href="<?php echo $preference->init_point; ?>">Pagar con Mercado Pago</a>
 
   @endforeach
   @endif
