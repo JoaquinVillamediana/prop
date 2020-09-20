@@ -14,7 +14,8 @@ class UserPlansActivesModel extends Model
         'id',
         'user_id',
         'add_quantity',
-        'plan_id'
+        'plan_id',
+        'pay_id_mp'
         
         
         

@@ -20,12 +20,14 @@ MercadoPago\SDK::setAccessToken('TEST-1409795886297499-091817-d907db205d0e546b55
 $item = new MercadoPago\Item();
 $item->title =  $plan->name ;
 $item->quantity = 1;
+
 $item->unit_price =  $plan->price ;
 $preference->items = array($item);
+$preference->external_reference = $external_reference;
 $preference->back_urls = array(
-    "success" => "http://192.168.0.200:8080/mis_propiedades",
-    "failure" => "http://192.168.0.200:8080/mis_propiedades",
-    "pending" => "http://192.168.0.200:8080/mis_propiedades"
+    "success" => route('pago_completado'),
+    "failure" => route('pago_completado'),
+    "pending" => route('pago_completado')
 );
 $preference->auto_return = "approved";
 $preference->save();

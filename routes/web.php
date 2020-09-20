@@ -90,7 +90,7 @@ Route::get('frecuent_questions', 'frontend\FrecuentesController@index')->name('f
 // pagar piblicacion o pulblicare sin  login
 Route::get('pago/{id}', 'frontend\PublishController@pago')->name('pago'); 
 
-Route::post('pago_completado','frontend\PublishController@pago_completado')->name('pago_completado');
+Route::get('pago_completado','frontend\PublishController@pago_completado')->name('pago_completado');
 
 Route::get('publish_publicationtype/{id}', 'frontend\PublishController@propietie_type')->name('publish_publicationtype');
 

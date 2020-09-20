@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\Models\PropertiesModel;
 use App\Models\Operation_typeModel;
+use App\Models\UserPlansActivesModel;
 use App\Models\Properties_typeModel;
 use App\Models\PlansModel;
 use App\Models\ImageModel;
@@ -20,6 +21,7 @@ use App\Models\PropertiesGeneralCharacteristicsModel;
 use App\Models\PropertiesLuxuriesModel;
 use App\Models\PropertiesAmbientsModel;
 use App\Models\PropertiesServicesModel;
+
 
 
 class PublishController extends Controller {
@@ -311,8 +313,36 @@ class PublishController extends Controller {
      
     }
 
-    public function pago_completado(){
-        die;
+    public function pago_completado(Request $request){
+        
+        $oPayment = new UserPlansActivesModel();
+        $external_reference = UserPlansActivesModel::where('user_id',Auth::user()->id)->count();
+        $external_reference = $external_reference.'-'.Auth::user()->id;
+        $aPlans = PlansModel::get();
+
+        foreach( $aPlans as $plan )
+        {
+            $reference_search = md5($external_reference.'-'.$plan->id);
+            if($reference_search == $request['external_reference'])
+            {
+                $oPayment->plan_id = $plan->id;
+                $oPayment->add_quantity = $plan->num_add;
+                $oPayment->expiration_at = date('Y-m-d', strtotime(now(). ' + 30 days'));
+            }
+        }
+
+        if(empty($oPayment->plan_id))
+        {
+            echo("Se ha producido un problema con tu pago, por favor comunicate con soporte@tuproximaprop.com");die;
+        }
+
+        
+        $oPayment->pay_id_mp = $request['collection_id'];
+        $oPayment->user_id = Auth::user()->id;
+        $oPayment->save();
+
+        
+        return redirect()->route('mis_propiedades.index');
     }
 
 
@@ -402,6 +432,10 @@ class PublishController extends Controller {
    
 
     public function pago($id) {
+        $external_reference = UserPlansActivesModel::where('user_id',Auth::user()->id)->count();
+        $external_reference = $external_reference.'-'.Auth::user()->id.'-'.$id;
+        $external_reference = md5($external_reference);
+           
 
         $aPlans=DB::select('SELECT *
         FROM publish_plans
@@ -410,7 +444,7 @@ class PublishController extends Controller {
         and id = "'.$id.'"
    ');
 
-        return view('frontend/publish.pago',compact('aPlans'));
+        return view('frontend/publish.pago',compact('aPlans','external_reference'));
     }
 
     public function setMainImage(Request $request ){
