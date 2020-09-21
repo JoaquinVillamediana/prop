@@ -316,6 +316,8 @@ class PublishController extends Controller {
     public function pago_completado(Request $request){
         
         $oPayment = new UserPlansActivesModel();
+        if($request['collection_status'] == 'approved')
+        {
         $external_reference = UserPlansActivesModel::where('user_id',Auth::user()->id)->count();
         $external_reference = $external_reference.'-'.Auth::user()->id;
         $aPlans = PlansModel::get();
@@ -341,6 +343,8 @@ class PublishController extends Controller {
         $oPayment->user_id = Auth::user()->id;
         $oPayment->save();
 
+            
+        }
         
         return redirect()->route('mis_propiedades.index');
     }

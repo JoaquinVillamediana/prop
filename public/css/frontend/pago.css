@@ -30,3 +30,12 @@ div.content {
 .main-container .price h3 {
     display: inline;
 }
+
+.btn-MP {
+    background-color: #009EE3;
+    color: #ffffff;
+}
+
+.btn-MP:hover {
+    color: #ffffff;
+}

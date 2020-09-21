@@ -20,7 +20,7 @@
   <h2>
     Panel de control
   </h2>
-<a href="{{ route('my_plans') }}"> Mis contrataciones</a>
+  <a href="{{ route('my_plans') }}"> Mis contrataciones</a>
 
   <div class="functions ">
     <!--  -->
@@ -79,55 +79,56 @@
 
 
   <section id="publicar">
-  <h2>Mis opciones para publicar</h2>
+    <h2>Mis opciones para publicar</h2>
 
-  <table class="table table-bordered" id="dataTable_user" width="100%" cellspacing="0">                        
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>PLAN</th>
-                                <th>F. DE VENCIMIENTO</th> 
-                                <th>CANTIDAD DE ANUNCIOS</th>                                                            
-                                <th>PUBLICADOS</th>
-                                <th>DISPONIBLES</th>
-                                <th>AGREGAR PROPIEDAD</th>
-                           
-                            </tr>
-                        </thead>
-                        
-                        <tbody>
-                            @if(!empty($aPublish))
-                            @foreach($aPublish as $publi)
-                            <tr>
-                                <td>{{ $publi->id }}</td>
-                                <td>{{ $publi->plan_name }}</td>
-                                <td>{{ $publi->expiration_at }}</td>
-                                <td>{{ $publi->add_quantity }}</td>
-                                <td>{{ $publi->countprop }}</td>
-                                <td>{{ $publi->add_quantity-$publi->countprop }}</td>
-                                <td> @if(($publi->add_quantity-$publi->countprop) < 1 ) {{ "NO ESTA DISPONIBLE" }} @else 
-                                <a class="btn btn-outline-prop" href="{{ route('publish_propertie_plan', $publi->plan_id) }}" role="button"> +</a>
-                                @endif
-                                </td>
-                            </tr>   
-                            @endforeach
-                            @else 
-                            <tr>
-                              <td>
-                                No tienes planes contratados.
-                              </td>
-                              <td>
+    <table class="table table-bordered" id="dataTable_user" width="100%" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>PLAN</th>
+          <th>F. DE VENCIMIENTO</th>
+          <th>CANTIDAD DE ANUNCIOS</th>
+          <th>PUBLICADOS</th>
+          <th>DISPONIBLES</th>
+          <th>AGREGAR PROPIEDAD</th>
 
-                              </td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            @endif
-                        </tbody>
-                    </table>
+        </tr>
+      </thead>
+
+      <tbody>
+        @if(!empty($aPublish))
+        @foreach($aPublish as $publi)
+        <tr>
+          <td>{{ $publi->id }}</td>
+          <td>{{ $publi->plan_name }}</td>
+          <td>{{ $publi->expiration_at }}</td>
+          <td>{{ $publi->add_quantity }}</td>
+          <td>{{ $publi->countprop }}</td>
+          <td>{{ $publi->add_quantity-$publi->countprop }}</td>
+          <td> @if(($publi->add_quantity-$publi->countprop) < 1 ) {{ "NO ESTA DISPONIBLE" }} @else <a
+              class="btn btn-outline-prop" href="{{ route('publish_propertie_plan', $publi->plan_id) }}" role="button">
+              +</a>
+              @endif
+          </td>
+        </tr>
+        @endforeach
+        @else
+        <tr>
+          <td>
+            No tienes planes contratados.
+          </td>
+          <td>
+
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        @endif
+      </tbody>
+    </table>
 
 
 
@@ -135,31 +136,34 @@
 
 
   <section id="propiedades">
-    
+
 
     @if(!empty($aProperties) && !empty($aProperties[0]->id))
     <h2>Mis propiedades publicadas</h2>
     <div class="container">
       @foreach($aProperties as $prop)
-
+      
       <div class="card" id="card-prop">
         <div class="row ">
           <div class="col-xl-6 col-12">
             <div id="carouselPropControls-{{ $prop->id }}" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-              @if(!empty($aImages))
-              @foreach($aImages as $img)
-              @if($img->propietie_id == $prop->id )
-              @if($img[0])
-              <div class="carousel-item active"><img src="/images/publish/{{ $img->image }}" class="d-block w-100"></div>
-              @else
-              <div class="carousel-item"><img src="/images/publish/{{ $img->image }}" class="d-block w-100"></div>
-              @endif
+                @if(!empty($aImages))
+                <?php $j = 0;?>
+                @foreach($aImages as $img)
+                @if($img->propietie_id == $prop->id )
+                @if($j == 0)
+                <div class="carousel-item active"><img src="/images/publish/{{ $img->image }}" class="d-block w-100">
+                </div>
+                @else
+                <div class="carousel-item"><img src="/images/publish/{{ $img->image }}" class="d-block w-100"></div>
+                @endif
 
+                <?php $j++; ?>
+                @endif
               
-              @endif
-              @endforeach
-              @endif
+                @endforeach
+                @endif
               </div><a class="carousel-control-prev" href="#carouselPropControls-{{ $prop->id }}" role="button"
                 data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span
                   class="sr-only">Previous</span></a><a class="carousel-control-next"
@@ -170,7 +174,8 @@
           <div class="col-xl-6 col-12"><a href="http://192.168.0.200:8080/propietie/{{ $prop->id }}">
               <div class="card-block ">
                 <h3 class="card-title mt-2 "> {{ $prop->name }} </h3>
-              <p class="plan"><i style="color: {{$prop->plan_color}}" class="fas fa-circle mr-1"></i>PLAN {{$prop->plan_name}}</p>
+                <p class="plan"><i style="color: {{$prop->plan_color}}" class="fas fa-circle mr-1"></i>PLAN
+                  {{$prop->plan_name}}</p>
                 <h3 class="price"><span class="currency"><span class="currency-symbol">{{ $prop->symbol }}</span></span>
                   {{ $prop->price}}</h3>
                 <p class="card-text description">{{ $prop->description}}</p>
@@ -181,16 +186,15 @@
                       class="fas fa-toilet"></i>Baños <span class="quantity">{{ $prop->bathrooms}}</span></span><span
                     id="bedrooms" class="characteristic" data-toggle="tooltip" data-placement="top"
                     title="{{ $prop->bedrooms}} Dormitorio"><i class="fas fa-bed"></i>Dormitorios <span
-                      class="quantity">{{ $prop->bedrooms}}</span></span> 
-                      <span id="size" class="characteristic"
-                    data-toggle="tooltip" data-placement="top" title="{{ $prop->size}} m2"><i
-                      class="fas fa-ruler-combined"></i>Tamaño <span
+                      class="quantity">{{ $prop->bedrooms}}</span></span>
+                  <span id="size" class="characteristic" data-toggle="tooltip" data-placement="top"
+                    title="{{ $prop->size}} m2"><i class="fas fa-ruler-combined"></i>Tamaño <span
                       class="quantity">{{ $prop->size}}m<sup>2</sup></span></span>
 
-                      <span id="size" class="characteristic"
-                    data-toggle="tooltip" data-placement="top" title="{{ $aViews['Property-'.$prop->id]}} Visitas"><i class="fas fa-eye"></i>Visitas Totales <span
+                  <span id="size" class="characteristic" data-toggle="tooltip" data-placement="top"
+                    title="{{ $aViews['Property-'.$prop->id]}} Visitas"><i class="fas fa-eye"></i>Visitas Totales <span
                       class="quantity">{{ $aViews['Property-'.$prop->id]}}</span></span>
-                    </p>
+                </p>
                 <a href="http://192.168.0.200:8080/propietie/{{ $prop->id }}" id="btncontacto"
                   class="btn btn-contact d-block">Ver más</a>
                 <a href="{{ route('mis_propiedades.edit',$prop->id) }}" id="btncontacto"
@@ -201,6 +205,7 @@
             </a></div>
         </div>
       </div>
+
       @endforeach
     </div>
     @endif
