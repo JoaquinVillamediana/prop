@@ -2,7 +2,7 @@
 @include('frontend/layouts.header')
 @section('content')
 <?php 
-MercadoPago\SDK::setAccessToken('TEST-1409795886297499-091817-d907db205d0e546b55e80ee286fa237c-648138539');
+MercadoPago\SDK::setAccessToken('APP_USR-1532561834263359-083119-186977ebfbb7fc0a40e9677191ec4969-339019119');
 
 ?>
 

@@ -83,7 +83,6 @@ class MyPropertiesController extends Controller {
        LEFT JOIN publish_plans pp ON (upa.plan_id = pp.id)
        where upa.deleted_at is null
        and upa.user_id = "'.$user.'"
-       and p.visible = 1
        GROUP BY upa.id
         ');
         
