@@ -147,9 +147,19 @@
           <div class="col-xl-6 col-12">
             <div id="carouselPropControls-{{ $prop->id }}" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                <div class="carousel-item active"><img src="/images/index/home1.jpg" class="d-block w-100"></div>
-                <div class="carousel-item"><img src="/images/index/home1.jpg" class="d-block w-100"></div>
-                <div class="carousel-item"><img src="/images/index/home1.jpg" class="d-block w-100"></div>
+              @if(!empty($aImages))
+              @foreach($aImages as $img)
+              @if($img->propietie_id == $prop->id )
+              @if($img[0])
+              <div class="carousel-item active"><img src="/images/publish/{{ $img->image }}" class="d-block w-100"></div>
+              @else
+              <div class="carousel-item"><img src="/images/publish/{{ $img->image }}" class="d-block w-100"></div>
+              @endif
+
+              
+              @endif
+              @endforeach
+              @endif
               </div><a class="carousel-control-prev" href="#carouselPropControls-{{ $prop->id }}" role="button"
                 data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span
                   class="sr-only">Previous</span></a><a class="carousel-control-next"

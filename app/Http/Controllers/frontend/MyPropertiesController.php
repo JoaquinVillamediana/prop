@@ -68,6 +68,9 @@ class MyPropertiesController extends Controller {
      
        ');
 
+
+       $aImages = ImageModel::get();
+
        $aDatosProp=DB::select('SELECT u.*,COUNT(p.id) countprop
       FROM users u
       LEFT JOIN properties p ON (u.id = p.user_id) 
@@ -86,7 +89,7 @@ class MyPropertiesController extends Controller {
        GROUP BY upa.id
         ');
         
-      return view('frontend/myproperties.index',compact('aProperties','aDatos','aDatosProp','aViews','aPublish'));
+      return view('frontend/myproperties.index',compact('aProperties','aDatos','aDatosProp','aViews','aPublish','aImages'));
 
     }
 
