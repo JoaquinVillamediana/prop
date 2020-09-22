@@ -60,7 +60,7 @@ class PublishController extends Controller {
     }
 
     // publicar
-    public function publish_propertie() {
+    public function publish_propertie($planxd) {
 
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
@@ -92,12 +92,12 @@ class PublishController extends Controller {
         where deleted_at is null
         ');
 
-
+        $plan2 =$planxd;
 
         $aLocalities = LocalitiesModel::get();
 
 
-        return view('frontend/publish/create.publish_dates',compact('aPropietie_type','aLocalities','aOperationType','aCurrencies','aPropieties_ambientes','aPropieties_general_characteristics','aPropieties_services','aPropieties_luxuries'));
+        return view('frontend/publish/create.publish_dates',compact('aPropietie_type','aLocalities','aOperationType','aCurrencies','aPropieties_ambientes','aPropieties_general_characteristics','aPropieties_services','aPropieties_luxuries','plan2'));
     }
 
     public function store_dates(Request $request){

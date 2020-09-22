@@ -107,7 +107,7 @@
           <td>{{ $publi->countprop }}</td>
           <td>{{ $publi->add_quantity-$publi->countprop }}</td>
           <td> @if(($publi->add_quantity-$publi->countprop) < 1 ) {{ "NO ESTA DISPONIBLE" }} @else <a
-              class="btn btn-outline-prop" href="{{ route('publish_propertie_plan', $publi->plan_id) }}" role="button">
+              class="btn btn-outline-prop" href="{{ route('publish_propertie_plan', $publi->planxd) }}" role="button">
               +</a>
               @endif
           </td>

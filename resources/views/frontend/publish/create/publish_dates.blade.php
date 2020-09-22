@@ -17,7 +17,7 @@
       <h1 class="text-center mb-2">Publicá tu propiedad</h1>
       <h4 class="">Aspectos básicos</h4>
       <input name="_method" type="hidden" >
-      <input type="hidden" name="plan_id" id="plan_id" value="{{empty($plan_id) ? '' : $plan_id}}">
+      <input type="hidden" name="plan_id" id="plan_id" value="{{empty($plan2) ? '' : $plan2}}">
       <!--  -->
       <div class="form-row">
         <div class="form-group col-md-6 col-12">

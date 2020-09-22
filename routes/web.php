@@ -96,7 +96,7 @@ Route::get('publish_publicationtype/{id}', 'frontend\PublishController@propietie
 
 
 
-Route::get('publish_propertie_plan/{plan_id}', 'frontend\PublishController@publish_propertie')->name('publish_propertie_plan');
+Route::get('publish_propertie_plan/{planxd}', 'frontend\PublishController@publish_propertie')->name('publish_propertie_plan');
 Route::post('store_dates', 'frontend\PublishController@store_dates')->name('store_dates');
 Route::get('publish_files/{propietie_id}', 'frontend\PublishController@publish_files')->name('publish_files');
 Route::post('upload_property_picture', 'frontend\PublishController@store_files')->name('upload_property_picture');
