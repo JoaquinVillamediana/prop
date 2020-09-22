@@ -44,7 +44,8 @@
       <div class="card-body">
         <h5 class="card-title">@if(!empty($aDatos)) @foreach($aDatos as $datos) {{$datos->count_contactados}}
           @endforeach @endif</h5>
-        <p class="card-text"> <a href="{{ route('messages') }}"> Ver contactados</a> </p>
+        <p>N° de contactados</p>
+        <!-- <p class="card-text"> <a href="{{ route('messages') }}"> Ver contactados</a> </p> -->
       </div>
     </div>
     <!--  -->

@@ -30,6 +30,7 @@ class ProfileController extends Controller {
         ->leftjoin('images','images.propietie_id','=','properties.id')
         ->where('images.main_image','=','1')
         ->where('images.deleted_at','=',NULL)
+        ->where('properties.user_id','=',$user_id)
         ->paginate(9);
         
 

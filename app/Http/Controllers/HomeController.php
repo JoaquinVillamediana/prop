@@ -49,6 +49,8 @@ class HomeController extends Controller
         ->leftjoin('images','images.propietie_id','=','properties.id')
         ->where('images.main_image','=','1')
         ->where('images.deleted_at','=',NULL)
+        ->where('properties.priority','=','1')
+        ->inRandomOrder()
         ->paginate(9);
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
