@@ -399,7 +399,7 @@ class PublishController extends Controller {
             $fileSize = $image->getSize();
             $fileMimeType = $image->getMimeType();
             
-            $propietie_id = $request['id'];
+            $propietie_id = $request['propietie_id'];
             $destinationPath = 'images/publish';
             $image->move($destinationPath, $storeImageName);
 

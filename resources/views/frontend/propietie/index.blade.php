@@ -222,7 +222,7 @@
                     <button class="btn btn-prop" type="submit"><i class="fas fa-envelope-square"></i> Contactar</button>
                   </div>
                   <div class="col-6 col-buttons">
-                    <button class="btn btn-prop" type="submit"><i class="fas fa-phone"></i> Llamar</button>
+                  <a href="tel: {{$oProp->user_phone}}" class="btn btn-prop"><i class="fas fa-phone"></i> Llamar</a>
                   </div>
                 </div>
 
