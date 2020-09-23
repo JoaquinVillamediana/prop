@@ -34,10 +34,12 @@
                                 <th>Cantidad de Anuncios</th>
                                 <th>Estado</th>
                                 <th>F. de vencimiento</th>
-                           
+                                <th>RENOVAR PAGO</th>
                             </tr>
                         </thead>
-                        
+                        <?php
+              $xd= now();
+          ?>
                         <tbody>
                             @if(!empty($aPlans))
                             @foreach($aPlans as $user)
@@ -48,7 +50,19 @@
                                 <td>{{ $user->plans_price }}</td>
                                 <td>{{ $user->add_quantity }}</td>
                                 <td>{{ $user->pay_id_mp }}</td>
-                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->expiration_at }}</td>
+                                @if(!empty($aExpirated))
+        @foreach($aExpirated as $exp)
+        @if($user->id == $exp->id)
+        <td> <a class="btn btn-outline-prop" href="{{ route('pago',$exp->plan_id) }}" role="button">Renovar </a></td>
+
+        @endif
+        @endforeach
+        @endif
+        @if(($user->expiration_at < $xd) && $aExpirated == NULL)
+        <td> <a class="btn btn-outline-prop" href="{{ route('pago',$exp->plan_id) }}" role="button">Renovar </a></td>
+        
+        @endif
                                
                             </tr>   
                             @endforeach

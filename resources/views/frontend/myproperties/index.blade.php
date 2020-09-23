@@ -92,7 +92,8 @@
           <th>PUBLICADOS</th>
           <th>DISPONIBLES</th>
           <th>AGREGAR PROPIEDAD</th>
-
+          <th>RENOVAR PAGO</th>
+          
         </tr>
       </thead>
 
@@ -102,16 +103,37 @@
         <tr>
           <td>{{ $publi->id }}</td>
           <td>{{ $publi->plan_name }}</td>
+          <?php
+              $xd= now();
+          ?>
+          @if($publi->expiration_at < $xd )
+          <td>VENCIDO</td>
+          @else
           <td>{{ $publi->expiration_at }}</td>
+          @endif
           <td>{{ $publi->add_quantity }}</td>
           <td>{{ $publi->countprop }}</td>
           <td>{{ $publi->add_quantity-$publi->countprop }}</td>
-          <td> @if(($publi->add_quantity-$publi->countprop) < 1 ) {{ "NO ESTA DISPONIBLE" }} @else <a
+          <td> @if(($publi->add_quantity-$publi->countprop < 1)|| $publi->expiration_at < $xd ) {{ "NO ESTA DISPONIBLE" }} @else <a
               class="btn btn-outline-prop" href="{{ route('publish_propertie_plan', $publi->planxd) }}" role="button">
               +</a>
               @endif
           </td>
+
+          @if(!empty($aExpirated))
+        @foreach($aExpirated as $exp)
+        @if($publi->id == $exp->id)
+        <td> <a class="btn btn-outline-prop" href="{{ route('pago',$exp->plan_id) }}" role="button">Renovar </a></td>
+
+        @endif
+        @endforeach
+        @endif
+        @if(($publi->expiration_at < $xd) && $aExpirated == NULL)
+        <td> <a class="btn btn-outline-prop" href="{{ route('pago',$exp->plan_id) }}" role="button">Renovar </a></td>
+        
+        @endif
         </tr>
+        
         @endforeach
         @else
         <tr>
@@ -126,6 +148,8 @@
           <td></td>
           <td></td>
           <td></td>
+          <td></td>
+         
         </tr>
         @endif
       </tbody>

@@ -451,6 +451,23 @@ class PublishController extends Controller {
         return view('frontend/publish.pago',compact('aPlans','external_reference'));
     }
 
+
+    public function renovacion_pago($plan_id) {
+        $external_reference = UserPlansActivesModel::where('user_id',Auth::user()->id)->count();
+        $external_reference = $external_reference.'-'.Auth::user()->id.'-'.$plan_id;
+        $external_reference = md5($external_reference);
+           
+
+        $aPlans=DB::select('SELECT *
+        FROM publish_plans
+        where deleted_at is null
+        and visible = 1
+        and id = "'.$plan_id.'"
+   ');
+
+        return view('frontend/publish.pago',compact('aPlans','external_reference'));
+    }
+
     public function setMainImage(Request $request ){
         $aReturn = array();
         $oImage = ImageModel::find($request['image_id']);

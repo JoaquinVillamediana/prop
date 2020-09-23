@@ -89,7 +89,10 @@ class MyPropertiesController extends Controller {
        GROUP BY upa.id
         ');
         
-      return view('frontend/myproperties.index',compact('aProperties','aDatos','aDatosProp','aViews','aPublish','aImages'));
+      $aExpirated=DB::select('SELECT * FROM propiedades.user_plans_actives WHERE DATEDIFF(expiration_at,NOW()) <= 7');
+        
+
+      return view('frontend/myproperties.index',compact('aProperties','aDatos','aDatosProp','aViews','aPublish','aImages','aExpirated'));
 
     }
 
@@ -299,11 +302,13 @@ class MyPropertiesController extends Controller {
   public function user_plans()
   {
     $user = Auth::user()->id;
+
     $aPlans=UserPlansActivesModel::select('user_plans_actives.*','publish_plans.name as plans_name','publish_plans.price as plans_price')
     ->leftjoin('publish_plans','user_plans_actives.plan_id','publish_plans.id')
     ->where('user_id',$user)
     ->get();
-    return view('frontend/myproperties.active_plans',compact('aPlans'));
+    $aExpirated=DB::select('SELECT * FROM propiedades.user_plans_actives WHERE DATEDIFF(expiration_at,NOW()) <= 7');
+    return view('frontend/myproperties.active_plans',compact('aPlans','aExpirated'));
   }
 
 }
