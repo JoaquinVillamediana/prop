@@ -6,8 +6,10 @@
 <link rel="stylesheet" href="css/frontend/myproperties.css">
 <link rel="stylesheet" href="css/frontend/propieties2.css">
 <div class="container" style="text-align: center;">
-
   <?php
+MercadoPago\SDK::setAccessToken('TEST-94208995128930-100417-c708d38c68dc3d9e90fb37d7b6a617ca-654809977');
+// MercadoPago\SDK::setAccessToken('APP_USR-1532561834263359-083119-186977ebfbb7fc0a40e9677191ec4969-339019119');
+
   $dataPoints = array(
 	array("label"=> "Ultimas 24 Horas", "y"=> $aViews['past24Views']),
   array("label"=> "Ultimas 48 Horas", "y"=> $aViews['past48Views']),
@@ -93,7 +95,7 @@
           <th>DISPONIBLES</th>
           <th>AGREGAR PROPIEDAD</th>
           <th>RENOVAR PAGO</th>
-          
+
         </tr>
       </thead>
 
@@ -104,36 +106,58 @@
           <td>{{ $publi->id }}</td>
           <td>{{ $publi->plan_name }}</td>
           <?php
-              $xd= now();
+              $now= now();
           ?>
-          @if($publi->expiration_at < $xd )
+          @if($publi->expiration_at < $now ) 
           <td>VENCIDO</td>
           @else
-          <td>{{ $publi->expiration_at }}</td>
+            <td>{{ $publi->expiration_at }}</td>
           @endif
-          <td>{{ $publi->add_quantity }}</td>
-          <td>{{ $publi->countprop }}</td>
-          <td>{{ $publi->add_quantity-$publi->countprop }}</td>
-          <td> @if(($publi->add_quantity-$publi->countprop < 1)|| $publi->expiration_at < $xd ) {{ "NO ESTA DISPONIBLE" }} @else <a
-              class="btn btn-outline-prop" href="{{ route('publish_propertie_plan', $publi->planxd) }}" role="button">
-              +</a>
+            <td>{{ $publi->add_quantity }}</td>
+            <td>{{ $publi->countprop }}</td>
+            <td>{{ $publi->add_quantity-$publi->countprop }}</td>
+            <td>
+               @if(($publi->add_quantity - $publi->countprop < 1) || $publi->expiration_at < $now )
+                  {{ "NO ESTA DISPONIBLE" }} @else 
+                  <a class="btn btn-outline-prop"
+                  href="{{ route('publish_propertie_plan', $publi->planxd) }}" role="button">
+                  +</a>
+                @endif
+            </td>
+
+            @if(!empty($aExpirated))
+            @foreach($aExpirated as $exp)
+            @if($publi->id == $exp->id)
+
+            <?php
+            $preference = new MercadoPago\Preference();
+            // Crea un ítem en la preferencia
+            $item = new MercadoPago\Item();
+            $item->title =  'RENOVACION PLAN' ;
+            $item->quantity = 1;
+            $item->unit_price =  $exp->price ;
+            $preference->items = array($item);
+            $preference->binary_mode = true;
+            $preference->back_urls = array(
+                "success" => route('renovacion_pago',$exp->id),
+                "failure" => route('mis_propiedades.index'),
+                "pending" => route('mis_propiedades.index')
+            );
+            $preference->auto_return = "approved";
+            $preference->save();
+            ?>
+
+            <td> <a class="btn btn-MP" href="<?php echo $preference->init_point; ?>">Renovar</a>
+            </td>
+
+            @endif
+            @endforeach
+            @endif
+            @if(($publi->expiration_at < $now) && $aExpirated==NULL) <td> <a class="btn btn-MP" href="<?php echo $preference->init_point; ?>">Renovar</a></td>
+
               @endif
-          </td>
-
-          @if(!empty($aExpirated))
-        @foreach($aExpirated as $exp)
-        @if($publi->id == $exp->id)
-        <td> <a class="btn btn-outline-prop" href="{{ route('pago',$exp->plan_id) }}" role="button">Renovar </a></td>
-
-        @endif
-        @endforeach
-        @endif
-        @if(($publi->expiration_at < $xd) && $aExpirated == NULL)
-        <td> <a class="btn btn-outline-prop" href="{{ route('pago',$exp->plan_id) }}" role="button">Renovar </a></td>
-        
-        @endif
         </tr>
-        
+
         @endforeach
         @else
         <tr>
@@ -149,7 +173,7 @@
           <td></td>
           <td></td>
           <td></td>
-         
+
         </tr>
         @endif
       </tbody>
@@ -167,7 +191,7 @@
     <h2>Mis propiedades publicadas</h2>
     <div class="container">
       @foreach($aProperties as $prop)
-      
+
       <div class="card" id="card-prop">
         <div class="row ">
           <div class="col-xl-6 col-12">
@@ -186,7 +210,7 @@
 
                 <?php $j++; ?>
                 @endif
-              
+
                 @endforeach
                 @endif
               </div><a class="carousel-control-prev" href="#carouselPropControls-{{ $prop->id }}" role="button"

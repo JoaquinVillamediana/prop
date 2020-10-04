@@ -27,8 +27,8 @@ $preference->binary_mode = true;
 $preference->external_reference = $external_reference;
 $preference->back_urls = array(
     "success" => route('pago_completado'),
-    "failure" => route('pago_completado'),
-    "pending" => route('pago_completado')
+    "failure" => route('mis_propiedades.index'),
+    "pending" => route('mis_propiedades.index')
 );
 $preference->auto_return = "approved";
 $preference->save();

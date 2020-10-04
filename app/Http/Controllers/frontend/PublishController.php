@@ -21,7 +21,7 @@ use App\Models\PropertiesGeneralCharacteristicsModel;
 use App\Models\PropertiesLuxuriesModel;
 use App\Models\PropertiesAmbientsModel;
 use App\Models\PropertiesServicesModel;
-
+use App\Models\RenovationsModel;
 
 
 class PublishController extends Controller {
@@ -452,20 +452,23 @@ class PublishController extends Controller {
     }
 
 
-    public function renovacion_pago($plan_id) {
-        $external_reference = UserPlansActivesModel::where('user_id',Auth::user()->id)->count();
-        $external_reference = $external_reference.'-'.Auth::user()->id.'-'.$plan_id;
-        $external_reference = md5($external_reference);
-           
+    public function renovacion_pago(Request $request, $pay_id) {
 
-        $aPlans=DB::select('SELECT *
-        FROM publish_plans
-        where deleted_at is null
-        and visible = 1
-        and id = "'.$plan_id.'"
-   ');
+        if($request['collection_status'] == 'approved'){
+            $oRenovation = new RenovationsModel();
+            $oRenovation->pay_id_mp =  $request['collection_id'];
+            $oRenovation->expiration_at = date('Y-m-d', strtotime(now(). ' + 30 days'));
+            $oRenovation->user_id = Auth::user()->id;
+            $oRenovation->user_plan_id = $pay_id;
+            $oRenovation->save();
 
-        return view('frontend/publish.pago',compact('aPlans','external_reference'));
+            $oPlan = UserPlansActivesModel::where('id',$pay_id)->first();
+            $oPlan->expiration_at = date('Y-m-d', strtotime(now(). ' + 30 days'));
+            $oPlan->save();
+        }
+
+
+        return redirect()->route('mis_propiedades.index');
     }
 
     public function setMainImage(Request $request ){

@@ -89,7 +89,10 @@ class MyPropertiesController extends Controller {
        GROUP BY upa.id
         ');
         
-      $aExpirated=DB::select('SELECT * FROM propiedades.user_plans_actives WHERE DATEDIFF(expiration_at,NOW()) <= 7');
+      $aExpirated=DB::select('SELECT user_plans_actives.*, publish_plans.price FROM user_plans_actives 
+      LEFT JOIN publish_plans ON user_plans_actives.plan_id = publish_plans.id 
+      WHERE DATEDIFF(user_plans_actives.expiration_at,NOW()) <= 7 
+      ');
         
 
       return view('frontend/myproperties.index',compact('aProperties','aDatos','aDatosProp','aViews','aPublish','aImages','aExpirated'));
