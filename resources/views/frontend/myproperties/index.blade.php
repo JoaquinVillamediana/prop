@@ -250,6 +250,8 @@ MercadoPago\SDK::setAccessToken('TEST-94208995128930-100417-c708d38c68dc3d9e90fb
                   class="btn btn-contact d-inline-block">Editar información</a> <a
                   href="{{ route('my_properties_edit_photos',$prop->id) }}" id="btncontacto"
                   class="btn btn-contact d-inline-block">Editar fotos</a>
+                  <a href="{{ route('deleteProp',$prop->id) }}" id="btncontacto"
+                  class="btn btn-contact d-block">Eliminar propiedad</a>
               </div>
             </a></div>
         </div>

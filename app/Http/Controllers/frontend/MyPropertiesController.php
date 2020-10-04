@@ -314,4 +314,10 @@ class MyPropertiesController extends Controller {
     return view('frontend/myproperties.active_plans',compact('aPlans','aExpirated'));
   }
 
+  public function deleteProp($id)
+  {
+    PropertiesModel::find($id)->delete();
+      return redirect()->back();
+  }
+
 }
