@@ -49,7 +49,7 @@
         <div class="form-group col-md-6 col-12">
           <label for="">Titúlo</label>
           <input id="name" name="name" type="text" maxlength="60" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" aria-label="Text input with dropdown button"
-            value="Titulo">
+           value="{{old('name')}}">
             @if ($errors->has('name'))
             <span id="" class="invalid-feedback" role="alert" style="display:block;">
                 <strong>Debe introducir un nombre válido (max. 60).</strong>
@@ -138,7 +138,7 @@
       <div class="form-group">
         <label for="">Dirección aproximada</label>
         <input type="text" id="address" class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}"
-          name="address" maxlength="100" value="Direccion">
+          name="address"  maxlength="100" value="{{old('address')}}">
         @if ($errors->has('address'))
         <span id="" class="invalid-feedback" role="alert" style="display:block;">
           <strong>Debe introducir una dirección válida (max. 100)</strong>
@@ -148,8 +148,8 @@
       </div>
       <div class="form-group edit-location">
         <label for="">Localidad</label>
-        <input type="text" id="location" class="form-control {{ $errors->has('locality') ? 'is-invalid' : '' }}"
-          name="" maxlength="100" value="Localidad"> 
+        <input type="text"  autocomplete="off" id="location" class="form-control {{ $errors->has('locality') ? 'is-invalid' : '' }}"
+          name="" maxlength="100" > 
           <div class="options">
           </div>
           <input type="hidden" name="locality" id="locality" value="" >

@@ -157,7 +157,7 @@ class PublishController extends Controller {
         
         $data = array('operation_type_id' => $operation_type_id,'propietie_type_id' => $propietie_type_id,'location_id' => $location_id,'user_id' => $user,'direction' => $direction,
         'name' => $name,'introduction' => $introduccion,'description' => $description,'currency_id' => $currency_id,'price' => $price,'expenses' => $expensas,'rooms' => $rooms,
-        'bedrooms' => $bedrooms,'bathrooms' => $bathrooms,'years' => $years,'size' => $size,'plan_id' => $plan_id);
+        'bedrooms' => $bedrooms,'bathrooms' => $bathrooms,'years' => $years,'size' => $size,'plan_id' => $plan_id,'end_at' => now());
 
         PropertiesModel::insert($data);
         $propietie_id = PropertiesModel::max('id');
@@ -465,7 +465,15 @@ class PublishController extends Controller {
             $oPlan = UserPlansActivesModel::where('id',$pay_id)->first();
             $oPlan->expiration_at = date('Y-m-d', strtotime(now(). ' + 30 days'));
             $oPlan->save();
+
+            $aProperties = PropertiesModel::where('plan_id',$pay_id)->get();
+
+            foreach($aProperties as $oProperty)
+            {
+                $oProperty->end_at = date('Y-m-d', strtotime(now(). ' + 30 days'));
+            }
         }
+
 
 
         return redirect()->route('mis_propiedades.index');
