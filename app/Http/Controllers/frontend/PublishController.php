@@ -60,7 +60,22 @@ class PublishController extends Controller {
     }
 
     // publicar
-    public function publish_propertie($planxd) {
+    public function publish_propertie($payment_id) {
+
+        $oPayment = UserPlansActivesModel::where('id',$payment_id)->first();
+
+        
+        if(empty(Auth::user()->id) | empty($oPayment))
+        {
+            return redirect()->route('home');
+        }
+
+        if ($oPayment->user_id != Auth::user()->id)
+        {
+            return redirect()->route('home');
+        }
+
+        
 
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
@@ -92,12 +107,12 @@ class PublishController extends Controller {
         where deleted_at is null
         ');
 
-        $plan2 =$planxd;
+        $user_plan_id = $payment_id;
 
         $aLocalities = LocalitiesModel::get();
 
 
-        return view('frontend/publish/create.publish_dates',compact('aPropietie_type','aLocalities','aOperationType','aCurrencies','aPropieties_ambientes','aPropieties_general_characteristics','aPropieties_services','aPropieties_luxuries','plan2'));
+        return view('frontend/publish/create.publish_dates',compact('aPropietie_type','aLocalities','aOperationType','aCurrencies','aPropieties_ambientes','aPropieties_general_characteristics','aPropieties_services','aPropieties_luxuries','user_plan_id'));
     }
 
     public function store_dates(Request $request){
@@ -127,12 +142,29 @@ class PublishController extends Controller {
 
         $this->validate($request, $aValidations);
          
+        $user_plan_id = $request['user_plan_id'];
+
+        $oPayment = UserPlansActivesModel::where('id',$user_plan_id)->first();
+
+        if((empty(Auth::user()->id))  | ($oPayment->user_id != Auth::user()->id))
+        {
+            return redirect()->route('home');
+        }
+
+        $PropertiesWithSamePlan = PropertiesModel::where('user_plan_id',$user_plan_id)->count();
+
+
+        if((intval($oPayment->add_quantity) - intval($PropertiesWithSamePlan)) < 1)
+        {
+            return redirect()->route('home');
+        }
+
 
         $request['name'] = ucwords($request['name']);
         $name = $request['name'];
         $currency_id = $request['currency'];
         $price = $request['price'];
-        $plan_id = $request['plan_id'];
+        
         
         $introduccion = $request['introduction'];
         $description = $request['description'];
@@ -157,7 +189,7 @@ class PublishController extends Controller {
         
         $data = array('operation_type_id' => $operation_type_id,'propietie_type_id' => $propietie_type_id,'location_id' => $location_id,'user_id' => $user,'direction' => $direction,
         'name' => $name,'introduction' => $introduccion,'description' => $description,'currency_id' => $currency_id,'price' => $price,'expenses' => $expensas,'rooms' => $rooms,
-        'bedrooms' => $bedrooms,'bathrooms' => $bathrooms,'years' => $years,'size' => $size,'plan_id' => $plan_id,'end_at' => now());
+        'bedrooms' => $bedrooms,'bathrooms' => $bathrooms,'years' => $years,'size' => $size,'plan_id' => $oPayment->plan_id,'user_plan_id' => $oPayment->id,'end_at' => now());
 
         PropertiesModel::insert($data);
         $propietie_id = PropertiesModel::max('id');

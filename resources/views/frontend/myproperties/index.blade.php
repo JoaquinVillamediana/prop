@@ -120,7 +120,7 @@ MercadoPago\SDK::setAccessToken('TEST-94208995128930-100417-c708d38c68dc3d9e90fb
                @if(($publi->add_quantity - $publi->countprop < 1) || $publi->expiration_at < $now )
                   {{ "NO ESTA DISPONIBLE" }} @else 
                   <a class="btn btn-outline-prop"
-                  href="{{ route('publish_propertie_plan', $publi->planxd) }}" role="button">
+                  href="{{ route('publish_propertie_plan', $publi->id) }}" role="button">
                   +</a>
                 @endif
             </td>

@@ -82,7 +82,7 @@ class MyPropertiesController extends Controller {
 
        $aPublish=DB::select('SELECT upa.*,COUNT(p.id) countprop, pp.name as plan_name, pp.id as planxd
        FROM user_plans_actives upa
-       LEFT JOIN properties p ON (upa.id = p.plan_id) 
+       LEFT JOIN properties p ON (upa.id = p.user_plan_id) 
        LEFT JOIN publish_plans pp ON (upa.plan_id = pp.id)
        where upa.deleted_at is null
        and upa.user_id = "'.$user.'"

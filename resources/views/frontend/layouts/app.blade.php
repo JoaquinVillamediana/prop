@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/frontend/general.css">
 
     
-    <title>Propiedades</title>
+    <title>TuProximaProp</title>
   </head>
   <body>
 
