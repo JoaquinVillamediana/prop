@@ -159,6 +159,7 @@ class PublishController extends Controller {
             return redirect()->route('home');
         }
 
+        $oPlan = PlansModel::where('id',$oPayment->plan_id)->first();
 
         $request['name'] = ucwords($request['name']);
         $name = $request['name'];
@@ -185,11 +186,11 @@ class PublishController extends Controller {
         else{
             $expensas = 0;
         }
-        
+ 
         
         $data = array('operation_type_id' => $operation_type_id,'propietie_type_id' => $propietie_type_id,'location_id' => $location_id,'user_id' => $user,'direction' => $direction,
         'name' => $name,'introduction' => $introduccion,'description' => $description,'currency_id' => $currency_id,'price' => $price,'expenses' => $expensas,'rooms' => $rooms,
-        'bedrooms' => $bedrooms,'bathrooms' => $bathrooms,'years' => $years,'size' => $size,'plan_id' => $oPayment->plan_id,'user_plan_id' => $oPayment->id,'end_at' => now());
+        'bedrooms' => $bedrooms,'bathrooms' => $bathrooms,'years' => $years,'size' => $size,'plan_id' => $oPayment->plan_id,'user_plan_id' => $oPayment->id,'priority' => $oPlan->priority ,'end_at' => now());
 
         PropertiesModel::insert($data);
         $propietie_id = PropertiesModel::max('id');

@@ -19,6 +19,7 @@ class PropertiesModel extends Model implements Viewable
         'introduction',
         'user_id',
         'direction',
+        'priority',
         'operation_type_id',
         'propietie_type_id',
         'price',

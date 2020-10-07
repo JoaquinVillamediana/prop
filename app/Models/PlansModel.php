@@ -20,7 +20,8 @@ class PlansModel extends Model
         'time',
         'price',
         'visible_at',
-        'visible'
+        'visible',
+        'priority'
         
         
         
