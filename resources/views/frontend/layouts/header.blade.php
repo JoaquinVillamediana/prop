@@ -34,7 +34,9 @@
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <a class="dropdown-item" href="{{ route('user_profile') }}">Perfil</a>
     <!-- <a class="dropdown-item" href="{{ route('user_profile') }}">Favoritos</a> -->
+    @if (Auth::user()->user_type == 2)
     <a class="dropdown-item" href="{{ route('mis_propiedades.index') }}">Mis publicaciones</a>
+    @endif
     <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
   </div>
 </div>
