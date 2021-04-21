@@ -101,9 +101,10 @@ class MyPropertiesController extends Controller {
 
       $aLocalities = LocalitiesModel::get();
 
-      $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id,(u.user_type) user_type,(u.phone) user_phone,(c.name) currency_name,(u.profile_image) profile_image,(l.nombre) locality_name 
+      $aProp=DB::select('SELECT p.*,(u.name) user_name,(u.id) user_id,(u.user_type) user_type,(u.phone) user_phone,(c.name) currency_name,(up.profile_image) profile_image,(l.nombre) locality_name 
       FROM properties p
       LEFT JOIN users u ON p.user_id = u.id
+      LEFT JOIN users_profile up ON p.user_id = up.id
       LEFT JOIN currency c ON p.currency_id = c.id
       LEFT JOIN localidades l ON  CAST(p.location_id AS UNSIGNED) = CAST(l.id AS UNSIGNED)
       where p.deleted_at is null

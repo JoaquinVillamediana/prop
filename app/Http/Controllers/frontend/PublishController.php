@@ -28,7 +28,7 @@ class PublishController extends Controller {
 
     public function index() {
 
-        //  return view('frontend/login.index',compact('aCategories','aSubCategories'));
+       
         return view('frontend/publish.index');
     }
 
@@ -60,7 +60,13 @@ class PublishController extends Controller {
     }
 
     // publicar
-    public function publish_propertie($planxd) {
+    public function publish_propertie() {
+
+        if(empty(Auth::user()->id)){
+         return redirect()->route('login');
+
+        }
+
 
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
         ->get();
@@ -92,7 +98,7 @@ class PublishController extends Controller {
         where deleted_at is null
         ');
 
-        $plan2 =$planxd;
+        $plan2 = 9;
 
         $aLocalities = LocalitiesModel::get();
 

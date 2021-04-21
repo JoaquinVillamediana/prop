@@ -1,7 +1,8 @@
 body {
     font-family: 'Nunito', sans-serif;
-    background: rgb(236, 236, 236);
-    background: linear-gradient(180deg, rgba(236, 236, 236, 1) 0%, rgba(187, 187, 187, 1) 100%);
+    /* background: rgb(236, 236, 236); */
+    /* background: linear-gradient(180deg, rgba(236, 236, 236, 1) 0%, rgba(187, 187, 187, 1) 100%); */
+    
 }
 
 h4 {
@@ -28,6 +29,7 @@ a:focus {
 .btn-prop {
     color: var(--main-color);
     border: 1px solid var(--main-color);
+    margin-left: 15;
 }
 
 .btn-prop:hover {
@@ -48,6 +50,8 @@ a:focus {
     background: transparent;
     color: #000;
     border-radius: 5px;
+    box-shadow: 10px 10px 5px -4px rgba(200, 200, 200, 0.21)!important;
+
 }
 
 #sidebar .sidebar-header {
@@ -137,6 +141,8 @@ ul ul a {
 .search-location #location {
     width: 100%;
     padding: 5px;
+ border-radius:15px ;
+    
     border: 2px solid var(--main-color);
 }
 
@@ -176,6 +182,7 @@ ul ul a {
 .overlay.active {
     display: block;
     opacity: 1;
+    margin-top: 5px;
 }
 
 .sidebar-subtitle {
@@ -286,6 +293,7 @@ ul ul a {
 .currency_select {
     width: 100%;
     padding: 5px;
+    border-radius: 15px;
 }
 
 .actual-selection h3 {
@@ -346,6 +354,34 @@ ul ul a {
     color: #fff !important;
 }
 
+.card-header {
+     padding: 0 !important;
+    margin-bottom: 0!important;
+     background-color: transparent!important; 
+     border-bottom: 0px!important; 
+}
+.filtros{
+    background-color: transparent;
+    border: none;
+    width: 100%!important;
+}
+button.filtros:focus {
+   
+    outline: none!important;
+}
+#card-filtros{
+    background-color: transparent!important;
+    border:none;
+    
+}
+.fa-chevron-down{
+    color: black!important;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.fa-trash-alt::before {
+margin-right: 10px!important;
+}
 @media screen and (max-width: 991px) {
     .col-list h4.site {
         text-align: center;

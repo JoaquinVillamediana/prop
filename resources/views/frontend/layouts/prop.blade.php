@@ -2,10 +2,9 @@
 <div class="row">
   @foreach ($aProperties as $prop)
       <div class="col-md-4 mb-4 propertie">
-      {{-- <a href="{{ route('propietie') }}"> --}}
         <div class="card">
           <div class="image">
-            <img src="/images/publish/{{$prop->image}}" class="card-img-top" alt="No se encontro la imagen">
+            <img onerror="this.src='images/Logo_reducido_png.png';" src="@if(!empty($prop->image)) /images/publish/{{$prop->image}} @else /images/frontend/default_house.jpg @endif" class="card-img-top" alt="No se encontro la imagen">
 
             <div class="row row-caracs">
 
@@ -26,7 +25,6 @@
             <a href="{{ route('propietie',$prop->id) }}" class="btn btn-moreinfo">Más información</a>
           </div>
         </div>
-        {{-- </a> --}}
       </div>
 
       

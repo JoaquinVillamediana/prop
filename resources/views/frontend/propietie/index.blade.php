@@ -52,8 +52,6 @@
           </div>
         </div>
 
-        {{-- <div class="container"> --}}
-
         <!-- Fin de carrousel  -->
         <!-- Características  -->
         <div class="characteristcs-div" style="border: 1px solid #ccc!important;">
@@ -173,7 +171,7 @@
         @endif
         <!--  fin de comodidades-->
 
-        {{-- </div> --}}
+      
       </div>
       <!-- FIN DE COLUMNA DE CARACTERÍSTICAS Y DE FOTOS -->
 
@@ -189,7 +187,7 @@
         <!-- FORMULARIO DE CONTACTO -->
         <section id="contacto">
           <div class="container">
-            <form id="formulario" method="POST" action="{{route('send_user_mail',$oProp->user_id)}}">
+          {{--  <form id="formulario" method="POST" action="{{route('send_user_mail',$oProp->user_id)}}">--}}
               @csrf
               <div class="row">
 
@@ -227,7 +225,7 @@
                 </div>
 
               </div>
-            </form>
+           {{-- </form> --}}
 
           </div>
         </section>
@@ -237,10 +235,11 @@
           <h2>Datos del anunciante</h2>
           <div class="card w-70">
             <div class="card-body">
-              <h5 class="card-title"> @if($oProp->user_type == 1) {{ $oProp->user_name }} {{ $oProp->last_name }} @else {{ $oProp->user_name }} @endif</h5>
-              <img src="/images/profile_pictures_users/{{ $oProp->profile_image }}"
+            <img src="/images/profile_pictures_users/{{ $oProp->profile_image }}"
                 class="mx-auto img-fluid img-circle d-block" alt="avatar" width="50" height="60">
-              <p class="card-text">@if($oProp->user_type == 2) <i class="fas fa-user"></i> {{"dueño directo"}} | <i
+              <h5 class="card-title"> @if($oProp->user_type == 1) {{ $oProp->user_name }} {{ $oProp->last_name }} @else {{ $oProp->social_reason }} @endif</h5>
+            
+              <p class="card-text">@if($oProp->user_type == 1) <i class="fas fa-user"></i> {{"dueño directo"}} | <i
                   class="fas fa-phone"></i> {{ $oProp->user_phone }} @else <i class="fas fa-user-tie"></i>
                 {{"Profesional"}} | <i class="fas fa-phone"></i> @if(!empty($data_user->phone))
                 {{ $oProp->user_phone }} @else {{"El usuario no cargo su número de teléfono."}}@endif @endif</p>

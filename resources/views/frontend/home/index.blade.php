@@ -4,8 +4,8 @@
 
 @section('content')
 
-<link rel="stylesheet" href="/css/frontend/home.css">
-<link rel="stylesheet" href="/css/frontend/properties.css">
+<link rel="stylesheet" href="/css/frontend/home/home.css">
+<link rel="stylesheet" href="/css/frontend/home/properties.css">
 <div class="overlay">
   <div class="container">
 
@@ -81,9 +81,6 @@
        <div class="carousel-item">
       <img src="images/index/living.jpg" class="d-block w-100" alt=" img 1">
       </div>
-      {{-- <div class="carousel-item">
-        <img src="images/index/slider5.jpg" class="d-block w-100" alt=" img 1">
-      </div> --}}
     </div> 
 
 
@@ -98,7 +95,7 @@
 <section class="section-publish">
   <div class="container">
     <h2>
-    <img src="images/index/oferta2.png" class="d-block w-100" alt=" img 1">
+    PUBLICÁ TU INMUEBLE EN MENOS DE 5 MINUTOS
     </h2>
   </div>
 </section>

@@ -2,112 +2,111 @@
 @include('frontend/layouts.header')
 @section('content')
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="css/frontend/publish.css">
 
-<body>
-    <div class="body-overlay">
+<div class="main-container container">
 
-    </div>
-    <div class="container section-election">
-        <h1 class="section-name">Opciones para publicar</h1>
-        <div class="options-container">
-        <div class="row row-option particular">
-            <div class="col-md-3 col-12  col-image">
-                <img class="type-image-particular img-fluid" src="/images/particular.jpg" alt="">
-            </div>
-            <div class="col-md-7 col-12 col-text">
-                <div class="container">
-                    <h5 class="link-name">Particular</h5>
-                <p class="link-description"><i class="fas fa-home mr-2"></i>Dueño directo.</p>
-                <p class="link-description"><i class="fas fa-mail-bulk mr-2"></i>Podes mirar los mensajes de los interesados.</p>
-                <p class="link-description"><i class="fas fa-angle-double-up mr-2"></i>Posicioná tu publicación con nuestros planes.</p>
-                </div>
-                
-            </div>
-            <div class="col-md-2 col-12 col-arrow">
-                <div class="arrow-container">
-                    <a href="{{ route('personal') }}" class="btn btn-particular" href=""><i class="fas fa-chevron-right"></i></a>
-                </div>
-            </div>
-        </div>
+    <div class="section-user-type" data-section="0">
 
-        <div class="row row-option business mt-4">
-            
-            <div class="col-md-2 col-12 col-arrow">
-                <div class="arrow-container">
-                    <a href="{{ route('profesional') }}" class="btn btn-particular" href=""><i class="fas fa-chevron-left"></i></a>
-                </div>
+        <div class="options">
+        
+        <a href=" {{ route('publish_propertie_plan') }} "> <div class="option" data-value="1">
+          
+          <!-- <a href=" {{ route('personal') }} "> <div class="option" data-value="1"> -->
+                <i class="fas fa-user-tie"></i>
+                <p>Individual</p>
             </div>
-            <div class="col-md-7 col-12 col-text">
-                <div class="container">
-                    <h5 class="link-name">Profesional</h5>
-                            <p class="link-description"><i class="fas fa-user-tie mr-2"></i> Inmobiliaria, corredor o constructora.</p>
-                            <p class="link-description"><i class="fas fa-mail-bulk mr-2"></i>Podes mirar los mensajes de los interesados.</p>
-                            <p class="link-description"><i class="fas fa-angle-double-up mr-2"></i>Posicioná tu publicación con nuestros planes.</p>
-                </div>
-                
+            </a>
+        <a href=" {{ route('publish_propertie_plan') }} "> <div class="option" data-value="2">
+
+            <!-- <a href="{{ route('profesional') }}">     -->
+            <!-- <div class="option" data-value="2"> -->
+            <i class="fas fa-users"></i>
+                <p>Estudio</p>
             </div>
-            <div class="col-md-3 col-12  col-image">
-                <img class="type-image-particular img-fluid" src="/images/business.jpg" alt="">
-            </div>
+            </a>
+
+            <input type="hidden" id="user_type" name="user_type" value="">
         </div>
     </div>
-    </div>
+</div>
 
 
+<script>
+    currentSection = 0;
+
+    $(document).ready(() => {
+        $('*[data-section="'+ currentSection +'"]').fadeIn(200);
+    });
+
+    $('.option').click(function() {
+        let val = $(this).data('value');
+        $('#user_type').val(val);
+        
+        $('*[data-section="'+ currentSection +'"]').fadeOut(200);
+
+        currentSection += 1;
+        
+        setTimeout(() => {
+
+            if(val == 1)
+            {
+                $('*[data-type="1"]').show();
+
+            }else if(val == 2)
+            {
+                $('*[data-type="2"]').show();
+            }
+
+            $('*[data-section="'+ currentSection +'"]').fadeIn();
+        },200)
+    });
 
 
+</script>
+<style>
+    
+.main-container {
+    min-height: calc(100% - 70px);
+}
 
+.main-container .section-user-type {
+    display: none;
+}
 
+.main-container .section-user-type .options {
+    display: flex;
+    justify-content: space-around;
+    min-height: calc(100% - 70px);
+    align-items: center;
+}
 
+.main-container .section-user-type .option {
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    align-items: center;
+    height: 250px;
+    border-radius: 20px;
+    box-shadow: 0 0 12px rgb(0 0 0 / 20%);
+}
 
+.main-container .section-user-type .option i {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
 
+.main-container .section-user-type .option p {
+    margin: 0;
+    font-size: 26px;
+}
 
-
-
-
-
-
-
-
-
-   {{-- <div class="col-12 col-option">
-                
-                    <div class="row">
-                        <div class="col-md-4 col-0  pr-0">
-                            <img class="type-image-particular" src="/images/particular.jpg" alt="">
-                        </div>
-                        <div class="col-md-7 col-9 col-text">
-                            <h5 class="link-name">Particular</h5>
-                            <p class="link-description"><i class="fas fa-home mr-2"></i>Dueño directo</p>
-                            <p class="link-description"><i class="fas fa-mail-bulk"></i>Podes mirar los mensajes de los interesados.</p>
-                            <p class="link-description"><i class="fas fa-angle-double-up"></i>Posiciona tu publicacion con nuestros planes.</p>
-                        </div>
-                        <div class="col-md-1 col-3 icon-particular">
-                            <a href="{{ route('personal') }}" class="btn btn-particular" href=""><i class="fas fa-chevron-right"></i></a>
-                        </div>
-                    </div>
-                
-            </div>
-            <div class="col-12 mt-3 col-option">
-                
-                    <div class="row">
-                        <div class="col-md-1 col-3 icon-business">
-                            <a href="{{ route('profesional') }}" class="btn btn-business" href=""><i class="fas fa-chevron-left"></i></a>
-                        </div>
-                        
-                        <div class="col-md-7 col-9 col-text">
-                            <h5 class="link-name">Profesional</h5>
-                            <p class="link-description"><i class="fas fa-user-tie mr-2"></i> Inmobiliaria, corredor o constructora</p>
-                            <p class="link-description"><i class="fas fa-mail-bulk"></i>Podes mirar los mensajes de los interesados.</p>
-                            <p class="link-description"><i class="fas fa-angle-double-up"></i>Posiciona tu publicacion con nuestros planes.</p>
-                        </div>
-                        <div class="col-md-4 col-0 pl-0">
-                            <img class="type-image-business" src="/images/business.jpg" alt="">
-                        </div>
-                    </div>
-                
-            </div> --}}
-</body>
+.main-container .section-data .ind,
+.main-container .section-data .study {
+    display: none;
+}
+</style>
 @include('frontend/layouts.footer')
 @endsection

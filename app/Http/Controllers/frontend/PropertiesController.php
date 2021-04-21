@@ -23,9 +23,10 @@ class PropertiesController extends Controller {
     public function show($id)
     {
 
-        $oProp = PropertiesModel::select('properties.*','localidades.nombre as locality_name','localidades.municipio_nombre as town_name','localidades.provincia_nombre as province_name','users.name as user_name','users.id as user_id','users.user_type as user_type','users.phone as user_phone','currency.symbol','users.profile_image as profile_image')
+        $oProp = PropertiesModel::select('properties.*','localidades.nombre as locality_name','localidades.municipio_nombre as town_name','localidades.provincia_nombre as province_name','users.name as user_name','users.social_reason as social_reason','properties.user_id as user_id','users.user_type as user_type','users.phone as user_phone','currency.symbol','users_profile.profile_image as profile_image')
         ->leftjoin('localidades','properties.location_id','=','localidades.id')
         // ->leftjoin(DB::raw('select localidades.nombre,localidades.municipio_nombre,localidades.provincia_nombre from localidades where CAST(properties.location_id AS UNSIGNED) = CAST(localidades.id AS UNSIGNED)'))
+        ->leftjoin('users_profile','properties.user_id','users_profile.user_id')
         ->leftjoin('users','properties.user_id','users.id')
         ->leftjoin('currency','properties.currency_id','currency.id')
         ->whereNull('properties.deleted_at')

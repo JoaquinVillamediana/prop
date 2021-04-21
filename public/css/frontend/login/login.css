@@ -31,5 +31,8 @@ footer {
 }
 
 .main-container .row .card {
+    background-color: transparent !important;
     border-color: rgba(var(--main-color-rgb), .4);
+
+    /* border-color: transparent !important; */
 }

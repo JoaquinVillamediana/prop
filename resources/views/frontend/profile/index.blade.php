@@ -1,163 +1,207 @@
 @extends('frontend/layouts.app')
-
 @include('frontend/layouts.header')
 
+<!-- usuarios normales -->
+<link rel="stylesheet" href="{{ asset('/css/frontend/profile/profile.css') }}">
+
 @section('content')
+@if(!empty($aUsers))
+@foreach($aUsers as $oUsers)
+<section class="section-user-profile">
+    @if($oUsers->user_type == 1)
+    <!-- User profile picture -->
+    <div class="user-profile-header">
+        <div class="profile-slide">
+            <img class="profile-slide" src="images/back/back3.jpg" alt="">
+            <div class="profile-img-section">
+                <img class="img-profile" src="@if(!empty($oUsers->profile_image)) images/profile_pictures_users/{{$oUsers->profile_image}} @else images/logoreducido.png @endif "
+                    alt="img-avatar">
+                <button type="button" class="boton-avatar">
+                    <a class="m-auto createButton" data-toggle="modal" data-target="#profileimageModal"><i
+                            class="far fa-image"></i></a>
 
-<div class="container-prueba mt-4 mb-2">
-    <h1 class="text-center">
-    Mi perfil
-    </h1>
-    
-</div>
-<div class="container">
-    <div class="row my-2">
-        <div class="col-lg-8 order-lg-2">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
-                </li>
-              
-                <li class="nav-item">
-                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
-                </li>
-            </ul>
-            <div class="tab-content py-4">
-                <div class="tab-pane active" id="profile">
-                    <h5 class="mb-3">User Profile</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6 style="font-weight: bold;">Nombre</h6>
-                            <p>
-                            {{Auth::user()->name}} , {{Auth::user()->last_name}}
-                            </p>
-                            <h6 style="font-weight: bold;">Teléfono</h6>
-                            <p>
-                                @if(!empty(Auth::user()->phone))
-                            {{ Auth::user()->phone }} @else {{"El usuario no cargo su número de teléfono."}}@endif
-                            </p>
-                            <h6 style="font-weight: bold;">Email</h6>
-                            <p>
-                            @if(!empty(Auth::user()->email))
-                            {{ Auth::user()->email }} @else {{"El usuario no cargo su email."}}@endif
-                            </p>
-                        </div>
-                        <div class="col-md-6">
-                        <h6>Etiquetas</h6>
-                            @if(Auth::user()->type == 2)
-                            <a href="#" class="badge badge-dark badge-pill">Particular</a> 
-                            @else 
-                            <a href="#" class="badge badge-dark badge-pill">Profesional</a>
-                            @endif
-                            
-                            <!-- @if(Auth::user()->countprop != 0)
-                            <a href="#props" class="badge badge-dark badge-pill">{{ Auth::user()->countprop }} Publicaciones</a>
-                            @else 
-                            <a href="#" class="badge badge-dark badge-pill">Este usuario no tiene publicaciones activas</a>
-                            @endif
-                             -->
-                       
-                        </div>
-                    
-                    </div>
-                    <!--/row-->
-                </div>
-               <!-- edit -->
-
-
-                <div class="tab-pane" id="edit">
-                    <form role="form" action="{{ route('user_profile_edit') }}" method="POST">
-                    @csrf
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" id="name" name="name" value="{{Auth::user()->name}} ">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" id="last_name" name="last_name" value="{{Auth::user()->last_name}} ">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="email" id="email" name="email" value="{{Auth::user()->email}} ">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Teléfono</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="number" id="phone" name="phone" value="{{Auth::user()->phone}} ">
-                            </div>
-                        </div>
-           
-                        <!-- <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" value="" placeholder="Street">
-                            </div>
-                        </div> -->
-                        <!-- <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-6">
-                                <input class="form-control" type="text" value="" placeholder="City">
-                            </div>
-                            <div class="col-lg-3">
-                                <input class="form-control" type="text" value="" placeholder="State">
-                            </div>
-                        </div> -->
-                        <!-- <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
-                            <div class="col-lg-9">
-                                <select id="user_time_zone" class="form-control" size="0">
-                                    <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                    <option value="Alaska">(GMT-09:00) Alaska</option>
-                                    <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                                    <option value="Arizona">(GMT-07:00) Arizona</option>
-                                    <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                    <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                    <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                                    <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                                </select>
-                            </div>
-                        </div> -->
-                        <!-- <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" value="janeuser">
-                            </div>
-                        </div> -->
-                    
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-9">
-                                <input type="reset" class="btn btn-secondary" value="Cancel">
-                                <input type="submit" class="btn btn-primary" value="Guardar cambios">
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                </button>
             </div>
         </div>
-        <div class="col-lg-4 order-lg-1 text-center">
-            <img src="/images/profile_pictures_users/{{Auth::user()->profile_image}}" class="mx-auto img-fluid img-circle d-block" alt="avatar">
-            <form method="POST" action="{{ route('user_profilepicture_edit') }}" role="form" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            <label class="custom-file">
-                <input type="file" id="image" name="image"class="custom-file-input">
-                <span class="custom-file-control">Cambiar foto de perfil</span>
-                
-            </label>
-            </br></br>
-            <input type="submit" class="btn btn-primary" value="Guardar cambios">
-            </form>
+    </div>
+    <!-- User profile picture -->
+    @else
+    <!-- User profile picture -->
+    <div class="group-profile-header">
+        <div class="group-profile-slide">
+            <img class="group-profile-slide" src="images/back/back3.jpg" alt="">
+            <div class="group-profile-img-section">
+                <img class="group-img-profile" src="@if(!empty($oUsers->profile_image)) images/profile_pictures_users/{{$oUsers->profile_image}} @else images/logoreducido.png @endif "
+                    alt="img-avatar">
+
+                <button type="button" class="boton-avatar">
+                <a class="m-auto createButton" data-toggle="modal" data-target="#profileimageModal"><i class="far fa-image"></i></a>
+                </button>
+
+            </div>
+
         </div>
     </div>
-</div>
+    <!-- User profile picture -->
+    @endif
+
+<?php $percent = 95;?>
+    <div class="profile-information">
+        <div class="profile-principal-description">
+            <h3 class="title mt-3">{{ Auth::user()->user_type == 1 ? "$oUsers->name $oUsers->last_name" : '' }} {{ Auth::user()->user_type == 2 ? "$oUsers->social_reason" : '' }} <i class="fas fa-check-circle"
+                    style="color: #1ec6ff;"></i></h3>
+     
+        </div>
+
+        <div class="profile-completed">
+            <h4>Tu perfil esta al <span class="@if($percent < 40 )text-danger @elseif($percent < 80 && $percent >= 40)text-warning @elseif($percent >= 80)text-success @endif">{{ $percent }}%</span></h4>
+            @if ($percent < 100)
+            <p class="info">Completalo para mejorar tu publico!</p>
+            @endif
+            <meter min="0" max="100" value="{{$percent}}"></meter>  
+            @if ($percent < 100)
+            <a href="{{ route('configuration.index') }}" class="btn btn-complete">Completar!</a>
+            @endif 
+            
+        </div>
+
+        @if((empty($oUsers->website)) and $oUsers->user_type == 2 )
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Si no tenes tu propio <strong>sitio web</strong>, contactate para desarrollar la tuya.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
+
+        <!-- <h2 class="subtitle">Información</h2> -->
+        <div class="profile-aditional-description">
+            <ul class="information-list">
+                <h4>CONTACTO</h4>
+                @if(!empty($oUsers->address))
+                <li><i class="information-icon fas fa-map-marker-alt"></i> Ubicación:
+                    <span>{{$oUsers->address}}</span> </li>
+                @endif
+                @if(!empty($oUsers->phone))
+                <li><i class="information-icon fas fa-mobile"></i> Teléfono: <span>{{$oUsers->phone}}</span> </li>
+                @endif
+                @if(!empty($oUsers->email))
+                <li><i class="information-icon far fa-envelope"></i> E-Mail: <span>{{$oUsers->email}}</span></li>
+                @endif
+                @if(!empty($oUsers->website))
+                <li><i class="information-icon fas fa-globe"></i> Web: <a
+                        href="{{$oUsers->website}}"><span>{{$oUsers->website}}</span></a> </li>
+                @endif
+            </ul>
+            <ul class="information-list">
+                <h4>INFORMACIÓN</h4>
+                @if(!empty($oUsers->enrollment))
+                <li><i class="information-icon far fa-id-card"></i> N° Matrícula:
+                    <span>{{$oUsers->enrollment}}</span> </li>
+                @endif
+                @if(!empty($oUsers->origin_date))
+                <li><i class="information-icon fas fa-graduation-cap"></i>Año de graduación:
+                    <span>{{$oUsers->origin_date}}</span></li>
+                @endif
+                @if(!empty($oUsers->name))
+                <li><i class="information-icon fas fa-language"></i> Idiomas: <span>Español - Inglés</span> </li>
+                @endif
+            </ul>
+        </div>
+        <div class="social-media">
+            @if(!empty($oUsers->facebook))
+            <a href="{{$oUsers->facebook}}" class="social-button default-social-button fab fa-facebook-f"><i
+                    class="icon-default-social-button"></i></a>
+            @endif
+            @if(!empty($oUsers->twitter))
+            <a href="{{$oUsers->twitter}}" class="social-button default-social-button fab fa-twitter"><i
+                    class="icon-default-social-button"></i></a>
+            @endif
+            @if(!empty($oUsers->instagram))
+            <a href="{{$oUsers->instagram}}" class="social-button default-social-button fab fa-instagram"><i
+                    class="icon-default-social-button"></i></a>
+            @endif
+            @if(!empty($oUsers->linkedin))
+            <a href="{{$oUsers->linkedin}}" class="social-button default-social-button fab fa-linkedin"><i
+                    class="icon-default-social-button"></i></a>
+            @endif
+            @if(!empty($oUsers->linkedin_user))
+            <a href="{{$oUsers->linkedin}}" class="social-button default-social-button fab fa-google-plus-square"><i
+                    class="icon-default-social-button"></i></a>
+            @endif
+        </div>
+
+        @if(!empty($oUsers->description))
+        <div class="section-desc">
+            <div class="desc">
+                <h2>DESCRIPCIÓN</h2>
+                <p>{{$oUsers->description}}</p>
+            </div>
+        </div>
+        @endif
+        @if(!empty($aOpinions) || !empty($aArticles))
+        <div class="section-posts">
+  
+            @if (count($aArticles) > 0)
+            <div class="post">
+                <div class="post-header" data-post-type="1"><span>Articulos</span> <i class="fas fa-chevron-down"></i>
+                </div>
+                @foreach($aArticles as $oPublications)
+
+                <a href="{{ route('publications',$oPublications->id) }}" class="post-content" style="display: none">
+                    <p class="name">{{$oPublications->title}}</p>
+                    <p class="date">{{$oPublications->created_at}}</p>
+                    
+                </a>
+
+                @endforeach
+            </div>
+            @endif
+
+           
+            @if (count($aOpinions) > 0)
+            <div class="post">
+                <div class="post-header" data-post-type="2"><span>Opiniones</span> <i class="fas fa-chevron-down"></i>
+                </div>
+                @foreach($aOpinions as $oPublications)
+             
+                <a href="{{ route('publications',$oPublications->id) }}" class="post-content" style="display: none">
+                    <p class="name">{{$oPublications->title}}</p>
+                    <p class="date">{{$oPublications->created_at}}</p>
+                </a>
+
+             
+                @endforeach
+            </div>
+            @endif
+
+
+        </div>
+        @endif
+    </div>
+
+
+</section>
+@endforeach
+@endif
+@include('layouts.modals')
+<script>
+    $('.post-header').click( function() {
+        if($(this).siblings('.post-content').is(":visible"))
+        {
+            $(this).siblings('.post-content').slideUp();
+            $(this).removeClass('active');
+           
+        }else{
+            $(this).siblings('.post-content').slideDown();
+            $(this).addClass('active');
+         
+            
+        }
+      
+    });
+</script>
 
 @include('frontend/layouts.footer')
-
-
 @endsection

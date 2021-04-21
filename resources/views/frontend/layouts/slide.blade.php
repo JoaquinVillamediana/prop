@@ -6,12 +6,28 @@
     <ul class="list-unstyled components">
       <!-- inicio de filtros activos -->
       <li>
-        <div class="actual-selection">
-        <h3> Seleccion actual </h3><span class="filters-delete" onclick="deleteFilters()"><i class="fas fa-trash-alt"></i></span>
-      </div>
-        <div class="selected-tags">
 
+        <div id="accordion">
+          <div class="card" id="card-filtros" syle="border:none!important;">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="filtros" data-toggle="collapse" data-target="#collapseOne"  aria-controls="collapseOne">
+                <div class="actual-selection">
+                <i class="fas fa-chevron-down"></i>  Filtros activos <span class="filters-delete" onclick="deleteFilters()"> <i class="fas fa-trash-alt"></i></span>
+                </div>
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+              <div class="card-body">
+              <div class="selected-tags">
+
+              </div>
+              </div>
+            </div>
+          </div>
         </div>
+
         
       </li>
 
@@ -103,7 +119,7 @@
       </li>
       <!-- FIn de tipo de propiedad -->
       <!-- Inicio de cantidad de ambientes -->
-      <p class="sidebar-subtitle"> Ambientes </p>
+      <p class="sidebar-subtitle"> AMBIENTES </p>
       <li>
         <button type="button" id="cantidad_ambientes_1" data-rooms="1" class="rooms btn btn-prop">1</button>
         <button type="button" id="cantidad_ambientes_2" data-rooms="2" class="rooms btn btn-prop">2</button>
@@ -116,7 +132,7 @@
       <!-- FIn de cantidad de ambientes -->
       <!-- Inicio de cantidad de dormitorios -->
 
-      <p class="sidebar-subtitle"> Dormitorios </p>
+      <p class="sidebar-subtitle"> DORMITORIOS </p>
       <li>
 
         <button type="button" data-bedrooms="1" class="bedrooms btn btn-prop">1</button>
@@ -130,7 +146,7 @@
       <!-- Inicio de precios -->
 
       <li class="active">
-        <p class="sidebar-subtitle">Precio</p>
+        <p class="sidebar-subtitle">PRECIO</p>
         <label for="">Moneda</label>
         <select name="currency" id="currency" class="currency_select">
           @foreach ($aCurrencies as $currency)
@@ -148,7 +164,7 @@
       </li>
       <!--  -->
       <li class="active">
-          <p class="sidebar-subtitle">Expensas</p>
+          <p class="sidebar-subtitle">EXPENSAS</p>
           <p class="sidebar-indicator">Desde: $<span id="expenses-min">0</span></p>
           <div class="slidecontainer">
             <input step="100" type="range" min="0" max="100000" value="0" class="slider" id="slider-expenses-min">

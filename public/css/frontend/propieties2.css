@@ -8,11 +8,21 @@
     -webkit-box-shadow: 10px 10px 5px -4px rgba(200, 200, 200, 0.21);
     -moz-box-shadow: 10px 10px 5px -4px rgba(200, 200, 200, 0.21);
     box-shadow: 10px 10px 5px -4px rgba(200, 200, 200, 0.21);
+    height: 325px;
+    transition: box-shadow 1.5s ease-in-out;
 }
-
+#card-prop:hover{
+    box-shadow: 10px 10px 5px -4px rgb(85, 85, 85, 0.21);
+    
+}
 #card-prop h3 {
     /* font-style: oblique; */
 }
+ #card-prop img{
+    height: 325px !important;
+    object-fit: cover;
+    object-position: center center;
+ }
 
 #card-prop p {
     /* font-style: oblique; */

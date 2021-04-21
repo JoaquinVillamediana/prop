@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontend;
 use App\Models\PropertiesModel;
 use App\Models\Operation_typeModel;
 use App\Models\Propietie_typeModel;
+use App\Models\UsersProfileModel ;
+
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,15 +14,36 @@ use DB;
 use Auth;
 use Illuminate\Support\MessageBag;
 
+
+use Schema;
 use Hash;
 
 
 class ProfileController extends Controller {
 
     public function index() {
+    
 
+        
+        $aUsers = User::where('id',Auth::user()->id)->first();
+        $user = Auth::user()->id;
+      
+        $aUsers= DB::select('SELECT u.*,up.*,usm.*
+        FROM users u
+        LEFT JOIN users_profile up ON(u.id = up.user_id)
+        LEFT JOIN user_social_medias usm ON(u.id = usm.user_id)
+        where u.deleted_at is null
+        and u.id = "'.$user.'"
+        ');
+
+        $oUsersProfile = UsersProfileModel::where('user_id',$user)->first();
+
+    // $completed = $columns - $this->getNullValues($oUsersProfile);
+        // $percent = intval(($completed * 100) /6) ;
+   
+        // return view('frontend/profile.index',compact('aUsers','percent'));
         //  return view('frontend/login.index',compact('aCategories','aSubCategories'));
-        return view('frontend/profile.index');
+         return view('frontend/profile.index',compact('aUsers'));
     }
 
     public function user_perfil_publicaciones($user_id) {
@@ -34,19 +57,32 @@ class ProfileController extends Controller {
         ->paginate(9);
         
 
-        $aUser = DB::select('SELECT u.*,COUNT(p.id) AS countprop
+        $aUser = DB::select('SELECT u.*,up.profile_image as profile_image 
         FROM users u
-        LEFT JOIN properties p
-        ON p.user_id = u.id
+    
+        LEFT JOIN users_profile up
+        ON (u.id = up.user_id )
+        LEFT JOIN user_social_medias usm
+        ON (u.id = usm.user_id )
         where u.deleted_at is null
-        and p.deleted_at is null
+      
         and u.id = "'.$user_id.'"
-        GROUP BY u.id
+         ORDER BY 
+         u.id DESC 
          ');
 
       
+        // $aUser= User::select('users.*','properties.id' ,'users_profile.profile_image as profile_image ')
+        // ->leftjoin('users_profile','users.id','users_profile.user_id')
+        // ->leftjoin('user_social_medias','users.id','user_social_medias.user_id')
+        // ->leftjoin('properties','users.id','properties.user_id')
+        // ->where('users.deleted_at','=',NULL)
+        // ->where('properties.deleted_at','=',NULL)
+        // ->where('users.id','=','"'.$user_id.'"')
+        // ->first();
 
-         return view('frontend/profile_userx.index',compact('aUser','aProperties'));
+
+         return view('frontend/profile.random_user',compact('aUser','aProperties'));
     }
 
     public function personal() {
@@ -136,15 +172,18 @@ class ProfileController extends Controller {
 
             
             
-            $oUser = Auth::user();
-            $oUser->profile_image = $storeImageName;
-            $oUser->save();
+            $user = Auth::user()->id;
+            $xd = UsersProfileModel::where('user_id','=',$user)->first();
+
+            $xd->profile_image = $storeImageName;
+            $xd->save();
+           
            
 
            
                     
 
-        return view('frontend/profile.index');
+            return redirect()->back();
 
     }
     

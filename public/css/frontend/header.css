@@ -13,3 +13,6 @@
 nav {
     border-bottom: 2px solid var(--main-color);
 }
+ nav .nav-item .nav-link:hover {
+    color: var(--main-color) !important;
+}

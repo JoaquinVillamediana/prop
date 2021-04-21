@@ -1,0 +1,131 @@
+html {
+    overflow-x: hidden;
+}
+
+.row-content {
+    margin-left: 1.5rem !important;
+}
+
+.row-content input,
+.row-content textarea {
+    padding: 5px 10px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+.article_index_btn  {
+    text-decoration: none;
+    color: #343a40 !important;
+   
+}
+.btn-delete-user{
+    padding: 5;
+    background-color: transparent;
+    border-radius: 9px;
+    font-size: 18px;
+    color: var(--main-color)!important;
+    border: 1px solid var(--main-color);
+}
+.btn-delete-user:hover{
+    padding: 5;
+    background-color: var(--main-color)!important;
+    border-radius: 9px;
+    font-size: 18px;
+    color: white!important;
+    border: white!important;
+}
+.article_index_btn_active {
+    color: var(--main-color) !important;
+}
+.row-content label {
+    margin-top: 12.5px;
+}
+.fa-link{
+    display: none;
+}
+.fa-link
+    {
+        visibility: hidden;
+    }
+.responsive{
+    display: none;
+}
+.normal{
+    display: normal;
+}
+.table-responsive{
+    display: none;
+}
+.table-web{
+    display: normal;
+}
+@media screen and (max-width: 600px) {
+    .row-content {
+        margin-left: 5px !important;
+    }
+    .row-content .col-content {
+        padding-right: 0 !important;
+    }
+    span {
+        display: none;
+    }
+    .list-group {
+        text-align: center;
+        align-items: center;
+    }
+    .title {
+        font-size: 25px;
+    }
+    .fa-user-alt::before {
+        margin-left: -6;
+        content: "\f406";
+    }
+    .fa-question-circle:before {
+        content: "\f059";
+        margin-left: -6;
+    }
+    .fa-lock:before {
+        margin-left: -6;
+        content: "\f023";
+    }
+    .fa-home:before {
+        margin-left: -6;
+
+        content: "\f015";
+    }
+    .fa-pen-square:before {
+        content: "\f14b";
+        margin-left: -6;
+
+    }
+    .fa-cog:before {
+        margin-left: -6;
+        content: "\f013";
+    }
+    .fa-link
+    {
+        visibility: visible;
+    }
+    .fa-share-alt-square:before {
+        margin-left: -6;
+        content: "\f1e1";
+    }
+    .list-group-item.active {
+        z-index: 2;
+        color: #fff;
+        background-color: var(--main-color)!important;
+        border-color: var(--main-color)!important;
+    }
+
+    .responsive{
+        display: inherit!important;
+    }
+    .normal{
+        display:none;
+    }
+    .table-responsive{
+        display: normal;
+    }
+    .table-web{
+        display: none;
+    }
+}

@@ -1,0 +1,399 @@
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    line-height: 1.4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    color: #404040;
+    font-family: "Arial", Segoe UI, Tahoma, sans-serifl, Helvetica Neue, Helvetica;
+}
+
+
+/* User profile picture styles */
+
+.section-user-profile .profile-information,
+.section-user-profile {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-user-profile .user-profile-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.section-user-profile .profile-slide {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 17rem;
+    object-fit: cover;
+    align-items: center;
+    /* border-radius: 0 0 20px 20px; */
+}
+
+.section-user-profile .profile-img-section {
+    display: flex;
+    width: 180px;
+    height: 180px;
+    align-items: center;
+    justify-content: center;
+    border: 7px solid #FFFFFF;
+    background-color: #DFE5F2;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    position: absolute;
+    bottom: -40px;
+    left: calc(20% - 90px);
+    z-index: 1;
+}
+
+.section-user-profile .profile-img-section img {
+    width: 100%;
+    position: relative;
+    border-radius: 50%;
+}
+
+.section-user-profile .profile-img-section .boton-avatar {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    border: 0;
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* User profile picture styles */
+
+
+/* Group profile picture styles */
+
+.section-user-profile .profile-information,
+.section-user-profile {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-user-profile .group-profile-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.section-user-profile .group-profile-slide {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 17rem;
+    object-fit: cover;
+    align-items: center;
+    /* border-radius: 0 0 20px 20px; */
+}
+
+.section-user-profile .group-profile-img-section {
+    display: flex;
+    width: 180px;
+    height: 180px;
+    align-items: center;
+    justify-content: center;
+    border: 7px solid #FFFFFF;
+    background-color: #DFE5F2;
+    /* // border-radius: 50%; */
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    position: absolute;
+    bottom: -40px;
+    left: calc(50% - 90px);
+    z-index: 1;
+}
+
+.section-user-profile .group-profile-img-section img {
+    width: 100%;
+    position: relative;
+}
+
+.section-user-profile .group-profile-img-section .boton-avatar {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    border: 0;
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* Group profile picture styles */
+
+.section-user-profile .profile-information {
+    width: 70%;
+    position: relative;
+    max-width: 750px;
+}
+
+.section-user-profile .profile-information .title {
+    display: block;
+    width: 100%;
+    font-size: 1.75em;
+    margin-bottom: 0.5rem;
+}
+
+.section-user-profile .profile-information .text {
+    color: black;
+    text-align: center;
+    margin: auto;
+    font-size: 1.2em;
+}
+
+.section-user-profile .profile-aditional-description,
+.section-user-profile .profile-principal-description {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    background-color: #fff;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.section-user-profile .profile-principal-description {
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.section-user-profile .information-list {
+    width: 50%;
+    list-style: none;
+}
+
+.section-user-profile .information-list li {
+    padding: 5px 0;
+}
+
+.section-user-profile .information-list li>.information-icon {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.section-user-profile .social-media {
+    position: absolute;
+    right: calc(0px - 50px - 1rem);
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-user-profile .social-media .social-button {
+    border: 0;
+    background-color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    font-size: 1.3rem;
+}
+
+.section-user-profile .social-media .social-button+.social-button {
+    margin-top: .5rem;
+}
+
+.section-user-profile .social-button.default-social-button {
+    /* background: linear-gradient(45deg, #FF2DFD, #40A7FF);
+     */
+    background: var(--main-color) !important;
+}
+
+.section-user-profile .subtitle {
+    font-size: 35px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.section-user-profile .section-posts {
+    width: 100%;
+}
+
+.section-user-profile .section-posts .post {
+    /* padding: 1.5rem 2rem;
+    box-shadow: 0 0 12px rgb(0 0 0 / 20%);
+    background-color: #fff;
+    border-radius: 15px;
+    width: 100%;
+    margin-top: 20px; */
+}
+
+.section-user-profile .section-posts .post .post-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 22px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 12px rgb(0 0 0 / 20%);
+    background-color: #fff;
+    border-radius: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.section-user-profile .section-posts .post .post-header i {
+    transform: rotateZ( 0deg);
+}
+
+.section-user-profile .section-posts .post .post-header.active i {
+    /* border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px; */
+    transform: rotateZ( 180deg);
+    transition: all .5s ease;
+}
+
+.section-user-profile .section-desc {
+    width: 100%;
+}
+
+.section-user-profile .section-posts .post .post-content:nth-child(1) {
+    margin-top: 10px;
+}
+
+.section-user-profile .section-posts .post .post-content {
+    display: block;
+    position: relative;
+    padding: 16.5px 15px;
+    margin: 10px 10px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+}
+
+.section-user-profile .section-posts .post .post-content:hover {
+    text-decoration: none;
+}
+
+.section-user-profile .section-posts .post .post-content p.name {
+    margin: 0;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+}
+
+.section-user-profile .section-posts .post .post-content p.date {
+    margin: 0;
+    font-size: 14px;
+    color: rgb(104, 104, 104);
+    position: absolute;
+    top: 3px;
+    right: 15px;
+}
+
+.section-user-profile .section-desc .desc {
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 12px rgb(0 0 0 / 20%);
+    background-color: #fff;
+    border-radius: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.profile-completed {
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 12px rgb(0 0 0 / 20%);
+    background-color: #fff;
+    border-radius: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.profile-completed .info {
+    margin-bottom: 0;
+}
+
+.profile-completed h4 span {
+    font-size: 26px;
+}
+
+.profile-completed meter {
+    width: 100%;
+    height: 30px;
+}
+
+.profile-completed .btn-complete {
+    background-color: var(--main-color);
+    color: #fff;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.profile-completed .btn-complete:hover {
+    background-color: var(--main-light-color);
+    color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* INFO */
+
+
+/* adactacion a dispositivos */
+
+@media (max-width: 750px) {
+    .section-user-profile .information-list {
+        width: 100%;
+    }
+    .section-user-profile .profile-slide,
+    .section-user-profile .profile-information {
+        width: 100%;
+    }
+    .section-user-profile .social-media {
+        position: relative;
+        flex-direction: row;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        align-items: center;
+        justify-content: center
+    }
+    .section-user-profile .social-media .social-button+.social-button {
+        margin-left: 1rem;
+        margin-top: 0;
+    }
+}
