@@ -8,6 +8,9 @@
 <div class="container">
 
   <?php
+MercadoPago\SDK::setAccessToken('TEST-94208995128930-100417-c708d38c68dc3d9e90fb37d7b6a617ca-654809977');
+// MercadoPago\SDK::setAccessToken('APP_USR-1532561834263359-083119-186977ebfbb7fc0a40e9677191ec4969-339019119');
+
   $dataPoints = array(
 	array("label"=> "Ultimas 24 Horas", "y"=> $aViews['past24Views']),
   array("label"=> "Ultimas 48 Horas", "y"=> $aViews['past48Views']),

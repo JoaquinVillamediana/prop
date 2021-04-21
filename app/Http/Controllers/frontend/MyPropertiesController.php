@@ -60,13 +60,6 @@ class MyPropertiesController extends Controller {
       $aViews['past48Views'] = $past48Views;
       $aViews['pastMonthViews'] = $pastMonthViews;
 
-      $aDatos=DB::select('SELECT u.*,COUNT(m.id) count_contactados
-      FROM users u
-      LEFT JOIN messages m ON (u.id = m.user_from_id) 
-      where u.deleted_at is null
-      and u.id = "'.$user.'"
-     GROUP BY u.id
-       ');
 
 
        $aImages = ImageModel::get();
@@ -80,19 +73,22 @@ class MyPropertiesController extends Controller {
       GROUP BY u.id
        ');
 
-       $aPublish=DB::select('SELECT upa.*,COUNT(p.id) countprop, pp.name as plan_name, pp.id as planxd
-       FROM user_plans_actives upa
-       LEFT JOIN properties p ON (upa.id = p.plan_id) 
-       LEFT JOIN publish_plans pp ON (upa.plan_id = pp.id)
-       where upa.deleted_at is null
-       and upa.user_id = "'.$user.'"
-       GROUP BY upa.id
-        ');
+      //  $aPublish=DB::select('SELECT upa.*,COUNT(p.id) countprop, pp.name as plan_name, pp.id as planxd
+      //  FROM user_plans_actives upa
+      //  LEFT JOIN properties p ON (upa.id = p.user_plan_id) 
+      //  LEFT JOIN publish_plans pp ON (upa.plan_id = pp.id)
+      //  where upa.deleted_at is null
+      //  and upa.user_id = "'.$user.'"
+      //  GROUP BY upa.id
+      //   ');
         
-      $aExpirated=DB::select('SELECT * FROM propiedades.user_plans_actives WHERE DATEDIFF(expiration_at,NOW()) <= 7');
+      $aExpirated=DB::select('SELECT user_plans_actives.*, publish_plans.price FROM user_plans_actives 
+      LEFT JOIN publish_plans ON user_plans_actives.plan_id = publish_plans.id 
+      WHERE DATEDIFF(user_plans_actives.expiration_at,NOW()) <= 7 
+      ');
         
 
-      return view('frontend/myproperties.index',compact('aProperties','aDatos','aDatosProp','aViews','aPublish','aImages','aExpirated'));
+      return view('frontend/myproperties.index',compact('aProperties','aDatosProp','aViews','aImages','aExpirated'));
 
     }
 
@@ -310,6 +306,12 @@ class MyPropertiesController extends Controller {
     ->get();
     $aExpirated=DB::select('SELECT * FROM propiedades.user_plans_actives WHERE DATEDIFF(expiration_at,NOW()) <= 7');
     return view('frontend/myproperties.active_plans',compact('aPlans','aExpirated'));
+  }
+
+  public function deleteProp($id)
+  {
+    PropertiesModel::find($id)->delete();
+      return redirect()->back();
   }
 
 }

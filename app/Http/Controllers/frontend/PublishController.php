@@ -21,7 +21,7 @@ use App\Models\PropertiesGeneralCharacteristicsModel;
 use App\Models\PropertiesLuxuriesModel;
 use App\Models\PropertiesAmbientsModel;
 use App\Models\PropertiesServicesModel;
-
+use App\Models\RenovationsModel;
 
 
 class PublishController extends Controller {
@@ -103,7 +103,7 @@ class PublishController extends Controller {
         $aLocalities = LocalitiesModel::get();
 
 
-        return view('frontend/publish/create.publish_dates',compact('aPropietie_type','aLocalities','aOperationType','aCurrencies','aPropieties_ambientes','aPropieties_general_characteristics','aPropieties_services','aPropieties_luxuries','plan2'));
+        return view('frontend/publish/create.publish_dates',compact('aPropietie_type','aLocalities','aOperationType','aCurrencies','aPropieties_ambientes','aPropieties_general_characteristics','aPropieties_services','aPropieties_luxuries'));
     }
 
     public function store_dates(Request $request){
@@ -133,12 +133,30 @@ class PublishController extends Controller {
 
         $this->validate($request, $aValidations);
          
+        // $user_plan_id = $request['user_plan_id'];
+
+        // $oPayment = UserPlansActivesModel::where('id',$user_plan_id)->first();
+
+        if(empty(Auth::user()->id))
+        {
+            return redirect()->route('login');
+        }
+
+        // $PropertiesWithSamePlan = PropertiesModel::where('user_plan_id',$user_plan_id)->count();
+
+
+        // if((intval($oPayment->add_quantity) - intval($PropertiesWithSamePlan)) < 1)
+        // {
+        //     return redirect()->route('home');
+        // }
+
+        // $oPlan = PlansModel::where('id',$oPayment->plan_id)->first();
 
         $request['name'] = ucwords($request['name']);
         $name = $request['name'];
         $currency_id = $request['currency'];
         $price = $request['price'];
-        $plan_id = $request['plan_id'];
+        
         
         $introduccion = $request['introduction'];
         $description = $request['description'];
@@ -159,11 +177,11 @@ class PublishController extends Controller {
         else{
             $expensas = 0;
         }
-        
+ 
         
         $data = array('operation_type_id' => $operation_type_id,'propietie_type_id' => $propietie_type_id,'location_id' => $location_id,'user_id' => $user,'direction' => $direction,
         'name' => $name,'introduction' => $introduccion,'description' => $description,'currency_id' => $currency_id,'price' => $price,'expenses' => $expensas,'rooms' => $rooms,
-        'bedrooms' => $bedrooms,'bathrooms' => $bathrooms,'years' => $years,'size' => $size,'plan_id' => $plan_id);
+        'bedrooms' => $bedrooms,'bathrooms' => $bathrooms,'years' => $years,'size' => $size,'plan_id' => 1,'user_plan_id' => 9,'priority' => 2 ,'end_at' => now());
 
         PropertiesModel::insert($data);
         $propietie_id = PropertiesModel::max('id');
@@ -458,20 +476,31 @@ class PublishController extends Controller {
     }
 
 
-    public function renovacion_pago($plan_id) {
-        $external_reference = UserPlansActivesModel::where('user_id',Auth::user()->id)->count();
-        $external_reference = $external_reference.'-'.Auth::user()->id.'-'.$plan_id;
-        $external_reference = md5($external_reference);
-           
+    public function renovacion_pago(Request $request, $pay_id) {
 
-        $aPlans=DB::select('SELECT *
-        FROM publish_plans
-        where deleted_at is null
-        and visible = 1
-        and id = "'.$plan_id.'"
-   ');
+        if($request['collection_status'] == 'approved'){
+            $oRenovation = new RenovationsModel();
+            $oRenovation->pay_id_mp =  $request['collection_id'];
+            $oRenovation->expiration_at = date('Y-m-d', strtotime(now(). ' + 30 days'));
+            $oRenovation->user_id = Auth::user()->id;
+            $oRenovation->user_plan_id = $pay_id;
+            $oRenovation->save();
 
-        return view('frontend/publish.pago',compact('aPlans','external_reference'));
+            $oPlan = UserPlansActivesModel::where('id',$pay_id)->first();
+            $oPlan->expiration_at = date('Y-m-d', strtotime(now(). ' + 30 days'));
+            $oPlan->save();
+
+            $aProperties = PropertiesModel::where('plan_id',$pay_id)->get();
+
+            foreach($aProperties as $oProperty)
+            {
+                $oProperty->end_at = date('Y-m-d', strtotime(now(). ' + 30 days'));
+            }
+        }
+
+
+
+        return redirect()->route('mis_propiedades.index');
     }
 
     public function setMainImage(Request $request ){

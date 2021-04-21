@@ -54,6 +54,7 @@ class SearchController extends Controller
     $aProperties=DB::select('SELECT *
     FROM properties
     where deleted_at is null
+    and end_at > "'.now().'"
     and visible = 1
     
      ');
@@ -110,6 +111,7 @@ class SearchController extends Controller
         FROM properties
         where deleted_at is null
         and visible = 1
+        and end_at > "'.now().'"
         and price >= "'.$request['min_price'].'"
         and price <= "'.$request['max_price'].'"
         and expenses >= "'.$request['min_expenses'].'"

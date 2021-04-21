@@ -189,29 +189,30 @@
           <div class="container">
           {{--  <form id="formulario" method="POST" action="{{route('send_user_mail',$oProp->user_id)}}">--}}
               @csrf
+              <input type="hidden" name="property_id" value="{{$oProp->id}}">
               <div class="row">
 
                 <div class="col-lg-6 col-12">
                   <div class="form-group">
                     <label for="email">Dirección de email</label>
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
                   </div>
                 </div>
                 <div class="col-lg-6 col-12">
                   <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" class="form-control" id="name" placeholder="Nombre y apellido">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nombre y apellido">
                   </div>
 
                 </div>
               </div>
               <div class="form-group">
                 <label for="number">Teléfono</label>
-                <input type="number" class="form-control" id="number" name="number" placeholder="Número de teléfono">
+                <input type="number" class="form-control"  id="number" name="number" placeholder="Número de teléfono">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Mensaje</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1"
+                <textarea class="form-control" name="message" id="exampleFormControlTextarea1"
                   rows="3">Hola, vi esta propiedad en TuProximaProp y estoy interesado. Quiero que me contacten. Gracias.</textarea>
               </div>
               <div class="form-group">

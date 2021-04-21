@@ -21,14 +21,22 @@ $item = new MercadoPago\Item();
 $item->title =  $plan->name ;
 $item->quantity = 1;
 
-$item->unit_price =  $plan->price ;
+if($plan->discount == 0)
+{
+  $item->unit_price =  $plan->price ;
+}else {
+ $new_price = (1 - ($plan->discount / 100)) * $plan->price;
+ $item->unit_price =$new_price;
+}
+
+
 $preference->items = array($item);
 $preference->binary_mode = true;
 $preference->external_reference = $external_reference;
 $preference->back_urls = array(
     "success" => route('pago_completado'),
-    "failure" => route('pago_completado'),
-    "pending" => route('pago_completado')
+    "failure" => route('mis_propiedades.index'),
+    "pending" => route('mis_propiedades.index')
 );
 $preference->auto_return = "approved";
 $preference->save();
@@ -46,7 +54,10 @@ $preference->save();
   </div>
   <hr class="mt-5 mb-t5">
   <div class="price">
-    <h3 class="align-middle mr-1">Precio total por mes: ${{$plan->price}}</h3>
+    <h3 class="align-middle mr-1">Precio total por mes: @if ($plan->discount == 0)${{$plan->price}}
+      @else 
+      <del class="text-secondary">${{$plan->price}}</del><span class="text-danger ml-1">${{(1 - ($plan->discount / 100)) * $plan->price}}</span>
+      @endif</h3>
     
     {{-- <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
     data-preference-id="{{ $preference->id}}">

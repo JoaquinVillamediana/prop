@@ -35,7 +35,12 @@
                                 <img src="/images/index/userej.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
                                 <div class="plan-header">
                                 <h3><b> {{ $planes->num_add }} AVISO</b></h3>
-                                <h3> ${{ $planes->price }}</h3>
+                                @if ($planes->discount == 0)
+                                <h3>${{$planes->price}}</h3>
+                                @else 
+                                <h3><del class="text-secondary">${{$planes->price}}</del><span class="text-danger ml-1">${{(1 - ($planes->discount / 100)) * $planes->price}}</span></h3>
+                                @endif
+                                
                             </div>
                                 <ul class="ad-list">
                                     <li> <h5 class="ad-bullet"> {{ $planes->time }}</h5></li>
