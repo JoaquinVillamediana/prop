@@ -46,15 +46,12 @@ class HomeController extends Controller
         $aLocalities = LocalitiesModel::get();
         $aProperties = PropertiesModel::select('properties.*','currency.symbol','images.image')
         ->leftjoin('currency','currency.id','=','properties.currency_id')
-        // ->leftjoin('images','images.propietie_id','=','properties.id')
-        // ->where('images.main_image','=','1')
-        // ->where('images.deleted_at','=',NULL)
         ->leftjoin('images',function($leftjoin)use($i){
             $leftjoin->on('images.propietie_id','=','properties.id')
             ->where('images.main_image',1)
             ->where('images.deleted_at','=',NULL);
         })
-        ->where('properties.priority','=','3')
+        ->where('properties.priority','=','1')
         ->inRandomOrder()
         ->paginate(9);
         $aOperationType = Operation_typeModel::where('operation_type.visible' ,'=', '1')
